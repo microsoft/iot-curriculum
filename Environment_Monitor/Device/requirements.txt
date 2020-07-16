@@ -1,0 +1,2 @@
+azure-iot-device
+Adafruit_DHT

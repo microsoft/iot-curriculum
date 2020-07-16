@@ -1,0 +1,22 @@
+{
+    "Name": "IoTHub",
+    "Type": "Data Stream",
+    "DataSourceType": "IoT Hub",
+    "IoTHubProperties": {
+        "Type": "Microsoft.Devices/IotHubs",
+        "IotHubNamespace": "University-IoT-Cart",
+        "SharedAccessPolicyName": "iothubowner",
+        "ConsumerGroupName": "tostreamanalytics",
+        "Endpoint": "messages/events",
+        "SharedAccessPolicyKey": null
+    },
+    "PartitionKey": null,
+    "DataSourceCredentialDomain": null,
+    "Serialization": {
+        "Type": "Json",
+        "Encoding": "UTF8",
+        "FieldDelimiter": null
+    },
+    "CompressionType": "None",
+    "ScriptType": "Input"
+}

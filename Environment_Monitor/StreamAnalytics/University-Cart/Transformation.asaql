@@ -1,0 +1,10 @@
+SELECT GetMetadataPropertyValue(IoTHub, '[IoTHub].[ConnectionDeviceId]') + cast( MONTH(EventEnqueuedUtcTime) as nvarchar(max)) + cast(Year(EventEnqueuedUtcTime) as nvarchar(max)) as partitionkey
+      , GetMetadataPropertyValue(IoTHub, '[IoTHub].[ConnectionDeviceId]') as deviceid
+      ,temperature
+      , humidity
+      , EventEnqueuedUtcTime as time
+INTO
+    cosmosdb
+FROM
+IoTHub 
+Where device_type = 'pi_environment_monitor' 

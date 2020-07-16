@@ -1,0 +1,18 @@
+{
+    "name": "University-Cart",
+    "startFile": "Transformation.asaql",
+    "configurations": [
+        {
+            "filePath": "JobConfig.json",
+            "subType": "JobConfig"
+        },
+        {
+            "filePath": "Inputs/IoTHub.json",
+            "subType": "Input"
+        },
+        {
+            "filePath": "Outputs/cosmosdb.json",
+            "subType": "Output"
+        }
+    ]
+}

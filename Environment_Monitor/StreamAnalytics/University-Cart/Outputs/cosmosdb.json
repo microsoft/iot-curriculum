@@ -1,0 +1,13 @@
+{
+    "Name": "cosmosdb",
+    "DataSourceType": "DocumentDB",
+    "DocumentDbProperties": {
+        "Type": "Microsoft.Storage/DocumentDB",
+        "AccountId": "university-cart",
+        "Database": "cartdemo",
+        "CollectionNamePattern": "environmenttelem",
+        "AccountKey": null
+    },
+    "DataSourceCredentialDomain": null,
+    "ScriptType": "Output"
+}

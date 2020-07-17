@@ -1,0 +1,9 @@
+azure-cosmos
+click
+Flask
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
+gunicorn
+azure-iot-hub

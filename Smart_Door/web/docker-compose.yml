@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: gunicorn --bind 0.0.0.0:80 runserver:app
+    ports:
+      - 80:80
+      - 443:80
+    env_file:
+      - ./.env.dev

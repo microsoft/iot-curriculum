@@ -1,0 +1,362 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<link href="../static/content/command.css" rel="stylesheet" />
+
+<div class="readings" > 
+<div style="float:left">
+<span id="doorOpen" style="font-size: 112px; color: olivedrab;">
+
+<i class="fas fa-door-open"></i>
+</span> 
+
+<span id="doorClose" style="font-size: 112px; color:firebrick; display: none;">
+
+    <i class="fas fa-door-closed"></i>
+</span> 
+    
+</div>
+<div style="float: left; clear:right; width:100%;">
+<span style="float:left; font-weight: bold;">Door Status:  </span>
+<div style="font-weight: bold;" id="Status"></div>
+</div>
+</div> 
+<div class="readings" > 
+
+<span style="font-size: 112px; color: Dodgerblue;">
+    <i id="unlock" style="display: none;" class="fas fa-lock-open"></i>
+    <i id="lock" class="fas fa-lock"></i>
+</span>
+
+
+<div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+        
+        <span class="onoffswitch-inner"></span>
+    </label>
+</div>
+</div>
+
+{% endblock %}
+ {% block scripts %}
+ <script type="text/javascript">
+    
+        
+    var countChecked = function() {
+       
+  var action = $( "#myonoffswitch" ).prop("checked")?"lock":"unlock"
+  console.log(action)
+  lock = $('#lock')
+unlock = $('#unlock')
+if(action == "lock")
+{
+lock.show()
+unlock.hide()
+}
+else
+{
+    lock.hide()
+unlock.show()
+}
+  $.ajax({url: "/lockunlock/" + action, success: function(result){
+        console.log(result)
+
+    }});
+
+};
+ 
+$( "#myonoffswitch" ).on( "click", countChecked );
+
+
+
+  
+
+ $(function(){
+    doPoll()    
+});
+
+function doPoll()
+{
+
+$.ajax({url: "/status/1", success: function(result){
+        console.log(result)
+//        var x = (JSON.parse(result[0])) 
+t = 1
+        result.forEach(function(element) {
+          console.log(element)
+
+          open = $('#doorOpen')
+          close = $('#doorClose')
+            setTimeout(function() {
+                //$("#Status").html(JSON.parse(element["DoorStatus"]));
+                if(element["DoorStatus"] == "open")
+{
+    open.show()
+    close.hide()
+}
+else
+{
+    open.hide()
+    close.show()
+}
+
+                
+
+                $("#Status").html(element["DoorStatus"]);
+                
+                
+                }, 200 * t++)
+        });
+        //$("#div1").html(JSON.parse(result[0]["Temperature"]));
+        setTimeout(doPoll,1000);
+
+    }});
+}
+
+    </script>
+
+ <script src="../static/scripts/mustach.js"></script>
+
+
+
+ <style>
+     .readings{
+        float: left;
+    width: 50%;
+    margin-top: 26px;
+    margin-bottom: 24px;
+     }
+    .onoffswitch {
+        position: relative; width: 90px;
+        -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    }
+    
+    .onoffswitch-checkbox {
+        display: none;
+    }
+    
+    .onoffswitch-label {
+        display: block; overflow: hidden; cursor: pointer;
+        border: 2px solid #999999; border-radius: 20px;
+    }
+    
+    .onoffswitch-inner {
+        display: block; width: 200%; margin-left: -100%;
+        -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+        -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+    }
+    
+    .onoffswitch-inner:before, .onoffswitch-inner:after {
+        display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+        font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+        -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    }
+    
+    .onoffswitch-inner:before {
+        content: "Locked";
+        padding-left: 10px;
+        background-color: #2FCCFF; color: #FFFFFF;
+    }
+    
+    .onoffswitch-inner:after {
+        content: "Unlock";
+        padding-right: 10px;
+        background-color: #EEEEEE; color: #999999;
+        text-align: right;
+    }
+    
+    .onoffswitch-switch {
+        display: block; width: 18px; margin: 6px;
+        background: #FFFFFF;
+        border: 2px solid #999999; border-radius: 20px;
+        position: absolute; top: 0; bottom: 0; right: 56px;
+        -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+        -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+    }
+    
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+        margin-left: 0;
+    }
+    
+    .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+        right: 0px; 
+    }
+    
+    
+     .onoffswitch1 {
+        position: relative; width: 90px;
+        -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    }
+    
+    .onoffswitch1-checkbox {
+        display: none;
+    }
+    
+    .onoffswitch1-label {
+        display: block; overflow: hidden; cursor: pointer;
+        border: 2px solid #999999; border-radius: 30px;
+    }
+    
+    .onoffswitch1-inner {
+        display: block; width: 200%; margin-left: -100%;
+        -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+        -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+    }
+    
+    .onoffswitch1-inner:before, .onoffswitch1-inner:after {
+        display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+        font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+        -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+        border-radius: 30px;
+        box-shadow: 0px 15px 0px rgba(0,0,0,0.08) inset;
+    }
+    
+    .onoffswitch1-inner:before {
+        content: "YES";
+        padding-left: 10px;
+        background-color: #2FCCFF; color: #FFFFFF;
+        border-radius: 30px 0 0 30px;
+    }
+    
+    .onoffswitch1-inner:after {
+        content: "NO";
+        padding-right: 10px;
+        background-color: #EEEEEE; color: #999999;
+        text-align: right;
+        border-radius: 0 30px 30px 0;
+    }
+    
+    .onoffswitch1-switch {
+        display: block; width: 30px; margin: 0px;
+        background: #FFFFFF;
+        border: 2px solid #999999; border-radius: 30px;
+        position: absolute; top: 0; bottom: 0; right: 56px;
+        -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+        -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+        background-image: -moz-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%); 
+        background-image: -webkit-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%); 
+        background-image: -o-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%); 
+        background-image: linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%);
+        box-shadow: 0 1px 1px white inset;
+    }
+    
+    .onoffswitch1-checkbox:checked + .onoffswitch1-label .onoffswitch1-inner {
+        margin-left: 0;
+    }
+    
+    .onoffswitch1-checkbox:checked + .onoffswitch1-label .onoffswitch1-switch {
+        right: 0px; 
+    }
+    
+    .onoffswitch4-checkbox:checked + .onoffswitch4-label .onoffswitch4-inner {
+        margin-left: 0;
+    }
+    
+    .onoffswitch4-checkbox:checked + .onoffswitch4-label .onoffswitch4-switch {
+        right: 0px; 
+    }
+    
+    
+    
+    .cmn-toggle 
+    {
+      position: absolute;
+      margin-left: -9999px;
+      visibility: hidden;
+    }
+    
+    .cmn-toggle + label 
+    {
+      display: block;
+      position: relative;
+      cursor: pointer;
+      outline: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    input.cmn-toggle-round-flat + label 
+    {
+      padding: 2px;
+      width: 75px;
+      height: 30px;
+      background-color: #dddddd;
+      -webkit-border-radius: 60px;
+      -moz-border-radius: 60px;
+      -ms-border-radius: 60px;
+      -o-border-radius: 60px;
+      border-radius: 60px;
+      -webkit-transition: background 0.4s;
+      -moz-transition: background 0.4s;
+      -o-transition: background 0.4s;
+      transition: background 0.4s;
+    }
+    
+    input.cmn-toggle-round-flat + label:before, input.cmn-toggle-round-flat + label:after 
+    {
+      display: block;
+      position: absolute;
+      content: "";
+    }
+    
+    input.cmn-toggle-round-flat + label:before 
+    {
+      top: 2px;
+      left: 2px;
+      bottom: 2px;
+      right: 2px;
+      background-color: #fff;
+      -webkit-border-radius: 60px;
+      -moz-border-radius: 60px;
+      -ms-border-radius: 60px;
+      -o-border-radius: 60px;
+      border-radius: 60px;
+      -webkit-transition: background 0.4s;
+      -moz-transition: background 0.4s;
+      -o-transition: background 0.4s;
+      transition: background 0.4s;
+    }
+    
+    input.cmn-toggle-round-flat + label:after 
+    {
+      top: 4px;
+      left: 4px;
+      bottom: 4px;
+      width: 22px;
+      background-color: #dddddd;
+      -webkit-border-radius: 52px;
+      -moz-border-radius: 52px;
+      -ms-border-radius: 52px;
+      -o-border-radius: 52px;
+      border-radius: 52px;
+      -webkit-transition: margin 0.4s, background 0.4s;
+      -moz-transition: margin 0.4s, background 0.4s;
+      -o-transition: margin 0.4s, background 0.4s;
+      transition: margin 0.4s, background 0.4s;
+    }
+    
+    input.cmn-toggle-round-flat:checked + label 
+    {
+      background-color: #27A1CA;
+    }
+    
+    input.cmn-toggle-round-flat:checked + label:after 
+    {
+      margin-left: 45px;
+      background-color: #27A1CA;
+    }
+    
+    
+    
+    
+    </style>
+    
+
+
+ {% endblock %}
+
+
+

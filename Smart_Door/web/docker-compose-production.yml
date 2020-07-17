@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  web:
+    image: cartcr.azurecr.io/iotdoor
+    command: gunicorn --bind 0.0.0.0:80 runserver:app
+    ports:
+      - 80:80
+    env_file:
+      - ./.env.dev

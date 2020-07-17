@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "device",
+			"path": "."
+		}
+	],
+	"settings": {}
+}

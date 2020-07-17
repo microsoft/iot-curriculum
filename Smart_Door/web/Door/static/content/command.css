@@ -1,0 +1,83 @@
+.readings
+{
+float: left;
+width:100%;
+margin-top: 5px;
+
+}
+
+.subitem {
+    display: none;
+}
+
+.position {
+    float: left;
+    width: 100%;
+}
+
+    .position.span {
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
+.adjuster {
+    float: left;
+    width: 25px;
+}
+
+    .adjuster.i {
+        float: left;
+        width: 100%;
+    }
+
+.arowInfo {
+    width: 10px;
+    float: left;
+}
+.fa-arrow-up {
+    border-left: solid 1px silver;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    width: 16px;
+    float: left;
+}
+
+.fa-arrow-down {
+    border: solid 1px silver;
+    width: 16px;
+    float: left;
+clear:both;
+}
+.adjustGroup {
+    float: left;
+    margin-left: 9px;
+    position: relative;
+    top: -24px;
+}
+.rawvalue
+{
+    float:left;
+
+}
+
+.orentation
+{
+    margin-right:10px;
+    font-weight:bold;
+}
+
+.dataPoints
+{
+    width:100px;
+}
+
+.col1, .col2, .col3
+{
+    float:left;
+    width:30%;
+    vertical-align:top;
+}
+.menuItem
+{font-weight:bold;
+
+}

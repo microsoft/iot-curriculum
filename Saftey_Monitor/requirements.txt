@@ -1,0 +1,4 @@
+numpy
+sense-hat
+pickle4
+pyod

@@ -1,0 +1,40 @@
+User Story 16
+Azure Speech API and SQL setup instructions documented for Speech Recognition and Full-Text Search
+	Create Resource Group
+	Create an Azure Speech resource in resource group
+	Create SQL Database and SQL Server in resource group
+		connor-admin
+		zxC
+
+	Install SSMS
+		open SSMS
+		connect to database with credentials
+		right click database name and select "New Query"
+		paste the following script:
+
+			CREATE TABLE SPEECH_TO_TEXT_RESULTS
+			(ID nvarchar(30),
+			RESULTS nvarchar(255),
+			TS DATETIME NOT NULL
+			     DEFAULT CURRENT_TIMESTAMP,
+			PRIMARY KEY (ID, TS));
+			
+		right click the database and click "Refresh"- you should now see the new table listed in the "Tables" folder
+
+	Create python virtual environment
+		install pyodbc
+		install azure-cognitiveservices-speech
+		install jupyter
+
+	run python file to:
+		connect to pyodbc
+		
+
+
+Driver={ODBC Driver 17 for SQL Server};Server=tcp:connor-unicart.database.windows.net,1433;Database=connor-unicart-speech;Uid=connor-admin;Pwd=12-0zxC/.;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+
+
+User Story 17
+
+
+Use any mic with the speech api to get clean speech regnoition (limited vocabulary and speed as necessary) and upload ito SQL with a timestamp and speech source (i.e. one table with three columns: timestamp, source, text)

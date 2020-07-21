@@ -5,8 +5,8 @@
         "Type": "Microsoft.Storage/DocumentDB",
         "AccountId": "university-cart",
         "Database": "cartdemo",
-        "CollectionNamePattern": "environmenttelem",
-        "AccountKey": null
+        "AccountKey": null,
+        "ContainerName": "environmenttelem"
     },
     "DataSourceCredentialDomain": null,
     "ScriptType": "Output"

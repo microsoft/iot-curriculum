@@ -4,3 +4,8 @@ This folder contains hands-on-labs, workshops and other content for using the ha
 
 These labs are divided up into two sections - IoT labs that cover traditional internet of things scenarios, and AI and Edge labs that cover running AI workloads either in the cloud from the IoT device, or on the edge running the workload actually on the IoT device itself.
 
+## IoT
+
+## AI/Edge
+
+* [OCR](./ai-edge/ocr/README.md) - Optical character recognition using a Raspberry Pi, USB camera and Python

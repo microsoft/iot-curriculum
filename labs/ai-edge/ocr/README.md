@@ -13,7 +13,9 @@ This lab covers using a Raspberry Pi and a camera to recognize text in an image 
 
 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=iotcurriculum-github-jabenn) is a comprehensive family of AI services and cognitive APIs to help you build intelligent apps.
 
-This lab covers the [Azure Cognitive Service Computer Vision service](https://azure.microsoft.com/services/cognitive-services/computer-vision/?WT.mc_id=iotcurriculum-github-jabenn).
+This lab covers the [Azure Cognitive Service Computer Vision service](https://azure.microsoft.com/services/cognitive-services/computer-vision/?WT.mc_id=iotcurriculum-github-jabenn). This service has a free tier, so there will be no cost to run this lab.
+
+> Note that you can only have one free tier instance of each resource per Azure subscription, so if you already have a free tier set up, you can re-use it or use a paid tier. You can find the current pricing on the [Azure cognitive services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/?WT.mc_id=iotcurriculum-github-jabenn).
 
 To learn more about these services, and to try them out on a Mac or PC, work through the [Explore computer vision in Microsoft Azure](https://docs.microsoft.com/learn/paths/explore-computer-vision-microsoft-azure/?WT.mc_id=iotcurriculum-github-jabenn) learning path on [Microsoft Learn](https://docs.microsoft.com/learn?WT.mc_id=iotcurriculum-github-jabenn).
 
@@ -184,7 +186,7 @@ You can find the instructions to set this up in the [Remotely code on your Pi wi
     from msrest import authentication
     from dotenv import load_dotenv
 
-    # Load the API key and endpoint from the .env filer
+    # Load the API key and endpoint from the .env file
     load_dotenv()
     API_KEY = os.getenv('API_KEY')
     ENDPOINT = os.getenv('ENDPOINT')
@@ -198,7 +200,7 @@ You can find the instructions to set this up in the [Remotely code on your Pi wi
         # Get the first camera
         cam = cv2.VideoCapture(0)
 
-        # Capture a still imagge
+        # Capture a still image
         _, frame = cam.read()
 
         # Write the image to a file
@@ -257,6 +259,8 @@ You can find the instructions to set this up in the [Remotely code on your Pi wi
 
     You can also find this code in the [ocr.py](./ocr.py) file.
 
+    Read the comments in the code to see what each section does.
+
 1. Head to line 50 in the file containing this code:
 
     ```python
@@ -300,7 +304,7 @@ You can find the instructions to set this up in the [Remotely code on your Pi wi
     And this output:
 
     ```output
-    ['Kitromk', "INVENTOR'S", 'KIT', 'FOR', 'BBC', 'micro:bit', 'TUTORIAL', 'BOOK', "EXPERIMENTS'"]
+    ['Kitronik', "INVENTOR'S", 'KIT', 'FOR', 'BBC', 'micro:bit', 'TUTORIAL', 'BOOK', "EXPERIMENTS'"]
     ```
 
 ## Clean up

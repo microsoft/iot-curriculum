@@ -3,7 +3,7 @@ from azure.cognitiveservices.vision import computervision
 from msrest import authentication
 from dotenv import load_dotenv
 
-# Load the API key and endpoint from the .env filer
+# Load the API key and endpoint from the .env file
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
 ENDPOINT = os.getenv('ENDPOINT')
@@ -17,7 +17,7 @@ def capture_image_from_usb(filename):
     # Get the first camera
     cam = cv2.VideoCapture(0)
 
-    # Capture a still imagge
+    # Capture a still image
     _, frame = cam.read()
 
     # Write the image to a file

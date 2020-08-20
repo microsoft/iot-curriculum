@@ -6,11 +6,11 @@ This repo contains hands-on-labs and other lab and workshop based material desig
 
 Most of the content here is Microsoft content available in other places - this repo brings some of the content together and provides a single place to find content across different gitHub repos, documentation, Microsoft Learn and other sites.
 
+All the content contained in this repo is free for you to use in your courses however you see fit. We will endeavour to keep the content up to date, but seeing as technology moves fast, things may be missed. If you find any errors in these materials, please either [raise an issue](https://github.com/microsoft/iot-curriculum/issues), or feel free to [raise a PR with the fix](https://github.com/microsoft/iot-curriculum/pulls).
+
 ## Hardware needs
 
 These labs make use of a variety of hardware, all connected to cloud services. Each lab indicates up front what hardware is required. There is also an overall list for an 'IoT Cart' that provides a complete, all-in-one hardware solution that covers all these labs. This is designed to be a 'course in a box' - you purchase everything on the list and that can be shared between groups of students learning IoT in a more IoT focused degree program, rather than a single course as part of a wider technology-based learning program. Details of the cart are in the [cart](./cart) folder.
-
-All the content contained in this repo is free for you to use in your courses however you see fit. We will endeavour to keep the content up to date, but seeing as technology moves fast, things may be missed. If you find any errors in these materials, please either [raise an issue](https://github.com/microsoft/iot-curriculum/issues), or feel free to [raise a PR with the fix](https://github.com/microsoft/iot-curriculum/pulls).
 
 ## Device setup
 
@@ -70,6 +70,15 @@ There are a number of Learning Paths covering IoT technologies, services and sol
 * [Configure and manage products and inventory in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-manage-products-inventory-dyn365-supply-chain-mgmt/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Configure and use lean manufacturing in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-use-lean-manufacturing-dyn365-supply-chain-mgmt/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Configure and use discrete manufacturing in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-use-discrete-manufacturing-dyn365-supply-chain-mgmt/?WT.mc_id=iotcurriculum-github-jabenn)
+
+## Solution quickstarts
+
+Microsoft offers a number of 'solution accelerators' - almost complete IoT setups that can be customized to your needs. As a part of this, there are a number of quickstarts that allow you to try out the different solutions.
+
+* [Try a cloud-based remote monitoring solution](https://docs.microsoft.com/azure/iot-accelerators/quickstart-remote-monitoring-deploy?WT.mc_id=iotcurriculum-github-jabenn)
+* [Try a cloud-based solution to manage my industrial IoT devices](https://docs.microsoft.com/azure/iot-accelerators/quickstart-connected-factory-deploy?WT.mc_id=iotcurriculum-github-jabenn)
+* [Deploy and run an IoT device simulation in Azure](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy?WT.mc_id=iotcurriculum-github-jabenn)
+* [Try a cloud-based solution to run a predictive maintenance analysis on my connected devices](https://docs.microsoft.com/azure/iot-accelerators/quickstart-predictive-maintenance-deploy?WT.mc_id=iotcurriculum-github-jabenn)
 
 ## Reference architectures
 

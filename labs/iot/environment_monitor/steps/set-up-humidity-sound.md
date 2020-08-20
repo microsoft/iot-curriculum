@@ -332,6 +332,7 @@ Test this out by rebooting the Pi. You should see data appearing in IoT Central.
 >       pi         476   432  0 15:08 ?        00:00:00 /bin/sh -c sleep 60 && cd /home/pi/EnvironmentMonitor && /usr/bin/python3 /home/pi/EnvironmentMonitor/app.py
 >       pi        1012   476  1 15:09 ?        00:00:04 /usr/bin/python3 /home/pi/EnvironmentMonitor/app.py
 >       pi        1229  1170  0 15:14 pts/0    00:00:00 grep --color=auto -i python
+>       ```
 >
 >       If you are using the VS Code terminal you will seen an extra line for the Pylance extension running remotely.
 >

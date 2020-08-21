@@ -195,9 +195,9 @@ The Pi will be programmed using Python, so Visual Studio Code needs to have an e
 
 1. From the Visual Studio Code window that is connected to the Pi, select the **Extensions** tab
 
-1. Search for `Pylance` and select the **Install in SSH: hostname** button to install the Pylance Python extension on the Pi
+1. Search for `PyLance` and select the **Install in SSH: hostname** button to install the PyLance Python extension on the Pi
 
-    ![The Pylance install button](../images/vscode-extensions-pylance-install-remote-button.png)
+    ![The PyLance install button](../images/vscode-extensions-pylance-install-remote-button.png)
 
     > This extension will just be installed on the Pi, not locally. The extensions you install on different remote devices are different to the ones you install locally
 
@@ -374,7 +374,7 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
                 await device_client.send_message(telemetry)
 
                 # Wait for a minute so telemetry is not sent to often
-                await asyncio.sleep(10)
+                await asyncio.sleep(60)
 
         # Run the async main loop forever
         await main_loop()

@@ -2,6 +2,7 @@ import asyncio
 import json
 import grovepi
 from azure.iot.device.aio import IoTHubDeviceClient, ProvisioningDeviceClient
+from azure.iot.device import MethodResponse
 
 # The connection details from IoT Central for the device
 id_scope = ID_SCOPE
@@ -19,6 +20,12 @@ grovepi.pinMode(temperature_sensor_port, "INPUT")
 # read from it
 sound_sensor_port = 0
 grovepi.pinMode(sound_sensor_port, "INPUT")
+
+# Set the LED port to the digital port D3
+# and mark it as OUTPUT meaning data needs to be
+# written to it
+led_port = 3
+grovepi.pinMode(led_port, "OUTPUT")
 
 # Gets telemetry from the Grove sensors
 # Telemetry needs to be sent as JSON data
@@ -72,6 +79,48 @@ async def main():
     await device_client.connect()
     print("Connected")
 
+    # async code to light the LED, wait 10 seconds then
+    # turn the LED off
+    async def light_led():
+            # Send a value of 1 to the digital port
+            # This will turn the LED on
+            grovepi.digitalWrite(led_port, 1)
+
+            # Wait 10 seconds
+            await asyncio.sleep(10)
+
+            # Send a value of 0 to the digital port
+            # This will turn the LED off
+            grovepi.digitalWrite(led_port, 0)
+
+    # Asynchronously wait for commands from IoT Central
+    # If the TooLoud command is called, handle it
+    async def command_listener(device_client):
+        # Loop forever waiting for commands
+        while True:
+            # Wait for commands from IoT Central
+            method_request = await device_client.receive_method_request("TooLoud")
+
+            # Log that the command was received
+            print("Too Loud Command handled")
+
+            # Asynchronously light the LED
+            # This will be run in the background, so the result can
+            # be returned to IoT Central straight away, not 10 seconds later
+            asyncio.gather(light_led())
+
+            # IoT Central expects a response from a command, saying if the call
+            # was successful or not, so send a success response
+            payload = {"result": True}
+
+            # Build the response
+            method_response = MethodResponse.create_from_method_request(
+                method_request, 200, payload
+            )
+
+            # Send the response to IoT Central
+            await device_client.send_method_response(method_response)
+
     # async loop that sends the telemetry
     async def main_loop():
         while True:
@@ -85,8 +134,14 @@ async def main():
             # Wait for a minute so telemetry is not sent to often
             await asyncio.sleep(10)
 
+    # Start the command listener
+    listeners = asyncio.gather(command_listener(device_client))
+
     # Run the async main loop forever
     await main_loop()
+
+    # Cancel listening
+    listeners.cancel()
 
     # Finally, disconnect
     await device_client.disconnect()

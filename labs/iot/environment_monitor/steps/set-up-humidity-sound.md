@@ -208,7 +208,7 @@ Repeat the steps above for the sound telemetry value. If you prefer, you can als
 
 The humidity data can be gathered from the existing sensor. The Grove Pi+ temperature humidity sensor can send values for both temperature and humidity in the same call.
 
-Sound data can be gathered from the sound sensor. This sensor is essentially a microphone that detects ambient noise and sends a value from 0-1000 depending on the noise level, 1000 being the highest.
+Sound data can be gathered from the sound sensor. This sensor is essentially a microphone that detects ambient noise and sends a value from 0-1024 depending on the noise level, 1024 being the highest.
 
 The sound sensor is an analog sensor, so needs to be connected to an analog port on the Grove Pi+.
 
@@ -223,6 +223,8 @@ The sound sensor is an analog sensor, so needs to be connected to an analog port
 The Pi code needs to be changed to read the new values and send them to IoT Central.
 
 ### Update the code
+
+In this section you will be adding code to the Python file. If you haven't used Python before, be aware it is very specific about how the lines are indented, so make sure the code is indented the same as the code around it. You can find the full code in the [app.py](../code/sound-humidity/app.py) file in the [code/sound-humidity](../code/sound-humidity) folder to check your code against if you get errors.
 
 1. Connect to the Pi using Visual Studio Code, open the `Environment Monitor` folder, and open the `app.py` file.
 
@@ -276,8 +278,6 @@ The Pi code needs to be changed to read the new values and send them to IoT Cent
     * The humidity value is now used from the call to `grovepi.dht`, and is added to the telemetry dictionary
     * The sound value is read by reading the analog signal from the A0 port, and is added to the telemetry dictionary
 
-    You can also find the full code in the [app.py](../code/all/app.py) file in the [code/all](../code/all) folder.
-
 1. Save the file
 
 1. Run the code from the VS Code terminal using the following command:
@@ -301,53 +301,8 @@ The Pi code needs to be changed to read the new values and send them to IoT Cent
 
     Try adjusting sound levels near the sensor such as by playing music, and adjusting humidity level by breathing on the sensor, and see the values change
 
-### Configure the code to run on startup
-
-At the moment, this code will only run when you are connected to the Pi and run it via Python. This means as soon as VS Code disconnects, the code will no longer run. Most IoT devices will run code on startup, so that they are continuously sending data. You can configure the Pi to run the code on startup by adding an entry to the *crontab* - the set of instructions used by Cron. Cron is a tool that runs code at certain times, and can be configured to run the Pi code when the Pi is rebooted.
-
-1. Run the following code to configure the CronTab:
-
-    ```sh
-    crontab -l > cron.tmp
-    echo "@reboot sleep 60 && cd /home/pi/EnvironmentMonitor && /usr/bin/python3 /home/pi/EnvironmentMonitor/app.py" >> cron.tmp
-    crontab cron.tmp
-    rm cron.tmp
-    ```
-
-    This code writes a new entry that is run on reboot. First it sleeps for 60 seconds to ensure the Pi is fully running and connected to the internet, then it launches the app.py file using the Python binary in the virtual environment.
-
-Test this out by rebooting the Pi. You should see data appearing in IoT Central.
-
-> You can only read from the Grove Pi+ sensors from one app on the Pi at a time. This means that if you want to run this code manually, you will need to terminate the process that was started by the reboot. You can do this with the following steps:
->
->    1. Run the following command to see all the Python processes running:
->
->        ```sh
->        ps -ef | grep -i python
->        ```
->
->    1. You will see an output something like this:
->
->       ```output
->       pi         476   432  0 15:08 ?        00:00:00 /bin/sh -c sleep 60 && cd /home/pi/EnvironmentMonitor && /usr/bin/python3 /home/pi/EnvironmentMonitor/app.py
->       pi        1012   476  1 15:09 ?        00:00:04 /usr/bin/python3 /home/pi/EnvironmentMonitor/app.py
->       pi        1229  1170  0 15:14 pts/0    00:00:00 grep --color=auto -i python
->       ```
->
->       If you are using the VS Code terminal you will seen an extra line for the Pylance extension running remotely.
->
->    1. The first line that starts `/bin/sh -c sleep 60` is the Cron job. This has 2 numbers at the start of the line, in this case 476 and 432. When you run this, these numbers will be different. The first number, 476 in this case, is the process group ID - an identifier for the cron job and all the tasks it ran, in this case running the app code through Python
->
->    1. Use the following command to terminate the Cron task and the Python process that is started:
->
->        ```sh
->        kill -SIGTERM -- -476
->        ```
->
->        Replace 476 with the process ID of your Cron job.
->
->        You can check if the job has been terminated successfully by re-running the `ps` command.
-
 ## Next steps
 
-In this step you set up IoT Central and the Raspberry Pi to send humidity and sound data. In the [next step](./rules.md) you will perform simple analytics and create alerts on the data using rules
+In this step you set up IoT Central and the Raspberry Pi to send humidity and sound data.
+
+In the [next step](./rules.md) you will perform simple analytics and create alerts on the data using IoT Central rules.

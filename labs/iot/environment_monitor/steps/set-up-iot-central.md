@@ -1,6 +1,6 @@
 # Set up IoT Central and send simulated data
 
-In this lab you will set up Azure IoT Central and send data from a simulated device.
+In this step you will set up Azure IoT Central and send data from a simulated device.
 
 ## IoT Central applications
 

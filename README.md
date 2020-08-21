@@ -98,6 +98,19 @@ The [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/?W
 * [Secure your IoT SaaS app with the Microsoft identity platform](https://docs.microsoft.com/azure/architecture/example-scenario/iot-aad/iot-aad?WT.mc_id=iotcurriculum-github-jabenn)
 * [Azure Industrial IoT Analytics Guidance](https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-architecture?WT.mc_id=iotcurriculum-github-jabenn)
 
+## Industrial IoT
+
+For Industrial IoT (IIoT), Microsoft provides a range of reference materials and samples.based around OPC-UA.
+
+* [IIoT on Azure documentation](https://docs.microsoft.com/azure/iot-accelerators/overview-iot-industrial?WT.mc_id=iotcurriculum-github-jabenn) - documentation and a solution accelerator for IIoT
+* [Open62541](https://github.com/open62541/open62541) - an open source OPC-UA implementation
+* [OPC-UA with IoT Central](https://github.com/jlorich/demo-opc-iot-edge-to-central) - a reference implementation for connecting OPC-Servers to IoT Edge and then passing data up to IoT Central
+* [IoT Edge offline dashboarding](https://github.com/AzureIoTGBB/iot-edge-offline-dashboarding) - a set of modules that can be used with Azure IoT Edge to perform dashboarding at the edge
+
+## Robotics
+
+* [Robot Operating System (ROS) with Windows 10, Linux and Azure](https://microsoft.github.io/Win-RoS-Landing-Page/)
+
 ## Azure subscriptions
 
 These labs are designed for courses where Azure resources are provided to students by the institution. To try them out, you can use one of our free subscriptions. Head to the [Azure Subscriptions Guide](./azure-subscriptions.md) for from information on setting up a subscription.
@@ -106,7 +119,7 @@ These labs are designed for courses where Azure resources are provided to studen
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+the rights to use your contribution. For details, visit [https://cla.opensource.microsoft.com](https://cla.opensource.microsoft.com?WT.mc_id-iotcurriculum-github-jabenn).
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions

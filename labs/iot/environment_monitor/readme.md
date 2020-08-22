@@ -69,7 +69,7 @@ These labs are designed for courses where Azure resources are provided to studen
 
 ## Labs
 
-These labs all build on one another, so you need to work through them in order.
+These labs all build on one another, so you need to work through them in order. Work through as many labs as you want to, but if you don't complete all the labs, make sure you always do the [last one](./steps/clean-up.md) as that cleans up your Azure resources.
 
 1. [Set up IoT Central and send simulated data](./steps/set-up-iot-central.md)
 1. [Set up a Raspberry Pi to send temperature data](./steps/set-up-pi.md)
@@ -77,4 +77,8 @@ These labs all build on one another, so you need to work through them in order.
 1. [Perform simple analytics and create an alert on the data using rules](./steps/rules.md)
 1. [Perform more advanced analytics to detect and visualize anomalies in the data](./steps/anomaly-detection.md)
 1. [Build AI models to make predictions on temperatures](./steps/build-ai-models.md)
-1. [Clean up](./steps/clean-up.md)
+1. [Clean up you Azure resources](./steps/clean-up.md)
+
+## Clean up
+
+Don't forget to clean up your Azure resources when you are finished, to avoid spending money, or using up your credit from your free subscription. All the instructions to clean up are in the [Clean up you Azure resources guide](./steps/clean-up.md).

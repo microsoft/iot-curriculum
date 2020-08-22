@@ -115,6 +115,10 @@ For Industrial IoT (IIoT), Microsoft provides a range of reference materials and
 
 These labs are designed for courses where Azure resources are provided to students by the institution. To try them out, you can use one of our free subscriptions. Head to the [Azure Subscriptions Guide](./azure-subscriptions.md) for from information on setting up a subscription.
 
+## Get certified
+
+Microsoft offers a certification in IoT - AZ-220, the Microsoft Certified: Azure IoT Developer Specialty. You can read more about this certification on the [Microsoft Certified: Azure IoT Developer Specialty page on Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-iot-developer-specialty?WT.mc_id=iotcurriculum-github-jabenn).
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a

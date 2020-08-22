@@ -47,7 +47,7 @@ To create an Event Hub, you start by creating an Event Hubs namespace, and insid
 
 Whichever method you use:
 
-* Name your Resource Group `EnvironmentMonitor`
+* Name your Resource Group `EnvironmentMonitor`. Resource groups are logical groupings of resources, allowing you to manage them in bulk. For example, when you are done with this lab you will be able to delete this resource group and have that automatically delete all the services in it that you have created.
 
 * The Event Hubs namespace has to be globally unique, so use `environmentmonitor-` followed by something unique, such as your name or the current date
 

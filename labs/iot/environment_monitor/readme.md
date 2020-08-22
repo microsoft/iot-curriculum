@@ -15,7 +15,7 @@ This lab has the following parts
 1. Set up a Raspberry Pi to send temperature data
 1. Set up IoT Central and the Raspberry Pi to send humidity and sound data
 1. Perform simple analytics and create an alert on the data using rules
-1. Perform more advanced analytics to detect anomalies in the data
+1. Perform more advanced analytics to detect and visualize anomalies in the data
 1. Build AI models to make predictions on temperatures
 
 These parts will cover in detail what needs to be done at each step were appropriate, or link to official documentation to cover steps - that way the parts will stay more up to date.
@@ -24,9 +24,9 @@ These parts will cover in detail what needs to be done at each step were appropr
 
 [Azure IoT Central](https://azure.microsoft.com/services/iot-central/?WT.mc_id=iotcurriculum-github-jabenn) is a software-as-a-service IoT platform which allows you to connect devices to the cloud with minimal code, create dashboards to show IoT data, and export data to other Azure services.
 
-If you have some experience with cloud services and are able to program using .NET, there is a hands-on learning path on Microsoft Learn that covers some similar scenarios to these labs, as well as additional scenarios:
-
-[Develop IoT solutions with Azure IoT Central](https://docs.microsoft.com/learn/paths/develop-iot-solutions-with-azure-iot-central/?WT.mc_id=iotcurriculum-github-jabenn)
+> If you have some experience with cloud services and are able to program using .NET, there is a hands-on learning path on Microsoft Learn that covers some similar scenarios to these labs, as well as additional scenarios:
+>
+> [Develop IoT solutions with Azure IoT Central](https://docs.microsoft.com/learn/paths/develop-iot-solutions-with-azure-iot-central/?WT.mc_id=iotcurriculum-github-jabenn)
 
 Azure IoT Central has a free tier for up to 2 devices. If you want to add more devices, you will need to pay per device per month. You can find pricing details on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/?WT.mc_id=iotcurriculum-github-jabenn).
 
@@ -75,6 +75,6 @@ These labs all build on one another, so you need to work through them in order.
 1. [Set up a Raspberry Pi to send temperature data](./steps/set-up-pi.md)
 1. [Set up IoT Central and the Raspberry Pi to send humidity and sound data](./steps/set-up-humidity-sound.md)
 1. [Perform simple analytics and create an alert on the data using rules](./steps/rules.md)
-1. [Perform more advanced analytics to detect anomalies in the data](./steps/anomaly-detection.md)
+1. [Perform more advanced analytics to detect and visualize anomalies in the data](./steps/anomaly-detection.md)
 1. [Build AI models to make predictions on temperatures](./steps/build-ai-models.md)
 1. [Clean up](./steps/clean-up.md)

@@ -132,7 +132,7 @@ async def main():
             await device_client.send_message(telemetry)
 
             # Wait for a minute so telemetry is not sent to often
-            await asyncio.sleep(10)
+            await asyncio.sleep(60)
 
     # Start the command listener
     listeners = asyncio.gather(command_listener(device_client))

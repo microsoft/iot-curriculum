@@ -6,6 +6,8 @@ In this step you will build AI models to make predictions on temperatures.
 
 ## Azure Machine Learning Studio
 
+**Coming soon**
+
 ## Next steps
 
 In this step you built AI models to make predictions on temperatures.

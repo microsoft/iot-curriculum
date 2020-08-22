@@ -77,7 +77,7 @@ These labs all build on one another, so you need to work through them in order. 
 1. [Perform simple analytics and create an alert on the data using rules](./steps/rules.md)
 1. [Perform more advanced analytics to detect and visualize anomalies in the data](./steps/anomaly-detection.md)
 1. [Build AI models to make predictions on temperatures](./steps/build-ai-models.md)
-1. [Clean up you Azure resources](./steps/clean-up.md)
+1. [Clean up your Azure resources](./steps/clean-up.md)
 
 ## Clean up
 

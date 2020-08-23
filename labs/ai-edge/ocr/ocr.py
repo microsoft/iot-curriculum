@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+
 import os
 from azure.cognitiveservices.vision import computervision
 from msrest import authentication

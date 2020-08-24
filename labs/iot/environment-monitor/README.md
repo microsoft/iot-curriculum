@@ -2,6 +2,18 @@
 
 This folder contains a lab with multiple parts working towards an environment monitor using a Raspberry Pi and Azure IoT Services. It is designed for complete beginners who are new to IoT and Azure.
 
+| Author            | [Jim Bennett](https://github.com/JimBobBennett) |
+| ----------------- | ----------------------------------------------- |
+| Target platform   | Raspberry Pi                                    |
+| Hardware required | Raspberry Pi 4<br>Micro SD Card<br>An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot<br>Raspberry Pi 4 power supply (USB-C)<br>[Grove Pi+ Starter Kit](https://www.seeedstudio.com/GrovePi-Starter-Kit-for-Raspberry-Pi-A-B-B-2-3-CE-certified.html)<br>keyboard, mouse and monitor<br>[micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/) |
+| Software required | [Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn)<br>[Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)<br>*There are optional installs for Windows and Linux that you may need to install later to connect to the Pi, depending on which version of the OS you are using.* |
+| Azure Services Used | [Azure IoT Central](https://azure.microsoft.com/services/iot-central/?WT.mc_id=iotcurriculum-github-jabenn)<br>[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/?WT.mc_id=iotcurriculum-github-jabenn)<br>[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/?WT.mc_id=iotcurriculum-github-jabenn)<br>[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=iotcurriculum-github-jabenn) |
+| Programming Language | Python |
+| Prerequisites | You will need to be reasonably proficient at using a computer, including installing software and running commands from a command line or terminal.<br>These labs will use Python, but if you are not proficient in Python you can simply copy and paste the provided code and run it to see the end results, rather than trying to understand the code. |
+| Date | August 2020<br>You will also need an [Azure subscription](https://github.com/microsoft/iot-curriculum/tree/main/labs/iot/environment_monitor#azure-subscription) |
+| Learning Objectives | Set up IoT Central<br>Send IoT Data from a device to IoT Central<br>Export data from IoT Central<br>Perform anomaly detection with Stream Analytics<br>Visualize results with Jupyter notebooks in Cosmos DB<br> |
+| Time to complete | 4 hours |
+
 > If you have some experience with cloud services and are able to program using .NET, there is a hands-on learning path on Microsoft Learn that covers some similar scenarios to this lab, as well as additional scenarios.
 >
 > [Develop IoT solutions with Azure IoT Central](https://docs.microsoft.com/learn/paths/develop-iot-solutions-with-azure-iot-central/?WT.mc_id=iotcurriculum-github-jabenn)
@@ -31,37 +43,6 @@ These parts will cover in detail what needs to be done at each step were appropr
 Azure IoT Central has a free tier for up to 2 devices. If you want to add more devices, you will need to pay per device per month. You can find pricing details on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/?WT.mc_id=iotcurriculum-github-jabenn).
 
 All the documentation for IoT Central is available in the [Microsoft IoT Central docs](https://docs.microsoft.com/azure/iot-central/?WT.mc_id=iotcurriculum-github-jabenn). Refer to these docs for the latest up-to date information on using IoT Central.
-
-## Pre-requisites
-
-### Hardware requirements
-
-To work through these labs you will need:
-
-* A Raspberry Pi 4
-* A micro SD Card
-* An SD card to USB converter that matches the USB ports on your device if you r device doesn't have an SD card slot
-* A Raspberry Pi 4 power supply (USB-C)
-* [A Grove Pi+ Starter Kit](https://www.seeedstudio.com/GrovePi-Starter-Kit-for-Raspberry-Pi-A-B-B-2-3-CE-certified.html)
-* A PC or Mac
-* WiFi or wired internet
-* A keyboard, mouse and monitor
-* A [micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)
-
-### Software requirements
-
-On your PC or Mac, you will need the following installed:
-
-* [Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn)
-* [Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)
-
-There are optional installs for Windows and Linux that you may need to install later to connect to the Pi, depending on which version of the OS you are using.
-
-### Technology skills
-
-You will need to be reasonably proficient at using a computer, including installing software and running commands from a command line or terminal.
-
-These labs will use Python, but if you are not proficient in Python you can simply copy and paste the provided code and run it to see the end results, rather than trying to understand the code.
 
 ## Azure subscription
 

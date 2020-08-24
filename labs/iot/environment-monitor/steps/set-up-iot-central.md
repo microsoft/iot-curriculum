@@ -169,4 +169,4 @@ If you don't see any data on this dashboard, you may need to add the device to i
 
 In this step you set up an IoT Central application using a pre-created template, and set up a simulated device.
 
-In the [next step](./send-mock-data.md) you will set up a Raspberry Pi to send temperature data.
+In the [next step](./set-up-pi.md) you will set up a Raspberry Pi to send temperature data.

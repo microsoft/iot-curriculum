@@ -9,3 +9,4 @@ This folder contains documents that show how to set up the various devices that 
 * [ESP-Eye](./esp_eye.md)
 * [STM32F746 Discovery Kit](./stm_discovery_kit.md)
 * [Azure Sphere](./azure_sphere.md)
+* [MXChip Azure IoT Dev Kit](./mxchip.md)

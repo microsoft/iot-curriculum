@@ -1,0 +1,4 @@
+python-dotenv
+azure-iot-device
+RPi.bme280
+grove.py

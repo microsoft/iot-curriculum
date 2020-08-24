@@ -4,7 +4,7 @@ This lab covers using a Raspberry Pi and a camera to recognize text in an image 
 
 | Author | [Jim Bennett](https://github.com/JimBobBennett) |
 |:---|:---|
-| Target platform   | Raspberry Pi                                    |
+| Target platform   | Raspberry Pi |
 | Hardware required | Raspberry Pi 4<br>Micro SD Card<br>An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot<br>Raspberry Pi 4 power supply (USB-C)<br>Camera - either a Raspberry Pi Camera, or an external USB webcam<br>**Optional**:<br>keyboard, mouse and monitor<br>[micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/) |
 | Software required | [Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)<br>**Optional**<br>[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn)<br>*There are optional installs for Windows and Linux that you may need to install later to connect to the Pi, depending on which version of the OS you are using.* |
 | Azure Services | [Azure Cognitive Services Computer Vision service](https://azure.microsoft.com/services/cognitive-services/computer-vision/?WT.mc_id=iotcurriculum-github-jabenn) |

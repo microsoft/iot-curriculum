@@ -11,3 +11,7 @@ These labs are divided up into two sections - IoT labs that cover traditional in
 ## AI/Edge
 
 * [OCR](./ai-edge/ocr/) - Optical character recognition using a Raspberry Pi, USB camera and Python
+
+## Contributing
+
+We love contributions! Please fork this repo and raise a pull request with new labs. Check out the [lab contribution guidelines](./lab_contribution_guidelines.md)for guidelines on how to create a great lab that is consistent with the content we already have here.

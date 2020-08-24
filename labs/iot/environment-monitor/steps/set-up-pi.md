@@ -96,7 +96,7 @@ The dashboard currently only shows temperature from the simulated device. It nee
 
 1. Insert the SD card into your PC or laptop using an adapter if necessary
 
-1. Using the [Raspberry Pi imager](https://www.raspberrypi.org/downloads/), image the SD card with the default Raspberry Pi OS image
+1. Using the [Raspberry Pi imager](https://www.raspberrypi.org/downloads/), image the SD card with the default Raspberry Pi OS image. You can find instructions on how to do this in the [Raspberry Pi installing images documentation](https://www.raspberrypi.org/documentation/installation/installing-images/).
 
 1. Insert the SD card into the Pi
 

@@ -406,4 +406,4 @@ As well as viewing raw data, you can also visualize data in Cosmos DB using a [J
 
 In this step you performed more advanced analytics to detect and visualize anomalies in the data.
 
-In the [next step](./build-ai-models.md) you will build AI models to make predictions on temperatures.
+In the [next step](./clean-up.md) you will clean up your resources.

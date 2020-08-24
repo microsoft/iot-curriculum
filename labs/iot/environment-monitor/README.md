@@ -28,7 +28,6 @@ This lab has the following parts
 1. Set up IoT Central and the Raspberry Pi to send humidity and sound data
 1. Perform simple analytics and create an alert on the data using rules
 1. Perform more advanced analytics to detect and visualize anomalies in the data
-1. Build AI models to make predictions on temperatures
 
 These parts will cover in detail what needs to be done at each step were appropriate, or link to official documentation to cover steps - that way the parts will stay more up to date.
 
@@ -58,7 +57,6 @@ These labs all build on one another, so you need to work through them in order. 
 1. [Perform simple analytics and create an alert on the data using rules](./steps/rules.md)
 1. [Perform more advanced analytics to detect and visualize anomalies in the data](./steps/anomaly-detection.md)
 1. [Build AI models to make predictions on temperatures](./steps/build-ai-models.md)
-1. [Clean up your Azure resources](./steps/clean-up.md)
 
 ## Clean up
 

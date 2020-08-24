@@ -2,18 +2,23 @@
 
 This lab covers using a Raspberry Pi and a camera to recognize text in an image using Azure Cognitive Services and Python.
 
-## Hardware needed
-
-* Raspberry Pi
-* SD Card
-* Raspberry Pi power supply
-* Camera - either a Raspberry Pi Camera, or an external USB webcam
+| Author | [Jim Bennett](https://github.com/JimBobBennett) |
+|:---|:---|
+| Target platform   | Raspberry Pi                                    |
+| Hardware required | Raspberry Pi 4<br>Micro SD Card<br>An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot<br>Raspberry Pi 4 power supply (USB-C)<br>Camera - either a Raspberry Pi Camera, or an external USB webcam<br>**Optional**:<br>keyboard, mouse and monitor<br>[micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/) |
+| Software required | [Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)<br>**Optional**<br>[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn)<br>*There are optional installs for Windows and Linux that you may need to install later to connect to the Pi, depending on which version of the OS you are using.* |
+| Azure Services | [Azure Cognitive Services Computer Vision service](https://azure.microsoft.com/services/cognitive-services/computer-vision/?WT.mc_id=iotcurriculum-github-jabenn) |
+| Programming Language | Python |
+| Prerequisites | Basic proficiency with Python.<br><br>You will also need an [Azure subscription](https://github.com/microsoft/iot-curriculum/tree/main/labs/ai-edge/ocr#azure-subscription) |
+| Date | August 2020 |
+| Learning Objectives | Set up Azure Cognitive Services<br>Analyze images for text with Azure Computer Vision |
+| Time to complete | 1 hour |
 
 ## Azure Cognitive Services
 
 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=iotcurriculum-github-jabenn) is a comprehensive family of AI services and cognitive APIs to help you build intelligent apps.
 
-This lab covers the [Azure Cognitive Service Computer Vision service](https://azure.microsoft.com/services/cognitive-services/computer-vision/?WT.mc_id=iotcurriculum-github-jabenn). This service has a free tier, so there will be no cost to run this lab.
+This lab covers the [Azure Cognitive Services Computer Vision service](https://azure.microsoft.com/services/cognitive-services/computer-vision/?WT.mc_id=iotcurriculum-github-jabenn). This service has a free tier, so there will be no cost to run this lab.
 
 > Note that you can only have one free tier instance of each resource per Azure subscription, so if you already have a free tier set up, you can re-use it or use a paid tier. You can find the current pricing on the [Azure cognitive services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/?WT.mc_id=iotcurriculum-github-jabenn).
 
@@ -257,7 +262,7 @@ You can find the instructions to set this up in the [Remotely code on your Pi wi
         print(text_words)
     ```
 
-    You can also find this code in the [ocr.py](./ocr.py) file.
+    You can also find this code in the [ocr.py](./code/ocr.py) file in the [code](./code/) folder.
 
     Read the comments in the code to see what each section does.
 

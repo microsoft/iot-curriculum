@@ -2,8 +2,8 @@
 
 This folder contains a lab with multiple parts working towards an environment monitor using a Raspberry Pi and Azure IoT Services. It is designed for complete beginners who are new to IoT and Azure.
 
-| Author            | [Jim Bennett](https://github.com/JimBobBennett) |
-| ----------------- | ----------------------------------------------- |
+| Author | [Jim Bennett](https://github.com/JimBobBennett) |
+|:---|:---|
 | Target platform   | Raspberry Pi                                    |
 | Hardware required | Raspberry Pi 4<br>Micro SD Card<br>An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot<br>Raspberry Pi 4 power supply (USB-C)<br>[Grove Pi+ Starter Kit](https://www.seeedstudio.com/GrovePi-Starter-Kit-for-Raspberry-Pi-A-B-B-2-3-CE-certified.html)<br>keyboard, mouse and monitor<br>[micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/) |
 | Software required | [Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn)<br>[Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)<br>*There are optional installs for Windows and Linux that you may need to install later to connect to the Pi, depending on which version of the OS you are using.* |

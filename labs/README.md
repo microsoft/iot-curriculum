@@ -6,6 +6,8 @@ These labs are divided up into two sections - IoT labs that cover traditional in
 
 ## IoT
 
+* [Environment Monitor](./iot/environment_monitor/) - a beginners tutorial setting up a Raspberry Pi to send data to the cloud, and perform analytics on the data
+
 ## AI/Edge
 
-* [OCR](./ai-edge/ocr/README.md) - Optical character recognition using a Raspberry Pi, USB camera and Python
+* [OCR](./ai-edge/ocr/) - Optical character recognition using a Raspberry Pi, USB camera and Python

@@ -113,7 +113,7 @@ For Industrial IoT (IIoT), Microsoft provides a range of reference materials and
 
 ## Azure subscriptions
 
-These labs are designed for courses where Azure resources are provided to students by the institution. To try them out, you can use one of our free subscriptions. Head to the [Azure Subscriptions Guide](./azure-subscriptions.md) for from information on setting up a subscription.
+These labs are designed for courses where Azure resources are provided to students by the institution. To try them out, you can use one of our free subscriptions. Head to the [Azure Subscriptions Guide](./azure-subscription.md) for from information on setting up a subscription.
 
 ## Get certified
 

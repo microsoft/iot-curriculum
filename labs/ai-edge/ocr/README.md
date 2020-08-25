@@ -26,7 +26,7 @@ To learn more about these services, and to try them out on a Mac or PC, work thr
 
 ### Azure subscription
 
-This lab is designed for courses where Azure resources are provided to students by the institution. To try them out, you can use one of our free subscriptions. Head to the [Azure Subscriptions Guide](./azure-subscriptions.md) for from information on setting up a subscription.
+This lab is designed for courses where Azure resources are provided to students by the institution. To try them out, you can use one of our free subscriptions. Head to the [Azure Subscriptions Guide](../../../azure-subscription.md) for from information on setting up a subscription.
 
 ### Create an Azure Cognitive Services Computer Vision resource
 

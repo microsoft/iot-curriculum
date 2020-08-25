@@ -111,6 +111,14 @@ For Industrial IoT (IIoT), Microsoft provides a range of reference materials and
 
 * [Robot Operating System (ROS) with Windows 10, Linux and Azure](https://microsoft.github.io/Win-RoS-Landing-Page/)
 
+## Azure RTOS
+
+Azure RTOS is an embedded development suite including a small but powerful operating system that provides reliable, ultra-fast performance for resource-constrained devices. It’s easy-to-use and market-proven, having been deployed on more than 6.2 billion devices worldwide. Azure RTOS supports the most popular 32-bit microcontrollers and embedded development tools, so you can make the most of your team’s existing skills.
+
+* [Overview of Azure RTOS](https://azure.microsoft.com/services/rtos/?WT.mc_id=iotcurriculum-github-jabenn)
+* [Azure RTOS on GitHub](https://github.com/azure-rtos)
+* [Introduction to Azure RTOS video on Channel9](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-Azure-RTOS?WT.mc_id=iotcurriculum-github-jabenn)
+
 ## Azure subscriptions
 
 These labs are designed for courses where Azure resources are provided to students by the institution. To try them out, you can use one of our free subscriptions. Head to the [Azure Subscriptions Guide](./azure-subscription.md) for from information on setting up a subscription.
@@ -118,6 +126,18 @@ These labs are designed for courses where Azure resources are provided to studen
 ## Get certified
 
 Microsoft offers a certification in IoT - AZ-220, the Microsoft Certified: Azure IoT Developer Specialty. You can read more about this certification on the [Microsoft Certified: Azure IoT Developer Specialty page on Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-iot-developer-specialty?WT.mc_id=iotcurriculum-github-jabenn).
+
+## Microsoft Learn Student Ambassadors
+
+Finding your community is more important than ever as classes and social activities take place virtually. Amplify your impact and bring together your peers to learn new skills, solve real-world problems, and build communities across the globe.
+
+Students can apply to be a Microsoft Learn Student Ambassadors. The Student Ambassadors program provides clear steps to help you learn and lead so you can make a difference and empower those around you.
+
+Student Ambassadors get access to unique resources like our global student network on Microsoft Teams and a Microsoft 365 account, and can earn badges for activities and contributions to unlock additional benefits such as cloud credits.
+
+If you are an educator, encourage your students to sign up for this program to help their peers learn new skills, and to improve employability after their studies.
+
+You can learn more on the [Microsoft Learn Student Ambassadors site](https://studentambassadors.microsoft.com?WT.mc_id=iotcurriculum-github-jabenn).
 
 ## Contributing
 

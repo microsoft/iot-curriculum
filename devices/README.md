@@ -7,6 +7,6 @@ This folder contains documents that show how to set up the various devices that 
 * [Azure Kinect DK](./kinect.md)
 * [Arduino Nano 33 Sense Board](./arduino_nano_33.md)
 * [ESP-Eye](./esp_eye.md)
-* [STM32F746 Discovery Kit](./stm_discovery_kit.md)
+* [STM32L4 Discovery kit](./stm_discovery_kit.md)
 * [Azure Sphere](./azure_sphere.md)
 * [MXChip Azure IoT Dev Kit](./mxchip.md)

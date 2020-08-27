@@ -1,6 +1,6 @@
 # Azure IoT Curriculum
 
-**This repo is still under development - check back often for updates**
+**This repo is actively developed - check back often for updates**
 
 This repo contains hands-on-labs and other lab and workshop based material designed to support the creation of IoT curricula for higher education, covering IoT and AI on the edge. All the labs use physical devices, such as Raspberry Pis and NVIDIA Jetson boards, and are designed for in-class or at home study. As an educator, you would use these labs in a blended learning environment, teaching concepts and theory in the classroom, mixed with labs from here to supplement the course and provide hands-on experience.
 

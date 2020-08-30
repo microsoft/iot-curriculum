@@ -6,12 +6,24 @@
 
 #include <ESPAsyncWebServer.h>
 
+/**
+ * @brief A web server that serves up pages to control the camera.
+ */
 class WebServer
 {
 public:
+    /**
+     * @brief Create the web server running on the given port
+     *
+     * @param port The port to use.
+     */
     WebServer(uint16_t port = 50);
-    bool Init();
-    uint16_t getPort() { return _port; }
+    
+    /**
+     * @brief Initializes webserver and starts serving up pages. Call this method before using the other methods on this class.
+     * If the initialization of the web server fails, the board is rebooted.
+     */
+    void Init();
 
 private:
     AsyncWebServer _webServer;
@@ -19,7 +31,10 @@ private:
     ImageHandler _imageHandler;
     uint16_t _port;
 
-    void CapturePhotoSaveSpiffs();
+    /**
+     * @brief Capture a photo from the camera, and save it to the SPIFFS file system.
+     */
+    void CapturePhotoAndSaveToSpiffs();
 };
 
 #endif

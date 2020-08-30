@@ -1,5 +1,8 @@
 #include "camera.h"
 
+#include <Esp.h>
+#include <esp_err.h>
+
 // These constants define the pin mappings for the ESP-EYE.
 // If you are using a different board, you will need to update the mappings
 // to match your board.
@@ -24,7 +27,7 @@
 #define XCLK_FREQ 20000000
 
 // Initialise the camera
-esp_err_t Camera::Init()
+void Camera::Init()
 {
     // Define the configuration for the GPIO pins
     gpio_config_t conf;
@@ -67,25 +70,36 @@ esp_err_t Camera::Init()
     config.fb_count = 2;
 
     // Initialise the camera
-    esp_err_t res = esp_camera_init(&config);
+    esp_err_t result = esp_camera_init(&config);
 
-    if (res == ESP_OK)
+    // Check if the camera initialized correctly
+    if (result == ESP_OK)
     {
         // drop down frame size for higher initial frame rate
+        // This is necessary to avoid timeouts with the SPI file system
         sensor_t *s = esp_camera_sensor_get();
         s->set_framesize(s, FRAMESIZE_QVGA);
     }
-
-    // return if the camera initialization was successful
-    return res;
+    else
+    {
+        // Reboot the board if the camera init failed
+        Serial.printf("Camera init failed with error 0x%x", result);
+        ESP.restart();
+    }
 }
 
+// Take a photo using the ESP-EYE camera
+// and return the image as a frame buffer
 camera_fb_t *Camera::TakePhoto()
 {
+    // Use the ESP library to take a photo and return the frame buffer
     return esp_camera_fb_get();
 }
 
+// Releases the frame buffer allocated by the camera
+// freeing up the memory
 void Camera::ReleaseFrameBuffer(camera_fb_t *frameBuffer)
 {
+    // Return the frame buffer so it can be re-used
     esp_camera_fb_return(frameBuffer);
 }

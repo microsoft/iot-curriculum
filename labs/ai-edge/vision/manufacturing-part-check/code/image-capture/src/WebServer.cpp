@@ -3,9 +3,15 @@
 #include <Arduino.h>
 #include <esp_camera.h>
 #include <SPIFFS.h>
+#include <WiFi.h>
 
+// Save the photo to photo.jpg
 #define FILE_PHOTO "/photo.jpg"
 
+// The index.html file as a raw string.
+// This web page has two buttons:
+// Rotate - rotates the image on screen
+// Capture photo - captures the photo from the camera and reload the page
 const char index_html[] PROGMEM = R"rawliteral(
 <!DOCTYPE HTML>
 <html>
@@ -29,8 +35,7 @@ const char index_html[] PROGMEM = R"rawliteral(
 
 <body>
     <div id="container">
-        <h2>ESP32-CAM Last Photo</h2>
-        <p>It might take more than 5 seconds to capture a photo.</p>
+        <h2>ESP32-EYE Photo Capture</h2>
         <p>
             <button id="rotateButton">ROTATE</button>
             <button id="captureButton">CAPTURE PHOTO</button>
@@ -73,26 +78,29 @@ const char index_html[] PROGMEM = R"rawliteral(
 
 </html>)rawliteral";
 
-WebServer::WebServer(uint16_t port) :
-    _port(port),
-    _webServer(port),
-    _camera(),
-    _imageHandler()
+// Create the web server on the given port
+WebServer::WebServer(uint16_t port) : _webServer(port),
+                                      _camera(),
+                                      _imageHandler()
 {
+    _port = port;
 }
 
 // Capture Photo and Save it to SPIFFS
-void WebServer::CapturePhotoSaveSpiffs()
+void WebServer::CapturePhotoAndSaveToSpiffs()
 {
-    camera_fb_t *fb = NULL; // pointer
-    bool ok = 0;            // Boolean indicating if the picture has been taken correctly
+    camera_fb_t *fb = NULL;
+    bool ok = false;
 
+    // Loop whilst the photo capture and save fails
     do
     {
         // Take a photo with the camera
         Serial.println("Taking a photo...");
 
         fb = _camera.TakePhoto();
+
+        // Verify the photo was taken
         if (!fb)
         {
             Serial.println("Camera capture failed");
@@ -100,9 +108,10 @@ void WebServer::CapturePhotoSaveSpiffs()
         }
 
         Serial.printf("Picture file name: %s\n", FILE_PHOTO);
+
+        // Save the photo to the SPIFFS file system
         ok = _imageHandler.SavePhoto(fb, FILE_PHOTO);
 
-        // Insert the data in the photo file
         if (!ok)
         {
             Serial.println("File write failed");
@@ -113,49 +122,54 @@ void WebServer::CapturePhotoSaveSpiffs()
             Serial.println(FILE_PHOTO);
         }
 
+        // Release the photo frame buffer
         _camera.ReleaseFrameBuffer(fb);
     } while (!ok);
 }
 
-bool WebServer::Init()
+// Initialise the web server
+void WebServer::Init()
 {
-    // Camera init
-    esp_err_t err = _camera.Init();
-    if (err != ESP_OK)
-    {
-        Serial.printf("Camera init failed with error 0x%x", err);
-        ESP.restart();
-        return false;
-    }
+    Serial.println("Starting web server...");
 
-    if (_imageHandler.Init())
-    {
-        delay(500);
-        Serial.println("SPIFFS mounted successfully");
-    }
-    else
-    {
-        Serial.println("An Error has occurred while mounting SPIFFS");
-        return false;
-    }
+    // Initalise the camera
+    _camera.Init();
+
+    // Initialise the image handler
+    _imageHandler.Init();
+
+    // Wait half a second for the SPIFFS to start
+    delay(500);
+    Serial.println("SPIFFS mounted successfully");
 
     // Route for root / web page
     _webServer.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
+        // Return the index_html string as the web page
         request->send_P(200, "text/html", index_html);
     });
 
+    // Route for the /capture end point
     _webServer.on("/capture", HTTP_GET, [this](AsyncWebServerRequest *request) {
-        CapturePhotoSaveSpiffs();
+        // Capture and save the photo
+        CapturePhotoAndSaveToSpiffs();
         delay(2000);
         request->send_P(200, "text/plain", "Taking Photo");
     });
 
+    // Route for the saved-photo end point
     _webServer.on("/saved-photo", HTTP_GET, [](AsyncWebServerRequest *request) {
+        // Return the file loaded from the SPIFFS file system
         request->send(SPIFFS, FILE_PHOTO, "image/jpg", false);
     });
 
-    // Start server
+    // Start the server
     _webServer.begin();
 
-    return true;
+    // Print the Local IP Address once we are connected
+    // This is the address you will use to connect to the web server to
+    // capture photos
+    Serial.println("Web server started:");
+    Serial.print("IP Address: http://");
+    Serial.print(WiFi.localIP());
+    Serial.printf(":%d\r\n", _port);
 }

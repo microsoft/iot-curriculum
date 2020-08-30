@@ -28,20 +28,7 @@ void setup()
   }
 
   // Initialise the web server ready to respond to web requests
-  Serial.println("Starting web server...");
-  if (!webServer.Init())
-  {
-    Serial.println("Failed to init webserver");
-  }
-
-  Serial.println("Web server started!");
-
-  // Print the Local IP Address once we are connected
-  // This is the address you will use to connect to the web server to
-  // capture photos
-  Serial.print("IP Address: http://");
-  Serial.print(WiFi.localIP());
-  Serial.printf(":%d\r\n", webServer.getPort());
+  webServer.Init();
 }
 
 // The loop method is called repeatedly and is used as an event loop

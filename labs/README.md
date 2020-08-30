@@ -14,7 +14,7 @@ These labs cover traditional internet of things scenarios, connecting devices to
 
 These labs cover running AI workloads either in the cloud from the IoT device, or on the edge running the workload actually on the IoT device itself.
 
-* [OCR](./ai-edge/ocr/) - Optical character recognition using a Raspberry Pi, USB camera and Python
+* [OCR](./ai-edge/vision/ocr/) - Optical character recognition using a Raspberry Pi, USB camera and Python
 
 ## Digital Agriculture
 

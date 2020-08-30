@@ -48,7 +48,6 @@ const char index_html[] PROGMEM = R"rawliteral(
         var rotateButton = document.getElementById("rotateButton");
         var captureButton = document.getElementById("captureButton");
         var img = document.getElementById("photo");
-        var capturingImageText = document.getElementById("capturingImageText");
 
         rotateButton.addEventListener('click', function () {
             deg += 90;

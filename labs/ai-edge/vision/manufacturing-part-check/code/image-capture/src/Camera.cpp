@@ -27,7 +27,7 @@
 #define XCLK_FREQ 20000000
 
 // Initialise the camera
-void Camera::Init()
+Camera::Camera()
 {
     // Define the configuration for the GPIO pins
     gpio_config_t conf;

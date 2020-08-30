@@ -4,7 +4,7 @@
 #include <SPIFFS.h>
 
 // Initialise the SPIFFS file system
-void ImageHandler::Init()
+ImageHandler::ImageHandler()
 {
     // Initialize the SPIFFS file system
     if (!SPIFFS.begin(true))
@@ -12,6 +12,9 @@ void ImageHandler::Init()
         // If the file system initialization fails, restart the board
         ESP.restart();
     }
+
+    delay(500);
+    Serial.println("SPIFFS mounted successfully");
 }
 
 // Saves the image in the given frame buffer to a file with the given name

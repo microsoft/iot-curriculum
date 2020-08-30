@@ -4,7 +4,7 @@
 #include <WiFi.h>
 
 // Create the webserver
-WebServer webServer = WebServer();
+WebServer *webServer;
 
 // Arduino setup function. This is run once by the OS when the
 // device first starts up.
@@ -28,7 +28,7 @@ void setup()
   }
 
   // Initialise the web server ready to respond to web requests
-  webServer.Init();
+  webServer = new WebServer();
 }
 
 // The loop method is called repeatedly and is used as an event loop

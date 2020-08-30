@@ -33,9 +33,9 @@ void setup()
 
 // The loop method is called repeatedly and is used as an event loop
 // for the app. In this app, there is nothing to do as the web server
-// handles everything, so just delay for a millisecond every loop
-// to allow the web server to process request
+// handles everything, so just delay for 10 seconds every loop
+// to allow the web server to process requests
 void loop()
 {
-  delay(1);
+  delay(10000);
 }

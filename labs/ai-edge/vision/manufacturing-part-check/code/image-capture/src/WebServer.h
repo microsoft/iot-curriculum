@@ -5,6 +5,9 @@
 #include "ImageHandler.h"
 
 #include <ESPAsyncWebServer.h>
+#include <string>
+
+using namespace std;
 
 /**
  * @brief A web server that serves up pages to control the camera.
@@ -26,9 +29,11 @@ private:
     ImageHandler _imageHandler;
 
     /**
-     * @brief Capture a photo from the camera, and save it to the SPIFFS file system.
+     * @brief Capture a photo from the camera and save it to the SPIFFS file system.
+     *
+     * @return An error message or error, or OK
      */
-    void CapturePhotoAndSaveToSpiffs();
+    string CapturePhotoAndSaveToSpiffs();
 };
 
 #endif

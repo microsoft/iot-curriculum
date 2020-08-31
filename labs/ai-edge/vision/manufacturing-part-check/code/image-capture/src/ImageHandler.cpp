@@ -20,30 +20,42 @@ ImageHandler::ImageHandler()
 // Saves the image in the given frame buffer to a file with the given name
 bool ImageHandler::SavePhoto(camera_fb_t *frameBuffer, const char *fileName)
 {
-    // Check if the file already exists, and if so delete it
-    if (SPIFFS.exists(fileName))
+    bool saved = false;
+    int retry = 0;
+
+    // Sometimes the save can fail, so retry up to 10 times
+    while (!saved && retry < 10)
     {
-        SPIFFS.remove(fileName);
+        // Check if the file already exists, and if so delete it
+        if (SPIFFS.exists(fileName))
+        {
+            SPIFFS.remove(fileName);
+        }
+
+        // Open the file for writing to
+        File file = SPIFFS.open(fileName, FILE_WRITE);
+
+        // If the file fails to open, report the error and try again
+        if (!file)
+        {
+            Serial.println("Failed to open file in writing mode");
+            saved = false;
+            ++retry;
+        }
+        else
+        {
+            // Write the framebuffer to the file
+            file.write(frameBuffer->buf, frameBuffer->len);
+
+            // Close the file
+            file.close();
+
+            // check if file has been correctly saved in SPIFFS
+            saved = CheckPhoto(fileName);
+        }
     }
 
-    // Open the file for writing to
-    File file = SPIFFS.open(fileName, FILE_WRITE);
-
-    // If the file fails to open, report the error and return false
-    if (!file)
-    {
-        Serial.println("Failed to open file in writing mode");
-        return false;
-    }
-
-    // Write the framebuffer to the file
-    file.write(frameBuffer->buf, frameBuffer->len);
-
-    // Close the file
-    file.close();
-
-    // check if file has been correctly saved in SPIFFS
-    return CheckPhoto(fileName);
+    return saved;
 }
 
 // Checks if the photo has been saved by validating the file size

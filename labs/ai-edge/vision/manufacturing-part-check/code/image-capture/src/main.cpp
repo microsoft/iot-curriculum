@@ -1,6 +1,8 @@
 #include "Config.h"
 #include "WebServer.h"
 
+#include <soc/timer_group_struct.h>
+#include <soc/timer_group_reg.h>
 #include <WiFi.h>
 
 // Create the webserver
@@ -33,9 +35,14 @@ void setup()
 
 // The loop method is called repeatedly and is used as an event loop
 // for the app. In this app, there is nothing to do as the web server
-// handles everything, so just delay for 10 seconds every loop
+// handles everything, so just delay for 1 millisecond every loop
 // to allow the web server to process requests
 void loop()
 {
-  delay(10000);
+  delay(1);
+
+  // Ensure the CPU watchdog doesn't get triggered by processing the images
+  TIMERG0.wdt_wprotect = TIMG_WDT_WKEY_VALUE;
+  TIMERG0.wdt_feed = 1;
+  TIMERG0.wdt_wprotect = 0;
 }

@@ -4,16 +4,16 @@
 #include "esp_camera.h"
 
 /**
- * @brief A helper class for saving photos. Call Init before using the other methods on this class.
+ * @brief A helper class for saving photos.
  */
 class ImageHandler
 {
 public:
     /**
-     * @brief Initializes the image handler class. Call this method before using the other methods on this class.
+     * @brief Initializes the image handler class.
      * If the initialization of the file system fails, the board is rebooted.
      */
-    void Init();
+    ImageHandler();
 
     /**
      * @brief Saves the given frame buffer to a file with the given name.

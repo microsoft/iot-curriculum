@@ -4,18 +4,16 @@
 #include <esp_camera.h>
 
 /**
- * @brief A helper class for interacting with the ESP-EYE camera. Call Init before using the other methods on this class.
+ * @brief A helper class for interacting with the ESP-EYE camera.
  */
 class Camera
 {
 public:
     /**
-     * @brief Initializes the camera class. Call this method before using the other methods on this class.
+     * @brief Initializes the camera class.
      * If the initialization of the camera fails, the board is rebooted.
-     *
-     * @return ESP_OK on success
      */
-    void Init();
+    Camera();
 
     /**
      * @brief Takes a photo and returns it as a frame buffer.

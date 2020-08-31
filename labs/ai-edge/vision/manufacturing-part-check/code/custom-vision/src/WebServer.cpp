@@ -35,44 +35,34 @@ const char index_html[] PROGMEM = R"rawliteral(
 
 <body>
     <div id="container">
-        <h2>ESP32-EYE Photo Capture</h2>
+        <h2>ESP32-EYE Image Classifier</h2>
         <p>
-            <button id="rotateButton">ROTATE</button>
-            <button id="captureButton">CAPTURE PHOTO</button>
+            <button id="takePictureButton">Take and classify photo</button>
         </p>
+        <p id="resultText"></p>
         <div><img src="saved-photo" id="photo" width="70%"></div>
 </body>
 <script>
     window.addEventListener("DOMContentLoaded", function () {
-        var deg = 0;
-        var rotateButton = document.getElementById("rotateButton");
-        var captureButton = document.getElementById("captureButton");
+        var takePictureButton = document.getElementById("takePictureButton");
         var img = document.getElementById("photo");
-        var capturingImageText = document.getElementById("capturingImageText");
+        var resultText = document.getElementById("resultText");
 
-        rotateButton.addEventListener('click', function () {
-            deg += 90;
-            if (isOdd(deg / 90)) { document.getElementById("container").className = "vert"; }
-            else { document.getElementById("container").className = "hori"; }
-            img.style.transform = "rotate(" + deg + "deg)";
-        });
-
-        captureButton.addEventListener('click', function () {
-            rotateButton.disabled = true;
-            captureButton.disabled = true;
+        takePictureButton.addEventListener('click', function () {
+            takePictureButton.disabled = true;
 
             const getResult = async () => {
                 var result = await fetch('capture', {
                     method: 'GET'
                 })
 
-                var textResult = await result.text()
-                location.reload();
+                resultText.textContent = await result.text()
+                img.src = "saved-photo#" + new Date().getTime();
+
+                takePictureButton.disabled = false;
             }
             getResult()
         });
-
-        function isOdd(n) { return Math.abs(n % 2) == 1; }
     });
 </script>
 
@@ -81,83 +71,29 @@ const char index_html[] PROGMEM = R"rawliteral(
 // Create the web server on the given port
 WebServer::WebServer(uint16_t port) : _webServer(port),
                                       _camera(),
-                                      _imageHandler()
-{
-    _port = port;
-}
-
-// Capture Photo and Save it to SPIFFS
-void WebServer::CapturePhotoAndSaveToSpiffs()
-{
-    camera_fb_t *fb = NULL;
-    bool ok = false;
-
-    // Loop whilst the photo capture and save fails
-    do
-    {
-        // Take a photo with the camera
-        Serial.println("Taking a photo...");
-
-        fb = _camera.TakePhoto();
-
-        // Verify the photo was taken
-        if (!fb)
-        {
-            Serial.println("Camera capture failed");
-            return;
-        }
-
-        Serial.printf("Picture file name: %s\n", FILE_PHOTO);
-
-        // Save the photo to the SPIFFS file system
-        ok = _imageHandler.SavePhoto(fb, FILE_PHOTO);
-
-        if (!ok)
-        {
-            Serial.println("File write failed");
-        }
-        else
-        {
-            Serial.print("The picture has been saved in ");
-            Serial.println(FILE_PHOTO);
-        }
-
-        // Release the photo frame buffer
-        _camera.ReleaseFrameBuffer(fb);
-    } while (!ok);
-}
-
-// Initialise the web server
-void WebServer::Init()
+                                      _imageHandler(),
+                                      _imageClassifier()
 {
     Serial.println("Starting web server...");
 
-    // Initalise the camera
-    _camera.Init();
-
-    // Initialise the image handler
-    _imageHandler.Init();
-
-    // Wait half a second for the SPIFFS to start
-    delay(500);
-    Serial.println("SPIFFS mounted successfully");
-
     // Route for root / web page
     _webServer.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {
+        Serial.println("GET request for /");
         // Return the index_html string as the web page
         request->send_P(200, "text/html", index_html);
     });
 
     // Route for the /capture end point
     _webServer.on("/capture", HTTP_GET, [this](AsyncWebServerRequest *request) {
+        Serial.println("GET request for /capture");
         // Capture and save the photo
-        CapturePhotoAndSaveToSpiffs();
-        delay(2000);
-        request->send_P(200, "text/plain", "Taking Photo");
+        string result = CapturePhotoClassifyAndSaveToSpiffs();
+        request->send_P(200, "text/plain", result.c_str());
     });
 
     // Route for the saved-photo end point
     _webServer.on("/saved-photo", HTTP_GET, [](AsyncWebServerRequest *request) {
+        Serial.println("GET request for /saved-photo");
         // Return the file loaded from the SPIFFS file system
         request->send(SPIFFS, FILE_PHOTO, "image/jpg", false);
     });
@@ -171,5 +107,36 @@ void WebServer::Init()
     Serial.println("Web server started:");
     Serial.print("IP Address: http://");
     Serial.print(WiFi.localIP());
-    Serial.printf(":%d\r\n", _port);
+    Serial.printf(":%d\r\n", port);
+}
+
+// Capture Photo, classify it and Save it to SPIFFS
+string WebServer::CapturePhotoClassifyAndSaveToSpiffs()
+{
+    // Take a photo with the camera
+    Serial.println("Taking a photo...");
+    camera_fb_t *fb = _camera.TakePhoto();
+
+    // Verify the photo was taken
+    if (!fb)
+    {
+        Serial.println("Camera capture failed");
+        return "Error capturing from camera";
+    }
+
+    Serial.printf("Picture file name: %s\n", FILE_PHOTO);
+
+    // Classify the photo
+    string result = _imageClassifier.ClassifyImage(fb);
+
+    // Save the photo to the SPIFFS file system
+    if (!_imageHandler.SavePhoto(fb, FILE_PHOTO))
+    {
+        Serial.println("File write failed");
+        result = "Error saving file";
+    }
+
+    _camera.ReleaseFrameBuffer(fb);
+
+    return result;
 }

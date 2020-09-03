@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+
 import smbus2, bme280, os, asyncio, json
 from dotenv import load_dotenv
 from grove.grove_moisture_sensor import GroveMoistureSensor

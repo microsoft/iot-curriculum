@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 #ifndef _IOTHUBSERVICE_H_
 #define _IOTHUBSERVICE_H_
 

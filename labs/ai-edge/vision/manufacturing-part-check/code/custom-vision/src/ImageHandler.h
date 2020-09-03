@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 #ifndef _IMAGEHANDLER_H_
 #define _IMAGEHANDLER_H_
 

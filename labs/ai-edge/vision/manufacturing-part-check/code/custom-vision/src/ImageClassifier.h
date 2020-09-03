@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 #ifndef _IMAGECLASSIFIER_H_
 #define _IMAGECLASSIFIER_H_
 

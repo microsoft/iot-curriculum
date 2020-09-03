@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 #ifndef _WEBSERVER_H_
 #define _WEBSERVER_H_
 

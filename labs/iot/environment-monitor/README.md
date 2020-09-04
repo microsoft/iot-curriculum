@@ -23,7 +23,6 @@ This folder contains a lab with multiple parts working towards an environment mo
 This lab has the following parts
 
 1. Set up IoT Central and send simulated data
-1. Send mock temperature data from your PC or Mac
 1. Set up a Raspberry Pi to send temperature data
 1. Set up IoT Central and the Raspberry Pi to send humidity and sound data
 1. Perform simple analytics and create an alert on the data using rules
@@ -56,7 +55,7 @@ These labs all build on one another, so you need to work through them in order. 
 1. [Set up IoT Central and the Raspberry Pi to send humidity and sound data](./steps/set-up-humidity-sound.md)
 1. [Perform simple analytics and create an alert on the data using rules](./steps/rules.md)
 1. [Perform more advanced analytics to detect and visualize anomalies in the data](./steps/anomaly-detection.md)
-1. [Build AI models to make predictions on temperatures](./steps/build-ai-models.md)
+1. [Clean up](./steps/clean-up.md)
 
 ## Clean up
 

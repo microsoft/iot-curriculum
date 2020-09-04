@@ -7,12 +7,11 @@
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <esp_http_client.h>
-#include <string>
 
 // A string for tracking the response from the web request.
 // The ESP web request framework needs a static callback function,
 // so rather than returning data, the callback writes to this static string
-static std::string httpResponseString;
+static string httpResponseString;
 
 // This is a callback function used by the ESP http code to handle HTTP events.
 static esp_err_t HttpEventHandler(esp_http_client_event_t *evt)
@@ -86,10 +85,21 @@ string ImageClassifier::ClassifyImage(camera_fb_t *frameBuffer)
     StaticJsonDocument<2048> resultsDocument;
     deserializeJson(resultsDocument, httpResponseString.c_str());
 
-    // The JSON document has a child array called predictions, ordered in probability order
-    // from most probable to least. This means the first ([0]) item in the array is the most
-    // probable tag
-    string topTag = string((const char *)resultsDocument["predictions"][0]["tagName"]);
+    // The JSON document has a child array called predictions, containing tags and probability
+    // These are in tag order, so loop through them to get the tag with the highest probability
+    string topTag = "";
+    double topTagProbability = 0;
+    
+    for (int i = 0; i < resultsDocument["predictions"].size(); ++i)
+    {
+        double probability = resultsDocument["predictions"][i]["probability"];
+        if (probability > topTagProbability)
+        {
+            topTagProbability = probability;
+            topTag = string((const char *)resultsDocument["predictions"][i]["tagName"]);
+        }
+    }
+
     Serial.printf("Top prediction = %s\r\n", topTag.c_str());
 
     // Clean up the HTTP client

@@ -4,6 +4,7 @@
         "asyncio",
         "grovepi",
         "leds",
+        "microcontroller",
         "quickstart",
         "repos"
     ]

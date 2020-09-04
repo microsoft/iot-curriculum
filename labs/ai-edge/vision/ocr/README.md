@@ -4,14 +4,14 @@ This lab covers using a Raspberry Pi and a camera to recognize text in an image 
 
 | Author | [Jim Bennett](https://github.com/JimBobBennett) |
 |:---|:---|
-| Target platform   | Raspberry Pi |
-| Hardware required | Raspberry Pi 4<br>Micro SD Card<br>An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot<br>Raspberry Pi 4 power supply (USB-C)<br>Camera - either a Raspberry Pi Camera, or an external USB webcam<br>**Optional**:<br>keyboard, mouse and monitor<br>[micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/) |
-| Software required | [Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)<br>**Optional**<br>[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn)<br>*There are optional installs for Windows and Linux that you may need to install later to connect to the Pi, depending on which version of the OS you are using.* |
-| Azure Services | [Azure Cognitive Services Computer Vision service](https://azure.microsoft.com/services/cognitive-services/computer-vision/?WT.mc_id=iotcurriculum-github-jabenn) |
-| Programming Language | Python |
+| Target platform   | <ul><li>Raspberry Pi</li></ul> |
+| Hardware required | <ul><li>Raspberry Pi 4</li><li>Micro SD Card</li><li>An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot</li><li>Raspberry Pi 4 power supply (USB-C)</li><li>Camera - either a Raspberry Pi Camera, or an external USB webcam</li></ul>**Optional**:<ul><li>keyboard, mouse and monitor</li><li>[micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)</li></ul> |
+| Software required | <ul><li>[Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)</li></ul>**Optional**<ul><li>[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn)</li></ul>*There are optional installs for Windows and Linux that you may need to install later to connect to the Pi, depending on which version of the OS you are using.* |
+| Azure Services | <ul><li>[Azure Cognitive Services Computer Vision service](https://azure.microsoft.com/services/cognitive-services/computer-vision/?WT.mc_id=iotcurriculum-github-jabenn)</li></ul>|
+| Programming Language | <ul><li>Python</li></ul> |
 | Prerequisites | Basic proficiency with Python.<br><br>You will also need an [Azure subscription](https://github.com/microsoft/iot-curriculum/tree/main/labs/ai-edge/ocr#azure-subscription) |
 | Date | August 2020 |
-| Learning Objectives | Set up Azure Cognitive Services<br>Analyze images for text with Azure Computer Vision |
+| Learning Objectives | <ul><li>Set up Azure Cognitive Services</li><li>Analyze images for text with Azure Computer Vision</li></ul> |
 | Time to complete | 1 hour |
 
 ## Azure Cognitive Services

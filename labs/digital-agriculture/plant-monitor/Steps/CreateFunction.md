@@ -20,7 +20,7 @@ To build, test and deploy Azure Functions in Python using Visual Studio Code, yo
 
 1. Select the Extensions tab from the left hand menu, or select *View -> Extensions*
 
-   ![The extensions tab in Visual Studio Code](../Images/VSCodeMenuExtensions.png)
+   ![The extensions tab in Visual Studio Code](../../../images/vscode-extensions-menu.png)
 
 1. Search for `Python` and install the *Python* extension from Microsoft by selecting **Install**.
 

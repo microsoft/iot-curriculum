@@ -152,11 +152,11 @@ Once the Pi is rebooted, you will be able to connect to it remotely from Visual 
 
 1. Select the **Extensions** tab from the side menu
 
-    ![the extension menu](../images/vscode-extensions-menu.png)
+    ![the extension menu](../../../images/vscode-extensions-menu.png)
 
 1. Search for `Remote Development` and select the **Remote Development Pack**. Select the **Install** button to install this extension.
 
-    ![The install button for the remote development extension](../images/vscode-extensions-remote-development-install-button.png)
+    ![The install button for the remote development extension](../../../images/vscode-extensions-remote-development-install-button.png)
 
 ### Connect to your Raspberry Pi
 
@@ -167,7 +167,7 @@ Once the Pi is rebooted, you will be able to connect to it remotely from Visual 
 
 1. Type `Remote-SSH` and select *Remote-SSH: Connect to host...`
 
-    ![The connect to host command palette option](../images/vscode-command-palette-connect-to-host.png)
+    ![The connect to host command palette option](../../../images/vscode-command-palette-connect-to-host.png)
 
 1. In the *Select configured Host* dialog, enter `pi@<hostname>.local` replacing `<hostname>` with the Hostname you entered when configuring the Pi. For example, if you set the Hostname to be `lab-pi-1`, then enter `pi@lab-pi-1.local`
 
@@ -183,7 +183,7 @@ Once the Pi is rebooted, you will be able to connect to it remotely from Visual 
 
 1. The first time you connect you will need to confirm you want to connect to the specific device based off it's 'fingerprint'. Select **Connect**.
 
-    ![The confirm fingerprint dialog](../images/vscode-remote-confirm-fingerprint.png)
+    ![The confirm fingerprint dialog](../../../images/vscode-remote-confirm-fingerprint.png)
 
 1. Enter the password for your Pi when prompted
 
@@ -197,13 +197,13 @@ The Pi will be programmed using Python, so Visual Studio Code needs to have an e
 
 1. Search for `PyLance` and select the **Install in SSH: hostname** button to install the PyLance Python extension on the Pi
 
-    ![The PyLance install button](../images/vscode-extensions-pylance-install-remote-button.png)
+    ![The PyLance install button](../../../images/vscode-extensions-pylance-install-remote-button.png)
 
     > This extension will just be installed on the Pi, not locally. The extensions you install on different remote devices are different to the ones you install locally
 
 1. Once installed, you will need to reload the window, so select the **Reload required** button
 
-    ![The reload required button](../images/vscode-extensions-pylance-reload-button.png)
+    ![The reload required button](../../../images/vscode-extensions-pylance-reload-button.png)
 
 Visual Studio Code will now be configured to run Python on the Pi. Next the Python developer features need to be installed.
 
@@ -285,11 +285,11 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
 
     1. Select the **Explorer** tab from the side menu
 
-        ![The explorer menu button](../images/vscode-explorer-menu.png)
+        ![The explorer menu button](../../../images/vscode-explorer-menu.png)
 
     1. Select the **New File** button for the *Environment Monitor* folder
 
-        ![The new file button](../images/vscode-new-file-button.png)
+        ![The new file button](../../../images/vscode-new-file-button.png)
 
         > This button is only visible when the cursor is in the file explorer box
 

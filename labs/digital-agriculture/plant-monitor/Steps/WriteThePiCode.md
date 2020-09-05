@@ -16,7 +16,7 @@ To enable remote development in Visual Studio Code, you will need to install the
 
 1. Select the Extensions tab from the left hand menu, or select *View -> Extensions*
 
-   ![The extensions tab in Visual Studio Code](../Images/VSCodeMenuExtensions.png)
+   ![The extensions tab in Visual Studio Code](../../../images/vscode-extensions-menu.png)
 
 1. Search for `remote development` and install the *Remote Development* extension pack from Microsoft by selecting the **Install** button
 
@@ -63,7 +63,7 @@ Visual Studio Code can install extensions on the host device. The Python extensi
 
 1. Select the Extensions tab from the left hand menu, or select *View -> Extensions*
 
-   ![The extensions tab in Visual Studio Code](../Images/VSCodeMenuExtensions.png)
+   ![The extensions tab in Visual Studio Code](../../../images/vscode-extensions-menu.png)
 
 1. Search for `Python` and install the *Python* extension from Microsoft by selecting **Install in SSH: raspberrypi.local**.
 
@@ -500,8 +500,10 @@ The Python app will only run as long as the terminal is connected. Ideally we wa
 1. Add the following line to the end of the file:
 
     ```sh
-    @reboot /home/pi/EnvironmentMonitor/.venv/bin/python3 /home/pi/EnvironmentMonitor/app.py
+    @reboot sleep 60 && /home/pi/EnvironmentMonitor/.venv/bin/python3 /home/pi/EnvironmentMonitor/app.py
     ```
+
+    The `sleep 60` command waits for 60 seconds to allow time for the device to completely boot up and connect to WiFi.
 
 1. Press ctrl+x to close nano. Press Y to save the file when asked if you want to save the modified buffer, then press return to select the default file name.
 

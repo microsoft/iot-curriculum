@@ -100,7 +100,7 @@ The [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/?W
 
 ## Industrial IoT
 
-For Industrial IoT (IIoT), Microsoft provides a range of reference materials and samples.based around OPC-UA.
+For Industrial IoT (IIoT), Microsoft provides a range of reference materials and samples based around OPC-UA.
 
 * [IIoT on Azure documentation](https://docs.microsoft.com/azure/iot-accelerators/overview-iot-industrial?WT.mc_id=iotcurriculum-github-jabenn) - documentation and a solution accelerator for IIoT
 * [Open62541](https://github.com/open62541/open62541) - an open source OPC-UA implementation
@@ -118,6 +118,50 @@ Azure RTOS is an embedded development suite including a small but powerful opera
 * [Overview of Azure RTOS](https://azure.microsoft.com/services/rtos/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Azure RTOS on GitHub](https://github.com/azure-rtos)
 * [Introduction to Azure RTOS video on Channel9](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-Azure-RTOS?WT.mc_id=iotcurriculum-github-jabenn)
+
+## Programming languages, platforms and tools
+
+There are many different programming languages, platforms and tools you can use for IoT. Here are some language resources:
+
+### Python
+
+Python is a popular language for developing IoT solutions on devices such as the Raspberry Pi. It's also popular for data science, and building machine learning models to analyze the data coming from IoT devices.
+
+* [Azure Python IoT SDK](https://github.com/Azure/azure-iot-sdk-python) - This repository contains code for the Azure IoT SDKs for Python. This enables python developers to easily create IoT device solutions that seamlessly connect to the Azure IoTHub ecosystem.
+* [Python for beginners video series on Channel9](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=iotcurriculum-github-jabenn) - Over the course of a set of videos we're going to show you the ropes of Python development
+* [Take your first steps with Python learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/python-first-steps/?WT.mc_id=iotcurriculum-github-jabenn) - Interested in learning a programming language but aren't sure where to start? Start here! Learn the basic syntax and thought processes required to build simple applications using Python.
+* [CircuitPython Azure IoT SDK](https://github.com/adafruit/Adafruit_CircuitPython_AzureIoT) - An Azure IoT SDK for use with [Adafruit CircuitPython](https://circuitpython.readthedocs.io/), a variant of Python for embedded devices.
+
+### .NET
+
+.NET is a free, cross-platform, open source developer platform for building applications, and supports programming languages such as C# and F#.
+
+* [Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) - A C# SDK for connecting to Azure IoT Services
+* [.NET home page](https://dotnet.microsoft.com?WT.mc_id=iotcurriculum-github-jabenn) - the home of .NET
+* [.NET 101 video series](https://dotnet.microsoft.com/learn/videos?WT.mc_id=iotcurriculum-github-jabenn) - a 101 level video series to learn .NET
+* [.NET for IoT devices](https://github.com/dotnet/iot) - This repo includes .NET Core implementations for various IoT boards, chips, displays and PCBs.
+
+### C/C++
+
+* [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) - A C SDK for connecting to Azure IoT Services
+
+### JavaScript/Node.js
+
+* [Azure IoT Node SDK](https://github.com/Azure/azure-iot-sdk-node) - The Azure IoT Node.js SDK enables developers to create IoT solutions written in Node.js for the Azure IoT platform. 
+
+### Arduino
+
+* [Azure IoT Hub library for Arduino](https://github.com/Azure/azure-iot-arduino) - This library is a port of the Microsoft Azure IoT device SDK for C to Arduino. It allows you to use several Arduino compatible boards with Azure IoT Hub
+
+### Visual Studio Code
+
+Visual Studio Code (VS Code) is a free, open source, cross-platform developer text editor that can be extended by a huge range of extensions to support different programing languages and capabilities.
+
+* [Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn) - the home of VS Code
+* [Platform.io](https://platformio.org/platformio-ide) - an extension for VS Code that provides tools for embedded C/C++ development, with no additional dependencies
+* [Remote developer pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack&WT.mc_id=iotcurriculum-github-jabenn) - an extension to support remote development, such as connecting to a Raspberry Pi and developing on that Pi from your PC or Mac
+* [PyLance - Python language extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance&WT.mc_id=iotcurriculum-github-jabenn) - an extension providing Python language support to VS Code
+* [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools&WT.mc_id=iotcurriculum-github-jabenn) - full intellisense and debugging support for C and C++ development
 
 ## Azure subscriptions
 

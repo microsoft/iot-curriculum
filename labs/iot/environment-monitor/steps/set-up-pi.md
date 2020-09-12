@@ -24,8 +24,6 @@ You will need the following hardware:
 * A keyboard, mouse and monitor
 * A [micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)
 
-
-
 ## Set up the Pi
 
 1. Fit the Grove Pi+ hat to the Raspberry Pi. The socket on the bottom of the Pi+ fits onto the GPIO pins on the Raspberry Pi.

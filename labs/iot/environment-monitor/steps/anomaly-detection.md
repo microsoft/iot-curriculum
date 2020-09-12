@@ -308,7 +308,7 @@ Stream Analytics jobs query data using a SQL-like language.
         AnomalyDetectionStep
     ```
 
-    This query uses the `AnomalyDetection_SpikeAndDip` function to detect spikes in the data. It looks over the last 600 seconds (10 minutes) and detects spikes with a 95% confidence (Machine Learning models rarely return true or false values, instead they  return probabilities). The data is partitioned by the `deviceId`, meaning that it looks for spikes on a per-device basis, rather than spikes across all devices. This is to avoid spikes when the background audio level of one device is different to another.
+    This query uses the `AnomalyDetection_SpikeAndDip` function to detect spikes in the data. It looks over the last 600 seconds (10 minutes) and detects spikes with a 95% confidence (Machine Learning models rarely return true or false values, instead they return probabilities). The data is partitioned by the `deviceId`, meaning that it looks for spikes on a per-device basis, rather than spikes across all devices. This is to avoid spikes when the background audio level of one device is different to another.
 
     You can read more on this function in the [AnomalyDetection_SpikeAndDip documentation](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics?WT.mc_id=iotcurriculum-github-jabenn).
 

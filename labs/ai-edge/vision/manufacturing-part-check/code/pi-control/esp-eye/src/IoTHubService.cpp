@@ -82,7 +82,7 @@ IoTHubService::IoTHubService() : _camera(),
         ESP.restart();
     }
         
-    // Set any option that are neccessary.
+    // Set any options that are necessary.
     // For available options please see the iothub_sdk_options.md documentation in the main C SDK
     // turn off diagnostic sampling
     int diag_off = 1;

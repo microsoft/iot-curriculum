@@ -1,43 +1,64 @@
 # Manufacturing part checker
 
-This lab shows how to build a prototype part checker using AI to validate that parts are manufactured correctly.
+This folder contains a lab with multiple parts working towards a prototype of a AI powered assembly line validation tool, similar to the kinds of tools that would be used in a manufacturing environment to check quality of the items produced by an assembly line.
 
-# Pi Configuration
+The final project will use a camera built into an ESP-EYE microcontroller to capture images of parts on the assembly line, then use an image classification model to detect if these parts pass or fail a quality check. It will be controlled by a Raspberry Pi, with a button to capture and classify an image, with red and green LEDs to indicate if the item passes or fails. The image classification model will run in the cloud in the first instance, then later on the Raspberry Pi.
 
-```sh
-# Update all the things
-sudo apt update && sudo apt upgrade -y
-sudo reboot
+| Author | [Jim Bennett](https://github.com/JimBobBennett) |
+|:---|:---|
+| Target platform   | <ul><li>Raspberry Pi</li><li>ESP-EYE</li></ul> |
+| Hardware required | <ul><li>Raspberry Pi 4</li><li>Micro SD Card</li><li>An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot</li><li>Raspberry Pi 4 power supply (USB-C)</li><li>[Grove Pi+ Starter Kit](https://www.seeedstudio.com/GrovePi-Starter-Kit-for-Raspberry-Pi-A-B-B-2-3-CE-certified.html)</li><li>ESP-EYE</li><li>Micro-USB cable</li></ul>|
+| Software required | <ul><li>[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn)</li><li>[Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)</li></ul>*There are optional installs for Windows and Linux that you may need to install later to connect to the Pi, depending on which version of the OS you are using.* |
+| Azure Services | [Azure Custom Vision](https://CustomVision.ai)<br>[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=iotcurriculum-github-jabenn)<br> |
+| Programming Language | <ul><li>C++</li><li>Python</li></ul> |
+| Prerequisites | You will need to be reasonably proficient using C++ to code a microcontroller You should also know the basics of Python programming.<br>If you want to learn Python, check out these free resources:<br><ul><li>[Python for beginners video series on Channel9](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=iotcurriculum-github-jabenn)</li><li>[Take your first steps with Python learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/python-first-steps/?WT.mc_id=iotcurriculum-github-jabenn)</li></ul><br>You will also need an [Azure subscription](https://github.com/microsoft/iot-curriculum/tree/main/labs/iot/environment_monitor#azure-subscription)<br>If you are new to Azure, check out these free resources:<ul><li>[Azure Fundamentals learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/azure-fundamentals/?WT.mc_id=iotcurriculum-github-jabenn)</li></ul> |
+| Date | September 2020 |
+| Learning Objectives | <ul><li>Program a microcontroller using PlatformIO and Visual Studio Code</li><li>Build and train an image classification model using CustomVision</li><li>Set up IoT Hub and register a device</li><li>Control one device from another using IoT Hub</li><li>Deploy an image classification model using IoT Edge</li></ul> |
+| Time to complete | 6 hours |
 
-# Install the Grove stuff
-sudo curl -kL dexterindustries.com/update_grovepi | bash
-sudo reboot
+## Lab parts
 
-# Update the Grove firmware
-git clone https://github.com/DexterInd/GrovePi.git
-cd GrovePi/Firmware
-sudo ./firmware_update.sh
+This lab has the following parts:
 
-# Install docker
-curl -sSL https://get.docker.com | sh
-sudo usermod -aG docker pi
-sudo reboot
+1. Program the ESP-EYE with a simple 'Hello World' program
+1. Set up the ESP-EYE to share images via a web server
+1. Build an image classifier using Azure Custom Vision
+1. Call the image classifier from the ESP-EYE
+1. Control the ESP-EYE via a Raspberry Pi and IoT Hub
+1. Run the image classifier on the Raspberry Pi using IoT Edge
 
-# Install IoT Edge
-curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo apt update
-sudo apt -y install iotedge
+These parts will cover in detail what needs to be done at each step were appropriate, or link to official documentation to cover steps - that way the parts will stay more up to date.
 
-sudo nano /etc/iotedge/config.yaml
-# Set connection string
-sudo systemctl restart iotedge
+## Azure Custom Vision
 
-# Install IoT Hub python packages
-sudo apt install cmake libssl-dev -y
-pip3 install azure-iot-hub
-pip3 install python-dotenv
+[Azure Custom Vision](https://CustomVision.ai) is an online tool for creating image classification and object detection models using a small number of images.
 
-```
+An image classification models is a machine learning model that is trained to classify images based on tags. For example, you can train it with 50 images of cats tagged as `cat`, and 50 images of dogs tagged as `dog`, and it will build a model to recognize cats and dogs. You can then send this model another image and it will give you the percentage probability that the image is a cat or a dog. The model can only classify images based off the tags.
+
+An object detection model is a machine learning model that can detect one or more objects in an image. For example, you can train it with 50 images of cats and give it an image containing multiple cats, and it will tell you where in the image it thinks cats are with a probability.
+
+This lab will use an image classification model.
+
+> You can learn more about training image classification models by following the [Classify images with the Custom Vision service](https://docs.microsoft.com/learn/modules/classify-images-custom-vision/?WT.mc_id=iotcurriculum-github-jabenn) hands on learning module on Microsoft Learn.
+>
+> You can learn more about object detection by following the [Detect objects in images with the Custom Vision service](https://docs.microsoft.com/learn/modules/detect-objects-images-custom-vision/?WT.mc_id=iotcurriculum-github-jabenn) hands on learning module on Microsoft Learn.
+
+## Azure subscription
+
+These labs are designed for courses where Azure resources are provided to students by the institution. To try them out, you can use one of our free subscriptions. Head to the [Azure Subscriptions Guide](../../../azure-subscription.md) for from information on setting up a subscription.
+
+## Labs
+
+These labs all build on one another, so you need to work through them in order. Work through as many labs as you want to, but if you don't complete all the labs, make sure you always do the [last one](./steps/clean-up.md) as that cleans up your Azure resources.
+
+1. [Program the ESP-EYE with a simple 'Hello World' program](./steps/hello-world-esp-eye.md)
+1. [Set up the ESP-EYE to share images via a web server](./steps/image-capture.md)
+1. [Build an image classifier using Azure Custom Vision](./steps/build-image-classifier.md)
+1. [Call the image classifier from the ESP-EYE](./steps/classify-esp-eye.md)
+1. [Control the ESP-EYE via a Raspberry Pi and IoT Hub](./steps/iot-hub-control.md)
+1. [Run the image classifier on the Raspberry Pi using IoT Edge](./steps/edge-classifier.md)
+1. [Clean up](./steps/clean-up.md)
+
+## Clean up
+
+Don't forget to clean up your Azure resources when you are finished, to avoid spending money, or using up your credit from your free subscription. All the instructions to clean up are in the [Clean up you Azure resources guide](./steps/clean-up.md).

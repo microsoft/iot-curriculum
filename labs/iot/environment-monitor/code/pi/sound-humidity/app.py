@@ -4,12 +4,15 @@
 import asyncio
 import json
 import grovepi
+import os
+from dotenv import load_dotenv
 from azure.iot.device.aio import IoTHubDeviceClient, ProvisioningDeviceClient
 
 # The connection details from IoT Central for the device
-id_scope = ID_SCOPE
-key = KEY
-device_id = "pi-temperature-sensor"
+load_dotenv()
+id_scope = os.getenv("ID_SCOPE")
+primary_key = os.getenv("PRIMARY_KEY")
+device_id = "pi-environment-monitor"
 
 # Set the temperature sensor port to the digital port D4
 # and mark it as INPUT meaning data needs to be
@@ -17,25 +20,36 @@ device_id = "pi-temperature-sensor"
 temperature_sensor_port = 4
 grovepi.pinMode(temperature_sensor_port, "INPUT")
 
+# Set the sound sensor port to the analog port A0
+# and mark it as INPUT meaning data needs to be
+# read from it
+sound_sensor_port = 0
+grovepi.pinMode(sound_sensor_port, "INPUT")
+
 # Gets telemetry from the Grove sensors
 # Telemetry needs to be sent as JSON data
 async def get_telemetry() -> str:
     # The dht call returns the temperature and the humidity,
     # we only want the temperature, so ignore the humidity
-    [temperature, _] = grovepi.dht(temperature_sensor_port, 0)
+    [temperature, humidity] = grovepi.dht(temperature_sensor_port, 0)
 
     # The temperature can come as 0, meaning you are reading
     # too fast, if so sleep for a second to ensure the next reading
     # is ready
-    while (temperature == 0):
-        [temperature, _] = grovepi.dht(temperature_sensor_port, 0)
+    while (temperature == 0 or humidity == 0):
+        [temperature, humidity] = grovepi.dht(temperature_sensor_port, 0)
         await asyncio.sleep(1)
+
+    # Read the background noise level from an analog port
+    sound = grovepi.analogRead(sound_sensor_port)
 
     # Build a dictionary of data
     # The items in the dictionary need names that match the
     # telemetry values expected by IoT Central
     dict = {
         "Temperature" : temperature,  # The temperature value
+        "Humidity" : humidity,        # The humidity value
+        "Sound" : sound               # The background noise value
     }
 
     # Convert the dictionary to JSON

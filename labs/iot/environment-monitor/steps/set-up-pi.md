@@ -1,6 +1,6 @@
 # Set up a Raspberry Pi to send temperature data
 
-In the [previous step](./set-up-iot-central.md) you set up an IoT Central application using a pre-created template, and set up a simulated device.
+In the [previous step](./add-pi-to-iot-central.md) you set up an IoT Central application using a pre-created template, and set up a simulated device.
 
 In this step you will set up a Raspberry Pi to send temperature data.
 
@@ -24,59 +24,7 @@ You will need the following hardware:
 * A keyboard, mouse and monitor
 * A [micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)
 
-## Create the device in IoT Central
 
-To connect the Pi to IoT Central, you need to create a new device, the same as you did in the previous step. The difference is this time the device isn't simulated. Once you have the device created, you will need some connection details that the Pi can use to connect to IoT Central as the device.
-
-### Create the device
-
-1. Follow the instructions in the previous step to create a new device using the *Environment Monitor* device template.
-
-    1. Ensure `Environment Monitor` is selected for the *Template Type*
-    1. Set the *Device Name* to `Pi Environment Monitor`
-    1. Set the *Device ID* to `pi-environment-monitor`
-    1. Set *Simulate this device* to **NO**
-    1. Select the **Create** button
-
-    ![The create new device dialog](../images/iot-central-create-new-pi-device.png)
-
-1. Once the device is created it will appear in the devices list. Select it.
-
-    ![The device in the devices list](../images/iot-central-devices-list-simulated-and-pi.png)
-
-1. Select the **Connect** button on the top to bring up the connection details for the device
-
-    ![The connect button](../images/iot-central-device-connect-button.png)
-
-1. The dialog that appears shows the information needed to connect from the Pi. Note down the *ID scope* and *Primary key* values. You can use the **Copy to clipboard** button on the end of each value to copy the values.
-
-    ![The connect dialog](../images/iot-central-device-connect-dialog-pi.png)
-
-### Add the device to the dashboard
-
-The dashboard currently only shows temperature from the simulated device. It needs to be changed to include the Pi.
-
-1. Select the **Dashboard** tab from the side bar menu
-
-1. Select the **Edit** button from the top menu
-
-    ![the edit dashboard button](../images/iot-central-dashboard-edit-button.png)
-
-1. Select the properties cog from the Temperature tile
-
-    ![The properties button](../images/iot-central-dashboard-temperature-tile-edit-button.png)
-
-1. From the *Configure Chart* panel, drop down the *Devices* list, and check the `Pi Environment Monitor`.
-
-    ![Selecting the Pi device](../images/iot-central-dashboard-temperature-tile-select-devices-dropdown-add-pi.png)
-
-1. Select the **Update** button
-
-    ![The update button](../images/iot-central-dashboard-temperature-tile-update-button.png)
-
-1. Select the **Save** button for the dashboard
-
-    ![The save button](../images/iot-central-dashboard-temperature-tile-edit-save-button.png)
 
 ## Set up the Pi
 
@@ -205,7 +153,7 @@ The Pi will be programmed using Python, so Visual Studio Code needs to have an e
 
     ![The reload required button](../../../images/vscode-extensions-pylance-reload-button.png)
 
-Visual Studio Code will now be configured to run Python on the Pi. Next the Python developer features need to be installed.
+Visual Studio Code will now be configured to run Python on the Pi. 
 
 ### Configure the Grove Pi+
 
@@ -259,6 +207,8 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
 
 ## Write the code
 
+### Create a folder
+
 1. From the VS Code Terminal, create a new folder for the Pi code called `EnvironmentMonitor`
 
     ```sh
@@ -281,6 +231,16 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
 
     > All though it is good practice to use [Python virtual environments](https://docs.python.org/3/tutorial/venv.html), we will not be using them for this lab to reduce complexity as the Grove installer doesn't use virtual environments to install the Python packages needed.
 
+1. The Python app will need to know the connection details for the IoT Central device. It's not good practice to add details such as these directly into your code, instead it is better to load them from environment variables. This can be done in Python using a Pip package that loads these values from a file called `.env`. Run the following command to install this package:
+
+    ```sh
+    pip3 install python-dotenv
+    ```
+
+    The `.env` files that the values are loaded from can then not be shared or checked into source code control, keeping your values secret.
+
+### Write the app code
+
 1. Create a new file called `app.py`. This is a Python file that will contain the code to send data to IoT Central.
 
     1. Select the **Explorer** tab from the side menu
@@ -297,18 +257,21 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
 
         ![Naming the file](../images/vscode-new-file-app-py.png)
 
-1. Add the following code to this file. You can also find this code in the [app.py](../code/temperature/app.py) file in the [code/temperature](../code/temperature) folder.
+1. Add the following code to this file. You can also find this code in the [app.py](../code/pi/temperature/app.py) file in the [code/pi/temperature](../code/pi/temperature) folder.
 
     ```python
     import asyncio
     import json
     import grovepi
+    import os
+    from dotenv import load_dotenv
     from azure.iot.device.aio import IoTHubDeviceClient, ProvisioningDeviceClient
 
     # The connection details from IoT Central for the device
-    id_scope = ID_SCOPE
-    key = KEY
-    device_id = "pi-temperature-sensor"
+    load_dotenv()
+    id_scope = os.getenv("ID_SCOPE")
+    primary_key = os.getenv("PRIMARY_KEY")
+    device_id = "pi-environment-monitor"
 
     # Set the temperature sensor port to the digital port D4
     # and mark it as INPUT meaning data needs to be
@@ -386,23 +349,31 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
     asyncio.run(main())
     ```
 
-    Read the comments in the code to see what each section does.
+    Read the comments in the file to see what the code does.
 
-1. Head to line 7 in the file:
+1. Save the file
+
+    > VS Code has an auto save option if you don't want to have to keep saving files. Enable this by selecting *File -> Auto save*.
+
+### Configure the environment file
+
+1. Create another new file called `.env`, and add the following code:
 
     ```python
-    id_scope = ID_SCOPE
-    key = KEY
+    ID_SCOPE=<Id scope>
+    PRIMARY_KEY=<primary key>
     ```
 
-1. Replace the values of `ID_SCOPE` and `KEY` with the ID Scope and Key values you copied from the device connection dialog in IoT Central. These values need to be in quotes. For example if your ID scope was `0ne0FF11FF0` and your key was `12345abcdeFGH567+890ZY=` then the code would read:
+1. Replace the values of `<Id scope>` and `<primary key>` with the ID Scope and Key values you copied from the device connection dialog in IoT Central. These values should not be in quotes. For example if your ID scope was `0ne0FF11FF0` and your key was `12345abcdeFGH567+890ZY=` then the `.env` file would read:
 
     ```python
-    id_scope = "0ne0FF11FF0"
-    key = "12345abcdeFGH567+890ZY="
+    ID_SCOPE=0ne0FF11FF0
+    PRIMARY_KEY=12345abcdeFGH567+890ZY=
     ```
 
 1. Save the file
+
+### Test the code
 
 1. Run the code from the VS Code terminal using the following command:
 

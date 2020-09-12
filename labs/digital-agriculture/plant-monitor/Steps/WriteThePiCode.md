@@ -500,10 +500,10 @@ The Python app will only run as long as the terminal is connected. Ideally we wa
 1. Add the following line to the end of the file:
 
     ```sh
-    @reboot sleep 60 && /home/pi/EnvironmentMonitor/.venv/bin/python3 /home/pi/EnvironmentMonitor/app.py
+    @reboot sleep 30 && /home/pi/EnvironmentMonitor/.venv/bin/python3 /home/pi/EnvironmentMonitor/app.py
     ```
 
-    The `sleep 60` command waits for 60 seconds to allow time for the device to completely boot up and connect to WiFi.
+    The `sleep 30` command waits for 30 seconds to allow time for the device to completely boot up and connect to WiFi.
 
 1. Press ctrl+x to close nano. Press Y to save the file when asked if you want to save the modified buffer, then press return to select the default file name.
 

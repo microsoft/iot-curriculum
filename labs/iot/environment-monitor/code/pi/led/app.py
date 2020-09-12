@@ -4,13 +4,16 @@
 import asyncio
 import json
 import grovepi
+import os
+from dotenv import load_dotenv
 from azure.iot.device.aio import IoTHubDeviceClient, ProvisioningDeviceClient
 from azure.iot.device import MethodResponse
 
 # The connection details from IoT Central for the device
-id_scope = ID_SCOPE
-key = KEY
-device_id = "pi-temperature-sensor"
+load_dotenv()
+id_scope = os.getenv("ID_SCOPE")
+primary_key = os.getenv("PRIMARY_KEY")
+device_id = "pi-environment-monitor"
 
 # Set the temperature sensor port to the digital port D4
 # and mark it as INPUT meaning data needs to be

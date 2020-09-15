@@ -53,6 +53,9 @@ static int CommandCallback(const char *method_name, const unsigned char *payload
             return IOTHUB_CLIENT_ERROR;
         }
 
+        // Send telemetry with the classification result
+        iotHubService->SendTelemetry(classification);
+
         // Return the classification result
         BuildResult(classification.c_str(), response, response_size);
         return IOTHUB_CLIENT_OK;
@@ -63,6 +66,18 @@ static int CommandCallback(const char *method_name, const unsigned char *payload
         return IOTHUB_CLIENT_ERROR;
     }
 }
+
+ void IoTHubService::SendTelemetry(string classificationResult)
+ {
+    string telemetryMessage = "{\"classification_result\":\"" + classificationResult + "\"}";
+    IOTHUB_MESSAGE_HANDLE message_handle = IoTHubMessage_CreateFromString(telemetryMessage.c_str());
+
+    Serial.printf("Sending message %s to IoTHub\r\n", telemetryMessage.c_str());
+
+    IoTHubDeviceClient_LL_SendEventAsync(_device_ll_handle, message_handle, NULL, NULL);
+
+    IoTHubMessage_Destroy(message_handle);
+ }
 
 IoTHubService::IoTHubService() : _camera(),
                                  _imageClassifier()

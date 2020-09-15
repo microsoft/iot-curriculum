@@ -29,6 +29,13 @@ public:
     void DoWork();
 
     /**
+     * @brief Sends the result of an image classification to the IoT Hub as telemetry
+     * 
+     * @param classificationResult The classification result to send
+     */
+    void SendTelemetry(string classificationResult);
+
+    /**
      * @brief Take a picture with the camera and send it to the classifier
      * 
      * @return The classification result

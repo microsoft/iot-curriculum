@@ -12,7 +12,7 @@ from pynput import keyboard
 # The connection details from IoT Central for the device
 load_dotenv()
 id_scope = os.getenv("ID_SCOPE")
-key = os.getenv("PRIMARY_KEY")
+primary_key = os.getenv("PRIMARY_KEY")
 device_id = "pi-environment-monitor"
 
 # Use this to see if a high value for the sound should be sent
@@ -61,13 +61,13 @@ async def main():
         provisioning_host="global.azure-devices-provisioning.net",
         registration_id=device_id,
         id_scope=id_scope,
-        symmetric_key=key)
+        symmetric_key=primary_key)
     registration_result = await provisioning_device_client.register()
 
     # Build the connection string - this is used to connect to IoT Central
     conn_str="HostName=" + registration_result.registration_state.assigned_hub + \
                 ";DeviceId=" + device_id + \
-                ";SharedAccessKey=" + key
+                ";SharedAccessKey=" + primary_key
 
     # The client object is used to interact with Azure IoT Central.
     device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)

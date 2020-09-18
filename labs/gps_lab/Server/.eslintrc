@@ -1,0 +1,43 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "eqeqeq": [
+      2,
+      "allow-null"
+    ],
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
+    "no-console": "off",
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 2
+      }
+    ],
+    "eol-last": "off",
+    "comma-dangle": [
+      "error",
+      "only-multiline"
+    ],
+    "function-paren-newline": "off",
+    "no-plusplus": "off",
+    "no-underscore-dangle": [
+      "off"
+    ],
+    "max-len": [
+      "error",
+      200
+    ],
+    "brace-style": [
+      "error",
+      "1tbs"
+    ]
+  },
+  "plugins": [
+    "jsx-a11y",
+    "import"
+  ]
+}

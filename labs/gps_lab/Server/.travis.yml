@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "6"
+  
+before_script:
+  - npm install eslint
+  
+script: node_modules/.bin/eslint **/*.js | if grep "error "; then echo "there's lint error, pls fix it"; exit 1; fi
+    
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+  
+matrix:
+  fast_finish: true

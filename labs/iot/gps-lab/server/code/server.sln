@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "GPS_Lab_Server", "GPS_Lab_Server.pyproj", "{005CF7AA-114E-4B4F-B604-E263352A90CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{005CF7AA-114E-4B4F-B604-E263352A90CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{005CF7AA-114E-4B4F-B604-E263352A90CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{005CF7AA-114E-4B4F-B604-E263352A90CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{005CF7AA-114E-4B4F-B604-E263352A90CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0F24C9A-FFD7-4379-91AB-2EF7F475705B}
+	EndGlobalSection
+EndGlobal

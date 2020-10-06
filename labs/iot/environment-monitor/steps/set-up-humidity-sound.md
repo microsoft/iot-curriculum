@@ -120,7 +120,7 @@ Once the new device template version is complete, it needs to be published befor
 
     ![The publish dialog](../images/iot-central-device-templates-publish-dialog.png)
 
-### Migrate the Pi to the new template
+### Migrate the devices to the new template
 
 When a new device template version is created, all devices using the old version remain using the old version - they are not automatically migrated as the hardware may not support the new version. To use the new version, existing devices have to be manually migrated.
 

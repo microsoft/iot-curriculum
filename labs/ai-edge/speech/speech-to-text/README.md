@@ -66,7 +66,13 @@ Once your Pi is set up, you will need to install Jupyter Notebooks, as this lab 
 1. From the terminal, run the following command to install needed libraries
 
     ```sh
-    sudo apt install libffi-dev python3-scipy libportaudio2 --yes
+    sudo apt install libffi-dev libportaudio2 python3-scipy --yes
+    ```
+
+1. Some Python libraries need to be installed before the notebook is launched. Use the following command to install them:
+
+    ```sh
+    pip3 install cffi pyaudio sounddevice
     ```
 
 ## Run the Jupyter notebook
@@ -85,13 +91,13 @@ To run the notebook, you first need to clone this repo, then you can launch it i
     cd ./iot-curriculum/labs/ai-edge/speech/speech-to-text
     ```
 
-1. Open the notebook
+1. Open the notebook. This will launch the Jupyter Notebook running in the Chromium browser.
 
     ```sh
     jupyter notebook speech-to-text.ipynb
     ```
 
-This will launch the Jupyter Notebook running in the Chromium browser. Read and follow the instructions in the Notebook to complete the lab.
+1. Work through the notebook reading, following the instructions and running each cell. Make sure to set the `KEY`, `ENDPOINT` and `LANGUAGE` values in the first code cell!
 
 ## Clean up
 

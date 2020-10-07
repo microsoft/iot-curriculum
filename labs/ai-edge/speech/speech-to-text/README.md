@@ -59,9 +59,15 @@ Once it is set up, if you's rather connect remotely to the Pi, then follow the i
 
 ### Software installation
 
-Once your Pi is set up, you will need to install Jupyter Notebooks, as this lab runs from a notebook.
+Once your Pi is set up, you will need to install Jupyter Notebooks, as this lab runs from a notebook. You will also need some libraries to be able to access the microphone.
 
-Follow the instructions in the [Configure Jupyter Notebooks on a Raspberry Pi guide](../../../../devices/configure-jupyter-notebooks-raspberry-pi.md) to install and run Jupyter Notebooks.
+1. Follow the instructions in the [Configure Jupyter Notebooks on a Raspberry Pi guide](../../../../devices/configure-jupyter-notebooks-raspberry-pi.md) to install and run Jupyter Notebooks. You don't need to run the last step that launches Jupyter Notebooks.
+
+1. From the terminal, run the following command to install needed libraries
+
+    ```sh
+    sudo apt install libffi-dev python3-scipy libportaudio2 --yes
+    ```
 
 ## Run the Jupyter notebook
 

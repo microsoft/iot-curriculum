@@ -35,11 +35,7 @@ To create an Azure Cognitive Services Speech resource, follow the instructions i
 * [Create a Cognitive Services resource using the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows&WT.mc_id=iotcurriculum-github-jabenn)
 * [Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows&WT.mc_id=iotcurriculum-github-jabenn)
 
-You will need your Key and Endpoint to access the resource. If you used the Azure CLI to create the resource, the endpoint is in the form:
-
-`https://<location>.api.cognitive.microsoft.com/`
-
-Where `<location>` is the location you used to create the resource. For example, if the location you used was `westus2`, the Endpoint will be `https://westus2.api.cognitive.microsoft.com/`.
+You will need your Key and Endpoint to access the resource.
 
 ## Set up the Raspberry Pi
 
@@ -55,7 +51,7 @@ You can read instructions on how to configure an SD card with Raspberry Pi OS in
 
 Once you boot up your Pi, follow the instructions on-screen to set up the Pi, including connecting to WiFi (or connect the Pi to an ethernet cable) and updating all the software.
 
-Once it is set up, if you's rather connect remotely to the Pi, then follow the instructions in the [Microsoft Raspberry Pi headless setup guide](https://github.com/microsoft/rpi-resources/tree/master/headless-setup#remote-desktop) to configure VNC or Remote Desktop.
+Once it is set up, if you'd rather connect remotely to the Pi, then follow the instructions in the [Microsoft Raspberry Pi headless setup guide](https://github.com/microsoft/rpi-resources/tree/master/headless-setup#remote-desktop) to configure VNC or Remote Desktop.
 
 ### Software installation
 

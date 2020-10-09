@@ -33,12 +33,14 @@ There are a number of Learning Paths covering IoT technologies, services and sol
 * [Build the intelligent edge with Azure IoT Edge](https://docs.microsoft.com/learn/paths/build-intelligent-edge-with-azure-iot-edge/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Architect API integration in Azure](https://docs.microsoft.com/learn/paths/architect-api-integration/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Microsoft Power Platform Fundamentals](https://docs.microsoft.com/learn/paths/power-plat-fundamentals/?WT.mc_id=iotcurriculum-github-jabenn)
+* [IOT10: Connecting Your Physical Environment to a Digital World – A Roadmap to IoT Solutioning](https://aka.ms/iot10/resources)
 
 ### IoT Concepts and services
 
 * [Introduction to Azure IoT Hub](https://docs.microsoft.com/learn/modules/introduction-to-iot-hub/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Securely connect IoT devices to the cloud](https://docs.microsoft.com/learn/paths/securely-connect-iot-devices/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Develop IoT solutions with Azure IoT Central](https://docs.microsoft.com/learn/paths/develop-iot-solutions-with-azure-iot-central/?WT.mc_id=iotcurriculum-github-jabenn)
+* [IOT20: Deciphering Data – Optimizing Data Communication to Maximize Your ROI](https://aka.ms/iot20/resources)
 
 ### Data
 
@@ -48,6 +50,7 @@ There are a number of Learning Paths covering IoT technologies, services and sol
 * [Implement a Data Warehouse with Azure Synapse Analytics](https://docs.microsoft.com/learn/paths/implement-sql-data-warehouse/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Azure Data Fundamentals: Explore core data concepts](https://docs.microsoft.com/learn/paths/azure-data-fundamentals-explore-core-data-concepts/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Data engineering with Azure Databricks](https://docs.microsoft.com/learn/paths/data-engineer-azure-databricks/?WT.mc_id=iotcurriculum-github-jabenn)
+* [IOT40: Big Data 2.0 IoT as your New Operational Data Source](https://aka.ms/iot40/resources)
 
 ### AI and Machine Learning
 
@@ -64,12 +67,14 @@ There are a number of Learning Paths covering IoT technologies, services and sol
 * [Process and Translate Speech with Azure Cognitive Speech Services](https://docs.microsoft.com/learn/paths/process-translate-speech-azure-cognitive-speech-services/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Evaluate text with Azure Cognitive Language Services](https://docs.microsoft.com/learn/paths/evaluate-text-with-language-services/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Bring AI to business users in your organization](https://docs.microsoft.com/learn/paths/bring-ai-to-business-users-your-organization/?WT.mc_id=iotcurriculum-github-jabenn)
+* [IOT30: Adding Intelligence – Unlocking New Insights with AI & Machine Learning](https://aka.ms/iot30/resources)
 
 ### IoT Scenarios
 
 * [Configure and manage products and inventory in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-manage-products-inventory-dyn365-supply-chain-mgmt/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Configure and use lean manufacturing in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-use-lean-manufacturing-dyn365-supply-chain-mgmt/?WT.mc_id=iotcurriculum-github-jabenn)
 * [Configure and use discrete manufacturing in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-use-discrete-manufacturing-dyn365-supply-chain-mgmt/?WT.mc_id=iotcurriculum-github-jabenn)
+* [IOT50: Get to Solutioning - Strategy & Best Practices when Mapping Designs from Edge to Cloud](https://aka.ms/iot50/resources)
 
 ## Solution quickstarts
 

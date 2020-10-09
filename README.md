@@ -1,6 +1,6 @@
 # Azure IoT Curriculum
 
-**This repo is actively developed - check back often for updates**
+**This repo is actively developed - watch, star or check back often for updates**
 
 This repo contains hands-on-labs and other lab and workshop based material designed to support the creation of IoT curricula for higher education, covering IoT and AI on the edge. All the labs use physical devices, such as Raspberry Pis and NVIDIA Jetson boards, and are designed for in-class or at home study. As an educator, you would use these labs in a blended learning environment, teaching concepts and theory in the classroom, mixed with labs from here to supplement the course and provide hands-on experience.
 
@@ -167,6 +167,12 @@ Visual Studio Code (VS Code) is a free, open source, cross-platform developer te
 * [Remote developer pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack&WT.mc_id=iotcurriculum-github-jabenn) - an extension to support remote development, such as connecting to a Raspberry Pi and developing on that Pi from your PC or Mac
 * [PyLance - Python language extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance&WT.mc_id=iotcurriculum-github-jabenn) - an extension providing Python language support to VS Code
 * [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools&WT.mc_id=iotcurriculum-github-jabenn) - full intellisense and debugging support for C and C++ development
+
+## IoT Events in a box
+
+If you are interested in running an IoT event, here are some 'events in a box', giving access to event materials, such as slide decks, video walkthroughs and code samples.
+
+* [IoT Event Learning Path](https://github.com/microsoft/Internet-of-Things-Event-Learning-Path) - The Internet of Things Event Learning Path is designed for Solution Architects, Business Decision Makers, and Development teams that are interested in building IoT Solutions with Azure Services. The content is comprised of 5 video based modules that approach topics ranging from IoT device connectivity, IoT data communication strategies, use of artificial intelligence at the edge, data processing considerations for IoT data, and IoT solutioning based on the Azure IoT reference architecture.
 
 ## Azure subscriptions
 

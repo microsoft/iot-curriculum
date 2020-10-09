@@ -5,7 +5,7 @@ This lab covers using a Raspberry Pi and a microphone to recognize speech and co
 | Authors | [Connor Hagen](https://github.com/chagen24), [Jim Bennett](https://github.com/JimBobBennett) |
 |:---|:---|
 | Target platform   | <ul><li>Raspberry Pi</li></ul> |
-| Hardware required | <ul><li>Raspberry Pi 4</li><li>Micro SD Card</li><li>An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot</li><li>Raspberry Pi 4 power supply (USB-C)</li><li>USB Microphone</li><li>keyboard, mouse and monitor</li><li>[micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)</li></ul> |
+| Hardware required | <ul><li>Raspberry Pi 4</li><li>Micro SD Card</li><li>An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot</li><li>Raspberry Pi 4 power supply (USB-C)</li><li>[USB Microphone/Speaker](https://www.amazon.com/USB-Speakerphone-Conference-Business-Microphones/dp/B07Q3D7F8S)</li><li>keyboard, mouse and monitor</li><li>[micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)</li></ul> |
 | Software required | <ul><li>[Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)</li></ul> |
 | Azure Services | <ul><li>[Azure Cognitive Services Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services/?WT.mc_id=iotcurriculum-github-jabenn)</li></ul>|
 | Programming Language | <ul><li>Python</li></ul> |
@@ -41,7 +41,13 @@ You will need your Key and Endpoint to access the resource.
 
 To run this lab, you will need to use the Pi using the full Raspberry Pi OS connected via a monitor/keyboard/mouse, or using screen sharing such as VNC.
 
-Connect the Pi to a keyboard, mouse, and a monitor. Connect the USB microphone.
+Connect the Pi to a keyboard, mouse, and a monitor. Connect the USB microphone/speaker.
+
+### Speaker setup
+
+This lab will playback the audio that was recorded as a validation step. To do this playback, you will need a speaker connected, such as using a USB microphone/speaker all in one unit. If there is only one microphone connected it will be the default and used, but the Raspberry Pi HDMI connection also supports audio out, so you can use the speakers in your monitor if you have them.
+
+To configure the audio output source, right click on the speaker icon on the Raspberry Pi toolbar, then select *Audio Outputs*, then select your prefered audio output.
 
 ### OS setup
 

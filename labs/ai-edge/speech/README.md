@@ -1,6 +1,6 @@
 # Speech to text
 
-This lab covers using a Raspberry Pi and a microphone to recognize speech and convert it to text using Azure Cognitive Services and Python.
+This lab covers using a Raspberry Pi and a microphone/speaker to use the Azure Cognitive Speech Services and Python. This lab covers speech to text, text to speech and speech translation.
 
 | Authors | [Connor Hagen](https://github.com/chagen24), [Jim Bennett](https://github.com/JimBobBennett) |
 |:---|:---|
@@ -11,8 +11,8 @@ This lab covers using a Raspberry Pi and a microphone to recognize speech and co
 | Programming Language | <ul><li>Python</li></ul> |
 | Prerequisites | Basic proficiency with Python.<br><br>You will also need an [Azure subscription](https://github.com/microsoft/iot-curriculum/tree/main/labs/ai-edge/ocr#azure-subscription) |
 | Date | October 2020 |
-| Learning Objectives | <ul><li>Set up Azure Cognitive Services</li><li>Convert speech to text with Azure Speech Services</li></ul> |
-| Time to complete | 1 hour |
+| Learning Objectives | <ul><li>Set up Azure Cognitive Services</li><li>Convert speech to text with Azure Speech Services</li><li>Convert text to speech with Azure Speech Services</li><li>Convert speech to translated speech with Azure Speech Services</li></ul> |
+| Time to complete | 2 hours |
 
 ## Azure Cognitive Services
 
@@ -43,12 +43,6 @@ To run this lab, you will need to use the Pi using the full Raspberry Pi OS conn
 
 Connect the Pi to a keyboard, mouse, and a monitor. Connect the USB microphone/speaker.
 
-### Speaker setup
-
-This lab will playback the audio that was recorded as a validation step. To do this playback, you will need a speaker connected, such as using a USB microphone/speaker all in one unit. If there is only one microphone connected it will be the default and used, but the Raspberry Pi HDMI connection also supports audio out, so you can use the speakers in your monitor if you have them.
-
-To configure the audio output source, right click on the speaker icon on the Raspberry Pi toolbar, then select *Audio Outputs*, then select your prefered audio output.
-
 ### OS setup
 
 Ensure you are running the latest Raspberry Pi OS (full version, not Lite), with the latest updates, configured based on how you want to access the Pi (for example with VNC enabled if you are going to control it over VNC).
@@ -58,6 +52,12 @@ You can read instructions on how to configure an SD card with Raspberry Pi OS in
 Once you boot up your Pi, follow the instructions on-screen to set up the Pi, including connecting to WiFi (or connect the Pi to an ethernet cable) and updating all the software.
 
 Once it is set up, if you'd rather connect remotely to the Pi, then follow the instructions in the [Microsoft Raspberry Pi headless setup guide](https://github.com/microsoft/rpi-resources/tree/master/headless-setup#remote-desktop) to configure VNC or Remote Desktop.
+
+### Speaker setup
+
+This lab will playback audio. To do this playback, you will need a speaker connected, such as using a USB microphone/speaker all in one unit. If there is only one microphone connected it will be the default and used, but the Raspberry Pi HDMI connection also supports audio out, so you can use the speakers in your monitor if you have them.
+
+To configure the audio output source, right click on the speaker icon on the Raspberry Pi toolbar, then select *Audio Outputs*, then select your preferred audio output.
 
 ### Software installation
 
@@ -77,9 +77,15 @@ Once your Pi is set up, you will need to install Jupyter Notebooks, as this lab 
     pip3 install cffi pyaudio sounddevice
     ```
 
-## Run the Jupyter notebook
+## Run the relevant Jupyter Notebook
 
-To run the notebook, you first need to clone this repo, then you can launch it in Jupyter Notebooks.
+This lab contains 3 Jupyter Notebooks:
+
+* [speech-to-text.ipynb](./speech-to-text.ipynb) - Converting speech to text
+* [text-to-speech.ipynb](./text-to-speech.ipynb) - Converting text to speech
+* [speech-translation.ipynb](./speech-translation.ipynb) - Translating speech to a different language
+
+To run the notebooks, you first need to clone this repo, then you can launch them in Jupyter Notebooks.
 
 1. From the Pi Terminal, run the following command to clone this repo to get the Jupyter notebook:
 
@@ -90,16 +96,30 @@ To run the notebook, you first need to clone this repo, then you can launch it i
 1. Navigate to the Notebook folder
 
     ```sh
-    cd ./iot-curriculum/labs/ai-edge/speech/speech-to-text
+    cd ./iot-curriculum/labs/ai-edge/speech
     ```
 
 1. Open the notebook. This will launch the Jupyter Notebook running in the Chromium browser.
+
+    To open the speech to text notebook, run:
 
     ```sh
     jupyter notebook speech-to-text.ipynb
     ```
 
-1. Work through the notebook reading, following the instructions and running each cell. Make sure to set the `KEY`, `ENDPOINT` and `LANGUAGE` values in the first code cell!
+    To open the text to speech notebook, run:
+
+    ```sh
+    jupyter notebook text-to-speech.ipynb
+    ```
+
+    To open the speech translation notebook, run:
+
+    ```sh
+    jupyter notebook speech-translation.ipynb
+    ```
+
+1. Work through the notebook - read the directions and follow the instructions and running each cell. Make sure to set the `KEY`, `ENDPOINT`, `LANGUAGE`, and any other value in the first code cell!
 
 ## Clean up
 

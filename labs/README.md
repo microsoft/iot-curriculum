@@ -16,7 +16,7 @@ These labs cover running AI workloads either in the cloud from the IoT device, o
 
 * [OCR](./ai-edge/vision/ocr/) - Optical character recognition using a Raspberry Pi, USB camera and Python
 * [Manufacturing part checker](./ai-edge/vision/manufacturing-part-check/) - A prototype of an AI image classification based part validator for  manufacturing showing how to detect broken parts on an assembly line using AI, controlled from another device
-* [Speech to text](./ai-edge/speech/speech-to-text) - Speech to text using a Raspberry Pi and USB microphone
+* [Speech](./ai-edge/speech) - Speech to text, text to speech and speech translation using a Raspberry Pi and USB microphone/speaker
 
 ## Digital Agriculture
 

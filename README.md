@@ -134,6 +134,7 @@ Python is a popular language for developing IoT solutions on devices such as the
 
 * [Azure Python IoT SDK](https://github.com/Azure/azure-iot-sdk-python) - This repository contains code for the Azure IoT SDKs for Python. This enables python developers to easily create IoT device solutions that seamlessly connect to the Azure IoTHub ecosystem.
 * [Python for beginners video series on Channel9](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=iotcurriculum-github-jabenn) - Over the course of a set of videos we're going to show you the ropes of Python development
+* [More Python for beginners video series on Channel9](https://channel9.msdn.com/Series/More-Python-for-Beginners?WT.mc_id=iotcurriculum-github-jabenn) - More Python for beginners videos
 * [Take your first steps with Python learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/python-first-steps/?WT.mc_id=iotcurriculum-github-jabenn) - Interested in learning a programming language but aren't sure where to start? Start here! Learn the basic syntax and thought processes required to build simple applications using Python.
 * [CircuitPython Azure IoT SDK](https://github.com/adafruit/Adafruit_CircuitPython_AzureIoT) - An Azure IoT SDK for use with [Adafruit CircuitPython](https://circuitpython.readthedocs.io/), a variant of Python for embedded devices.
 
@@ -152,7 +153,8 @@ Python is a popular language for developing IoT solutions on devices such as the
 
 ### JavaScript/Node.js
 
-* [Azure IoT Node SDK](https://github.com/Azure/azure-iot-sdk-node) - The Azure IoT Node.js SDK enables developers to create IoT solutions written in Node.js for the Azure IoT platform. 
+* [Azure IoT Node SDK](https://github.com/Azure/azure-iot-sdk-node) - The Azure IoT Node.js SDK enables developers to create IoT solutions written in Node.js for the Azure IoT platform.
+* [Beginner's Series to: Node.js](https://channel9.msdn.com/Series/Beginners-Series-to-NodeJS?WT.mc_id=iotcurriculum-github-jabenn) - a series of practical, bite-sized videos about Node.js for beginners so you can get up to speed quickly!
 
 ### Arduino
 

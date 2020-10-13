@@ -6,7 +6,7 @@ In this step you will set up a Raspberry Pi to send temperature data.
 
 ## Raspberry Pi
 
-The [Raspberry Pi](https://raspberrypi.org) is a low-priced, small form factor computer that can run a full version of Linux. It's popular with hobbyists and kids - it was originally designed to be a cheap computer for kids to learn to code on. It has the same standard USB and HDMI ports that a PC or Mac would have, as well as GPIO (General Purpose Input Output) pins that can be used to work with a wide array of external electronic components, devices, sensors, machinery and robotics.
+The [Raspberry Pi](https://raspberrypi.org) is a low-priced, small form factor computer that can run a full version of Linux. It's popular with hobbyists and kids - it was originally designed to be a cheap computer for kids to learn to code on. It has the same standard USB and HDMI ports that a PC or Mac would have, as well as GPIO (General Purpose Input Output) pins that can be used to work with a wide array of external electronic components, devices, sensors, machinery and robotics. Raspberry Pi's have become one of the most popular general-purpose devices for IoT projects, used by millions of people every day.
 
 Raspberry Pi's can run a wide range of programing languages. In this lab you will use Python, and program the Pi using Visual Studio Code (VS Code), an open-source developer text editor that can remotely program on a Pi from your PC or Mac. When connected to the Pi remotely from your PC or Mac you can write and debug code from your device, with the code running on the Pi. You will also get a terminal that runs on the Pi.
 
@@ -126,6 +126,10 @@ Once the Pi is rebooted, you will be able to connect to it remotely from Visual 
         ```
 
     1. If you are using Windows, the easiest way to enable ZeroConf is to install [Bonjour Print Services for Windows](http://support.apple.com/kb/DL999). You can also install [iTunes for Windows](https://www.apple.com/itunes/download/) to get a newer version of the utility (which is not available standalone).
+
+1. If you are using Windows, you may get asked to select the type of platform for the remote computer, with a choice of *Linux*, *Windows* or *macOS*. Select **Linux** as the Raspberry Pi OS is a variant of Linux.
+
+    ![The select platform dialog](../../../images/vscode-remote-select-platform.png)
 
 1. The first time you connect you will need to confirm you want to connect to the specific device based off it's 'fingerprint'. Select **Connect**.
 

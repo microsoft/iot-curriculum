@@ -8,6 +8,8 @@ Most of the content here is Microsoft content available in other places - this r
 
 All the content contained in this repo is free for you to use in your courses however you see fit. We will endeavour to keep the content up to date, but seeing as technology moves fast, things may be missed. If you find any errors in these materials, please either [raise an issue](https://github.com/microsoft/iot-curriculum/issues), or feel free to [raise a PR with the fix](https://github.com/microsoft/iot-curriculum/pulls).
 
+We will be continually adding and updating the content here. If there is a particular lab or content you would like added, please [raise an issue](https://github.com/microsoft/iot-curriculum/issues). If you have content you would like to share, please [raise a PR](https://github.com/microsoft/iot-curriculum/pulls).
+
 ## Hardware needs
 
 These labs make use of a variety of hardware, all connected to cloud services. Each lab indicates up front what hardware is required. There is also an overall list for an 'IoT Cart' that provides a complete, all-in-one hardware solution that covers all these labs. This is designed to be a 'course in a box' - you purchase everything on the list and that can be shared between groups of students learning IoT in a more IoT focused degree program, rather than a single course as part of a wider technology-based learning program. Details of the cart are in the [cart](./cart) folder.
@@ -154,6 +156,7 @@ Python is a popular language for developing IoT solutions on devices such as the
 ### JavaScript/Node.js
 
 * [Azure IoT Node SDK](https://github.com/Azure/azure-iot-sdk-node) - The Azure IoT Node.js SDK enables developers to create IoT solutions written in Node.js for the Azure IoT platform.
+* [Beginner's Series to: JavaScript](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript?WT.mc_id=iotcurriculum-github-jabenn) - a series of practical, bite-sized videos about JavaScript for beginners so you can get up to speed quickly!
 * [Beginner's Series to: Node.js](https://channel9.msdn.com/Series/Beginners-Series-to-NodeJS?WT.mc_id=iotcurriculum-github-jabenn) - a series of practical, bite-sized videos about Node.js for beginners so you can get up to speed quickly!
 
 ### Arduino

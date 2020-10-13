@@ -406,4 +406,4 @@ As well as viewing raw data, you can also visualize data in Cosmos DB using a [J
 
 In this step you performed more advanced analytics to detect and visualize anomalies in the data.
 
-In the [next step](./clean-up.md) you will clean up your resources.
+In the [next step](./add-more-sensors.md) you will see how to add more sensors to the project to capture more data.

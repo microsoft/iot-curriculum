@@ -46,7 +46,7 @@ All the documentation for IoT Central is available in the [Microsoft IoT Central
 
 ## Azure IoT SDK
 
-The Raspberry Pi or simulates device will connect to Azure IoT Central using the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python). This is an open-source Python library that can talk to Azure IoT Central, register devices, and send and receive messages. As this is open-source, you can read the source code to get a deeper understanding of how it works, report bugs or add fixes via pull requests.
+The Raspberry Pi or simulated device will connect to Azure IoT Central using the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python). This is an open-source Python library that can talk to Azure IoT Central, register devices, and send and receive messages. As this is open-source, you can read the source code to get a deeper understanding of how it works, report bugs or add fixes via pull requests.
 
 This library connects using [MQTT](https://mqtt.org) either directly,or over websockets. MQTT is a popular standard for communicating with IoT devices, it's a lightweight protocol for publish/subscribe message transport. You can read more on MQTT and the implementation in the [Communicate with your IoT hub using the MQTT protocol documentation](https://docs.microsoft.com/azure/iot-hub/iot-hub-mqtt-support?WT.mc_id=iotcurriculum-github-jabenn). This documentation covers the protocol and how messages are published or subscribed to.
 

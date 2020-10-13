@@ -4,6 +4,8 @@ In the [previous step](./anomaly-detection.md) you performed more advanced analy
 
 In this step you will see how to add more sensors to the project to capture more data.
 
+This is just for information only, if you don't want to add more sensors, proceed to the [next step](./clean-up.md) where you will clean up your resources.
+
 ## Grove Pi+ Sensors and controllers
 
 This lab is based around the Grove Pi+ Starter Kit, and this kit comes with a range of sensors and controllers that can be added to the environment monitor.

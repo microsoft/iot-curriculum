@@ -128,3 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .DS_Store
+/.vs/iot-curriculum/v16/.suo
+/.vs
+/labs/gps-lab/server/code/.vs/GPS_Lab_Server/v16/.suo
+/labs/gps-lab/server/code/server.user
+/old

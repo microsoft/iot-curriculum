@@ -1,10 +1,14 @@
+import os
 from flask_socketio import SocketIO, emit
 from flask import Flask, render_template
 from threading import Thread, Event
 from azure.eventhub import TransportType
 from azure.eventhub import EventHubConsumerClient
+from dotenv import load_dotenv
+load_dotenv()
 
-CONNECTION_STR = '<Iot_Hub_Connection_String>'
+CONNECTION_STR = os.getenv("CONNECTION_STR")
+CONSUMER_GROUP_NAME = os.getenv("CONSUMER_GROUP_NAME")
 
 def on_event_batch(partition_context, events):
     for event in events:
@@ -24,7 +28,7 @@ def on_error(partition_context, error):
 
 #New Code
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
+app.config['SECRET_KEY'] = os.urandom(24)
 socketio = SocketIO(app, async_mode='threading')
 thread = Thread()
 thread_stop_event = Event()
@@ -32,7 +36,7 @@ thread_stop_event = Event()
 def index():    
     client = EventHubConsumerClient.from_connection_string(
         conn_str=CONNECTION_STR,
-        consumer_group="<Consumer_Group_Name>"
+        consumer_group=CONSUMER_GROUP_NAME
     )
     try:
         with client:

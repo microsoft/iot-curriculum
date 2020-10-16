@@ -17,7 +17,7 @@ SERIAL_PORT = "/dev/serial0"
 gps = serial.Serial(SERIAL_PORT, baudrate = 9600, timeout = 1.5)
 
 #This method converts a transmitted string from DDMM.MMMMM to DD.MMMM
-def formatDegreesMinutes(coordinates, digits):
+def format_degrees_minutes(coordinates, digits):
     
     parts = coordinates.split(".")
 
@@ -37,7 +37,7 @@ def formatDegreesMinutes(coordinates, digits):
 # This method reads the data from the serial port, the GPS sensor is attached to,
 # and then parses the NMEA messages it transmits.
 # gps is the serial port, that's used to communicate with the GPS adapter
-def getPositionData(gps):
+def get_position_data(gps):
     data = gps.readline()
     message = data[0:6]
     print(message);
@@ -50,8 +50,8 @@ def getPositionData(gps):
         else:
             # Get the position data that was transmitted with the GPRMC message
             # Find the Latitude and Longitude
-            longitude = formatDegreesMinutes(parts[5], 3)
-            latitude = formatDegreesMinutes(parts[3], 2)
+            longitude = format_degrees_minutes(parts[5], 3)
+            latitude = format_degrees_minutes(parts[3], 2)
             return (latitude, longitude);
     else:
         # Handle other NMEA messages and unsupported strings
@@ -65,14 +65,14 @@ def iothub_client_init():
     client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
     return client
 
-def iothub_client_telemetry_sample_run():
+def iothub_gps_client_run():
 
     try:
         client = iothub_client_init()
         print ( "IoT Hub device sending periodic messages, press Ctrl-C to exit" )
 
         while True:
-            latitude, longitude = getPositionData(gps)
+            latitude, longitude = get_position_data(gps)
             if latitude != 0:   
                 # Build the message with simulated telemetry values.
                 msg_txt_formatted = MSG_TXT.format(latitude=latitude, longitude=longitude)
@@ -92,4 +92,4 @@ def iothub_client_telemetry_sample_run():
 if __name__ == '__main__':
     print ( "IoT Hub GPS LAB" )
     print ( "Press Ctrl-C to exit" )
-    iothub_client_telemetry_sample_run()
+    iothub_gps_client_run()

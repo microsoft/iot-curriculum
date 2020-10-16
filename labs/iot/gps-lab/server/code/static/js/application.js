@@ -17,7 +17,8 @@ function GetMap()
         style: "satellite",
         authOptions: {
             authType: 'subscriptionKey',
-            subscriptionKey: '<Azure_Map_Subscription_Key>'
+            //subscriptionKey: '<Azure_Map_Subscription_Key>'
+            subscriptionKey: 'O_azZVgz2yPHC_nLbTntZzbcpZF7LYx7kO87PfcOv70'
         }
     });
 

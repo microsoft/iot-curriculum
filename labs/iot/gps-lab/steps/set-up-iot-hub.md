@@ -1,4 +1,5 @@
 # Set Up IoT Hub
+In the [previous step](./set-up-azure-maps.md) you set up an Azure Maps account in Microsoft Azure Portal.
 
 In this step you will set up IoT Hub and add a device in it.
 
@@ -8,19 +9,6 @@ In this step you will set up IoT Hub and add a device in it.
 2. Create a resource for IoT Hub  ![Azure IoT Hub](../images/azure-iot-hub-create-1.png)
 3. Once created note down the Event Hub Compatible Endppoint and Consumer Group
 ![IoT Hub Keys](../images/azure-iot-hub-create-3.png)
-    
-4. Update The [application.py](../server/code/application.py) with the connection string and consumer group
-    
-```python
-    CONNECTION_STR = '<Iot_Hub_Connection_String>'
-```
-```python
-    def index():    
-    client = EventHubConsumerClient.from_connection_string(
-        conn_str=CONNECTION_STR,
-        consumer_group="<Consumer_Group_Name>"
-    )
-```
 
 ## Create a device
 
@@ -31,9 +19,10 @@ In this step you will set up IoT Hub and add a device in it.
 ![Create Azure Device](../images/azure-iot-hub-create-device-2.png)
 4. Once created, note down the Primary Connection String.
 ![Create Azure Device](../images/azure-iot-hub-create-device-3.png)
-5. Update the [raspberry-pi-gps-tracker.py](../client/code/raspberry-pi-gps-tracker.py) with the connection string
 
-```python
-# The device connection string to authenticate the device with your IoT hub.
-CONNECTION_STRING = "<Device_Connection_String>"
-```
+
+## Next steps
+
+In this step you have set up the IoT Hub and added a device in it.
+
+In the [next step](./set-up-pi.md) you will set up the Raspberry Pi

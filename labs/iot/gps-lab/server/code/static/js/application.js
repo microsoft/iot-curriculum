@@ -6,7 +6,7 @@ var minSearchInputLength = 3;
 
 //The number of ms between key strokes to wait before performing a search.
 var keyStrokeDelay = 150;
-
+var mapSubscriptionKey = '<Azure_Maps_Subscription_Key>';
 function GetMap()
 {
     //Initialize a map instance.
@@ -17,8 +17,7 @@ function GetMap()
         style: "satellite",
         authOptions: {
             authType: 'subscriptionKey',
-            //subscriptionKey: '<Azure_Map_Subscription_Key>'
-            subscriptionKey: 'O_azZVgz2yPHC_nLbTntZzbcpZF7LYx7kO87PfcOv70'
+            subscriptionKey: mapSubscriptionKey
         }
     });
 

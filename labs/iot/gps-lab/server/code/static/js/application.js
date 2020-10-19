@@ -24,11 +24,7 @@ function GetMap()
         map.controls.add(new atlas.control.ZoomControl(), {
             position: 'top-right'
         });
-    });
-}
-
-$(document).ready(function ()
-{
+        
     console.log("Socket Started -- ");
 
     // Connect to the socket server.
@@ -38,8 +34,6 @@ $(document).ready(function ()
     socket.on('mapdata', function (msg)
     {
         console.log("Received GPS data");
-
-        $('#log').html('p>' + msg.data + '</p>');
 
         var data = JSON.parse(msg.data);
 
@@ -57,5 +51,5 @@ $(document).ready(function ()
         // Add the symbol as a layer in the Map. This will display the GPS point with a pin in the Map
         map.layers.add(new atlas.layer.SymbolLayer(dataSource, null));
     });
-
-});
+    });
+}

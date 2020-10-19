@@ -1,17 +1,13 @@
+var map, datasource;
 
-var map, datasource, client, popup, searchInput, resultsPanel, searchInputLength, centerMapOnResults;
-
-//The minimum number of characters needed in the search input before a search is performed.
-var minSearchInputLength = 3;
-
-//The number of ms between key strokes to wait before performing a search.
-var keyStrokeDelay = 150;
 var mapSubscriptionKey = '<Azure_Maps_Subscription_Key>';
+
+// This is the method called from onload event in body
 function GetMap()
 {
     //Initialize a map instance.
     map = new atlas.Map('myMap', {
-        center: [-122.64, 47.58],
+        center: [-122.64, 47.58], // Default position for the map.
         zoom: 4,
         view: "Auto",
         style: "satellite",
@@ -35,25 +31,30 @@ $(document).ready(function ()
 {
     console.log("Socket Started -- ");
 
-    //connect to the socket server.
+    // Connect to the socket server.
     var socket = io.connect('http://' + document.domain + ':' + location.port + '/get_data');
 
-    //receive details from server
+    // This callback method will be called when the server (app.py) returns the GPS data that it got from IoT hub
     socket.on('mapdata', function (msg)
     {
-        console.log("Received data");
+        console.log("Received GPS data");
 
         $('#log').html('p>' + msg.data + '</p>');
 
         var data = JSON.parse(msg.data);
 
+        // Set an empty data source and add it to the map
         var dataSource = new atlas.source.DataSource();
         map.sources.add(dataSource);
         console.log([data.longitude, data.latitude]);
+
+        // Create a symbol with the GPS location that came from the IoT hub
         var point = new atlas.Shape(new atlas.data.Point([++data.longitude, ++data.latitude]));
 
         //Add the symbol to the data source.
         dataSource.add([point]);
+
+        // Add the symbol as a layer in the Map. This will display the GPS point with a pin in the Map
         map.layers.add(new atlas.layer.SymbolLayer(dataSource, null));
     });
 

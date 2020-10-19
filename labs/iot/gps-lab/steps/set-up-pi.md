@@ -76,9 +76,9 @@ Once the Pi has rebooted, you will need to change the hostname. All newly setup 
     sudo apt install python3-pip
 ```
 
-> Note that we will use the default python editor Thonny that comes with Raspberry Pi to program the client side code.
+> Note that for this lab we will use the default python editor Thonny that comes with Raspberry Pi to program the client side code.
 ## Next steps
 
 In this step you have set up the Raspberry Pi.
 
-In the [next step](./add-gps-to-pi.md) you will add the GPS receiver to the pi and run the client side code.
+In the [next step](./add-gps-to-pi.md) you will add the GPS receiver to the pi and run the client side code to send the GPS location to IoT hub.

@@ -1,4 +1,5 @@
 # Run the Web Appliction
+In the [previous step](./add-gps-to-pi.md) you set up the GPS receiver with Raspberry Pi and run the code that sends the GPS data to IoT hub.
 
 In this step you will run the web application.
 
@@ -30,17 +31,10 @@ with 'Consumer Group Name' in [Set up IoT Hub](./set-up-iot-hub.md)
 1. Replace <Iot_Hub_Connection_String> from [Set up IoT Hub](./set-up-iot-hub.md)
 1. Open a terminal in Visual Studio Code and make sure the current directory is [server/code](../server/code) folder
 1. If not then go to File -> 'Add Folder to Workspace' and select the 'Code' folder.
-1. Install the libraries by running the following commands in command prompt
+1. All the installables are listed in [requirements.txt](../server/code/requirements.txt). Install the libraries by running the following commands in command prompt
 
     ```sh
-    pip install Flask
-    ```
-
-     ```sh
-    pip install Flask-SocketIO
-    ```
-    ```sh
-    pip install -U python-dotenv
+    pip3 install -r requirements.txt
     ```
 5. In the [Application.js](../server/code/static/js/application.js) file, change the **<Azure_Maps_Subscription_Key>** with the primary key that you got in [Set up Azure Maps](./set-up-azure-maps.md)
     ```js
@@ -57,3 +51,10 @@ with 'Consumer Group Name' in [Set up IoT Hub](./set-up-iot-hub.md)
 1. Make sure that your Raspberry Pi and GPS sensor is connected and sending data
 1. You should see a Azure Maps and a Pin specifying your GPS location.
 ![Azure Maps](../images/map-view.png)
+
+## Next steps
+
+In this step you have run the web application and displayed the position received from the GPS receiver in the map.
+
+In the [next step](./clean-up.md) you will clean up your resources.
+

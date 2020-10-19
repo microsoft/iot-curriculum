@@ -1,6 +1,6 @@
 # Add the GPS sensor to Raspberry Pi
 
-In the [previous step](./set-up-pi.md) you set up the Raspberry Pi device.
+In the [previous step](./set-up-pi.md) you have set up the Raspberry Pi device.
 
 In this step you will add the GPS sensor to Pi and run the python code that receives the GPS from the receiver and send the data to IoT hub.
 
@@ -18,8 +18,13 @@ In this step you will add the GPS sensor to Pi and run the python code that rece
 ```sh
     pip3 install azure.iot.device
 ```
-1. Open the Python Editor (Default Thonny) 
-1. Update the [raspberry-pi-gps-tracker.py](../client/code/raspberry-pi-gps-tracker.py) with the connection string
+1. Install [pynmea2 library](https://github.com/Knio/pynmea2) with the following code
+```sh
+    pip3 install pynmea2
+```
+1. Open the Python Editor (Default Thonny)
+1. Click Load and openthe [raspberry-pi-gps-tracker.py](../client/code/raspberry-pi-gps-tracker.py) 
+1. Update the [raspberry-pi-gps-tracker.py](../client/code/raspberry-pi-gps-tracker.py) with the device connection string you got in previous step when you have created the [Iot Hub](./set-up-iot-hub.md)
 
 ```python
 # The device connection string to authenticate the device with your IoT hub.
@@ -40,4 +45,4 @@ CONNECTION_STRING = "<Device_Connection_String>"
 
 In this step you have set up GPS receiver to the pi and run the client side application.
 
-In the [next step](./set-up-web-app.md) you will configure the server side code and run the Azure Map to see the current GPS location. .
+In the [next step](./set-up-web-app.md) you will configure the server side code and run the Azure Map to show the current GPS location.

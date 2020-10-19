@@ -6,9 +6,11 @@ In this step you will set up IoT Hub and add a device in it.
 ## Steps
 
 1. Go to [Azure portal]('https://portal.azure.com') and login to your subscription. 
-2. Create a resource for IoT Hub  ![Azure IoT Hub](../images/azure-iot-hub-create-1.png)
-3. Once created note down the Event Hub Compatible Endppoint and Consumer Group
+1. Create a resource for IoT Hub  ![Azure IoT Hub](../images/azure-iot-hub-create-1.png)
+1. Once created note down the Event Hub Compatible Endppoint and Consumer Group
 ![IoT Hub Keys](../images/azure-iot-hub-create-3.png)
+
+> [More Info](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
 
 ## Create a device
 

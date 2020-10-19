@@ -52,6 +52,12 @@ with 'Consumer Group Name' in [Set up IoT Hub](./set-up-iot-hub.md)
 1. You should see a Azure Maps and a Pin specifying your GPS location.
 ![Azure Maps](../images/map-view.png)
 
+## Troubleshoot
+1. If you do not see any map loading please check the **Azure Maps subscription key** is correct.
+1. If you do not see the GPS position in the map check that the .env file has right values
+1. Open F12 and go to console to check if you see any error messages.
+4. ![Messages](../images/map-view-2.png)
+
 ## Next steps
 
 In this step you have run the web application and displayed the position received from the GPS receiver in the map.

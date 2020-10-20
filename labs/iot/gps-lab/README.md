@@ -5,7 +5,7 @@ to IoT hub. The web application containing the Azure Maps reads the data from Io
 
 | Author | [Tanmoy Rajguru](https://github.com/Tanmoy-TCS) |
 |:---|:---|
-| Sponsor | [Microsoft AI & IoT Insiders Lab](https://microsoftiotinsiderlabs.com/en) |
+| Team | [Microsoft AI & IoT Insiders Lab](https://microsoftiotinsiderlabs.com/en) |
 | Target platform   | <ul><li>Raspberry Pi</li><li>Python with Flask</li></ul> |
 | Hardware required | <ul><li>[GPS Module Receiver](https://www.amazon.com/Navigation-Positioning-Microcontroller-Compatible-Sensitivity/dp/B084MK8BS2)</li><li>Raspberry Pi 4</li><li>Micro SD Card</li><li>An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot</li><li>Raspberry Pi 4 power supply (USB-C)</li><li>keyboard, mouse and monitor</li><li>[micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)</li></ul> |
 | Software required | <ul><li>[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn)</li></ul><ul><li>[Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)</li></ul>*There are optional installs for Windows and Linux that you may need to install later to connect to the Pi, depending on which version of the OS you are using.* |

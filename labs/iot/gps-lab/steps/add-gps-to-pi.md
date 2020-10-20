@@ -6,6 +6,9 @@ In this step you will add the GPS sensor to Pi and run the python code that rece
 
 ## Steps
 1. Assemble the [GPS sensor](https://www.amazon.com/Navigation-Positioning-Microcontroller-Compatible-Sensitivity/dp/B084MK8BS2)
+![GPS receiver](../images/gps-receiver.jpg)
+put the 5 pins in as shown in the red box.
+connect the antenna as shown in the red line.
 1. Put the vcc to 2, ground to 6 tx and rx to 8 and 10
 ![Pin Reference](../images/raspberry-pi-pins.png)[Source](https://www.raspberrypi.org/documentation/usage/gpio/)
 1. The GPS Module connected should look like following with a blinking red light when the satelite is available

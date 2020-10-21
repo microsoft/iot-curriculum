@@ -81,6 +81,16 @@ API tokens are created from IoT Central.
 
     ![The generated token dialog](../images/iot-central-administration-api-tokens-generated-token-dialog.png)
 
+### URL Encode the API token
+
+The token is not URL encoded - that means it can't be passed as is to a web call as is. To fix it, do the following:
+
+1. Paste the API token into a text editor, such as in a new document in VS Code
+
+1. In the API token there will be 3 ampersands (`&` characters) before various parts - `&sig=`, `&skn=` and `&se=`. These `&` characters cannot be passed to a web call, so need to be changed.
+
+1. Replace all `&` characters with %26 - so `&sig=` becomes `%26sig=`, `&skn=` becomes `%26sig=`, and `&se=` becomes `%26se=`
+
 ### Create the webhook
 
 The rule can call a webhook when triggered. The webhook needs a URL to call - a web address that it will use to run the command. This needs to be built up using your IoT Central app details, as well as the API token.
@@ -88,45 +98,25 @@ The rule can call a webhook when triggered. The webhook needs a URL to call - a 
 The format of this URL is:
 
 ```output
-https://<app_name>.azureiotcentral.com/api/preview/devices/pi-environment-monitor/components/EnvironmentMonitor_Environment/commands/TooLoud?access_token=<api_token>
+https://<app_name>.azureiotcentral.com/api/preview/devices/pi-environment-monitor/components/EnvironmentMonitor_Environment/commands/TooLoud?access_token=<encoded_api_token>
 ```
 
 1. To build the URL that you will use, take the above URL and replace the following:
 
     * Replace `<app_name>` with the name of your IoT Central app. You can get this from the URL that you use to access IoT central
-    * Replace `<api_token>` with the API token copied earlier
+    * Replace `<encoded_api_token>` with the API token copied earlier, with all the `&` characters replaced with `%26`
 
-You can test this webhook using [Postman](https://www.postman.com/downloads/), an app to test web calls.
+You can test this webhook using a web browser such as Microsoft Edge or Safari.
 
-1. Create a new request in Postman
+1. Paste the URL into your browser and press enter to load it
 
-1. Set the type to *POST*
-
-1. Paste in the webhook as the URL
-
-1. Head to the *Body* tab, set the type as *Raw* and *JSON*, and set the content to:
-
-    ```json
-    {
-    }
-    ```
-
-1. Select the **Send** button
-
-    ![The postman call](../images/postman-command-call.png)
-
-You should see a response in Postman of:
+You should see a response in the browser:
 
 ```json
-{
-    "response": {
-        "result": true
-    },
-    "responseCode": 200
-}
+{"value":[{"response":{"result":true},"responseCode":200}]}
 ```
 
-You should also see the Too Loud command called in the output of the Python app, and the LED light up for 10 seconds, or a message output to the console.
+You should also see the Too Loud command called in the output of the Python app, and either the LED light up for 10 seconds, or a message output to the console.
 
 > If you see the following, then the Python app is not running:
 >

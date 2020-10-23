@@ -24,92 +24,92 @@ The [labs](./labs) folder contains details on a range of different labs covering
 
 ## Microsoft Learn
 
-[Microsoft Learn](https://docs.microsoft.com/Learn?WT.mc_id=iotcurriculum-github-jabenn) is a free, online training platform that provides interactive learning for Microsoft products and more. Our goal is to help you become proficient on our technologies and learn more skills with fun, guided, hands-on, interactive content that's specific to your role and goals.
+[Microsoft Learn](https://docs.microsoft.com/Learn?WT.mc_id=academic-7372-jabenn) is a free, online training platform that provides interactive learning for Microsoft products and more. Our goal is to help you become proficient on our technologies and learn more skills with fun, guided, hands-on, interactive content that's specific to your role and goals.
 
 There are a number of Learning Paths covering IoT technologies, services and solutions. These can form a hands-on component of a blended learning setup in the classroom, or provide a way for students to learn by themselves.
 
 ### Fundamentals
 
-* [Azure Fundamentals](https://docs.microsoft.com/learn/paths/azure-fundamentals/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Introduction to internet of things](https://docs.microsoft.com/learn/paths/introduction-to-azure-iot/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Build the intelligent edge with Azure IoT Edge](https://docs.microsoft.com/learn/paths/build-intelligent-edge-with-azure-iot-edge/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Architect API integration in Azure](https://docs.microsoft.com/learn/paths/architect-api-integration/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Microsoft Power Platform Fundamentals](https://docs.microsoft.com/learn/paths/power-plat-fundamentals/?WT.mc_id=iotcurriculum-github-jabenn)
+* [Azure Fundamentals](https://docs.microsoft.com/learn/paths/azure-fundamentals/?WT.mc_id=academic-7372-jabenn)
+* [Introduction to internet of things](https://docs.microsoft.com/learn/paths/introduction-to-azure-iot/?WT.mc_id=academic-7372-jabenn)
+* [Build the intelligent edge with Azure IoT Edge](https://docs.microsoft.com/learn/paths/build-intelligent-edge-with-azure-iot-edge/?WT.mc_id=academic-7372-jabenn)
+* [Architect API integration in Azure](https://docs.microsoft.com/learn/paths/architect-api-integration/?WT.mc_id=academic-7372-jabenn)
+* [Microsoft Power Platform Fundamentals](https://docs.microsoft.com/learn/paths/power-plat-fundamentals/?WT.mc_id=academic-7372-jabenn)
 * [IOT10: Connecting Your Physical Environment to a Digital World – A Roadmap to IoT Solutioning](https://aka.ms/iot10/resources)
 
 ### IoT Concepts and services
 
-* [Introduction to Azure IoT Hub](https://docs.microsoft.com/learn/modules/introduction-to-iot-hub/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Securely connect IoT devices to the cloud](https://docs.microsoft.com/learn/paths/securely-connect-iot-devices/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Develop IoT solutions with Azure IoT Central](https://docs.microsoft.com/learn/paths/develop-iot-solutions-with-azure-iot-central/?WT.mc_id=iotcurriculum-github-jabenn)
+* [Introduction to Azure IoT Hub](https://docs.microsoft.com/learn/modules/introduction-to-iot-hub/?WT.mc_id=academic-7372-jabenn)
+* [Securely connect IoT devices to the cloud](https://docs.microsoft.com/learn/paths/securely-connect-iot-devices/?WT.mc_id=academic-7372-jabenn)
+* [Develop IoT solutions with Azure IoT Central](https://docs.microsoft.com/learn/paths/develop-iot-solutions-with-azure-iot-central/?WT.mc_id=academic-7372-jabenn)
 * [IOT20: Deciphering Data – Optimizing Data Communication to Maximize Your ROI](https://aka.ms/iot20/resources)
 
 ### Data
 
-* [Create and use analytics reports with Power BI](https://docs.microsoft.com/learn/paths/create-use-analytics-reports-power-bi/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Azure for the Data Engineer](https://docs.microsoft.com/learn/paths/azure-for-the-data-engineer/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Architect a data platform in Azure](https://docs.microsoft.com/learn/paths/architect-data-platform/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Implement a Data Warehouse with Azure Synapse Analytics](https://docs.microsoft.com/learn/paths/implement-sql-data-warehouse/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Azure Data Fundamentals: Explore core data concepts](https://docs.microsoft.com/learn/paths/azure-data-fundamentals-explore-core-data-concepts/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Data engineering with Azure Databricks](https://docs.microsoft.com/learn/paths/data-engineer-azure-databricks/?WT.mc_id=iotcurriculum-github-jabenn)
+* [Create and use analytics reports with Power BI](https://docs.microsoft.com/learn/paths/create-use-analytics-reports-power-bi/?WT.mc_id=academic-7372-jabenn)
+* [Azure for the Data Engineer](https://docs.microsoft.com/learn/paths/azure-for-the-data-engineer/?WT.mc_id=academic-7372-jabenn)
+* [Architect a data platform in Azure](https://docs.microsoft.com/learn/paths/architect-data-platform/?WT.mc_id=academic-7372-jabenn)
+* [Implement a Data Warehouse with Azure Synapse Analytics](https://docs.microsoft.com/learn/paths/implement-sql-data-warehouse/?WT.mc_id=academic-7372-jabenn)
+* [Azure Data Fundamentals: Explore core data concepts](https://docs.microsoft.com/learn/paths/azure-data-fundamentals-explore-core-data-concepts/?WT.mc_id=academic-7372-jabenn)
+* [Data engineering with Azure Databricks](https://docs.microsoft.com/learn/paths/data-engineer-azure-databricks/?WT.mc_id=academic-7372-jabenn)
 * [IOT40: Big Data 2.0 IoT as your New Operational Data Source](https://aka.ms/iot40/resources)
 
 ### AI and Machine Learning
 
-* [AI edge engineer](https://docs.microsoft.com/learn/paths/ai-edge-engineer/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Create machine learning models](https://docs.microsoft.com/learn/paths/create-machine-learn-models/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Create no-code predictive models with Azure Machine Learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/?WT.mc_id=iotcurriculum-github-jabenn)
-* [AI business school for manufacturing](https://docs.microsoft.com/learn/paths/ai-business-school-manufacturing/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Get started with artificial intelligence on Azure](https://docs.microsoft.com/learn/paths/get-started-with-artificial-intelligence-on-azure/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Microsoft Azure Artificial Intelligence (AI) strategy and solutions](https://docs.microsoft.com/learn/modules/azure-artificial-intelligence/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Build AI solutions with Azure Machine Learning](https://docs.microsoft.com/learn/paths/build-ai-solutions-with-azure-ml-service/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Explore computer vision in Microsoft Azure](https://docs.microsoft.com/learn/paths/explore-computer-vision-microsoft-azure/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Process and classify images with the Azure Cognitive Vision Services](https://docs.microsoft.com/learn/paths/classify-images-with-vision-services/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Explore natural language processing](https://docs.microsoft.com/learn/paths/explore-natural-language-processing/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Process and Translate Speech with Azure Cognitive Speech Services](https://docs.microsoft.com/learn/paths/process-translate-speech-azure-cognitive-speech-services/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Evaluate text with Azure Cognitive Language Services](https://docs.microsoft.com/learn/paths/evaluate-text-with-language-services/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Bring AI to business users in your organization](https://docs.microsoft.com/learn/paths/bring-ai-to-business-users-your-organization/?WT.mc_id=iotcurriculum-github-jabenn)
+* [AI edge engineer](https://docs.microsoft.com/learn/paths/ai-edge-engineer/?WT.mc_id=academic-7372-jabenn)
+* [Create machine learning models](https://docs.microsoft.com/learn/paths/create-machine-learn-models/?WT.mc_id=academic-7372-jabenn)
+* [Create no-code predictive models with Azure Machine Learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/?WT.mc_id=academic-7372-jabenn)
+* [AI business school for manufacturing](https://docs.microsoft.com/learn/paths/ai-business-school-manufacturing/?WT.mc_id=academic-7372-jabenn)
+* [Get started with artificial intelligence on Azure](https://docs.microsoft.com/learn/paths/get-started-with-artificial-intelligence-on-azure/?WT.mc_id=academic-7372-jabenn)
+* [Microsoft Azure Artificial Intelligence (AI) strategy and solutions](https://docs.microsoft.com/learn/modules/azure-artificial-intelligence/?WT.mc_id=academic-7372-jabenn)
+* [Build AI solutions with Azure Machine Learning](https://docs.microsoft.com/learn/paths/build-ai-solutions-with-azure-ml-service/?WT.mc_id=academic-7372-jabenn)
+* [Explore computer vision in Microsoft Azure](https://docs.microsoft.com/learn/paths/explore-computer-vision-microsoft-azure/?WT.mc_id=academic-7372-jabenn)
+* [Process and classify images with the Azure Cognitive Vision Services](https://docs.microsoft.com/learn/paths/classify-images-with-vision-services/?WT.mc_id=academic-7372-jabenn)
+* [Explore natural language processing](https://docs.microsoft.com/learn/paths/explore-natural-language-processing/?WT.mc_id=academic-7372-jabenn)
+* [Process and Translate Speech with Azure Cognitive Speech Services](https://docs.microsoft.com/learn/paths/process-translate-speech-azure-cognitive-speech-services/?WT.mc_id=academic-7372-jabenn)
+* [Evaluate text with Azure Cognitive Language Services](https://docs.microsoft.com/learn/paths/evaluate-text-with-language-services/?WT.mc_id=academic-7372-jabenn)
+* [Bring AI to business users in your organization](https://docs.microsoft.com/learn/paths/bring-ai-to-business-users-your-organization/?WT.mc_id=academic-7372-jabenn)
 * [IOT30: Adding Intelligence – Unlocking New Insights with AI & Machine Learning](https://aka.ms/iot30/resources)
 
 ### IoT Scenarios
 
-* [Configure and manage products and inventory in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-manage-products-inventory-dyn365-supply-chain-mgmt/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Configure and use lean manufacturing in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-use-lean-manufacturing-dyn365-supply-chain-mgmt/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Configure and use discrete manufacturing in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-use-discrete-manufacturing-dyn365-supply-chain-mgmt/?WT.mc_id=iotcurriculum-github-jabenn)
+* [Configure and manage products and inventory in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-manage-products-inventory-dyn365-supply-chain-mgmt/?WT.mc_id=academic-7372-jabenn)
+* [Configure and use lean manufacturing in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-use-lean-manufacturing-dyn365-supply-chain-mgmt/?WT.mc_id=academic-7372-jabenn)
+* [Configure and use discrete manufacturing in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-use-discrete-manufacturing-dyn365-supply-chain-mgmt/?WT.mc_id=academic-7372-jabenn)
 * [IOT50: Get to Solutioning - Strategy & Best Practices when Mapping Designs from Edge to Cloud](https://aka.ms/iot50/resources)
 
 ## Solution quickstarts
 
 Microsoft offers a number of 'solution accelerators' - almost complete IoT setups that can be customized to your needs. As a part of this, there are a number of quickstarts that allow you to try out the different solutions.
 
-* [Try a cloud-based remote monitoring solution](https://docs.microsoft.com/azure/iot-accelerators/quickstart-remote-monitoring-deploy?WT.mc_id=iotcurriculum-github-jabenn)
-* [Try a cloud-based solution to manage my industrial IoT devices](https://docs.microsoft.com/azure/iot-accelerators/quickstart-connected-factory-deploy?WT.mc_id=iotcurriculum-github-jabenn)
-* [Deploy and run an IoT device simulation in Azure](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy?WT.mc_id=iotcurriculum-github-jabenn)
-* [Try a cloud-based solution to run a predictive maintenance analysis on my connected devices](https://docs.microsoft.com/azure/iot-accelerators/quickstart-predictive-maintenance-deploy?WT.mc_id=iotcurriculum-github-jabenn)
+* [Try a cloud-based remote monitoring solution](https://docs.microsoft.com/azure/iot-accelerators/quickstart-remote-monitoring-deploy?WT.mc_id=academic-7372-jabenn)
+* [Try a cloud-based solution to manage my industrial IoT devices](https://docs.microsoft.com/azure/iot-accelerators/quickstart-connected-factory-deploy?WT.mc_id=academic-7372-jabenn)
+* [Deploy and run an IoT device simulation in Azure](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy?WT.mc_id=academic-7372-jabenn)
+* [Try a cloud-based solution to run a predictive maintenance analysis on my connected devices](https://docs.microsoft.com/azure/iot-accelerators/quickstart-predictive-maintenance-deploy?WT.mc_id=academic-7372-jabenn)
 
 ## Reference architectures
 
-The [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/?WT.mc_id=iotcurriculum-github-jabenn) provides guidance for architecting solutions on Azure using established patterns and practices.
+The [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/?WT.mc_id=academic-7372-jabenn) provides guidance for architecting solutions on Azure using established patterns and practices.
 
-* [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot?WT.mc_id=iotcurriculum-github-jabenn)
-* [IoT and data analytics in the construction industry](https://docs.microsoft.com/azure/architecture/example-scenario/data/big-data-with-iot?WT.mc_id=iotcurriculum-github-jabenn)
-* [Controlling IoT devices using a Voice Assistant](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-devices?WT.mc_id=iotcurriculum-github-jabenn)
-* [IoT using Cosmos DB](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-using-cosmos-db?WT.mc_id=iotcurriculum-github-jabenn)
-* [IoT Connected Platform for COVID-19 protection](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-connected-platform?WT.mc_id=iotcurriculum-github-jabenn)
-* [Contactless interfaces with Azure IoT Edge](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/contactless-interfaces?WT.mc_id=iotcurriculum-github-jabenn)
-* [COVID-19 Safe Solutions at the IoT Edge](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cctv-mask-detection?WT.mc_id=iotcurriculum-github-jabenn)
-* [Smart and secure lighting and disinfection](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/uven-disinfection?WT.mc_id=iotcurriculum-github-jabenn)
-* [Predictive maintenance with the intelligent IoT Edge](https://docs.microsoft.com/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance?WT.mc_id=iotcurriculum-github-jabenn)
-* [Ingestion and processing of real-time automotive IoT data](https://docs.microsoft.com/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot?WT.mc_id=iotcurriculum-github-jabenn)
-* [Create a safe building](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/safe-buildings?WT.mc_id=iotcurriculum-github-jabenn)
-* [Secure your IoT SaaS app with the Microsoft identity platform](https://docs.microsoft.com/azure/architecture/example-scenario/iot-aad/iot-aad?WT.mc_id=iotcurriculum-github-jabenn)
-* [Azure Industrial IoT Analytics Guidance](https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-architecture?WT.mc_id=iotcurriculum-github-jabenn)
+* [Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot?WT.mc_id=academic-7372-jabenn)
+* [IoT and data analytics in the construction industry](https://docs.microsoft.com/azure/architecture/example-scenario/data/big-data-with-iot?WT.mc_id=academic-7372-jabenn)
+* [Controlling IoT devices using a Voice Assistant](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-devices?WT.mc_id=academic-7372-jabenn)
+* [IoT using Cosmos DB](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-using-cosmos-db?WT.mc_id=academic-7372-jabenn)
+* [IoT Connected Platform for COVID-19 protection](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/iot-connected-platform?WT.mc_id=academic-7372-jabenn)
+* [Contactless interfaces with Azure IoT Edge](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/contactless-interfaces?WT.mc_id=academic-7372-jabenn)
+* [COVID-19 Safe Solutions at the IoT Edge](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/cctv-mask-detection?WT.mc_id=academic-7372-jabenn)
+* [Smart and secure lighting and disinfection](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/uven-disinfection?WT.mc_id=academic-7372-jabenn)
+* [Predictive maintenance with the intelligent IoT Edge](https://docs.microsoft.com/azure/architecture/example-scenario/predictive-maintenance/iot-predictive-maintenance?WT.mc_id=academic-7372-jabenn)
+* [Ingestion and processing of real-time automotive IoT data](https://docs.microsoft.com/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot?WT.mc_id=academic-7372-jabenn)
+* [Create a safe building](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/safe-buildings?WT.mc_id=academic-7372-jabenn)
+* [Secure your IoT SaaS app with the Microsoft identity platform](https://docs.microsoft.com/azure/architecture/example-scenario/iot-aad/iot-aad?WT.mc_id=academic-7372-jabenn)
+* [Azure Industrial IoT Analytics Guidance](https://docs.microsoft.com/azure/architecture/guide/iiot-guidance/iiot-architecture?WT.mc_id=academic-7372-jabenn)
 
 ## Industrial IoT
 
 For Industrial IoT (IIoT), Microsoft provides a range of reference materials and samples based around OPC-UA.
 
-* [IIoT on Azure documentation](https://docs.microsoft.com/azure/iot-accelerators/overview-iot-industrial?WT.mc_id=iotcurriculum-github-jabenn) - documentation and a solution accelerator for IIoT
+* [IIoT on Azure documentation](https://docs.microsoft.com/azure/iot-accelerators/overview-iot-industrial?WT.mc_id=academic-7372-jabenn) - documentation and a solution accelerator for IIoT
 * [Open62541](https://github.com/open62541/open62541) - an open source OPC-UA implementation
 * [OPC-UA with IoT Central](https://github.com/jlorich/demo-opc-iot-edge-to-central) - a reference implementation for connecting OPC-Servers to IoT Edge and then passing data up to IoT Central
 * [IoT Edge offline dashboarding](https://github.com/AzureIoTGBB/iot-edge-offline-dashboarding) - a set of modules that can be used with Azure IoT Edge to perform dashboarding at the edge
@@ -122,9 +122,9 @@ For Industrial IoT (IIoT), Microsoft provides a range of reference materials and
 
 Azure RTOS is an embedded development suite including a small but powerful operating system that provides reliable, ultra-fast performance for resource-constrained devices. It’s easy-to-use and market-proven, having been deployed on more than 6.2 billion devices worldwide. Azure RTOS supports the most popular 32-bit microcontrollers and embedded development tools, so you can make the most of your team’s existing skills.
 
-* [Overview of Azure RTOS](https://azure.microsoft.com/services/rtos/?WT.mc_id=iotcurriculum-github-jabenn)
+* [Overview of Azure RTOS](https://azure.microsoft.com/services/rtos/?WT.mc_id=academic-7372-jabenn)
 * [Azure RTOS on GitHub](https://github.com/azure-rtos)
-* [Introduction to Azure RTOS video on Channel9](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-Azure-RTOS?WT.mc_id=iotcurriculum-github-jabenn)
+* [Introduction to Azure RTOS video on Channel9](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-Azure-RTOS?WT.mc_id=academic-7372-jabenn)
 
 ## Programming languages, platforms and tools
 
@@ -135,9 +135,9 @@ There are many different programming languages, platforms and tools you can use 
 Python is a popular language for developing IoT solutions on devices such as the Raspberry Pi. It's also popular for data science, and building machine learning models to analyze the data coming from IoT devices.
 
 * [Azure Python IoT SDK](https://github.com/Azure/azure-iot-sdk-python) - This repository contains code for the Azure IoT SDKs for Python. This enables python developers to easily create IoT device solutions that seamlessly connect to the Azure IoTHub ecosystem.
-* [Python for beginners video series on Channel9](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=iotcurriculum-github-jabenn) - Over the course of a set of videos we're going to show you the ropes of Python development
-* [More Python for beginners video series on Channel9](https://channel9.msdn.com/Series/More-Python-for-Beginners?WT.mc_id=iotcurriculum-github-jabenn) - More Python for beginners videos
-* [Take your first steps with Python learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/python-first-steps/?WT.mc_id=iotcurriculum-github-jabenn) - Interested in learning a programming language but aren't sure where to start? Start here! Learn the basic syntax and thought processes required to build simple applications using Python.
+* [Python for beginners video series on Channel9](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=academic-7372-jabenn) - Over the course of a set of videos we're going to show you the ropes of Python development
+* [More Python for beginners video series on Channel9](https://channel9.msdn.com/Series/More-Python-for-Beginners?WT.mc_id=academic-7372-jabenn) - More Python for beginners videos
+* [Take your first steps with Python learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/python-first-steps/?WT.mc_id=academic-7372-jabenn) - Interested in learning a programming language but aren't sure where to start? Start here! Learn the basic syntax and thought processes required to build simple applications using Python.
 * [CircuitPython Azure IoT SDK](https://github.com/adafruit/Adafruit_CircuitPython_AzureIoT) - An Azure IoT SDK for use with [Adafruit CircuitPython](https://circuitpython.readthedocs.io/), a variant of Python for embedded devices.
 
 ### .NET
@@ -145,8 +145,8 @@ Python is a popular language for developing IoT solutions on devices such as the
 .NET is a free, cross-platform, open source developer platform for building applications, and supports programming languages such as C# and F#.
 
 * [Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) - A C# SDK for connecting to Azure IoT Services
-* [.NET home page](https://dotnet.microsoft.com?WT.mc_id=iotcurriculum-github-jabenn) - the home of .NET
-* [.NET 101 video series](https://dotnet.microsoft.com/learn/videos?WT.mc_id=iotcurriculum-github-jabenn) - a 101 level video series to learn .NET
+* [.NET home page](https://dotnet.microsoft.com?WT.mc_id=academic-7372-jabenn) - the home of .NET
+* [.NET 101 video series](https://dotnet.microsoft.com/learn/videos?WT.mc_id=academic-7372-jabenn) - a 101 level video series to learn .NET
 * [.NET for IoT devices](https://github.com/dotnet/iot) - This repo includes .NET Core implementations for various IoT boards, chips, displays and PCBs.
 
 ### C/C++
@@ -156,8 +156,8 @@ Python is a popular language for developing IoT solutions on devices such as the
 ### JavaScript/Node.js
 
 * [Azure IoT Node SDK](https://github.com/Azure/azure-iot-sdk-node) - The Azure IoT Node.js SDK enables developers to create IoT solutions written in Node.js for the Azure IoT platform.
-* [Beginner's Series to: JavaScript](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript?WT.mc_id=iotcurriculum-github-jabenn) - a series of practical, bite-sized videos about JavaScript for beginners so you can get up to speed quickly!
-* [Beginner's Series to: Node.js](https://channel9.msdn.com/Series/Beginners-Series-to-NodeJS?WT.mc_id=iotcurriculum-github-jabenn) - a series of practical, bite-sized videos about Node.js for beginners so you can get up to speed quickly!
+* [Beginner's Series to: JavaScript](https://channel9.msdn.com/Series/Beginners-Series-to-JavaScript?WT.mc_id=academic-7372-jabenn) - a series of practical, bite-sized videos about JavaScript for beginners so you can get up to speed quickly!
+* [Beginner's Series to: Node.js](https://channel9.msdn.com/Series/Beginners-Series-to-NodeJS?WT.mc_id=academic-7372-jabenn) - a series of practical, bite-sized videos about Node.js for beginners so you can get up to speed quickly!
 
 ### Arduino
 
@@ -167,7 +167,7 @@ Python is a popular language for developing IoT solutions on devices such as the
 
 Visual Studio Code (VS Code) is a free, open source, cross-platform developer text editor that can be extended by a huge range of extensions to support different programing languages and capabilities.
 
-* [Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn) - the home of VS Code
+* [Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academic-7372-jabenn) - the home of VS Code
 * [Platform.io](https://platformio.org/platformio-ide) - an extension for VS Code that provides tools for embedded C/C++ development, with no additional dependencies
 * [Remote developer pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack&WT.mc_id=iotcurriculum-github-jabenn) - an extension to support remote development, such as connecting to a Raspberry Pi and developing on that Pi from your PC or Mac
 * [PyLance - Python language extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance&WT.mc_id=iotcurriculum-github-jabenn) - an extension providing Python language support to VS Code
@@ -185,7 +185,7 @@ These labs are designed for courses where Azure resources are provided to studen
 
 ## Get certified
 
-Microsoft offers a certification in IoT - AZ-220, the Microsoft Certified: Azure IoT Developer Specialty. You can read more about this certification on the [Microsoft Certified: Azure IoT Developer Specialty page on Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-iot-developer-specialty?WT.mc_id=iotcurriculum-github-jabenn).
+Microsoft offers a certification in IoT - AZ-220, the Microsoft Certified: Azure IoT Developer Specialty. You can read more about this certification on the [Microsoft Certified: Azure IoT Developer Specialty page on Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-iot-developer-specialty?WT.mc_id=academic-7372-jabenn).
 
 ## Microsoft Learn Student Ambassadors
 
@@ -197,7 +197,7 @@ Student Ambassadors get access to unique resources like our global student netwo
 
 If you are an educator, encourage your students to sign up for this program to help their peers learn new skills, and to improve employability after their studies.
 
-You can learn more on the [Microsoft Learn Student Ambassadors site](https://studentambassadors.microsoft.com?WT.mc_id=iotcurriculum-github-jabenn).
+You can learn more on the [Microsoft Learn Student Ambassadors site](https://studentambassadors.microsoft.com?WT.mc_id=academic-7372-jabenn).
 
 ## Contributing
 

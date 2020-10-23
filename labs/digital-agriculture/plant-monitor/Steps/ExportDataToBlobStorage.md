@@ -4,15 +4,15 @@ In the [previous step](./CreateBlobStorage.md) you created a storage account to 
 
 ## Azure Stream Analytics
 
-[Azure StreamAnalytics](https://azure.microsoft.com/services/stream-analytics/?WT.mc_id=iotcurriculum-github-jabenn) provides real-time analytics on streams of data, allowing you to stream data from one service to another
+[Azure StreamAnalytics](https://azure.microsoft.com/services/stream-analytics/?WT.mc_id=academic-7372-jabenn) provides real-time analytics on streams of data, allowing you to stream data from one service to another
 
 ### Create the Azure Stream Analytics Job
 
 Azure Stream Analytics jobs need to be created from the Azure Portal, you cannot create them using the Azure CLI.
 
-> If you don't want to use the portal, you can use PowerShell by following [these instructions](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-powershell?WT.mc_id=iotcurriculum-github-jabenn).
+> If you don't want to use the portal, you can use PowerShell by following [these instructions](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-powershell?WT.mc_id=academic-7372-jabenn).
 
-1. Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=iotcurriculum-github-jabenn)
+1. Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn)
 
 1. Log in with your Microsoft account if required
 
@@ -159,7 +159,7 @@ You can validate that data is being streamed to the storage account via the Azur
 
 ### Validate the data with the Azure Portal
 
-1. Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=iotcurriculum-github-jabenn)
+1. Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn)
 
 1. Log in with your Microsoft account if required
 
@@ -230,9 +230,9 @@ You can validate that data is being streamed to the storage account via the Azur
 
 Once the data is in blob storage, it can be access and used by multiple Azure services. This workshop won't cover these use cases in depth as there are too many possibilities. To learn more about ways to use this data, check out the following documentation:
 
-* [Access data in Azure storage services from ML Studio](https://docs.microsoft.com/azure/machine-learning/how-to-access-data/?WT.mc_id=iotcurriculum-github-jabenn)
-* [Access cloud data in a Jupyter notebook](https://docs.microsoft.com/azure/notebooks/access-data-resources-jupyter-notebooks#azure-storage?WT.mc_id=iotcurriculum-github-jabenn)
-* [Trigger an Azure Function when entries are added to blob storage](https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function?WT.mc_id=iotcurriculum-github-jabenn)
+* [Access data in Azure storage services from ML Studio](https://docs.microsoft.com/azure/machine-learning/how-to-access-data/?WT.mc_id=academic-7372-jabenn)
+* [Access cloud data in a Jupyter notebook](https://docs.microsoft.com/azure/notebooks/access-data-resources-jupyter-notebooks#azure-storage?WT.mc_id=academic-7372-jabenn)
+* [Trigger an Azure Function when entries are added to blob storage](https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function?WT.mc_id=academic-7372-jabenn)
 
 <hr>
 

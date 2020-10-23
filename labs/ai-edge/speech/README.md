@@ -7,8 +7,8 @@ This lab covers using a Raspberry Pi and a microphone/speaker to use the Azure C
 | Target platform   | <ul><li>Raspberry Pi</li></ul> |
 | Hardware required | <ul><li>Raspberry Pi 4</li><li>Micro SD Card</li><li>An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot</li><li>Raspberry Pi 4 power supply (USB-C)</li><li>[USB Microphone/Speaker](https://www.amazon.com/USB-Speakerphone-Conference-Business-Microphones/dp/B07Q3D7F8S)</li><li>keyboard, mouse and monitor</li><li>[micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)</li></ul> |
 | Software required | <ul><li>[Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)</li></ul> |
-| Azure Services | <ul><li>[Azure Cognitive Services Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services/?WT.mc_id=iotcurriculum-github-jabenn)</li><li>[Azure Cognitive Services Translator service](https://azure.microsoft.com/services/cognitive-services/translator/?WT.mc_id=iotcurriculum-github-jabenn)</li></ul>|
-| Programming Language | <ul><li>Python</li></ul><br>If you want to learn Python, check out these free resources:<br><ul><li>[Python for beginners video series on Channel9](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=iotcurriculum-github-jabenn)</li><li>[Take your first steps with Python learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/python-first-steps/?WT.mc_id=iotcurriculum-github-jabenn)</li></ul> |
+| Azure Services | <ul><li>[Azure Cognitive Services Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services/?WT.mc_id=academic-7372-jabenn)</li><li>[Azure Cognitive Services Translator service](https://azure.microsoft.com/services/cognitive-services/translator/?WT.mc_id=academic-7372-jabenn)</li></ul>|
+| Programming Language | <ul><li>Python</li></ul><br>If you want to learn Python, check out these free resources:<br><ul><li>[Python for beginners video series on Channel9](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=academic-7372-jabenn)</li><li>[Take your first steps with Python learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/python-first-steps/?WT.mc_id=academic-7372-jabenn)</li></ul> |
 | Prerequisites | Basic proficiency with Python.<br><br>You will also need an [Azure subscription](https://github.com/microsoft/iot-curriculum/tree/main/labs/ai-edge/ocr#azure-subscription) |
 | Date | October 2020 |
 | Learning Objectives | <ul><li>Set up Azure Cognitive Services</li><li>Convert speech to text with Azure Speech Services</li><li>Convert text to speech with Azure Speech Services</li><li>Convert speech to translated speech with Azure Speech and Translator Services</li></ul> |
@@ -16,13 +16,13 @@ This lab covers using a Raspberry Pi and a microphone/speaker to use the Azure C
 
 ## Azure Cognitive Services
 
-[Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=iotcurriculum-github-jabenn) is a comprehensive family of AI services and cognitive APIs to help you build intelligent apps.
+[Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/?WT.mc_id=academic-7372-jabenn) is a comprehensive family of AI services and cognitive APIs to help you build intelligent apps.
 
-This lab covers the [Azure Cognitive Services Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services/?WT.mc_id=iotcurriculum-github-jabenn) and [Azure Cognitive Services Translator service](https://azure.microsoft.com/services/cognitive-services/translator/?WT.mc_id=iotcurriculum-github-jabenn). Thess services have a free tier, so there will be no cost to run this lab.
+This lab covers the [Azure Cognitive Services Speech service](https://azure.microsoft.com/services/cognitive-services/speech-services/?WT.mc_id=academic-7372-jabenn) and [Azure Cognitive Services Translator service](https://azure.microsoft.com/services/cognitive-services/translator/?WT.mc_id=academic-7372-jabenn). Thess services have a free tier, so there will be no cost to run this lab.
 
-> Note that you can only have one free tier instance of each resource per Azure subscription, so if you already have a free tier set up, you can re-use it or use a paid tier. You can find the current pricing on the [Azure cognitive services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/?WT.mc_id=iotcurriculum-github-jabenn).
+> Note that you can only have one free tier instance of each resource per Azure subscription, so if you already have a free tier set up, you can re-use it or use a paid tier. You can find the current pricing on the [Azure cognitive services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/?WT.mc_id=academic-7372-jabenn).
 
-To learn more about these services, and to try them out on a Mac or PC, work through the [Process and Translate Speech with Azure Cognitive Speech Services](https://docs.microsoft.com/learn/paths/process-translate-speech-azure-cognitive-speech-services/?WT.mc_id=iotcurriculum-github-jabenn) learning path on [Microsoft Learn](https://docs.microsoft.com/learn?WT.mc_id=iotcurriculum-github-jabenn).
+To learn more about these services, and to try them out on a Mac or PC, work through the [Process and Translate Speech with Azure Cognitive Speech Services](https://docs.microsoft.com/learn/paths/process-translate-speech-azure-cognitive-speech-services/?WT.mc_id=academic-7372-jabenn) learning path on [Microsoft Learn](https://docs.microsoft.com/learn?WT.mc_id=academic-7372-jabenn).
 
 ### Azure subscription
 
@@ -129,4 +129,4 @@ To run the notebooks, you first need to clone this repo, then you can launch the
 
 ## Clean up
 
-Once you have finished this lab, you can clean up your resource group to delete any Azure resources that you have created, stopping you being billed for them. You can read about how to do this in the [Deleting Azure Resource Groups guide](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal?WT.mc_id=iotcurriculum-github-jabenn#delete-resource-groups)
+Once you have finished this lab, you can clean up your resource group to delete any Azure resources that you have created, stopping you being billed for them. You can read about how to do this in the [Deleting Azure Resource Groups guide](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal?WT.mc_id=academic-7372-jabenn#delete-resource-groups)

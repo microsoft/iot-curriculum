@@ -4,7 +4,7 @@ In the [previous step](./ExportDataToBlobStorage.md), you exported IoT telemetry
 
 ## Azure Functions
 
-[Azure Functions](https://azure.microsoft.com/services/functions/?WT.mc_id=iotcurriculum-github-jabenn) is an event driven serverless compute platform, essentially a way to define small blocks of code that are triggered by events such as a web request, data changes in storage or events being put onto an Azure Event Hub. They can be written in a multitude of different languages including C#, F#, Java, JavaScript and Python.
+[Azure Functions](https://azure.microsoft.com/services/functions/?WT.mc_id=academic-7372-jabenn) is an event driven serverless compute platform, essentially a way to define small blocks of code that are triggered by events such as a web request, data changes in storage or events being put onto an Azure Event Hub. They can be written in a multitude of different languages including C#, F#, Java, JavaScript and Python.
 
 Azure Stream Analytics can call Azure Functions in response to streaming data, either individual messages or an aggregation across a time window.
 
@@ -364,7 +364,7 @@ The function can be deployed from Visual Studio code, or the Azure CLI.
        TumblingWindow(minute,5)
    ```
 
-   This will select data as it comes into the `telemetry` event hub, grouping data using a 5 minute [tumbling window](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics?WT.mc_id=iotcurriculum-github-jabenn). This groups data into 5 minute blocks and calls the query for each block. The query will get the average value of 4 telemetry values.
+   This will select data as it comes into the `telemetry` event hub, grouping data using a 5 minute [tumbling window](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics?WT.mc_id=academic-7372-jabenn). This groups data into 5 minute blocks and calls the query for each block. The query will get the average value of 4 telemetry values.
 
 1. Select **Test Query** to test the query and see a sample output using real data from the event hub
 
@@ -394,7 +394,7 @@ The function can be deployed from Visual Studio code, or the Azure CLI.
 
 The easiest way to ensure the query is running correctly is by verifying that the Azure Function gets called.
 
-1. Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=iotcurriculum-github-jabenn)
+1. Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn)
 
 1. Log in with your Microsoft account if required
 

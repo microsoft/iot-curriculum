@@ -10,7 +10,7 @@ For example, if you had 2 IoT projects, one to monitor temperature across a camp
 
 In this lab you won't create an IoT Central application from scratch, instead you will use a template to create an application from an existing app template - essentially a pre-built app you can copy.
 
-> If you want to learn more about create IoT Applications from scratch, check out the [Create an Azure IoT Central application documentation](https://docs.microsoft.com/azure/iot-central/core/quick-deploy-iot-central?WT.mc_id=iotcurriculum-github-jabenn).
+> If you want to learn more about create IoT Applications from scratch, check out the [Create an Azure IoT Central application documentation](https://docs.microsoft.com/azure/iot-central/core/quick-deploy-iot-central?WT.mc_id=academic-7372-jabenn).
 
 ### Device templates
 
@@ -47,7 +47,7 @@ To create an IoT Central application, follow these steps:
 
     1. Each application needs a unique URL - this is the web site you will go to to access the IoT Central application. It defaults to a variant of the application name, but it needs to be globally unique - as in no other IoT central application can have the same URL. Try adding something unique to it, such as your name or the current date.
 
-    1. Select a pricing plan. The free tier doesn't need an Azure subscription to use and supports up to 5 devices, but will be deleted automatically after 7 days. The other tiers need an Azure subscription but you can have 2 devices for free. After that you pay per device/month - the Standard 1 (S1) tier is US$0.40 per device per month at the time of writing, the Standard 2 (S2) tier is US$0.70. You can find the latest pricing for your region in the [Azure IoT Central pricing guide](https://azure.microsoft.com/pricing/details/iot-central/?WT.mc_id=iotcurriculum-github-jabenn)
+    1. Select a pricing plan. The free tier doesn't need an Azure subscription to use and supports up to 5 devices, but will be deleted automatically after 7 days. The other tiers need an Azure subscription but you can have 2 devices for free. After that you pay per device/month - the Standard 1 (S1) tier is US$0.40 per device per month at the time of writing, the Standard 2 (S2) tier is US$0.70. You can find the latest pricing for your region in the [Azure IoT Central pricing guide](https://azure.microsoft.com/pricing/details/iot-central/?WT.mc_id=academic-7372-jabenn)
 
         The recommended tier is Standard 2 to ensure that you can send enough messages. This will be free for this lab, as you will only be creating 2 devices.
 

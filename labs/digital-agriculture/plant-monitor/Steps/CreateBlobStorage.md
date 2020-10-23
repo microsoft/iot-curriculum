@@ -4,9 +4,9 @@ In the [previous step](./ExportDataToEventHubs.md), you exported IoT telemetry t
 
 ## Azure blob storage
 
-[Azure blob storage](https://azure.microsoft.com/services/storage/blobs/?WT.mc_id=iotcurriculum-github-jabenn) allows you to store blobs of unstructured data that can be easily access from other Azure services, such as Azure ML Studio.
+[Azure blob storage](https://azure.microsoft.com/services/storage/blobs/?WT.mc_id=academic-7372-jabenn) allows you to store blobs of unstructured data that can be easily access from other Azure services, such as Azure ML Studio.
 
-Azure has a concept of [storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-overview/?WT.mc_id=iotcurriculum-github-jabenn), which wrap a range of storage services including file, table and blob. Blob storage uses collections to store different data in.
+Azure has a concept of [storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-overview/?WT.mc_id=academic-7372-jabenn), which wrap a range of storage services including file, table and blob. Blob storage uses collections to store different data in.
 
 ### Create a storage account and collection
 
@@ -14,7 +14,7 @@ There are two ways to create a storage account - from the Azure Portal or the Az
 
 #### Use the Azure Portal
 
-1. Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=iotcurriculum-github-jabenn)
+1. Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn)
 
 1. Log in with your Microsoft account if required
 
@@ -42,7 +42,7 @@ There are two ways to create a storage account - from the Azure Portal or the Az
 
    1. Select a *Location* closest to you, the same location you used in the previous step to create the resource group and event hubs.
 
-   1. Set the *Replication* to be `Locally-redundant storage (LRS)` as this is the cheapest option. For production workloads you would want better redundancy, read the [documentation on data redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy/?WT.mc_id=iotcurriculum-github-jabenn) for more details on this.
+   1. Set the *Replication* to be `Locally-redundant storage (LRS)` as this is the cheapest option. For production workloads you would want better redundancy, read the [documentation on data redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy/?WT.mc_id=academic-7372-jabenn) for more details on this.
 
    1. Leave the rest of the options as the defaults
 
@@ -88,7 +88,7 @@ There are two ways to create a storage account - from the Azure Portal or the Az
 
    The `-resource-group AgroHack` setting adds this storage account to the new Resource Group you created in the previous step.
 
-   The `--sku Standard_LRS` setting sets the data replication to be `Locally-redundant storage (LRS)` as this is the cheapest option. For production workloads you would want better redundancy, read the [documentation on data redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy/?WT.mc_id=iotcurriculum-github-jabenn) for more details on this.
+   The `--sku Standard_LRS` setting sets the data replication to be `Locally-redundant storage (LRS)` as this is the cheapest option. For production workloads you would want better redundancy, read the [documentation on data redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy/?WT.mc_id=academic-7372-jabenn) for more details on this.
 
 ##### Create the collection
 

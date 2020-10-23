@@ -14,7 +14,7 @@ The resources in this repo will focus on Python and C# only.
 
 Rather than duplicate existing labs or documentation, here are some links to existing Microsoft and external Raspberry Pi content.
 
-* [Microsoft Raspberry Pi Resources](https://github.com/microsoft/rpi-resources) - guides on how to set up a Pi for remote access, how to connect remotely to code on the Pi using [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn), and getting started with GPIO in Python.
+* [Microsoft Raspberry Pi Resources](https://github.com/microsoft/rpi-resources) - guides on how to set up a Pi for remote access, how to connect remotely to code on the Pi using [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=academic-7372-jabenn), and getting started with GPIO in Python.
 * [Setting up Jupyter Notebooks on a Raspberry Pi](./configure-jupyter-notebooks-raspberry-pi.md)
 * [Grove Python setup](https://wiki.seeedstudio.com/Grove_Base_Kit_for_Raspberry_Pi/) - guide from Seeed Studios on how to set up the Grove libraries on a Pi
 * [Debugging Pi apps remotely using VS Code](https://github.com/gloveboxes/PyLab-0-Raspberry-Pi-Set-Up) - a hands on lab covering how to debug Python apps remotely on a Raspberry Pi using Visual Studio Code. This lab is designed for multiple students per Pi, supporting up to 20 students on one Raspberry Pi.

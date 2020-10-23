@@ -27,7 +27,7 @@ or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any addi
   We want a wide variety of different scenarios covered. If you want to create a lab that is similar to an existing one, but using a different sensor or board then maybe consider expanding the existing one to mention both sensors instead of creating a whole new lab.
 
 * **Point to Microsoft documentation or first party documentation instead of duplicating:**
-  We have a lot of great content in [Microsoft docs](https://docs.microsoft.com?WT.mc_id=iotcurriculum-github-jabenn) and [Microsoft Learn](https://docs.microsoft.com/learn?WT.mc_id=iotcurriculum-github-jabenn), so there's no need to duplicate what's there. Not only does this apply to full guides, but even parts of a lab. For example, there's no need to document how to create a service if the relevant docs provide all the details - just link to the docs. This way there is less content to keep up to date, the docs team will update their content when it goes out of date.
+  We have a lot of great content in [Microsoft docs](https://docs.microsoft.com?WT.mc_id=academic-7372-jabenn) and [Microsoft Learn](https://docs.microsoft.com/learn?WT.mc_id=academic-7372-jabenn), so there's no need to duplicate what's there. Not only does this apply to full guides, but even parts of a lab. For example, there's no need to document how to create a service if the relevant docs provide all the details - just link to the docs. This way there is less content to keep up to date, the docs team will update their content when it goes out of date.
 
   For example, in the [Environment Monitor](./iot/environment_monitor/), there are links to Raspberry Pi documentation to image SD cards, and Microsoft Docs to delete resource groups.
 

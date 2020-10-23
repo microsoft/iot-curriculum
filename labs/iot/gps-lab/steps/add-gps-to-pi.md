@@ -5,6 +5,7 @@ In the [previous step](./set-up-pi.md) you have set up the Raspberry Pi device.
 In this step you will add the GPS sensor to Pi and run the python code that receives the GPS from the receiver and send the data to IoT hub.
 
 ## Steps
+
 1. Assemble the [GPS sensor](https://www.amazon.com/Navigation-Positioning-Microcontroller-Compatible-Sensitivity/dp/B084MK8BS2)
 ![GPS receiver](../images/gps-receiver.jpg)
 put the 5 pins in as shown in the red box.
@@ -16,6 +17,7 @@ connect the antenna as shown in the red line.
 1. Note that the GPS antenna should face the sky to get the GPS values
 
 ## Run the Python Code
+
 1. Open Raspberry Pi
 1. Open a terminal and install azure.iot-device package with the following code
 ```sh
@@ -26,8 +28,8 @@ connect the antenna as shown in the red line.
     pip3 install pynmea2
 ```
 1. Open the Python Editor (Default Thonny)
-1. Click Load and openthe [raspberry-pi-gps-tracker.py](../client/code/raspberry-pi-gps-tracker.py) 
-1. Update the [raspberry-pi-gps-tracker.py](../client/code/raspberry-pi-gps-tracker.py) with the device connection string you got in previous step when you have created the [Iot Hub](./set-up-iot-hub.md)
+1. Click Load and openthe [raspberry-pi-gps-tracker.py](../code/client/raspberry-pi-gps-tracker.py) 
+1. Update the [raspberry-pi-gps-tracker.py](../code/client/raspberry-pi-gps-tracker.py) with the device connection string you got in previous step when you have created the [Iot Hub](./set-up-iot-hub.md)
 
 ```python
 # The device connection string to authenticate the device with your IoT hub.

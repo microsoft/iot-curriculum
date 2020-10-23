@@ -12,38 +12,38 @@ Anomaly detection can be done using Machine Learning models - models that have b
 
 In this part you will be detecting anomalies in the sound data to identify unexpected loud noises using spike detection.
 
-> In this project the telemetry values are being monitored every minute, so would only be able to detect a sustained loud noise. In real world scenarios you might want to monitor noise more often to detect spikes. You can also run these tools 'on the edge', that is take the setup in Azure and deploy it to a computer on the same local network as your sensors to make detection faster and cheaper. You can read more about this in the [Azure Stream Analytics on IoT Edge documentation](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge?WT.mc_id=iotcurriculum-github-jabenn).
+> In this project the telemetry values are being monitored every minute, so would only be able to detect a sustained loud noise. In real world scenarios you might want to monitor noise more often to detect spikes. You can also run these tools 'on the edge', that is take the setup in Azure and deploy it to a computer on the same local network as your sensors to make detection faster and cheaper. You can read more about this in the [Azure Stream Analytics on IoT Edge documentation](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge?WT.mc_id=academic-7372-jabenn).
 
 ### Anomaly detection tools
 
 Microsoft Azure has a couple of anomaly detection tools that can be used.
 
-* [Anomaly detection cognitive service](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/?WT.mc_id=iotcurriculum-github-jabenn) - Azure cognitive services are pre-built AI services that you can use from your code. There are a number of services covering speech, vision, language, decision and search, and one of the decision services is the Anomaly detector.
-* [Anomaly detection in Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection?WT.mc_id=iotcurriculum-github-jabenn) - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/?WT.mc_id=iotcurriculum-github-jabenn) is an analytics service that can run real-time queries on live streams of data. This service can query for anomalies.
+* [Anomaly detection cognitive service](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/?WT.mc_id=academic-7372-jabenn) - Azure cognitive services are pre-built AI services that you can use from your code. There are a number of services covering speech, vision, language, decision and search, and one of the decision services is the Anomaly detector.
+* [Anomaly detection in Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection?WT.mc_id=academic-7372-jabenn) - [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/?WT.mc_id=academic-7372-jabenn) is an analytics service that can run real-time queries on live streams of data. This service can query for anomalies.
 
-In this part, you will be using Stream Analytics to query for anomalies from a stream of data from IoT Central. You can learn more about this from the [Real-Time ML Based Anomaly Detection In Azure Stream Analytics episode of the Internet of Things show on Channel9](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics?WT.mc_id=iotcurriculum-github-jabenn)
+In this part, you will be using Stream Analytics to query for anomalies from a stream of data from IoT Central. You can learn more about this from the [Real-Time ML Based Anomaly Detection In Azure Stream Analytics episode of the Internet of Things show on Channel9](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics?WT.mc_id=academic-7372-jabenn)
 
-[![IoT Show banner](../images/iot-show-stream-analytics-anomaly-detection.png)](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics?WT.mc_id=iotcurriculum-github-jabenn)
+[![IoT Show banner](../images/iot-show-stream-analytics-anomaly-detection.png)](https://channel9.msdn.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics?WT.mc_id=academic-7372-jabenn)
 
 > If you have some experience with cloud services and are able to program using .NET, there is a hands-on learning path on Microsoft Learn that covers a similar scenarios to this part, and shows how to output the data to PowerBI for visualization:
 >
-> [Identify anomalies by routing data via IoT Hub to a built-in ML model in Azure Stream Analytics](https://docs.microsoft.com/learn/modules/data-anomaly-detection-using-azure-iot-hub/?WT.mc_id=iotcurriculum-github-jabenn)
+> [Identify anomalies by routing data via IoT Hub to a built-in ML model in Azure Stream Analytics](https://docs.microsoft.com/learn/modules/data-anomaly-detection-using-azure-iot-hub/?WT.mc_id=academic-7372-jabenn)
 
 ## Set up data in and out
 
-Azure Stream Analytics takes a stream of data from one place, runs a real-time query, then sends the results out as a stream to somewhere else - either another streaming service, or storage. In this lab, data will come from Azure IoT Central, and the results are saved in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=iotcurriculum-github-jabenn), a NoSQL database.
+Azure Stream Analytics takes a stream of data from one place, runs a real-time query, then sends the results out as a stream to somewhere else - either another streaming service, or storage. In this lab, data will come from Azure IoT Central, and the results are saved in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=academic-7372-jabenn), a NoSQL database.
 
-To create and manage the services needed for this step, you will need to be able to navigate the Azure Portal. You can learn more about the portal and how to navigate it in the [Azure Portal overview documentation](https://docs.microsoft.com/azure/azure-portal/azure-portal-overview?WT.mc_id=iotcurriculum-github-jabenn).
+To create and manage the services needed for this step, you will need to be able to navigate the Azure Portal. You can learn more about the portal and how to navigate it in the [Azure Portal overview documentation](https://docs.microsoft.com/azure/azure-portal/azure-portal-overview?WT.mc_id=academic-7372-jabenn).
 
 ### Create an event hub
 
-IoT Central by itself cannot send data to other services. Instead you need to set up a data export to another service. The service that you will be sending data to is called [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/?WT.mc_id=iotcurriculum-github-jabenn), which is a fully managed, real-time data ingestion service that can handle millions of events per second from a variety of sources.
+IoT Central by itself cannot send data to other services. Instead you need to set up a data export to another service. The service that you will be sending data to is called [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/?WT.mc_id=academic-7372-jabenn), which is a fully managed, real-time data ingestion service that can handle millions of events per second from a variety of sources.
 
-To create an Event Hub, you start by creating an Event Hubs namespace, and inside this you create one or more Event Hubs. You can create these using either the [Azure Portal](https://portal.azure.com/?WT.mc_id=iotcurriculum-github-jabenn) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=iotcurriculum-github-jabenn). The portal is a web UI where you can configure Azure services, the CLI is a command-line tool for creating and managing Azure services.
+To create an Event Hub, you start by creating an Event Hubs namespace, and inside this you create one or more Event Hubs. You can create these using either the [Azure Portal](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?WT.mc_id=academic-7372-jabenn). The portal is a web UI where you can configure Azure services, the CLI is a command-line tool for creating and managing Azure services.
 
-* If you want to create an Event Hub using the Azure Portal, follow the instructions in [the Create an Event Hub with the Azure Portal quickstart](https://docs.microsoft.com/azure/event-hubs/event-hubs-create?WT.mc_id=iotcurriculum-github-jabenn)
+* If you want to create an Event Hub using the Azure Portal, follow the instructions in [the Create an Event Hub with the Azure Portal quickstart](https://docs.microsoft.com/azure/event-hubs/event-hubs-create?WT.mc_id=academic-7372-jabenn)
 
-* If you want to create an Event Hub using the Azure CLI, follow the instructions in [the Create an Event Hub with the Azure CLI quickstart](https://docs.microsoft.com/azure/event-hubs/event-hubs-quickstart-cli?WT.mc_id=iotcurriculum-github-jabenn)
+* If you want to create an Event Hub using the Azure CLI, follow the instructions in [the Create an Event Hub with the Azure CLI quickstart](https://docs.microsoft.com/azure/event-hubs/event-hubs-quickstart-cli?WT.mc_id=academic-7372-jabenn)
 
 Whichever method you use:
 
@@ -53,7 +53,7 @@ Whichever method you use:
 
 * Make sure the location you chose is the one closest to you
 
-* Use the basic pricing tier. This Event Hubs Namespace won't be handling much data, so the basic tier is more than enough and the cheapest option. You can read more on pricing in the [Event Hubs Pricing guide](https://azure.microsoft.com/pricing/details/event-hubs/?WT.mc_id=iotcurriculum-github-jabenn).
+* Use the basic pricing tier. This Event Hubs Namespace won't be handling much data, so the basic tier is more than enough and the cheapest option. You can read more on pricing in the [Event Hubs Pricing guide](https://azure.microsoft.com/pricing/details/event-hubs/?WT.mc_id=academic-7372-jabenn).
 
 * Name your Event Hub `environmentmonitor`
 
@@ -98,7 +98,7 @@ Once the Event Hub is created, you will need a connection string to be able to c
 
 Once the event hub is created, IoT Central needs to be connected to it. Data export is configured by creating destinations that the data is exported to, and setting up exports to those destinations.
 
-This data can be enriched with properties or custom values. You can read more about how you can configure the data being exported in the [Export IoT data to cloud destinations using data export documentation](https://docs.microsoft.com/azure/iot-central/core/howto-use-data-export?WT.mc_id=iotcurriculum-github-jabenn).
+This data can be enriched with properties or custom values. You can read more about how you can configure the data being exported in the [Export IoT data to cloud destinations using data export documentation](https://docs.microsoft.com/azure/iot-central/core/howto-use-data-export?WT.mc_id=academic-7372-jabenn).
 
 #### Create the destination
 
@@ -156,7 +156,7 @@ The export job will be saved and then started it. It can take a couple of minute
 
 Azure Cosmos DB is a fast, NoSQL database that can support a wide variety of different APIs from SQL, to MongoDB, to Cassandra. It mixes power and performance, with global replication, and can be connected to services like Stream Analytics.
 
-1. Head to the [Create Azure Cosmos DB Account in the Azure Portal](https://ms.portal.azure.com/?WT.mc_id=iotcurriculum-github-jabenn#create/Microsoft.DocumentDB)
+1. Head to the [Create Azure Cosmos DB Account in the Azure Portal](https://ms.portal.azure.com/?WT.mc_id=academic-7372-jabenn#create/Microsoft.DocumentDB)
 
 1. Configure the Cosmos DB account:
 
@@ -190,9 +190,9 @@ To set up a Stream Analytics job, you need to create the resource, connect the i
 
 ### Create the Stream Analytics job
 
-The best place to create a Stream Analytics job is via the [Azure Portal](https://portal.azure.com/?WT.mc_id=iotcurriculum-github-jabenn) as it provides a great environment to configure the inputs, outputs and query.
+The best place to create a Stream Analytics job is via the [Azure Portal](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn) as it provides a great environment to configure the inputs, outputs and query.
 
-Follow the instructions in [the Create a Stream Analytics job with the Azure Portal documentation](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal?WT.mc_id=iotcurriculum-github-jabenn#create-a-stream-analytics-job). Just do the *Create a Stream Analytics job* section, not the following sections.
+Follow the instructions in [the Create a Stream Analytics job with the Azure Portal documentation](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal?WT.mc_id=academic-7372-jabenn#create-a-stream-analytics-job). Just do the *Create a Stream Analytics job* section, not the following sections.
 
 * Use the same Resource Group that you used for the Event Hubs namespace, `EnvironmentMonitor`
 
@@ -270,7 +270,7 @@ After a few seconds, the new output will appear.
 
 Stream Analytics jobs query data using a SQL-like language.
 
-> You can also add additional features to this language using user defined functions written in JavaScript, C# or via Azure Machine Learning Studio. You can read more about this in the [User-defined functions in Azure Stream Analytics documentation](https://docs.microsoft.com/azure/stream-analytics/functions-overview?WT.mc_id=iotcurriculum-github-jabenn#create-a-stream-analytics-job).
+> You can also add additional features to this language using user defined functions written in JavaScript, C# or via Azure Machine Learning Studio. You can read more about this in the [User-defined functions in Azure Stream Analytics documentation](https://docs.microsoft.com/azure/stream-analytics/functions-overview?WT.mc_id=academic-7372-jabenn#create-a-stream-analytics-job).
 
 1. From the menu, select *Job topology -> Query*
 
@@ -310,7 +310,7 @@ Stream Analytics jobs query data using a SQL-like language.
 
     This query uses the `AnomalyDetection_SpikeAndDip` function to detect spikes in the data. It looks over the last 600 seconds (10 minutes) and detects spikes with a 95% confidence (Machine Learning models rarely return true or false values, instead they return probabilities). The data is partitioned by the `deviceId`, meaning that it looks for spikes on a per-device basis, rather than spikes across all devices. This is to avoid spikes when the background audio level of one device is different to another.
 
-    You can read more on this function in the [AnomalyDetection_SpikeAndDip documentation](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics?WT.mc_id=iotcurriculum-github-jabenn).
+    You can read more on this function in the [AnomalyDetection_SpikeAndDip documentation](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics?WT.mc_id=academic-7372-jabenn).
 
 1. Test the query using the **Test Query** button. Before you run the test, create some spikes using loud noises, verifying the spikes using the IoT Central device view.
 
@@ -364,7 +364,7 @@ You can test the output by viewing the data in Cosmos DB.
 
 ### Visualize the data using a Jupyter notebook
 
-As well as viewing raw data, you can also visualize data in Cosmos DB using a [Jupyter notebook](https://jupyter.org/) - a document that can contain a mixture of documentation and runnable code. Jupyter notebooks can be run inside of your Cosmos DB account, with access to all yur databases and collections, providing a convenient way to query and visualize data. You can read more on the Jupyter support in the [Built-in Jupyter Notebooks support in Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks?WT.mc_id=iotcurriculum-github-jabenn).
+As well as viewing raw data, you can also visualize data in Cosmos DB using a [Jupyter notebook](https://jupyter.org/) - a document that can contain a mixture of documentation and runnable code. Jupyter notebooks can be run inside of your Cosmos DB account, with access to all yur databases and collections, providing a convenient way to query and visualize data. You can read more on the Jupyter support in the [Built-in Jupyter Notebooks support in Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks?WT.mc_id=academic-7372-jabenn).
 
 1. This repo contains a Jupyter notebook to visualize the spike data. It is called [Plot_Spikes.ipynb](./notebooks/Plot_Spikes.ipynb) and is in the [notebooks](./notebooks) folder. Download this notebook.
 

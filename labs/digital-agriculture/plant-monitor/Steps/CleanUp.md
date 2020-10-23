@@ -8,7 +8,7 @@ Everything you created for this workshop should have been in the same resource g
 
 Deleting this resource group will delete all the resources created.
 
-* Open the Azure Portal from [portal.azure.com](https://portal.azure.com/?WT.mc_id=iotcurriculum-github-jabenn). Log in if required.
+* Open the Azure Portal from [portal.azure.com](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn). Log in if required.
 
 * From the search bar at the top, search for the `AgroHack` resource group that was created. Select it from the results.
   

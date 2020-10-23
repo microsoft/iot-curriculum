@@ -36,7 +36,7 @@ This device will be programmed in Python, so you will need Python installed.
 
 ### PyLance in Visual Studio Code
 
-[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn) is an open-source developer text editor that can be expanded with extensions to support multiple features or programming languages. It can also be used to code on a PC or Mac in Python with full debugging support and intellisense, via the [PyLance extension](https://devblogs.microsoft.com/python/announcing-pylance-fast-feature-rich-language-support-for-python-in-visual-studio-code/?WT.mc_id=iotcurriculum-github-jabenn).
+[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academic-7372-jabenn) is an open-source developer text editor that can be expanded with extensions to support multiple features or programming languages. It can also be used to code on a PC or Mac in Python with full debugging support and intellisense, via the [PyLance extension](https://devblogs.microsoft.com/python/announcing-pylance-fast-feature-rich-language-support-for-python-in-visual-studio-code/?WT.mc_id=academic-7372-jabenn).
 
 1. Install Visual Studio Code if you don't already have it installed
 

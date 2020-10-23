@@ -8,7 +8,7 @@ The ESP-EYE is a board based around the ESP32 microcontroller, with a built in c
 
 ## Platform IO
 
-[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn) (VS Code) is an open-source developer text editor that can be expanded with extensions to support multiple features or programming languages. It can also be used to remotely code on a Raspberry Pi from your PC or Mac via a remote development extension.
+[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academic-7372-jabenn) (VS Code) is an open-source developer text editor that can be expanded with extensions to support multiple features or programming languages. It can also be used to remotely code on a Raspberry Pi from your PC or Mac via a remote development extension.
 
 [Platform IO](https://platformio.org) is an open source extension for VS Code that gives you the ability to program embedded devices without any additional dependencies.
 
@@ -16,7 +16,7 @@ The ESP-EYE is a board based around the ESP32 microcontroller, with a built in c
 
 To install Platform IO:
 
-* Make sure you have VS Code installed. If not, you can install it from the [Visual Studio Code Downloads page](https://code.visualstudio.com/Download?WT.mc_id=iotcurriculum-github-jabenn)
+* Make sure you have VS Code installed. If not, you can install it from the [Visual Studio Code Downloads page](https://code.visualstudio.com/Download?WT.mc_id=academic-7372-jabenn)
 * From VS Code, select the **Extensions** tab from the side menu
 
     ![The VS Code extensions menu](../../../../images/vscode-extensions-menu.png)
@@ -76,7 +76,7 @@ The PlatformIO project contains a number of files and folders:
 
 This project uses the [Arduino framework](https://www.arduino.cc), an open source framework for software and hardware. When writing arduino code, the core flow is around two methods that are defined in your main source code file. In a PlatformIO project, this file is called `main.cpp`.
 
-* `setup()` - the setup method is called once and only once when the board starts up. This function is used to do one-time setup, such as connecting to WiFi, or connecting to an IoT service such as [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=iotcurriculum-github-jabenn).
+* `setup()` - the setup method is called once and only once when the board starts up. This function is used to do one-time setup, such as connecting to WiFi, or connecting to an IoT service such as [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=academic-7372-jabenn).
 * `loop()` - the loop method is called after setup, and once the method completes it is called again and again. All the time the board is running, this method will be called as soon as it completes.
 
 ![The flow of an Arduino app](../../../../images/arduino-setup-loop-flow.png)

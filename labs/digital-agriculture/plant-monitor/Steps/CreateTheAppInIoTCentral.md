@@ -4,7 +4,7 @@ In the [previous step](./SetUpTheEnvironmentMonitor.md) you assembled the hardwa
 
 ## Create your first Azure IoT Central app
 
-[Azure IoT Central](https://azure.microsoft.com/services/iot-central/?WT.mc_id=iotcurriculum-github-jabenn) is an IoT Software-as-a-service (SaaS) platform. This allows you to define an service that can interact with IoT devices, sending data both ways from device to cloud, and cloud to device. You can define the capabilities of each device, and create dashboards to show data.
+[Azure IoT Central](https://azure.microsoft.com/services/iot-central/?WT.mc_id=academic-7372-jabenn) is an IoT Software-as-a-service (SaaS) platform. This allows you to define an service that can interact with IoT devices, sending data both ways from device to cloud, and cloud to device. You can define the capabilities of each device, and create dashboards to show data.
 
 To create your app, you can either create it manually from scratch to learn about how to build Azure IoT Central apps, or create it from a pre-defined template if you want to save time and already know how to use Azure IoT Central.
 
@@ -34,7 +34,7 @@ Head to [Create a device](#create-a-device) to configure a device inside the Azu
 
 #### Provision the app
 
-1. Head to [apps.azureiotcentral.com](https://apps.azureiotcentral.com/?WT.mc_id=iotcurriculum-github-jabenn)
+1. Head to [apps.azureiotcentral.com](https://apps.azureiotcentral.com/?WT.mc_id=academic-7372-jabenn)
 
 1. From the menu on the side, select **Build**
 

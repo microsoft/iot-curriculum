@@ -88,7 +88,7 @@ Once the Pi is rebooted, you will be able to connect to it remotely from Visual 
 
 ## Connect to the Pi from Visual Studio Code
 
-[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=iotcurriculum-github-jabenn) is an open-source developer text editor that can be expanded with extensions to support multiple features or programming languages. It can also be used to remotely code on a Raspberry Pi from your PC or Mac via a remote development extension.
+[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academic-7372-jabenn) is an open-source developer text editor that can be expanded with extensions to support multiple features or programming languages. It can also be used to remotely code on a Raspberry Pi from your PC or Mac via a remote development extension.
 
 ### Install the remote development extension
 

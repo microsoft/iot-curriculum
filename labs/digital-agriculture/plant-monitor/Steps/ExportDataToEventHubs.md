@@ -4,7 +4,7 @@ In the [previous step](./WriteThePiCode.md), you wrote the code to capture telem
 
 ## Azure Event Hubs
 
-[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/#features?WT.mc_id=iotcurriculum-github-jabenn) allow you to take streaming data and connect it to other services, such as storing the data or using Azure Stream Analytics to analyze the data in real time. Azure IoT Central can be configured to stream data to an Azure Event Hubs instance.
+[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/#features?WT.mc_id=academic-7372-jabenn) allow you to take streaming data and connect it to other services, such as storing the data or using Azure Stream Analytics to analyze the data in real time. Azure IoT Central can be configured to stream data to an Azure Event Hubs instance.
 
 To export data you will need an Azure account. If you don't have one, head to the [Azure Account](https://github.com/jimbobbennett/AgroHack#azure-account) instructions to create an account.
 
@@ -18,7 +18,7 @@ The instance consists of a namespace, containing an event hub.
 
 ##### Create the namespace
 
-1. Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=iotcurriculum-github-jabenn)
+1. Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn)
 
 1. Log in with your Microsoft account if required
 
@@ -190,7 +190,7 @@ Azure IoT Central can export data to a number of different services, either to r
 
 The easiest way to see messages flowing to the Event Hub is via the Azure Portal.
 
-1. Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=iotcurriculum-github-jabenn)
+1. Open the [Azure Portal](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn)
 
 1. Log in with your Microsoft account if required
 

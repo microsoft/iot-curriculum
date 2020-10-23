@@ -14,7 +14,7 @@ Azure has the concept of Resource Groups, logical groupings of resources that yo
 
 > If you didn't work through the *Perform more advanced analytics to detect and visualize anomalies in the data* or *Build AI models to make predictions on temperatures* steps, then you can skip this section as you didn't create any Azure resources.
 
-1. From the [Azure Portal](https://portal.azure.com/?WT.mc_id=iotcurriculum-github-jabenn), head to the *EnvironmentMonitor* resource group that you created earlier.
+1. From the [Azure Portal](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn), head to the *EnvironmentMonitor* resource group that you created earlier.
 
 1. To delete the resource group, follow the instructions in the [Azure Resource Manager resource group and resource deletion documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal&WT.mc_id=iotcurriculum-github-jabenn)
 
@@ -47,6 +47,6 @@ You have completed this lab building an environment monitor using a Raspberry Pi
 If you want to learn more about Azure IoT Services, then check out the following:
 
 * [IoT learning paths on Microsoft Learn](https://docs.microsoft.com/learn/browse/?term=IOT&WT.mc_id=iotcurriculum-github-jabenn)
-* [The IoT show on Channel9](https://channel9.msdn.com/Shows/Internet-of-Things-Show/?WT.mc_id=iotcurriculum-github-jabenn)
+* [The IoT show on Channel9](https://channel9.msdn.com/Shows/Internet-of-Things-Show/?WT.mc_id=academic-7372-jabenn)
 
-Once you have upskilled as an IoT developer, why not get certified with our AZ-220 Azure IoT Developer certification. Check out the details on our [certification page](https://docs.microsoft.com/learn/certifications/azure-iot-developer-specialty?WT.mc_id=iotcurriculum-github-jabenn)
+Once you have upskilled as an IoT developer, why not get certified with our AZ-220 Azure IoT Developer certification. Check out the details on our [certification page](https://docs.microsoft.com/learn/certifications/azure-iot-developer-specialty?WT.mc_id=academic-7372-jabenn)

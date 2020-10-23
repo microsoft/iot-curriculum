@@ -1,6 +1,6 @@
 # Azure Sphere
 
-[Azure Sphere](https://azure.microsoft.com/services/azure-sphere/?WT.mc_id=iotcurriculum-github-jabenn) is a comprehensive IoT security solution – including hardware, OS, and cloud components – to actively protect your devices, your business, and your customers.
+[Azure Sphere](https://azure.microsoft.com/services/azure-sphere/?WT.mc_id=academic-7372-jabenn) is a comprehensive IoT security solution – including hardware, OS, and cloud components – to actively protect your devices, your business, and your customers.
 
 Azure Sphere is made up of three interrelated components:
 

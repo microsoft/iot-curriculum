@@ -104,7 +104,7 @@ This data can be enriched with properties or custom values. You can read more ab
 
 1. From your IoT Central app, select the **Data Export** tab from the side bar menu (not **Data Export (Legacy)**).
 
-    ![The data export menu](../images/iot-central-menu-data-export.png)
+    ![The data export menu](../../../images/iot-central-menu-data-export.png)
 
 1. Select the **Destinations** tab
 
@@ -128,7 +128,7 @@ This data can be enriched with properties or custom values. You can read more ab
 
 1. From your IoT Central app, select the **Data Export** tab from the side bar menu.
 
-    ![The data export menu](../images/iot-central-menu-data-export.png)
+    ![The data export menu](../../../images/iot-central-menu-data-export.png)
 
 1. Select the **Exports** tab
 

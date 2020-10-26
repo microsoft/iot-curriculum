@@ -22,7 +22,7 @@ To create an IoT Central rule
 
 1. From the IoT Central app, select the **Rules** tab from the side bar menu
 
-    ![The rules menu](../images/iot-central-menu-rules.png)
+    ![The rules menu](../../../images/iot-central-menu-rules.png)
 
 1. Select the **+ New** button to create a new rule
 

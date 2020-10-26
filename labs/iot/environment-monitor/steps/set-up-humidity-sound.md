@@ -14,7 +14,7 @@ The *Environment Monitor* device template has an interface that can receive temp
 
 1. Select **Device Templates** from the side bar menu
 
-    ![The device templates menu](../images/iot-central-menu-device-templates.png)
+    ![The device templates menu](../../../images/iot-central-menu-device-templates.png)
 
 1. Select the **Environment Monitor** device template from the list
 
@@ -146,39 +146,43 @@ You will now see the devices with the new device template. Selecting them will a
 
 ### Update the dashboard
 
-The dashboard was configured to show the devices with the *Environment Monitor* device template, not the new *Environment Monitor v2* template. It needs to be configured to show data from this new template.
+The dashboard was configured to show the devices from the *All Devices* device group with the *Environment Monitor* device template, not the new *Environment Monitor v2* template. It needs to be configured to show data from this new template. This is done by updating the device group to include the devices with the new template.
 
-> It can sometimes take a while before the new telemetry values are available when configuring the dashboard. If you don't see the new values try again later.
+1. Select the **Device groups** tab from the side bar menu
+
+    ![The device groups menu](../../../images/iot-central-menu-device-groups.png)
+
+1. Select the *All Devices* device group
+
+    ![The all devices group](../images/iot-central-device-groups-all-devices-group.png)
+
+1. Currently the device group is set up to filter all devices that use the `Environment Monitor` template. This needs to be updated to the `v2` version of this template. Drop down the *Value* box in the *Scopes* section and select `Environment Monitor v2`
+
+    ![Selecting the v2 template](../images/iot-central-device-groups-value-v2.png)
+
+1. You can validate the devices that will be in this group by selecting the **Run query** button
+
+    ![The run query button](../images/iot-central-device-groups-run-query-button.png)
+
+    When you run this, you will see all the simulated and physical device appear in the results list.
+
+1. Save the changes by selecting the **Save** button.
+
+    ![The save button](../images/iot-central-device-groups-save-button.png)
+
+1. Select the **Dashboard** tab from the side bar menu
+
+You should now see the dashboard showing the data from the simulated and physical devices - it was already configured with the two devices from the device group, so updating the device group will fix the dashboard.
+
+### Add the new fields to the dashboard
+
+The new humidity and sound values also need to be shown on the dashboard.
 
 1. Select the **Dashboard** tab from the side bar menu
 
 1. Select the **Edit** button from the top menu
 
     ![the edit dashboard button](../images/iot-central-dashboard-edit-button.png)
-
-1. Select the properties cog from the Temperature tile
-
-    ![The properties button](../images/iot-central-dashboard-temperature-tile-edit-button.png)
-
-1. From the *Configure Chart* panel, drop down the *Device group* list, and select `Environment Monitor v2 - All devices`.
-
-    ![Selecting the simulated device](../images/iot-central-dashboard-temperature-tile-select-device-templates-dropdown-add-v2.png)
-
-1. Drop down the *Devices* list, and check both devices.
-
-    ![Selecting the devices](../images/iot-central-dashboard-temperature-tile-select-devices-dropdown-add-pi.png)
-
-1. When you change the devices, the telemetry type gets unselected, so check the box next to Temperature
-
-    ![Selecting the telemetry type](../images/iot-central-dashboard-temperature-tile-select-telemetry-type.png)
-
-1. Select the **Update** button
-
-    ![The update button](../images/iot-central-dashboard-temperature-tile-update-button.png)
-
-### Add the new fields to the dashboard
-
-The new humidity and sound values also need to be shown on the dashboard.
 
 1. From the **Edit dashboard** panel in the **Add a tile** section, drop down the *Device group* list, and select `Environment Monitor v2 - All devices`
 

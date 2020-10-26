@@ -65,7 +65,7 @@ The IoT Central application is a full application to allow you to manage IoT dev
 
 The side bar menu is used to navigate IoT Central.
 
-![The IoT Central menu](../images/iot-central-menu.png)
+![The IoT Central menu](../../../images/iot-central-menu.png)
 
 * **Dashboard** - this section is for viewing and configuring dashboards. A dashboard is a configurable screen showing data from one or more devices from a device group, as well as images and text. The new application will have a single dashboard that will be configured to show temperature data for a range of devices.
 * **Devices** - this section is to create and manage devices that can talk to this IoT Central application. The new application won't have any devices configured to start with.

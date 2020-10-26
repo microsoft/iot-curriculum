@@ -24,7 +24,7 @@ IoT Central applications are deleted from the IoT Central application itself.
 
 1. From your IoT Central application, select the **Administration** tab from the side bar menu
 
-    ![The administration menu](../images/iot-central-menu-administration.png)
+    ![The administration menu](../../../images/iot-central-menu-administration.png)
 
 1. Select **Your Application**
 

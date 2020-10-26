@@ -37,7 +37,7 @@ To create an IoT Central application, follow these steps:
 
 1. Click this link to create a new IoT Central application by using a template that already has a device template set up for an environment monitor with a temperature sensor:
 
-    [aka.ms/iot-curriculum/temperature-sensor-iot-central-template](https://aka.ms/iot-curriculum/temperature-sensor-iot-central-template)
+    [aka.ms/iot-curriculum/env-monitor-template](https://aka.ms/iot-curriculum/env-monitor-template)
 
 1. Log in with a Microsoft account. If you are planning to use an Azure subscription, log in with an account that has access to the subscription.
 
@@ -65,11 +65,11 @@ The IoT Central application is a full application to allow you to manage IoT dev
 
 The side bar menu is used to navigate IoT Central.
 
-![The IoT Central menu](../images/iot-central-menu.png)
+![The IoT Central menu](../../../images/iot-central-menu.png)
 
-* **Dashboard** - this section is for viewing and configuring dashboards. A dashboard is a configurable screen showing data from one or more devices, as well as images and text. The new application will have a single dashboard that will be configured to show temperature data for a range of devices.
+* **Dashboard** - this section is for viewing and configuring dashboards. A dashboard is a configurable screen showing data from one or more devices from a device group, as well as images and text. The new application will have a single dashboard that will be configured to show temperature data for a range of devices.
 * **Devices** - this section is to create and manage devices that can talk to this IoT Central application. The new application won't have any devices configured to start with.
-* **Device groups** -  device groups are groups of devices, allowing you to group devices in a way that makes sense to you. The new application won't have any devices groups configured.
+* **Device groups** -  device groups are groups of devices, allowing you to group devices in a way that makes sense to you. The new application will have one device group configured called `All devices` containing all the devices that use the `Environment monitor` device template.
 * **Rules** - rules allow you to set up actions that happen when conditions happen on selected devices, for example if a telemetry value exceeds a threshold. Actions can include sending emails, or calling a web hook. The new application won't have any rules configured.
 * **Analytics** - this section allows you to do more in-depth analysis on the telemetry received from the devices. The new application won't have any analytics configured.
 * **Jobs** - jobs can be set up to set properties on devices, or execute commands at specific times. The new application won't have any jobs configured.
@@ -89,7 +89,7 @@ To create a simulated device, do the following:
 
 1. Select **Devices** from the app menu
 
-    ![The devices menu option](../images/iot-central-menu-devices.png)
+    ![The devices menu option](../../../images/iot-central-menu-devices.png)
 
 1. Select the *Environment Monitor* device template
 
@@ -137,7 +137,7 @@ The device should automatically be added to the IoT Central application dashboar
 
 1. Select **Dashboard** from the app menu
 
-    ![The Dashboard menu option](../images/iot-central-menu-dashboard.png)
+    ![The Dashboard menu option](../../../images/iot-central-menu-dashboard.png)
 
 1. The dashboard should show a chart of the last 100 values from the simulated device.
 

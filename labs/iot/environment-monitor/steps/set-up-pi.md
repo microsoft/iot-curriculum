@@ -18,7 +18,7 @@ You will need the following hardware:
 
 * A Raspberry Pi 4
 * A micro SD Card
-* An SD card to USB converter that matches the USB ports on your device if you r device doesn't have an SD card slot
+* An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot
 * A Raspberry Pi 4 power supply (USB-C)
 * [A Grove Pi+ Starter Kit](https://www.seeedstudio.com/GrovePi-Starter-Kit-for-Raspberry-Pi-A-B-B-2-3-CE-certified.html)
 * A keyboard, mouse and monitor

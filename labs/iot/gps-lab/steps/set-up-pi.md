@@ -1,8 +1,8 @@
-# Set up a Raspberry Pi
+# Set up the Raspberry Pi
 
-In the [previous step](./set-up-iot-hub.md) you set up a IoT Hub in Microsoft Azure Portal.
+In the [previous step](./set-up-azure-services.md) you set up all the Azure services needed to complete this lab.
 
-In this step you will set up a Raspberry Pi.
+In this step you will set up the Raspberry Pi to receive GPS signals from the GPS receiver.
 
 ## Raspberry Pi
 
@@ -10,18 +10,17 @@ The [Raspberry Pi](https://raspberrypi.org) is a low-priced, small form factor c
 
 Raspberry Pi's can run a wide range of programing languages. In this lab you will use Python, and program the Pi using Visual Studio Code (VS Code), an open-source developer text editor that can remotely program on a Pi from your PC or Mac. When connected to the Pi remotely from your PC or Mac you can write and debug code from your device, with the code running on the Pi. You will also get a terminal that runs on the Pi.
 
-The temperature data will come from a temperature sensor attached to the Pi. The sensor required is a Grove Temperature Humidity sensor and is part of the [Grove Pi+ Starter Kit](https://www.seeedstudio.com/GrovePi-Starter-Kit-for-Raspberry-Pi-A-B-B-2-3-CE-certified.html). These kits are designed to lower the barrier to entry when using sensors - providing a controller board, sensors with standard cables, and Python libraries.
-
 ## Hardware requirements
 
 You will need the following hardware:
 
 * A Raspberry Pi 4
 * A micro SD Card
-* An SD card to USB converter that matches the USB ports on your device if you r device doesn't have an SD card slot
+* An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot
 * A Raspberry Pi 4 power supply (USB-C)
 * A keyboard, mouse and monitor
 * A [micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)
+* NEO-6M GPS Receiver Module with external antenna
 
 ### Set up the software
 
@@ -69,16 +68,42 @@ Once the Pi has rebooted, you will need to change the hostname. All newly setup 
 
 1. When prompted, select **Yes** to reboot the Pi
 
-# Prepare Pi for python packages
-1. Open a terminal
-2. Run
-```sh
-    sudo apt install python3-pip
-```
+### Set up the hardware
 
-> Note that for this lab we will use the default python editor Thonny that comes with Raspberry Pi to program the client side code.
+The GPS receiver module needs to be connected to the Raspberry Pi. Depending on where/how you bought it you may need to solder on the headers.
+
+1. Connect 4 female to female jumper cables to the following pins on the GPS receiver:
+
+    * VCC
+    * GND
+    * RXD
+    * TXD
+
+1. Connect the antenna to the GPS receiver
+
+1. Power off the Raspberry Pi
+
+1. Connect the other end of the jumper cables to the GPIO pins on the Raspberry Pi:
+
+    | GPS pin | Pi Pin |
+    | :------ | :----- |
+    |  VCC    | 2 (5V power) |
+    |  GND    | 6 (GND) |
+    |  RXD    | 8 (TXD) |
+    |  TXD    | 10 (RXD) |
+
+    > Note that TXD on the GPS connects to RXD on the Pi, and RXD on the GPS connects to TXD on the Pi. TXD is transmit, RXD is receive, so the transmit on the GPS is received by the receive on the Pi and vice versa.
+
+    ![The GPS connected to the Pi](../images/pi-gps-sketch.png)
+
+    You can read more on the GPIO pins and see diagrams of the Pin numbers in the [Raspberry Pi GPIO documentation](https://www.raspberrypi.org/documentation/usage/gpio/).
+
+1. Power the Pi back on
+
+The LED on the GPS will light up whilst it tries to get a fix on the satellites. When it has a fix it will blink ever second. It may take a while the first time to get a fix.
+
 ## Next steps
 
-In this step you have set up the Raspberry Pi.
+In this step you set up the Raspberry Pi to receive GPS signals from the GPS receiver.
 
-In the [next step](./add-gps-to-pi.md) you will add the GPS receiver to the pi and run the client side code to send the GPS location to IoT hub.
+In the [next step](./write-pi-code.md) you will write code to gather GPS data and send it to your IoT Hub.

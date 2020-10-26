@@ -8,23 +8,17 @@ In this step you will clean up your Azure resources.
 
 Every Azure service you use either costs you money (either paid for or reduces your available credit for free subscriptions), or uses up one of your available free tier resources. It's good practice when you are finished with a resource to delete it - to either save money or to allow you to spin up new free tier resources.
 
-### Delete the Azure IoT Hub
+### Delete the Azure Resource Group
 
-1. From the [Azure Portal](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn), head to the [IoT Hub](./set-up-iot-hub.md) that you created earlier.
+Azure has the concept of Resource Groups, logical groupings of resources that you can manage together. All resources, such as IoT Hubs or Azure Maps accounts have to live in a resource group. Deleting the resource group deletes all the services inside it.
 
-1. Click 'Delete' and confirm to delete the resource.
-    ![Delete IoT Hub](../images/azure-iot-hub-delete.png)
+1. From the [Azure Portal](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn), head to the *gps-lab* resource group that you created earlier.
 
-### Delete the Azure Maps
-
-1. From the [Azure Portal](https://portal.azure.com/?WT.mc_id=academic-7372-jabenn), head to the [Azure Maps](./set-up-azure-maps.md) that you created earlier.
-
-1. Click 'Delete' and confirm to delete the resource.
-    ![Delete IoT Hub](../images/azure-maps-delete.png)
+1. To delete the resource group, follow the instructions in the [Azure Resource Manager resource group and resource deletion documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal&WT.mc_id=iotcurriculum-github-jabenn)
 
 ## Next steps
 
-You have completed this lab to show current GPS location using a Raspberry Pi, GPS receiver and Azure Maps. You detected GPS location coordinates and sent this data to Azure IoT Hub, from where you visualized it on Azure Maps.
+You have completed this lab to show current GPS location using a Raspberry Pi, GPS receiver and Azure Maps. You detected GPS location coordinates and sent this data to Azure IoT Hub, and from there you visualized it on Azure Maps.
 
 If you want to learn more about Azure IoT Services, then check out the following:
 

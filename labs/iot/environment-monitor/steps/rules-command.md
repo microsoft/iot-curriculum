@@ -91,6 +91,8 @@ The token is not URL encoded - that means it can't be passed as is to a web call
 
 1. Replace all `&` characters with %26 - so `&sig=` becomes `%26sig=`, `&skn=` becomes `%26sig=`, and `&se=` becomes `%26se=`
 
+1. There is also a space in the API - `SharedAccessSignature sr=`. This space needs to be replaced with `%20`, so the first part of the token should read `SharedAccessSignature%20sr=`
+
 ### Create the webhook
 
 The rule can call a webhook when triggered. The webhook needs a URL to call - a web address that it will use to run the command. This needs to be built up using your IoT Central app details, as well as the API token.
@@ -104,7 +106,7 @@ https://<app_name>.azureiotcentral.com/api/preview/devices/pi-environment-monito
 1. To build the URL that you will use, take the above URL and replace the following:
 
     * Replace `<app_name>` with the name of your IoT Central app. You can get this from the URL that you use to access IoT central
-    * Replace `<encoded_api_token>` with the API token copied earlier, with all the `&` characters replaced with `%26`
+    * Replace `<encoded_api_token>` with the API token copied earlier, with all the `&` characters replaced with `%26` and space replaced with `%20`
 
 You can test this webhook using a web browser such as Microsoft Edge or Safari.
 

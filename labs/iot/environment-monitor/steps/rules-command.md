@@ -108,14 +108,36 @@ https://<app_name>.azureiotcentral.com/api/preview/devices/pi-environment-monito
     * Replace `<app_name>` with the name of your IoT Central app. You can get this from the URL that you use to access IoT central
     * Replace `<encoded_api_token>` with the API token copied earlier, with all the `&` characters replaced with `%26` and space replaced with `%20`
 
-You can test this webhook using a web browser such as Microsoft Edge or Safari.
+You can test this webhook using Postman, a free tool for testing REST APIs.
 
-1. Paste the URL into your browser and press enter to load it
+1. Download Postman from this link:
 
-You should see a response in the browser:
+    [getpostman.com/downloads](http://getpostman.com/downloads)
+
+    Once downloaded, install the app and launch it.
+
+1. From Postman, select *File->New Tab*
+
+1. In the *Untitled Request* tab, set the following:
+
+    * Set the request type to `POST`
+    * Enter the encoded command URL into the *Request URL* box
+    * In the *Body* tab, set the type to `raw` and `JSON`
+    * Set the body to be `{}`
+
+1. Select the **Send** button
+
+    ![The postman command call](../images/postman-command-call.png)
+
+The request will run and you will see result in the *Body* tab of the response section.
 
 ```json
-{"value":[{"response":{"result":true},"responseCode":200}]}
+{
+    "response": {
+        "result": true
+    },
+    "responseCode": 200
+}
 ```
 
 You should also see the Too Loud command called in the output of the Python app, and either the LED light up for 10 seconds, or a message output to the console.

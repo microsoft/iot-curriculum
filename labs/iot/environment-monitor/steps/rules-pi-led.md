@@ -62,16 +62,16 @@ In this section you will be adding code to the Python file. If you haven't used 
     # async code to light the LED, wait 10 seconds then
     # turn the LED off
     async def light_led():
-            # Send a value of 1 to the digital port
-            # This will turn the LED on
-            grovepi.digitalWrite(led_port, 1)
+        # Send a value of 1 to the digital port
+        # This will turn the LED on
+        grovepi.digitalWrite(led_port, 1)
 
-            # Wait 10 seconds
-            await asyncio.sleep(10)
+        # Wait 10 seconds
+        await asyncio.sleep(10)
 
-            # Send a value of 0 to the digital port
-            # This will turn the LED off
-            grovepi.digitalWrite(led_port, 0)
+        # Send a value of 0 to the digital port
+        # This will turn the LED off
+        grovepi.digitalWrite(led_port, 0)
 
     # Asynchronously wait for commands from IoT Central
     # If the TooLoud command is called, handle it

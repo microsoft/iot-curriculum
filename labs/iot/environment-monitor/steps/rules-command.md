@@ -89,7 +89,7 @@ The token is not URL encoded - that means it can't be passed as is to a web call
 
 1. In the API token there will be 3 ampersands (`&` characters) before various parts - `&sig=`, `&skn=` and `&se=`. These `&` characters cannot be passed to a web call, so need to be changed.
 
-1. Replace all `&` characters with %26 - so `&sig=` becomes `%26sig=`, `&skn=` becomes `%26sig=`, and `&se=` becomes `%26se=`
+1. Replace all `&` characters with `%26` - so `&sig=` becomes `%26sig=`, `&skn=` becomes `%26sig=`, and `&se=` becomes `%26se=`
 
 1. There is also a space in the API - `SharedAccessSignature sr=`. This space needs to be replaced with `%20`, so the first part of the token should read `SharedAccessSignature%20sr=`
 

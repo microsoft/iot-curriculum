@@ -15,6 +15,7 @@ This folder contains a lab with multiple parts working towards an environment mo
 | Date | August 2020 |
 | Learning Objectives | <ul><li>Set up IoT Central</li><li>Send IoT Data from a device to IoT Central</li><li>Export data from IoT Central</li><li>Perform anomaly detection with Stream Analytics</li><li>Visualize results with Jupyter notebooks in Cosmos DB</li></ul> |
 | Time to complete | 4 hours |
+| Video walkthrough | YouTube playlists with video walkthroughs are available for this lab, either using a Raspberry Pi and Grove Pi+, or using a virtual device.<ul><li>[Video walkthrough playlist using a Raspberry Pi](https://www.youtube.com/playlist?list=PLGi0uFHAUvEGIXv0dm93Dca84FT3EXGY0)</li><li>[Video walkthrough playlist using a virtual IoT device](https://www.youtube.com/playlist?list=PLGi0uFHAUvEFQGKn_56f1L8LMPvhHbvOE)</li></ul>|
 
 > If you have some experience with cloud services and are able to program using .NET, there is a hands-on learning path on Microsoft Learn that covers some similar scenarios to this lab, as well as additional scenarios.
 >

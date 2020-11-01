@@ -87,7 +87,7 @@ The GPS receiver module needs to be connected to the Raspberry Pi. Depending on 
 
     | GPS pin | Pi Pin |
     | :------ | :----- |
-    |  VCC    | 2 (5V power) |
+    |  VCC    | 1 (3V power) |
     |  GND    | 6 (GND) |
     |  RXD    | 8 (TXD) |
     |  TXD    | 10 (RXD) |
@@ -100,7 +100,122 @@ The GPS receiver module needs to be connected to the Raspberry Pi. Depending on 
 
 1. Power the Pi back on
 
-The LED on the GPS will light up whilst it tries to get a fix on the satellites. When it has a fix it will blink ever second. It may take a while the first time to get a fix.
+The LED on the GPS will light up whilst it tries to get a fix on the satellites. When it has a fix it will blink ever second. It may take a while the first time to get a fix. If you don't get a fix, try moving closer to a window.
+
+## Configure and test the GPS receiver
+
+Once the GPS receiver is connected, some software needs to be installed and the receiver needs to be tested to ensure everything is working properly.
+
+### Configure the Pi to talk to the GPS receiver
+
+The GPS receiver connects to the Pi using [UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter) to do serial communication. By default this is used as a serial port that is used to communicate externally, so this needs to be switched off so the GPS receiver can communicate over UART.
+
+1. From the Pi, launch the terminal
+
+1. The `cmdline.txt` file in the `boot` folder needs to be edited to remove the UART serial connection. Run the following command to edit this file:
+
+    ```sh
+    sudo nano /boot/cmdline.txt
+    ```
+
+1. Delete the contents of this file, and replace with the following:
+
+    ```txt
+    dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consol
+    ```
+
+1. Save and close the file by pressing `Ctrl+X`, then `Y` to confirm you want to save the file, and press enter to save using the same file name.
+
+1. The `config.txt` file in the `boot` folder needs to be edited to configure a few more UART options. Run the following command to edit this file:
+
+    ```sh
+    sudo nano /boot/config.txt
+    ```
+
+1. Scroll to the bottom of the file and add the following to the end:
+
+    ```txt
+    dtparam=spi=on
+    dtoverlay=pi3-disable-bt
+    core_freq=250
+    enable_uart=1
+    force_turbo=1
+    init_uart_baud=9600
+    ```
+
+1. Save and close the file by pressing `Ctrl+X`, then `Y` to confirm you want to save the file, and press enter to save using the same file name.
+
+1. Reboot the Pi with the following command:
+
+    ```sh
+    sudo reboot
+    ```
+
+### Test the GPS receiver
+
+There is some free GPS software you can use to test the data coming from the receiver.
+
+1. From the terminal, install the software using the following command:
+
+    ```sh
+    sudo apt install gpsd gpsd-clients --yes
+    ```
+
+1. The GPS receiver will be connected on the port `/dev/ttyAMA0`, and will use a BAUD rate of 9600. Run the following command to configure the BAUD rate of this port:
+
+    ```sh
+    stty -F /dev/ttyAMA0 9600
+    ```
+
+1. To connect the device to the GPS software, first we need to configure the software. It can't be configured if it is running, so run the following command to stop it:
+
+    ```sh
+    sudo killall gpsd
+    ```
+
+1. Next run the following command to edit the GPS software configuration file:
+
+    ```sh
+    sudo nano /etc/default/gpsd
+    ```
+
+1. Edit the line that reads `DEVICES=""` to be the following:
+
+    ```txt
+    DEVICES="/dev/ttyAMA0"
+    ```
+
+1. Save and close the file by pressing `Ctrl+X`, then `Y` to confirm you want to save the file, and press enter to save using the same file name.
+
+1. Run the following commands to restart the GPS software and launch it:
+
+    ```sh
+    sudo systemctl enable gpsd.socket
+    sudo systemctl start gpsd.socket
+    sudo cgps -s
+    ```
+
+1. After a few seconds you should see the GPS details:
+
+    ```output
+    ┌───────────────────────────────────────────┐┌─────────────────────────────────┐
+    │    Time:       2020-10-29T01:37:44.000Z   ││PRN:   Elev:  Azim:  SNR:  Used: │
+    │    Latitude:    49.79356336 N             ││   4    55    117    14      Y   │
+    │    Longitude:  120.04410920 W             ││   7    51    260    22      Y   │
+    │    Altitude:   155.842 m                  ││   9    83    298    22      Y   │
+    │    Speed:      3.41 kph                   ││  16    44    061    23      Y   │
+    │    Heading:    165.1 deg (true)           ││  27    16    102    17      Y   │
+    │    Climb:      2.88 m/min                 ││   3    10    175    07      N   │
+    │    Status:     3D FIX (44 secs)           ││                                 │
+    │    Longitude Err:   +/- 16 m              ││                                 │
+    │    Latitude Err:    +/- 32 m              ││                                 │
+    │    Altitude Err:    +/- 60 m              ││                                 │
+    │    Course Err:      n/a                   ││                                 │
+    │    Speed Err:       +/- 6 kph             ││                                 │
+    │    Time offset:     0.134                 ││                                 │
+    │    Grid Square:     CN87xq                ││                                 │
+    └───────────────────────────────────────────┘└─────────────────────────────────┘
+    ```
 
 ## Next steps
 

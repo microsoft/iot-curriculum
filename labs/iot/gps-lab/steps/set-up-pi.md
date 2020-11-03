@@ -8,7 +8,7 @@ In this step you will set up the Raspberry Pi to receive GPS signals from the GP
 
 The [Raspberry Pi](https://raspberrypi.org) is a low-priced, small form factor computer that can run a full version of Linux. It's popular with hobbyists and kids - it was originally designed to be a cheap computer for kids to learn to code on. It has the same standard USB and HDMI ports that a PC or Mac would have, as well as GPIO (General Purpose Input Output) pins that can be used to work with a wide array of external electronic components, devices, sensors, machinery and robotics.
 
-Raspberry Pi's can run a wide range of programing languages. In this lab you will use Python, and program the Pi using Visual Studio Code (VS Code), an open-source developer text editor that can remotely program on a Pi from your PC or Mac. When connected to the Pi remotely from your PC or Mac you can write and debug code from your device, with the code running on the Pi. You will also get a terminal that runs on the Pi.
+Raspberry Pi's can run a wide range of programing languages. In this lab you will use Python, and program the Pi using Visual Studio Code (VS Code), an open-source developer text editor that can program locally or remotely on a Pi from your PC or Mac. When connected to the Pi remotely from your PC or Mac you can write and debug code from your device, with the code running on the Pi. You will also get a terminal that runs on the Pi.
 
 ## Hardware requirements
 
@@ -21,6 +21,7 @@ You will need the following hardware:
 * A keyboard, mouse and monitor
 * A [micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)
 * NEO-6M GPS Receiver Module with external antenna
+* 4 female to female jumper cables
 
 ### Set up the software
 
@@ -56,7 +57,7 @@ Once the Pi has rebooted, you will need to change the hostname. All newly setup 
 
     ![The pi configuration tool in the menu](../../environment-monitor/images/raspberry-pi-menu-configuration-app.png)
 
-1. Change the value of the *Hostname* in the *General* tab to be something unique, such as by using your name
+1. Change the value of the *Hostname* in the *General* tab to be something unique, such as `gps-pi`. THis is to avoid any conflicts on your network with any other Raspberry Pis that will default to a hostname of *raspberrypi*.
 
     ![Setting the hostname](../../environment-monitor/images/raspberry-pi-configuration-app-hostname.png)
 

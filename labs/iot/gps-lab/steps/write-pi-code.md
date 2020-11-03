@@ -27,7 +27,7 @@ Python support with full debugging support and intellisense, can be added to VS 
 
     ![The PyLance install button](../../../images/vscode-extensions-pylance-install-button.png)
 
-    If you are using remote SSH, you will need to select the **Install in SSH** button.
+    If you are using remote SSH to connect to the Pi remotely, you will need to select the **Install in SSH** button.
 
     ![The PyLance install button](../../../images/vscode-extensions-pylance-install-remote-button.png)
 
@@ -39,7 +39,13 @@ Now you have VS code running, you can write the code for the Pi.
 
 ### Create a folder
 
-1. Create a folder on your Pi called `GpsLab` to hold the code.
+1. Create a folder on your Pi called `GpsLab` to hold the code. You can do this from VS Code by running the following command in the terminal:
+
+    ```sh
+    mkdir GpsLab
+    ```
+
+    If the terminal is not visible, you can show it by selecting the *Terminal -> New Terminal* menu option.
 
 1. Select the **Explorer** tab from the side menu
 
@@ -191,6 +197,10 @@ Pip packages can be installed one by one via the command line, but it's best pra
 1. Read the code and the comments to see what it does
 
 ### Configure the environment file
+
+Rather than have secrets such as API keys hard coded, it is better to load them from environment variables. There is a pip package called `python-dotenv` that makes this easier by loading environment variables from a file called `.env`. This way you can create the `.env` file, add your API keys to it, and then not check this file into source code control to keep your keys safe.
+
+> The standard `.gitignore` file that is used to ignore files when adding to Git for Python projects on GitHub already ignores .env files
 
 1. Create another new file called `.env`, and add the following code:
 

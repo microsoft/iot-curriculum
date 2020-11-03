@@ -71,7 +71,7 @@ You can find all the code for this web app in the [code/web-app](../code/web-app
 
 This web app has a single HTML page to show a map and plot GPS coordinates received from the IoT Hub.
 
-1. Create a folder in the `GpsLab-WebApp` folder called `templates`. This is where Flask expects to load HTML templates from.
+c1. Create a folder in the `GpsLab-WebApp` folder called `templates`. This is where Flask expects to load HTML templates from.
 
 1. Add a new file to this folder called `index.html`
 

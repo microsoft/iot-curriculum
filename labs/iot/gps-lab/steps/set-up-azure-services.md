@@ -160,6 +160,18 @@ For the GPS device to connect to IoT Hub, a device identity needs to be created 
 
     These connection strings are device specific - each new device will need a new connection string containing the relevant device Id as well as the devices shared access key.
 
+1. Reading messages from the GPS device off the IoT Hub to display the location on a web page needs an Event Hub compatible endpoint. This is an end point that you can connect to to receive values as soon as they are sent to the IoT Hub. Run the following command to get the connection string for the Event Hub compatible end point:
+
+    ```sh
+    az iot hub connection-string show --default-eventhub \
+                                      --output table \
+                                      --hub-name <hub_name>
+    ```
+
+    Replace `<hub_name>` with the name for your IoT Hub. Take a copy of the value from the *ConnectionString* column.
+
+    > [Event hubs](https://azure.microsoft.com/services/event-hubs/?WT.mc_id=academic-7372-jabenn) is an Azure service for streaming events between components of your application. Azure IoT Hub can act like an Event Hub and services can connect to IoT Hub to ingest IoT messages in the same way as they could connect to an Event Hub to ingest events.
+
 ## Next steps
 
 In this step you set up all the Azure services needed to complete this lab.

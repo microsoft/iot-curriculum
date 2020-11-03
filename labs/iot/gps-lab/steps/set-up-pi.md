@@ -151,11 +151,11 @@ The GPS receiver connects to the Pi using [UART](https://en.wikipedia.org/wiki/U
     sudo reboot
     ```
 
-### Test the GPS receiver
+### Install the GPS receiver software
 
-There is some free GPS software you can use to test the data coming from the receiver.
+[GPSD](https://gpsd.io) is free GPS software you can use to get the data coming from the receiver.
 
-1. From the terminal, install the software using the following command:
+1. From the terminal, install the GPSD software using the following command:
 
     ```sh
     sudo apt install gpsd gpsd-clients --yes

@@ -9,7 +9,8 @@ These labs are divided up into multiple sections.
 These labs cover traditional internet of things scenarios, connecting devices to the cloud
 
 * [Environment Monitor](./iot/environment-monitor/) - a beginners tutorial setting up a Raspberry Pi to send data to the cloud, and perform analytics on the data
-* [GPS Lab](./iot/gps-lab/README.md) - A sample application for sending GPS data from GPS sensor connected with Raspberry Pi to the IoT-Hub and displaying the location in a Python Flask web application in real time.
+* [GPS Lab](./iot/gps-lab/README.md) - A sample application for sending GPS data from GPS sensor connected to a Raspberry Pi to Azure IoT Hub and displaying the location in a web application in real time using Azure Maps.
+
 ## AI/Edge
 
 These labs cover running AI workloads either in the cloud from the IoT device, or on the edge running the workload actually on the IoT device itself.

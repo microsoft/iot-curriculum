@@ -16,6 +16,10 @@ Azure has the concept of Resource Groups, logical groupings of resources that yo
 
 1. To delete the resource group, follow the instructions in the [Azure Resource Manager resource group and resource deletion documentation](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal&WT.mc_id=iotcurriculum-github-jabenn)
 
+### Delete the Azure App Service web app
+
+If you deployed your web app to Azure App Service, you will need to delete the resource group that was created automatically by the deployment. The tutorial contains the steps to do this.
+
 ## Next steps
 
 You have completed this lab to show current GPS location using a Raspberry Pi, GPS receiver and Azure Maps. You detected GPS location coordinates and sent this data to Azure IoT Hub, and from there you visualized it on Azure Maps.

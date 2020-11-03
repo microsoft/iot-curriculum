@@ -42,8 +42,6 @@ If you don't complete all the labs, make sure you always do the [last one](./ste
 
 1. [Code a web app to visualize the GPS location on a map](./steps/web-app.md)
 
-1. [Deploy the web app to Azure App Service](./steps/deploy-to-app-service.md)
-
 1. [Clean up](./steps/clean-up.md)
 
 ## Clean up

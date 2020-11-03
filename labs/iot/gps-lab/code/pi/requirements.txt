@@ -1,0 +1,3 @@
+azure-iot-device
+python-dotenv
+gps

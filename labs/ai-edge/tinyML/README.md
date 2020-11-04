@@ -56,10 +56,7 @@ Download the code for this lab by selecting from the header menu ```File --> Exa
 
 ## Understanding the micro_speech code
 
-Before running this example, it will help to understand what each file of the code is doing.
-
-## micro_speech
-(explanations still in process)
+To understand the micro_speech code, refer to the descriptions found in "micro_speech_explanations.md" and "support_libraries_explanations.md"
 
 ## Build, load, then run the example
 

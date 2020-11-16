@@ -203,6 +203,18 @@ If you are an educator, encourage your students to sign up for this program to h
 
 You can learn more on the [Microsoft Learn Student Ambassadors site](https://studentambassadors.microsoft.com?WT.mc_id=academic-7372-jabenn).
 
+## Imagine Cup
+
+**Reimagine our world with technology in the 2021 Imagine Cup**
+
+We’re looking for bold thinkers and big dreamers to join the 2021 competition journey.
+
+Make an impact through coding, collaboration, and competition. Innovate with passion to tackle global issues and bring your idea to life in the Imagine Cup.
+
+The 19th annual Imagine Cup is more than just a competition for students—you can work with friends (and make new ones!), network with professionals, gain new skills, make a difference in the world, and have the chance to win great prizes.
+
+Read more and sign up at [imaginecup.microsoft.com](https://imaginecup.microsoft.com/?WT.mc_id=academic-7372-jabenn).
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a

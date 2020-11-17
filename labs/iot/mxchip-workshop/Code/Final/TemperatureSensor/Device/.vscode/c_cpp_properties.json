@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "defines": [
+                "ARDUINO=10800"
+            ],
+            "includePath": [
+                "${workspaceFolder}",
+                "~/Library/Arduino15/packages/AZ3166/tools/**",
+                "~/Library/Arduino15/packages/AZ3166/hardware/stm32f4/1.6.1/**"
+            ],
+            "forcedInclude": [
+                "~/Library/Arduino15/packages/AZ3166/hardware/stm32f4/1.6.1/cores/arduino/Arduino.h"
+            ],
+            "intelliSenseMode": "clang-x64",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

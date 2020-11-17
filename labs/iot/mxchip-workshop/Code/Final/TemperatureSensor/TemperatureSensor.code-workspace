@@ -1,0 +1,15 @@
+{
+    "folders": [
+        {
+            "path": "Device"
+        },
+        {
+            "path": "Functions"
+        }
+    ],
+    "settings": {
+        "IoTWorkbench.BoardId": "devkit",
+        "IoTWorkbench.DevicePath": "Device",
+        "IoTWorkbench.FunctionPath": "Functions",
+    }
+}

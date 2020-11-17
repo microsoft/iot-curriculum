@@ -189,7 +189,11 @@ These labs are designed for courses where Azure resources are provided to studen
 
 ## Get certified
 
-Microsoft offers a certification in IoT - AZ-220, the Microsoft Certified: Azure IoT Developer Specialty. You can read more about this certification on the [Microsoft Certified: Azure IoT Developer Specialty page on Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-iot-developer-specialty?WT.mc_id=academic-7372-jabenn).
+Microsoft offers a certification in IoT - AZ-220, the Microsoft Certified: Azure IoT Developer Specialty.
+
+* [Microsoft Certified: Azure IoT Developer Specialty page on Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-iot-developer-specialty?WT.mc_id=academic-7372-jabenn).
+
+* [AZ-220 Microsoft Azure IoT Developer study guide](https://microsoftlearning.github.io/AZ-220-Microsoft-Azure-IoT-Developer/).
 
 ## Microsoft Learn Student Ambassadors
 

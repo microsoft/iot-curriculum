@@ -173,9 +173,9 @@ Visual Studio Code (VS Code) is a free, open source, cross-platform developer te
 
 * [Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academic-7372-jabenn) - the home of VS Code
 * [Platform.io](https://platformio.org/platformio-ide) - an extension for VS Code that provides tools for embedded C/C++ development, with no additional dependencies
-* [Remote developer pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack&WT.mc_id=iotcurriculum-github-jabenn) - an extension to support remote development, such as connecting to a Raspberry Pi and developing on that Pi from your PC or Mac
-* [PyLance - Python language extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance&WT.mc_id=iotcurriculum-github-jabenn) - an extension providing Python language support to VS Code
-* [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools&WT.mc_id=iotcurriculum-github-jabenn) - full intellisense and debugging support for C and C++ development
+* [Remote developer pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack&WT.mc_id=academic-7372-jabenn) - an extension to support remote development, such as connecting to a Raspberry Pi and developing on that Pi from your PC or Mac
+* [PyLance - Python language extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance&WT.mc_id=academic-7372-jabenn) - an extension providing Python language support to VS Code
+* [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools&WT.mc_id=academic-7372-jabenn) - full intellisense and debugging support for C and C++ development
 
 ## IoT Events in a box
 
@@ -223,14 +223,14 @@ Read more and sign up at [imaginecup.microsoft.com](https://imaginecup.microsoft
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit [https://cla.opensource.microsoft.com](https://cla.opensource.microsoft.com?WT.mc_id-iotcurriculum-github-jabenn).
+the rights to use your contribution. For details, visit [https://cla.opensource.microsoft.com](https://cla.opensource.microsoft.com?WT.mc_id-academic-7372-jabenn).
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
 provided by the bot. You will only need to do this once across all repos using our CLA.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/?WT.mc_id-iotcurriculum-github-jabenn).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/?WT.mc_id-iotcurriculum-github-jabenn) or
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/?WT.mc_id-academic-7372-jabenn).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/?WT.mc_id-academic-7372-jabenn) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ## Legal Notices
@@ -243,9 +243,9 @@ see the [LICENSE](LICENSE) file, and grant you a license to any code in the repo
 Microsoft, Windows, Microsoft Azure and/or other Microsoft products and services referenced in the documentation
 may be either trademarks or registered trademarks of Microsoft in the United States and/or other countries.
 The licenses for this project do not grant you rights to use any Microsoft names, logos, or trademarks.
-Microsoft's general trademark guidelines can be found at [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653&WT.mc_id-iotcurriculum-github-jabenn).
+Microsoft's general trademark guidelines can be found at [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653&WT.mc_id-academic-7372-jabenn).
 
-Privacy information can be found at [https://privacy.microsoft.com/](https://privacy.microsoft.com/?WT.mc_id-iotcurriculum-github-jabenn)
+Privacy information can be found at [https://privacy.microsoft.com/](https://privacy.microsoft.com/?WT.mc_id-academic-7372-jabenn)
 
 Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
 or trademarks, whether by implication, estoppel or otherwise.

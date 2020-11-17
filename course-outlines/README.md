@@ -4,6 +4,10 @@ This folder contains some suggested course outlines for teaching topics in the I
 
 > If you teach an IoT course and want to add your course outline to help other teachers, please [raise a PR](https://github.com/microsoft/iot-curriculum/pulls).
 
+## IoT
+
+* [Introduction to the Internet of Things](./intro-to-iot.md)
+
 ## AI
 
 * [Electricity demand forecasting](./electricity-demand-forecasting.md)

@@ -10,7 +10,7 @@ To write the code for the Raspberry Pi, you will use the Remote development capa
 
 ### Install the Remote Development extension in Visual Studio Code
 
-To enable remote development in Visual Studio Code, you will need to install the [Remote Development Extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack&WT.mc_id=iotcurriculum-github-jabenn).
+To enable remote development in Visual Studio Code, you will need to install the [Remote Development Extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack&WT.mc_id=academic-7372-jabenn).
 
 1. Launch Visual Studio Code
 

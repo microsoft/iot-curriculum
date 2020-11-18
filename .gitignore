@@ -128,3 +128,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .DS_Store
+.vs
+
+# C stuff
+.build
+
+#C#
+bin
+obj

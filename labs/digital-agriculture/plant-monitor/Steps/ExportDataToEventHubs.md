@@ -74,7 +74,7 @@ The instance consists of a namespace, containing an event hub.
 
 #### Creating an Azure Event Hubs Namespace using the Azure CLI
 
-1. To install the Azure CLI, head to the [installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&WT.mc_id=iotcurriculum-github-jabenn) and follow the instructions for your OS.
+1. To install the Azure CLI, head to the [installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&WT.mc_id=academic-7372-jabenn) and follow the instructions for your OS.
 
 1. From your terminal, log in to the Azure CLI using the following command
 

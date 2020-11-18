@@ -18,7 +18,7 @@ This device will be programmed in Python, so you will need Python installed.
 
 * **Windows:**
 
-    You can install Python from the [Windows Store](https://www.microsoft.com/p/python-38/9mssztt1n39l?activetab=pivot:overviewtab&WT.mc_id=iotcurriculum-github-jabenn)
+    You can install Python from the [Windows Store](https://www.microsoft.com/p/python-38/9mssztt1n39l?activetab=pivot:overviewtab&WT.mc_id=academic-7372-jabenn)
 
 * **macOS**
 

@@ -36,8 +36,8 @@ For the speech service, create a single-service resource, and use the `F0` tier,
 
 For the translator service, create a single-service resource, set the location to `Global`, and use the `F0` tier, which is free.
 
-* [Create a Cognitive Services resource using the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows&WT.mc_id=iotcurriculum-github-jabenn)
-* [Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows&WT.mc_id=iotcurriculum-github-jabenn)
+* [Create a Cognitive Services resource using the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows&WT.mc_id=academic-7372-jabenn)
+* [Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows&WT.mc_id=academic-7372-jabenn)
 
 You will need your Key and Endpoint for the Speech resource, and the key for the Translator resource to use them in this lab.
 

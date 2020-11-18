@@ -32,8 +32,8 @@ This lab is designed for courses where Azure resources are provided to students 
 
 To create an Azure Cognitive Services Computer Vision resource, follow the instructions in one of the following guides, depending on if you want to use the Azure Portal, or the Azure Command-line interface (CLI). You can either create a single-service resource for the Computer Vision service, or a multi-service resource, as the multi-service resource includes Computer Vision.
 
-* [Create a Cognitive Services resource using the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows&WT.mc_id=iotcurriculum-github-jabenn)
-* [Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows&WT.mc_id=iotcurriculum-github-jabenn)
+* [Create a Cognitive Services resource using the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows&WT.mc_id=academic-7372-jabenn)
+* [Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows&WT.mc_id=academic-7372-jabenn)
 
 You will need your Key and Endpoint to access the resource. If you used the Azure CLI to create the resource, the endpoint is in the form:
 

@@ -22,6 +22,10 @@ The [devices](./devices) folder contains details on setting up the different dev
 
 The [labs](./labs) folder contains details on a range of different labs covering IoT and AI on the edge.
 
+## Course outlines
+
+The [course-outlines](./course-outlines) folder contains example outlines for courses that can be taught around the IoT space.
+
 ## Microsoft Learn
 
 [Microsoft Learn](https://docs.microsoft.com/Learn?WT.mc_id=academic-7372-jabenn) is a free, online training platform that provides interactive learning for Microsoft products and more. Our goal is to help you become proficient on our technologies and learn more skills with fun, guided, hands-on, interactive content that's specific to your role and goals.
@@ -169,9 +173,9 @@ Visual Studio Code (VS Code) is a free, open source, cross-platform developer te
 
 * [Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academic-7372-jabenn) - the home of VS Code
 * [Platform.io](https://platformio.org/platformio-ide) - an extension for VS Code that provides tools for embedded C/C++ development, with no additional dependencies
-* [Remote developer pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack&WT.mc_id=iotcurriculum-github-jabenn) - an extension to support remote development, such as connecting to a Raspberry Pi and developing on that Pi from your PC or Mac
-* [PyLance - Python language extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance&WT.mc_id=iotcurriculum-github-jabenn) - an extension providing Python language support to VS Code
-* [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools&WT.mc_id=iotcurriculum-github-jabenn) - full intellisense and debugging support for C and C++ development
+* [Remote developer pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack&WT.mc_id=academic-7372-jabenn) - an extension to support remote development, such as connecting to a Raspberry Pi and developing on that Pi from your PC or Mac
+* [PyLance - Python language extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance&WT.mc_id=academic-7372-jabenn) - an extension providing Python language support to VS Code
+* [C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools&WT.mc_id=academic-7372-jabenn) - full intellisense and debugging support for C and C++ development
 
 ## IoT Events in a box
 
@@ -185,7 +189,11 @@ These labs are designed for courses where Azure resources are provided to studen
 
 ## Get certified
 
-Microsoft offers a certification in IoT - AZ-220, the Microsoft Certified: Azure IoT Developer Specialty. You can read more about this certification on the [Microsoft Certified: Azure IoT Developer Specialty page on Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-iot-developer-specialty?WT.mc_id=academic-7372-jabenn).
+Microsoft offers a certification in IoT - AZ-220, the Microsoft Certified: Azure IoT Developer Specialty.
+
+* [Microsoft Certified: Azure IoT Developer Specialty page on Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-iot-developer-specialty?WT.mc_id=academic-7372-jabenn).
+
+* [AZ-220 Microsoft Azure IoT Developer study guide](https://microsoftlearning.github.io/AZ-220-Microsoft-Azure-IoT-Developer/).
 
 ## Microsoft Learn Student Ambassadors
 
@@ -199,18 +207,30 @@ If you are an educator, encourage your students to sign up for this program to h
 
 You can learn more on the [Microsoft Learn Student Ambassadors site](https://studentambassadors.microsoft.com?WT.mc_id=academic-7372-jabenn).
 
+## Imagine Cup
+
+**Reimagine our world with technology in the 2021 Imagine Cup**
+
+We’re looking for bold thinkers and big dreamers to join the 2021 competition journey.
+
+Make an impact through coding, collaboration, and competition. Innovate with passion to tackle global issues and bring your idea to life in the Imagine Cup.
+
+The 19th annual Imagine Cup is more than just a competition for students—you can work with friends (and make new ones!), network with professionals, gain new skills, make a difference in the world, and have the chance to win great prizes.
+
+Read more and sign up at [imaginecup.microsoft.com](https://imaginecup.microsoft.com/?WT.mc_id=academic-7372-jabenn).
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit [https://cla.opensource.microsoft.com](https://cla.opensource.microsoft.com?WT.mc_id-iotcurriculum-github-jabenn).
+the rights to use your contribution. For details, visit [https://cla.opensource.microsoft.com](https://cla.opensource.microsoft.com?WT.mc_id-academic-7372-jabenn).
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
 provided by the bot. You will only need to do this once across all repos using our CLA.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/?WT.mc_id-iotcurriculum-github-jabenn).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/?WT.mc_id-iotcurriculum-github-jabenn) or
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/?WT.mc_id-academic-7372-jabenn).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/?WT.mc_id-academic-7372-jabenn) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 ## Legal Notices
@@ -223,9 +243,9 @@ see the [LICENSE](LICENSE) file, and grant you a license to any code in the repo
 Microsoft, Windows, Microsoft Azure and/or other Microsoft products and services referenced in the documentation
 may be either trademarks or registered trademarks of Microsoft in the United States and/or other countries.
 The licenses for this project do not grant you rights to use any Microsoft names, logos, or trademarks.
-Microsoft's general trademark guidelines can be found at [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653&WT.mc_id-iotcurriculum-github-jabenn).
+Microsoft's general trademark guidelines can be found at [http://go.microsoft.com/fwlink/?LinkID=254653](http://go.microsoft.com/fwlink/?LinkID=254653&WT.mc_id-academic-7372-jabenn).
 
-Privacy information can be found at [https://privacy.microsoft.com/](https://privacy.microsoft.com/?WT.mc_id-iotcurriculum-github-jabenn)
+Privacy information can be found at [https://privacy.microsoft.com/](https://privacy.microsoft.com/?WT.mc_id-academic-7372-jabenn)
 
 Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
 or trademarks, whether by implication, estoppel or otherwise.

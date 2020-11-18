@@ -1,0 +1,35 @@
+{
+    "componentConfigs": [
+        {
+            "id": "f48986c1-cad3-b5d4-fc33-50c0da66ef0e",
+            "folder": "",
+            "name": "",
+            "dependencies": [],
+            "type": "IoTHub",
+            "componentInfo": {
+                "values": {
+                    "iotHubConnectionString": "",
+                    "eventHubConnectionString": "",
+                    "eventHubConnectionPath": ""
+                }
+            }
+        },
+        {
+            "id": "3c58df51-aa87-3e48-f597-79174860391a",
+            "folder": "Functions",
+            "name": "",
+            "dependencies": [
+                {
+                    "id": "f48986c1-cad3-b5d4-fc33-50c0da66ef0e",
+                    "type": 1
+                }
+            ],
+            "type": "AzureFunctions",
+            "componentInfo": {
+                "values": {
+                    "functionLanguage": "C#"
+                }
+            }
+        }
+    ]
+}

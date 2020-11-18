@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GPS Lab</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    
+    <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+
+    <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
+
+    <!-- Add a reference to the Socket.io JavaScript file -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+
+    <!-- Add a reference to the GPS Lab maps app JavaScript file -->
+    <script src="static/js/application.js" type="text/javascript" charset="utf-8"></script>
+
+    <style>
+        html,
+        body {
+            margin: 0;
+        }
+        #myMap {
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+
+<!-- When the body loads, run code to create the map using a kay passed from the Flask app -->
+<body onload="GetMap('{{ data.maps_key }}')">
+    <!-- This div is passed to the map control to be converted into a map -->
+    <div id="myMap"></div>
+</body>
+
+</html>

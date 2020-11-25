@@ -65,11 +65,11 @@ Once the assembly line is constructed, the code can be written for the ESP-EYE t
 
 To access the camera and host a web server, you can use some pre-existing Arduino libraries. These can be added globally using the PlatformIO library manager, or added to a specific project by editing the `platformio.ini` file in the root of the project folder.
 
-* Open the `assembly-line-cam` project in VS Code if it's not already open
+1. Open the `assembly-line-cam` project in VS Code if it's not already open
 
-* Open the `platformio.ini` file
+1. Open the `platformio.ini` file
 
-* Add the following code to the end of the file:
+1. Add the following code to the end of the file:
 
     ```sh
     lib_deps =
@@ -85,9 +85,9 @@ Next time the app is compiled, it will bring in these libraries and compile them
 
 The code for interacting with the camera can be encapsulated in a camera helper class, simplifying the code needed to take photos.
 
-* In the `src` folder, create two files - `Camera.h` and `Camera.cpp`
+1. In the `src` folder, create two files - `Camera.h` and `Camera.cpp`
 
-* Add the following code to the `Camera.h` header file:
+1. Add the following code to the `Camera.h` header file:
 
     ```cpp
     #ifndef _CAMERA_H_
@@ -128,7 +128,7 @@ The code for interacting with the camera can be encapsulated in a camera helper 
 
     This code defines a class called `Camera` with 2 public methods. The `TakePhoto` method takes a photo and returns it as a pointer to a `camera_fb_t` - a frame buffer object from the ESP camera library that contains the image data. This frame buffer should be cleared up after being used by calling the `ReleaseFrameBuffer` method.
 
-* Add the following code to the `Camera.cpp` file:
+1. Add the following code to the `Camera.cpp` file:
 
     ```cpp
     #include "camera.h"
@@ -248,9 +248,9 @@ The code for interacting with the camera can be encapsulated in a camera helper 
 
 Just like code for interacting with the camera, the code for interacting with the file system can be encapsulated to simplfy the calling code.
 
-* In the `src` folder, create two files - `ImageHandler.h` and `ImageHandler.cpp`
+1. In the `src` folder, create two files - `ImageHandler.h` and `ImageHandler.cpp`
 
-* Add the following code to the `ImageHandler.h` header file:
+1. Add the following code to the `ImageHandler.h` header file:
 
     ```cpp
     #ifndef _IMAGEHANDLER_H_
@@ -275,7 +275,7 @@ Just like code for interacting with the camera, the code for interacting with th
          *
          * @param frameBuffer The frame buffer to save.
          * @param fileName The file name to save to.
-         * 
+         *
          * @return TRUE on success
          */
         bool SavePhoto(camera_fb_t *frameBuffer, const char *fileName);
@@ -285,7 +285,7 @@ Just like code for interacting with the camera, the code for interacting with th
          * @brief Checks the image saved correctly by validating bytes were written.
          *
          * @param fileName The file name to check.
-         * 
+         *
          * @return TRUE on if the file was saved correctly, otherwise FALSE
          */
         bool CheckPhoto(const char *fileName);
@@ -296,7 +296,7 @@ Just like code for interacting with the camera, the code for interacting with th
 
     This defines an `ImageHandler` class with a single public method `SavePhoto` that writes an ESP image frame buffer to the file system. It also has a private `CheckPhoto` method used to validate the photo was saved correctly.
 
-* Add the following code to the `ImageHandler.cpp` file:
+1. Add the following code to the `ImageHandler.cpp` file:
 
     ```cpp
     #include "ImageHandler.h"
@@ -379,9 +379,9 @@ Just like code for interacting with the camera, the code for interacting with th
 
 The next step is to create the web server. This will host a single page that allows you to take a picture with the camera. This page can then be accessed over your local network to view and download the image.
 
-* In the `src` folder, create two files - `WebServer.h` and `WebServer.cpp`
+1. In the `src` folder, create two files - `WebServer.h` and `WebServer.cpp`
 
-* Add the following code to the `WebServer.h` header file:
+1. Add the following code to the `WebServer.h` header file:
 
     ```cpp
     #ifndef _WEBSERVER_H_
@@ -427,7 +427,7 @@ The next step is to create the web server. This will host a single page that all
 
     This code defines a `WebServer` class that uses the ESP Async WebServer library to host a web server. It also has an instance of the `Camera` and `ImageHandler` classes and a private method to capture a photo from the camera and save it to the file system.
 
-* Add the following code to the `WebServer.cpp` file:
+1. Add the following code to the `WebServer.cpp` file:
 
     ```cpp
     #include "WebServer.h"
@@ -581,9 +581,9 @@ The next step is to create the web server. This will host a single page that all
 
 The final piece of code starts up the `WebServer` using the ESP-EYEs on-board WiFi.
 
-* In the `src` folder, create a file called `Config.h`
+1. In the `src` folder, create a file called `Config.h`
 
-* Add the following code to this file:
+1. Add the following code to this file:
 
     ```cpp
     #ifndef _CONFIG_H_
@@ -602,7 +602,7 @@ The final piece of code starts up the `WebServer` using the ESP-EYEs on-board Wi
 
     This code defines constants used to connect to your WiFi. If you check this project into public source code control such as GitHub, make sure to not check this file in.
 
-* Edit the `main.cpp` file to have the following code:
+1. Edit the `main.cpp` file to have the following code:
 
     ```cpp
     #include "Config.h"
@@ -661,9 +661,11 @@ The final piece of code starts up the `WebServer` using the ESP-EYEs on-board Wi
 
 The code is ready to be uploaded to the ESP-EYE.
 
-* Open the Command Pallette
+1. Ensure your ESP-EYE is connected to your computer via USB
 
-* Select `PlatformIO: Upload`
+1. Open the Command Pallette
+
+1. Select `PlatformIO: Upload`
 
 The code will be compiled and uploaded to the board. Once compiled, open the serial monitor, and you will see output similar to the following:
 
@@ -685,4 +687,4 @@ You should be able to right-click on the image and select **Save image as...** t
 
 In this step you set up the ESP-EYE to share images via a web server.
 
-In the [next step](./build-image-classifier.md) you will build an image classifier using Azure Custom Vision
+In the [next step](./build-image-classifier.md) you will build an image classifier using Azure Custom Vision.

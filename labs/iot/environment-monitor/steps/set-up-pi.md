@@ -155,7 +155,7 @@ The Pi will be programmed using Python, so Visual Studio Code needs to have an e
 
     ![The reload required button](../../../images/vscode-extensions-pylance-reload-button.png)
 
-Visual Studio Code will now be configured to run Python on the Pi. 
+Visual Studio Code will now be configured to run Python on the Pi.
 
 ### Configure the Grove Pi+
 

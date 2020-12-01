@@ -30,7 +30,7 @@ public:
 
     /**
      * @brief Take a picture with the camera and send it to the classifier
-     * 
+     *
      * @return The classification result
      */
     string TakeImageAndClassify();

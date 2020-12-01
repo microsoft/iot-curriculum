@@ -31,7 +31,7 @@ static esp_err_t HttpEventHandler(esp_http_client_event_t *evt)
 // and return the most probable tag
 string ImageClassifier::ClassifyImage(camera_fb_t *frameBuffer)
 {
-    // Reset the static respons
+    // Reset the static response
     httpResponseString.clear();
 
     // Create the HTTP client config connecting to the prediction endpoint

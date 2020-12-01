@@ -131,6 +131,38 @@ Once the model has been trained, it can be tested with the remaining images.
 
 1. If you head to the *Predictions* tab, you will see the predictions made against the testing images. You can use this tab to tag those images and re-train the model if needed.
 
+## Publish the model
+
+Before the model can be used outside of the Custom Vision portal, it needs to be published. Every time you train the model it creates a new iteration of the model, and it is these iterations that need to be published. The idea being you can train a model and test it out, then only publish once you are happy with the model, or quickly roll back by publishing a previous iteration.
+
+1. Select the **Performance** tab
+
+1. Select the latest iteration. New iterations are created every time you train the model, so if you only trained once there will oly be on iteration called *Iteration 1*, but if you trained multiple times, such as to include the images used for testing then select the appropriate iteration.
+
+1. Select the **Publish** button
+
+    ![The publish button](../images/custom-vision-publish-iteration-button.png)
+
+1. From the *Publish Model* dialog fill in the required details:
+
+    1. Name the model `AssemblyLineQA`
+
+    1. Select the `assembly-line-qa` resource you created earlier
+
+    1. Select the **Publish** button
+
+    ![The complete publish dialog](../images/custom-vision-publish-dialog.png)
+
+1. Once published, select the **Prediction URL** button
+
+    ![The prediction URL button](../images/custom-vision-prediction-url-button.png)
+
+1. Copy the *Image file* prediction endpoint, and the *Prediction-key* header value.
+
+    ![The prediction URL dialog](../images/custom-vision-prediction-url-dialog.png)
+
+    You will need these values in the next step to call the model from the ESP-EYE.
+
 ## Next steps
 
 In this step you built an image classifier using Azure Custom Vision.

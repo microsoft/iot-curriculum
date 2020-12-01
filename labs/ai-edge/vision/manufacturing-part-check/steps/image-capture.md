@@ -126,7 +126,7 @@ The code for interacting with the camera can be encapsulated in a camera helper 
     #endif
     ```
 
-    This code defines a class called `Camera` with 2 public methods. The `TakePhoto` method takes a photo and returns it as a pointer to a `camera_fb_t` - a frame buffer object from the ESP camera library that contains the image data. This frame buffer should be cleared up after being used by calling the `ReleaseFrameBuffer` method.
+    This code defines a class called `Camera` with 2 public methods. The `TakePhoto` method takes a photo and returns it as a pointer to a `camera_fb_t` - a frame buffer object from the ESP camera library that contains the image data for the image as a JPEG. This frame buffer should be cleared up after being used by calling the `ReleaseFrameBuffer` method.
 
 1. Add the following code to the `Camera.cpp` file:
 
@@ -677,7 +677,7 @@ Web server started:
 URL: http://192.168.197.130:50
 ```
 
-From this output, take a copy of the `URL` and open it in your browser. Select the **Take Photo** button to take a photo, and you will see it appear on the web page.
+c. Select the **Take Photo** button to take a photo, and you will see it appear on the web page.
 
 ![The web page showing a captured image](../images/image-capture-web-page.png)
 

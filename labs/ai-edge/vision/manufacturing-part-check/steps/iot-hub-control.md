@@ -503,7 +503,7 @@ You can find all the code for this in the [code/pi-control/pi](../code/pi-contro
 
 1. On the Pi, make a folder called `AssemblyLineControl`, and open this in VS Code either running locally on the Pi, or connected via the Remote SSH extension.
 
-1. Create a file in this folder for the Python pip package requirements called `requirements.txt`
+1. Create a file in this folder for the Python pip package requirements called `n`
 
 1. Add the following to this file:
 
@@ -521,6 +521,8 @@ You can find all the code for this in the [code/pi-control/pi](../code/pi-contro
     ```sh
     pip3 install -r requirements.txt
     ```
+
+    > If you get the error `pip3: command not found`, then you will need to install pip using the command `sudo apt install python3-pip --yes`
 
 1. Create a new file called `.env`. This file will contain secrets for the app, namely the IoT Hub connection string and the device id. This file should not be checked into source code control, and the default .gitignore for Python should ignore these files.
 

@@ -499,6 +499,8 @@ The ESP-EYE needed to connect to the IoT Hub as a device. To invoke direct metho
 
 ### Code the Pi to connect to Azure IoT Hub
 
+You can find all the code for this in the [code/pi-control/pi](../code/pi-control/pi) folder.
+
 1. On the Pi, make a folder called `AssemblyLineControl`, and open this in VS Code either running locally on the Pi, or connected via the Remote SSH extension.
 
 1. Create a file in this folder for the Python pip package requirements called `requirements.txt`
@@ -535,9 +537,8 @@ The ESP-EYE needed to connect to the IoT Hub as a device. To invoke direct metho
 
 1. Add the following code to this file:
 
-    ```sh
+    ```python
     import os
-    import time
     from dotenv import load_dotenv
     from azure.iot.hub import IoTHubRegistryManager
     from azure.iot.hub.models import CloudToDeviceMethod

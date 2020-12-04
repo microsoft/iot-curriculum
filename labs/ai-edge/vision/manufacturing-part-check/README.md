@@ -1,4 +1,4 @@
-# Manufacturing part checker
+# Assembly line QA
 
 This folder contains a lab with multiple parts working towards a prototype of a AI powered assembly line validation tool, similar to the kinds of tools that would be used in a manufacturing environment to check quality of the items produced by an assembly line.
 

@@ -372,7 +372,7 @@ As well as viewing raw data, you can also visualize data in Cosmos DB using a [J
 
 1. Select the **...** button next to *My Notebooks*, then select **Upload File**. The button only appears when your cursor is over the *My Notebooks* section.
 
-    ![The upload file option](../images/cosmos-db-data-explorer-upload-notebook-menu-option.png)
+    ![The upload file option](../../../images/cosmos-db-data-explorer-upload-notebook-menu-option.png)
 
     > To use Jupyter notebooks in Cosmos DB you need to turn this feature on when creating the account. If you do not see the *My Notebooks* section, then you will need to recreate the Cosmos DB account.
 
@@ -388,7 +388,7 @@ As well as viewing raw data, you can also visualize data in Cosmos DB using a [J
 
 1. Wait for the Kernel to connect - this is the core 'engine' that allows the notebook to run. It is ready when the Kernel selection shows *Python 3*
 
-    ![THe kernel loaded and ready to run Python 3 code](../images/cosmos-db-data-explorer-notebook-kernel-loaded.png)
+    ![The kernel loaded and ready to run Python 3 code](../images/cosmos-db-data-explorer-notebook-kernel-loaded.png)
 
 1. From the menu, drop down the *Run* box and select the **Run All** option
 

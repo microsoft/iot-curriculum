@@ -1,4 +1,4 @@
-# Manufacturing part checker
+# Assembly line QA
 
 This folder contains a lab with multiple parts working towards a prototype of a AI powered assembly line validation tool, similar to the kinds of tools that would be used in a manufacturing environment to check quality of the items produced by an assembly line.
 
@@ -12,7 +12,7 @@ In a real factory, the setup would be essentially the same as what is shown here
 |:---|:---|
 | Target platform   | <ul><li>Raspberry Pi</li><li>ESP-EYE</li></ul> |
 | Hardware required | <ul><li>Raspberry Pi 3/4</li><li>Micro SD Card</li><li>An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot</li><li>Raspberry Pi power supply (USB-C for a Pi 4, micro-USB for other Pi models)</li><li>ESP-EYE</li><li>Micro-USB cable to connect the ESP-EYE to your PC or Mac</li><li>Cardboard, Lego or other construction materials to build the assembly line</li></ul>*Optional hardware*<ul><li>[Grove Pi+ Starter Kit](https://www.seeedstudio.com/GrovePi-Starter-Kit-for-Raspberry-Pi-A-B-B-2-3-CE-certified.html)</li></ul>|
-| Software required | <ul><li>[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academic-7372-jabenn)</li><li>[Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)</li></ul>*There are optional installs for Windows and Linux that you may need to install later to connect to the Pi, depending on which version of the OS you are using.* |
+| Software required | <ul><li>[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academic-7372-jabenn)</li><li>[Raspberry Pi Imager](https://www.raspberrypi.org/downloads/)</li></ul>|
 | Azure Services | [Azure Custom Vision](https://CustomVision.ai)<br>[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=academic-7372-jabenn)<br> |
 | Programming Language | <ul><li>C++</li><li>Python</li></ul> |
 | Prerequisites | You will need to be reasonably proficient using C++ to code a microcontroller You should also know the basics of Python programming.<br>If you want to learn Python, check out these free resources:<br><ul><li>[Python for beginners video series on Channel9](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=academic-7372-jabenn)</li><li>[Take your first steps with Python learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/python-first-steps/?WT.mc_id=academic-7372-jabenn)</li></ul><br>You will also need an [Azure subscription](https://github.com/microsoft/iot-curriculum/tree/main/labs/iot/environment_monitor#azure-subscription)<br>If you are new to Azure, check out these free resources:<ul><li>[Azure Fundamentals learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/azure-fundamentals/?WT.mc_id=academic-7372-jabenn)</li></ul> |
@@ -51,7 +51,11 @@ This lab will use an image classification model.
 
 ## Azure subscription
 
-These labs are designed for courses where Azure resources are provided to students by the institution. To try them out, you can use one of our free subscriptions. Head to the [Azure Subscriptions Guide](../../../azure-subscription.md) for from information on setting up a subscription.
+These labs are designed for courses where Azure resources are provided to students by the institution. To try them out, you can use one of our free subscriptions. Head to the [Azure Subscriptions Guide](../../../../azure-subscription.md) for from information on setting up a subscription.
+
+## Running this lab from a Pi
+
+As long as your Pi is running the full Raspberry Pi OS Desktop and is connected to WiFi, you can run everything here directly on the Pi.
 
 ## Labs
 

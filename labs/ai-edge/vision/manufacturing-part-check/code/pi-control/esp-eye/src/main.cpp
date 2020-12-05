@@ -4,7 +4,8 @@
 #include "Config.h"
 #include "IoTHubService.h"
 
-#include <Arduino.h>
+#include <soc/timer_group_struct.h>
+#include <soc/timer_group_reg.h>
 #include <WiFi.h>
 
 // The Connection to IoT Hub
@@ -17,7 +18,7 @@ const int   daylightOffset_sec = 0;
 
 // Arduino setup function. This is run once by the OS when the
 // device first starts up.
-// This function intializes the WiFi connection, and starts the web server
+// This function initializes the WiFi connection, and starts the web server
 void setup()
 {
   // Start the serial port at the PlatformIO default speed for debugging
@@ -39,7 +40,7 @@ void setup()
   //init and get the time
   configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
 
-  // Initialise the IoT Hub service to respond to messages
+  // Initialize the IoT Hub service to respond to messages
   iotHubService = new IoTHubService();
 }
 
@@ -50,4 +51,9 @@ void loop()
 {
   iotHubService->DoWork();
   delay(1);
+
+  // Ensure the CPU watchdog doesn't get triggered by processing the images
+  TIMERG0.wdt_wprotect = TIMG_WDT_WKEY_VALUE;
+  TIMERG0.wdt_feed = 1;
+  TIMERG0.wdt_wprotect = 0;
 }

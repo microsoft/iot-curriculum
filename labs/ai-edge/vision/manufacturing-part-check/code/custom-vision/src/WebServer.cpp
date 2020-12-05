@@ -104,11 +104,11 @@ WebServer::WebServer(uint16_t port) : _webServer(port),
     // Start the server
     _webServer.begin();
 
-    // Print the Local IP Address once we are connected
+    // Print the Local URL once we are connected
     // This is the address you will use to connect to the web server to
     // capture photos
     Serial.println("Web server started:");
-    Serial.print("IP Address: http://");
+    Serial.print("URL: http://");
     Serial.print(WiFi.localIP());
     Serial.printf(":%d\r\n", port);
 }

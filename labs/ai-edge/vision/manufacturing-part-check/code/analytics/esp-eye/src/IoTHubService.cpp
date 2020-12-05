@@ -30,12 +30,12 @@ static void BuildResult(const char *result, unsigned char **response, size_t *re
 }
 
 // A callback used when the IoT Hub invokes a direct method
-// This is a static method as opposed to a method on the class so it can be pass to the 
+// This is a static method as opposed to a method on the class so it can be pass to the
 // IoT hub configuration
-static int CommandCallback(const char *method_name, const unsigned char *payload, size_t size, unsigned char **response, size_t *response_size, void *userContextCallback)
+static int DirectMethodCallback(const char *method_name, const unsigned char *payload, size_t size, unsigned char **response, size_t *response_size, void *userContextCallback)
 {
-    // Log the command received
-    Serial.printf("Command received %s\r\n", method_name);
+    // Log the direct method received
+    Serial.printf("Direct method received %s\r\n", method_name);
 
     // The userContextCallback is the IoT Hub Service, so cast it so it can be used
     IoTHubService *iotHubService = (IoTHubService*)userContextCallback;
@@ -66,18 +66,6 @@ static int CommandCallback(const char *method_name, const unsigned char *payload
         return IOTHUB_CLIENT_ERROR;
     }
 }
-
- void IoTHubService::SendTelemetry(string classificationResult)
- {
-    string telemetryMessage = "{\"classification_result\":\"" + classificationResult + "\"}";
-    IOTHUB_MESSAGE_HANDLE message_handle = IoTHubMessage_CreateFromString(telemetryMessage.c_str());
-
-    Serial.printf("Sending message %s to IoTHub\r\n", telemetryMessage.c_str());
-
-    IoTHubDeviceClient_LL_SendEventAsync(_device_ll_handle, message_handle, NULL, NULL);
-
-    IoTHubMessage_Destroy(message_handle);
- }
 
 IoTHubService::IoTHubService() : _camera(),
                                  _imageClassifier()
@@ -115,8 +103,8 @@ IoTHubService::IoTHubService() : _camera(),
     bool urlEncodeOn = true;
     IoTHubDeviceClient_LL_SetOption(_device_ll_handle, OPTION_AUTO_URL_ENCODE_DECODE, &urlEncodeOn);
 
-    // Setting method call back, so we can receive Commands.
-    IoTHubClient_LL_SetDeviceMethodCallback(_device_ll_handle, CommandCallback, this);
+    // Setting method call back, so we can receive direct methods.
+    IoTHubClient_LL_SetDeviceMethodCallback(_device_ll_handle, DirectMethodCallback, this);
 }
 
 // Let the IoT Hub do whatever work is needed to send or receive messages
@@ -148,4 +136,21 @@ string IoTHubService::TakeImageAndClassify()
 
     // Return the classification result
     return result;
+}
+
+void IoTHubService::SendTelemetry(string classificationResult)
+{
+    // Create the telemetry JSON data
+    string telemetryMessage = "{\"classification_result\":\"" + classificationResult + "\"}";
+
+    // Create an IoT Hub message handle from the telemetry
+    IOTHUB_MESSAGE_HANDLE message_handle = IoTHubMessage_CreateFromString(telemetryMessage.c_str());
+
+    Serial.printf("Sending message %s to IoTHub\r\n", telemetryMessage.c_str());
+
+    // Send the data asynchronously to the IoT Hub
+    IoTHubDeviceClient_LL_SendEventAsync(_device_ll_handle, message_handle, NULL, NULL);
+
+    // Destroy our copy of the message handle - the send call has it's own copy and will destroy when it completes
+    IoTHubMessage_Destroy(message_handle);
 }

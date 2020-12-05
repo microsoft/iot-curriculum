@@ -169,6 +169,10 @@ The telemetry will be set to IoT Hub, and out of the box there is no UI to visua
     }
     ```
 
+1. Right-click on the output pane, and select *Stop Monitoring Built-In Event Endpoint` to stop the monitoring job
+
+    ![The stop monitoring option](../images/vscode-explorer-azure-iot-hub-stop-monitoring-built-in-endpoint-menu.png)
+
 ## Next steps
 
 In this step, you uploaded the result data to Azure IoT Hub.

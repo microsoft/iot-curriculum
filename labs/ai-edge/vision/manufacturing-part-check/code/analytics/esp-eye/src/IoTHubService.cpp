@@ -30,7 +30,7 @@ static void BuildResult(const char *result, unsigned char **response, size_t *re
 }
 
 // A callback used when the IoT Hub invokes a direct method
-// This is a static method as opposed to a method on the class so it can be pass to the 
+// This is a static method as opposed to a method on the class so it can be pass to the
 // IoT hub configuration
 static int DirectMethodCallback(const char *method_name, const unsigned char *payload, size_t size, unsigned char **response, size_t *response_size, void *userContextCallback)
 {
@@ -66,18 +66,6 @@ static int DirectMethodCallback(const char *method_name, const unsigned char *pa
         return IOTHUB_CLIENT_ERROR;
     }
 }
-
- void IoTHubService::SendTelemetry(string classificationResult)
- {
-    string telemetryMessage = "{\"classification_result\":\"" + classificationResult + "\"}";
-    IOTHUB_MESSAGE_HANDLE message_handle = IoTHubMessage_CreateFromString(telemetryMessage.c_str());
-
-    Serial.printf("Sending message %s to IoTHub\r\n", telemetryMessage.c_str());
-
-    IoTHubDeviceClient_LL_SendEventAsync(_device_ll_handle, message_handle, NULL, NULL);
-
-    IoTHubMessage_Destroy(message_handle);
- }
 
 IoTHubService::IoTHubService() : _camera(),
                                  _imageClassifier()
@@ -148,4 +136,21 @@ string IoTHubService::TakeImageAndClassify()
 
     // Return the classification result
     return result;
+}
+
+void IoTHubService::SendTelemetry(string classificationResult)
+{
+    // Create the telemetry JSON data
+    string telemetryMessage = "{\"classification_result\":\"" + classificationResult + "\"}";
+
+    // Create an IoT Hub message handle from the telemetry
+    IOTHUB_MESSAGE_HANDLE message_handle = IoTHubMessage_CreateFromString(telemetryMessage.c_str());
+
+    Serial.printf("Sending message %s to IoTHub\r\n", telemetryMessage.c_str());
+
+    // Send the data asynchronously to the IoT Hub
+    IoTHubDeviceClient_LL_SendEventAsync(_device_ll_handle, message_handle, NULL, NULL);
+
+    // Destroy our copy of the message handle - the send call has it's own copy and will destroy when it completes
+    IoTHubMessage_Destroy(message_handle);
 }

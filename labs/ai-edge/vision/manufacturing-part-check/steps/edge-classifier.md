@@ -14,6 +14,10 @@ IoT on the Edge involves running workloads that you would traditionally run in t
 
 The traditional IoT Edge use case is AI on the edge. You train a model using the power of the cloud, then download the model to run on an Edge device. This is what you will be doing in this lab - taking the model trained by Custom Vision and running in on the Raspberry Pi.
 
+The downside is that the data sent to the model stays on the device, not in the cloud. In a previous step you would have seen the predictions made by the Custom Vision model in the cloud portal, where you can retrain the model to improve it if necessary. If you run the model on the edge, this is no available - you would need your own way of storing the data and results to help validate and retrain the model if needed.
+
+The Custom Vision model runs inside the container as a REST API that is identical to the API running in the cloud. You can use the same REST API calls, or the existing SDKs, but instead of pointing to an endpoint in the cloud, you point to an endpoint running on the IoT Edge device.
+
 ## Set up IoT Edge
 
 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/?WT.mc_id=academic-7372-jabenn#create) consists of a run time that runs on your edge device, and a connection to IoT Hub to manage the workloads that need to be deployed to the edge device. Workloads are deployed as containers, from somewhere like the Azure Container Registry.
@@ -178,7 +182,7 @@ To push containers to this repository, you will need to be able to login via the
 
     ![The access keys with the admin used enabled](../images/container-registry-access-keys-admin-enabled.png)
 
-1. Take a note of the *Username* and one of the *password* fields. The username should be the same as the registry name.
+1. Take a note of the *Login server*, *Username* and one of the *password* fields. The username should be the same as the registry name. You will need these later to log in via the Docker CLI and set up the edge module deployment.
 
 ## Download the model as a container
 
@@ -239,6 +243,327 @@ The container will need to be built on the Raspberry Pi so that is uses the corr
     RUN apt update && apt install -y libjpeg62-turbo libopenjp2-7 libtiff5 libatlas-base-dev libqtgui4
     ```
 
+    You can find a [`Dockerfile`](../code/edge/classifier/Dockerfile) with this code in the [code/edge/classifier](../code/edge/classifier/) folder.
+
+1. Due to a bug in the released Raspberry Pi code, the prediction code will not work. Open the `predict.py` file from the `app` folder in the `classifier` folder and change all the code to the code below.
+
+    You can find a copy of [this file](../code/edge/classifier/app/predict.py) in the [code/edge/classifier/app](../code/edge/classifier/app) folder.
+
+    ```python
+    from urllib.request import urlopen
+    from datetime import datetime
+    import tensorflow as tf
+
+    from PIL import Image
+    import numpy as np
+    import sys
+
+    try:
+        import cv2
+        use_opencv = True
+        print("Using OpenCV resizing...")
+    except:
+        use_opencv = False
+        print("Using CVS resizing...")
+
+    filename = 'model.pb'
+    labels_filename = 'labels.txt'
+
+    network_input_size = 0
+
+    output_layer = 'loss:0'
+    input_node = 'Placeholder:0'
+
+    graph_def = tf.compat.v1.GraphDef()
+    labels = []
+
+    def initialize():
+        print('Loading model...',end=''),
+        with open(filename, 'rb') as f:
+            graph_def.ParseFromString(f.read())
+            tf.import_graph_def(graph_def, name='')
+
+        # Retrieving 'network_input_size' from shape of 'input_node'
+        with tf.compat.v1.Session() as sess:
+            input_tensor_shape = sess.graph.get_tensor_by_name(input_node).shape.as_list()
+
+        assert len(input_tensor_shape) == 4
+        assert input_tensor_shape[1] == input_tensor_shape[2]
+
+        global network_input_size
+        network_input_size = input_tensor_shape[1]
+
+        print('Success!')
+        print('Loading labels...', end='')
+        with open(labels_filename, 'rt') as lf:
+            global labels
+            labels = [l.strip() for l in lf.readlines()]
+        print(len(labels), 'found. Success!')
+
+    def log_msg(msg):
+        print("{}: {}".format(datetime.now(),msg))
+
+    def extract_bilinear_pixel(img, x, y, ratio, xOrigin, yOrigin):
+        """
+        Custom implementation of bilinear interpolation when opencv is not available
+        img: numpy source image array
+        x,y: target pixel coordinates
+        ratio: scaling factor
+        xOrigin, yOrigin: source image offset
+        returns interpolated pixel value (RGB)
+        """
+        xDelta = (x + 0.5) * ratio - 0.5
+        x0 = int(xDelta)
+        xDelta -= x0
+        x0 += xOrigin
+        if x0 < 0:
+            x0 = 0;
+            x1 = 0;
+            xDelta = 0.0;
+        elif x0 >= img.shape[1]-1:
+            x0 = img.shape[1]-1;
+            x1 = img.shape[1]-1;
+            xDelta = 0.0;
+        else:
+            x1 = x0 + 1;
+
+        yDelta = (y + 0.5) * ratio - 0.5
+        y0 = int(yDelta)
+        yDelta -= y0
+        y0 += yOrigin
+        if y0 < 0:
+            y0 = 0;
+            y1 = 0;
+            yDelta = 0.0;
+        elif y0 >= img.shape[0]-1:
+            y0 = img.shape[0]-1;
+            y1 = img.shape[0]-1;
+            yDelta = 0.0;
+        else:
+            y1 = y0 + 1;
+
+        #Get pixels in four corners
+        bl = img[y0, x0]
+        br = img[y0, x1]
+        tl = img[y1, x0]
+        tr = img[y1, x1]
+        #Calculate interpolation
+        b = xDelta * br + (1. - xDelta) * bl
+        t = xDelta * tr + (1. - xDelta) * tl
+        pixel = yDelta * t + (1. - yDelta) * b
+        return pixel
+
+    def extract_and_resize(img, targetSize):
+        """
+        resize and cropn when opencv is not available
+        img: input image numpy array
+        targetSize: output size
+        returns resized and cropped image
+        """
+        determinant = img.shape[1] * targetSize[0] - img.shape[0] * targetSize[1]
+        if determinant < 0:
+            ratio = float(img.shape[1]) / float(targetSize[1])
+            xOrigin = 0
+            yOrigin = int(0.5 * (img.shape[0] - ratio * targetSize[0]))
+        elif determinant > 0:
+            ratio = float(img.shape[0]) / float(targetSize[0])
+            xOrigin = int(0.5 * (img.shape[1] - ratio * targetSize[1]))
+            yOrigin = 0
+        else:
+            ratio = float(img.shape[0]) / float(targetSize[0])
+            xOrigin = 0
+            yOrigin = 0
+        resize_image = np.empty((targetSize[0], targetSize[1], img.shape[2]), dtype=np.float32)
+        for y in range(targetSize[0]):
+            for x in range(targetSize[1]):
+                resize_image[y, x] = extract_bilinear_pixel(img, x, y, ratio, xOrigin, yOrigin)
+        return resize_image
+
+    def extract_and_resize_to_256_square(image):
+        """
+        extracts image central square crop and resizes it to 256x256
+        image: input image numpy array
+        returns resized 256x256 central crop as numpy array
+        """
+        h, w = image.shape[:2]
+        log_msg("crop_center: " + str(w) + "x" + str(h) +" and resize to " + str(256) + "x" + str(256))
+        if use_opencv:
+            min_size = min(h, w)
+            image = crop_center(image, min_size, min_size)
+            return cv2.resize(image, (256, 256), interpolation = cv2.INTER_LINEAR)
+        else:
+            return extract_and_resize(image, (256, 256))
+
+    def crop_center(img,cropx,cropy):
+        """
+        extracts central crop
+        img: input image numpy array
+        cropx, cropy: crop size
+        returns central crop as numpy array
+        """
+        h, w = img.shape[:2]
+        startx = max(0, w//2-(cropx//2))
+        starty = max(0, h//2-(cropy//2))
+        log_msg("crop_center: " + str(w) + "x" + str(h) +" to " + str(cropx) + "x" + str(cropy))
+        return img[starty:starty+cropy, startx:startx+cropx]
+
+    def resize_down_to_1600_max_dim(image):
+        """
+        resized image to 1600px in max dimension if image exceeds 1600 by width or height
+        image: input image numpy array
+        returns downsized image
+        """
+        w,h = image.size
+        if h < 1600 and w < 1600:
+            return image
+
+        new_size = (1600 * w // h, 1600) if (h > w) else (1600, 1600 * h // w)
+        log_msg("resize: " + str(w) + "x" + str(h) + " to " + str(new_size[0]) + "x" + str(new_size[1]))
+
+        if use_opencv:
+            # Convert image to numpy array
+            image = convert_to_nparray(image)
+            return cv2.resize(image, new_size, interpolation = cv2.INTER_LINEAR)
+        else:
+            if max(new_size) / max(image.size) >= 0.5:
+                method = Image.BILINEAR
+            else:
+                method = Image.BICUBIC
+            image = image.resize(new_size, method)
+            return image
+
+    def predict_url(imageUrl):
+        """
+        predicts image by url
+        """
+        log_msg("Predicting from url: " +imageUrl)
+        with urlopen(imageUrl) as testImage:
+            image = Image.open(testImage)
+            return predict_image(image)
+
+    def convert_to_nparray(image):
+        """
+        converts PIL.Image to numpy array and changes RGB order to BGR
+        image: inpout PIL image
+        returns image as a numpy array
+        """
+        # RGB -> BGR
+        log_msg("Convert to numpy array")
+        image = np.array(image)
+        return image[:, :, (2,1,0)]
+
+    def update_orientation(image):
+        """
+        corrects image orientation according to EXIF data
+        image: input PIL image
+        returns corrected PIL image
+        """
+        exif_orientation_tag = 0x0112
+        if hasattr(image, '_getexif'):
+            exif = image._getexif()
+            if exif != None and exif_orientation_tag in exif:
+                orientation = exif.get(exif_orientation_tag, 1)
+                log_msg('Image has EXIF Orientation: ' + str(orientation))
+                # orientation is 1 based, shift to zero based and flip/transpose based on 0-based values
+                orientation -= 1
+                if orientation >= 4:
+                    image = image.transpose(Image.TRANSPOSE)
+                if orientation == 2 or orientation == 3 or orientation == 6 or orientation == 7:
+                    image = image.transpose(Image.FLIP_TOP_BOTTOM)
+                if orientation == 1 or orientation == 2 or orientation == 5 or orientation == 6:
+                    image = image.transpose(Image.FLIP_LEFT_RIGHT)
+        return image
+
+    def preprocess_image_opencv(image_pil):
+        """
+        image_pil: PIL Image, already converted to 'RGB' and correctly oriented
+        returns: nparray of extracted crop
+        """
+        image = convert_to_nparray(image_pil)
+        h, w = image.shape[:2]
+
+        min_size = min(h,w)
+        crop_size = min(min_size, int(min_size * network_input_size / 256.0))
+        startx = max(0, int(max(0, w//2-(crop_size//2))))
+        starty = max(0, int(max(0, h//2-(crop_size//2))))
+        new_size = (network_input_size, network_input_size)
+        log_msg(f"crop: {w}x{h}  to {crop_size}x{crop_size}, origin at {startx}, {starty}, target = {network_input_size}")
+        return cv2.resize(image[starty:starty+crop_size, startx:startx+crop_size], new_size, interpolation = cv2.INTER_LINEAR)
+
+    def preprocess_image(image_pil):
+        """
+        image_pil: PIL Image, already converted to 'RGB' and correctly oriented
+        returns: nparray of extracted crop
+        """
+        # If the image has either w or h greater than 1600 we resize it down respecting
+        # aspect ratio such that the largest dimention is 1600
+        image_pil = resize_down_to_1600_max_dim(image_pil)
+
+        # Convert image to numpy array
+        image = convert_to_nparray(image_pil)
+
+        # Crop the center square and resize that square down to 256x256
+        resized_image = extract_and_resize_to_256_square(image)
+
+        # Crop the center for the specified network_input_Size
+        return crop_center(resized_image, network_input_size, network_input_size)
+
+    def predict_image(image):
+        """
+        calls model's image prediction
+        image: input PIL image
+        returns prediction response as a dictionary. To get predictions, use result['predictions'][i]['tagName'] and result['predictions'][i]['probability']
+        """
+        log_msg('Predicting image')
+        try:
+            if image.mode != "RGB":
+                log_msg("Converting to RGB")
+                image = image.convert("RGB")
+
+            w,h = image.size
+            log_msg("Image size: " + str(w) + "x" + str(h))
+
+            # Update orientation based on EXIF tags
+            image = update_orientation(image)
+
+            if use_opencv:
+                cropped_image = preprocess_image_opencv(image)
+            else:
+                cropped_image = preprocess_image(image)
+
+            tf.compat.v1.reset_default_graph()
+            tf.import_graph_def(graph_def, name='')
+
+            with tf.compat.v1.Session() as sess:
+                prob_tensor = sess.graph.get_tensor_by_name(output_layer)
+                predictions, = sess.run(prob_tensor, {input_node: [cropped_image] })
+
+                result = []
+                for p, label in zip(predictions, labels):
+                    truncated_probablity = np.float64(round(p,8))
+                    if truncated_probablity > 1e-8:
+                        result.append({
+                            'tagName': label,
+                            'probability': truncated_probablity,
+                            'tagId': '',
+                            'boundingBox': None })
+
+                response = {
+                    'id': '',
+                    'project': '',
+                    'iteration': '',
+                    'created': datetime.utcnow().isoformat(),
+                    'predictions': result
+                }
+
+                log_msg("Results: " + str(response))
+                return response
+
+        except Exception as e:
+            log_msg(str(e))
+            return 'Error: Could not preprocess image for prediction. ' + str(e)
+    ```
+
 ### Build and tag the container image
 
 To use the container inside IoT Edge, it needs to be built, tagged, then uploaded to an Azure Container Registry. To build this container, you will need to install [Docker](https://docs.docker.com/get-docker/).
@@ -275,13 +600,111 @@ To use the container inside IoT Edge, it needs to be built, tagged, then uploade
 
 ## Deploy the model to the edge
 
-The IoT Edge runtime is now ready to have containers deployed to it. Containers are deployed via the IoT Hub from a container registry - a service that stores and manages versions of different containers. The Custom Vision model can be downloaded as a container, uploaded to a container registry and deployed from there to the Pi.
+The container is now ready to be deployed to the IoT Edge device.
 
-### Create a deployment manifest
+### Create an IoT Edge module for the classifier
 
-### Deploy the container to the edge
+1. From the Azure Portal, head to the `raspberry-pi` IoT Edge device
+
+1. Select the **Set modules** button
+
+    ![The set modules button](../images/iot-hub-iot-edge-set-modules-button.png)
+
+1. The edge module needs to download the container from the container registry so fill in the *Container Registry Credentials* section
+
+    1. Set the *Name* to the name of your container registry
+
+    1. Set the *Address* to the login server of your container registry
+
+    1. Set the *Username* to the username of the container registry admin user
+
+    1. Set the *Password* to the password of the container registry admin user
+
+    ![The container registry credentials](../images/iot-hub-iot-edge-set-modules-container-registry-credentials.png)
+
+1. Select the **+ Add** button in the *IoT Edge modules* section then select `IoT Edge Module`
+
+    ![The add iot edge module button](../images/iot-hub-iot-edge-set-modules-add-iot-edge-module-button.png)
+
+1. Fill in the *Module Settings*
+
+    1. Set the *IoT Edge module name* to `classifier`
+
+    1. Set the *Image URI* to the tag you used for the docker image. This should be `<registry_name>.azurecr.io/classifier:v1` with `<registry_name>` replaced by your registry name.
+
+    1. Leave the rest of the fields as the defaults
+
+    ![The complete module settings page](../images/iot-hub-iot-edge-set-modules-add-iot-edge-module-module-settings.png)
+
+1. Select the *Container Create Options* tab
+
+    1. Set the *Options* to be:
+
+        ```json
+        {
+            "HostConfig": {
+                "PortBindings": {
+                    "80/tcp": [
+                        {
+                            "HostPort": "80"
+                        }
+                    ]
+                }
+            }
+        }
+        ```
+
+        This ensures that port 80 on the Pi is open and connected to port 80 inside the docker container. This is the port the image classifier will be listening on.
+
+    ![The container create options](../images/iot-hub-iot-edge-set-modules-add-iot-edge-module-container-create-options.png)
+
+1. Select the **Add** button
+
+1. Select **Review + Create**, then **Create**
+
+The `classifier` module will be listed in the *Modules* list for the edge device. Eventually it will be deployed to the device - it will take time to download the start on the Pi. You can check the status by refreshing the edge device page and looking for the *Runtime status* of the `classifier` module to be set to  *running*, or by running the following command on the Pi:
+
+```sh
+iotedge list
+```
+
+You will see the following:
+
+```output
+pi@raspberrypi:~/AssemblyLineControl $ iotedge list
+NAME             STATUS           DESCRIPTION      CONFIG
+classifier       running          Up an hour       assemblylineqajimb.azurecr.io/classifier:v1
+edgeAgent        running          Up 20 hours      mcr.microsoft.com/azureiotedge-agent:1.0
+edgeHub          running          Up 20 hours      mcr.microsoft.com/azureiotedge-hub:1.0
+```
+
+This shows that the classifier edge module is running.
 
 ## Call the edge model from the ESP-EYE
+
+The classifier is now running on the Pi on port 80 - the default HTTP port. You can now direct the REST API calls from the ESP-EYE to this.
+
+1. Open the ESP-EYE project
+
+1. Head to the `Config.h` file in the `src` folder
+
+1. Change the value of the `predictionUrl` to point to your Pi. Set the protocol to `HTTP` instead of `HTTPS`, then replace everything except the last `/image` part with the IP address or hostname of the Pi (including the `.local` part).
+
+    ```cpp
+    const char * const predictionUrl = "http://192.168.197.11/image";
+    ```
+
+    This shows the URL for the Pi with an IP address of `192.168.197.11`.
+
+    ```cpp
+    const char * const predictionUrl = "http://classifier-pi.local/image";
+    ```
+
+    This shows the URL for the Pi with a hostname set to `classifier-pi`.
+
+1. Build and upload the code to the ESP-EYE.
+
+1. Ensure the Python app is running on the Pi, and validate the item on the assembly line using the keyboard or Grove button depending on how yours is set up. You should see the same results as before, except this time the classification is running on the Pi rather than in the cloud.
 
 ## Next steps
 

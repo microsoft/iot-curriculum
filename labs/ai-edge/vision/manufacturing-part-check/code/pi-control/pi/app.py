@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+
 import os
 from dotenv import load_dotenv
 from azure.iot.hub import IoTHubRegistryManager

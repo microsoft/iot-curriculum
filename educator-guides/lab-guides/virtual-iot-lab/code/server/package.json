@@ -1,0 +1,12 @@
+{
+  "name": "device-streams-service",
+  "version": "0.0.1",
+  "private": true,
+  "main": "proxy.js",
+  "author": "Microsoft Corp.",
+  "license": "MIT",
+  "dependencies": {
+    "azure-iothub": "^1.10.0-preview.0",
+    "websocket-stream": "^5.1.2"
+  }
+}

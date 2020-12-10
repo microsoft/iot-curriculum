@@ -22,9 +22,9 @@ The [devices](./devices) folder contains details on setting up the different dev
 
 The [labs](./labs) folder contains details on a range of different labs covering IoT and AI on the edge.
 
-## Course outlines
+## Educator guides
 
-The [course-outlines](./course-outlines) folder contains example outlines for courses that can be taught around the IoT space.
+The [educator-guides](./educator-guides) folder contains guides for educators, including suggested course outlines and IoT lab guides.
 
 ## Microsoft Learn
 

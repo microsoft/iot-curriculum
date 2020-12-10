@@ -136,3 +136,6 @@ dmypy.json
 #C#
 bin
 obj
+
+# Node stuff
+node_modules

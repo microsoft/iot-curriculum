@@ -358,13 +358,14 @@ int main(int argc, char *argv[])
 
     while (1)
     {
-        // launch a fork - that whay if the fork dies we can re-spawn with no loss of connectivity
+        // launch a fork - that way if the fork dies we can re-spawn with no loss of connectivity
         pid_t pid = fork();
 
         if (pid == 0)
         {
             // If we're a fork, run the code to listen for streams
             runServer(connectionString);
+            return 0;
         }
         else
         {

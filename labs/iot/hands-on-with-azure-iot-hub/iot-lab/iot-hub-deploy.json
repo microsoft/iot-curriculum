@@ -1,0 +1,90 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "iot-hub-name": {
+            "type": "String"
+        },
+		"storageAccountConnectionString": {
+            "type": "String"
+        },
+		"storageAccountContainer": {
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Devices/IotHubs",
+            "apiVersion": "2018-04-01",
+            "name": "[parameters('iot-hub-name')]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "S1",
+                "capacity": 1
+            },
+            "properties": {
+                "routing": {
+                    "endpoints": {
+                        "storageContainers": [
+                            {
+                                "connectionString": "[parameters('storageAccountConnectionString')]",
+                                "containerName": "[parameters('storageAccountContainer')]",
+                                "fileNameFormat": "{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}",
+                                "batchFrequencyInSeconds": 300,
+                                "maxChunkSizeInBytes": 314572800,
+                                "encoding": "json",
+                                "name": "messageStorageEndpoint"
+                            }
+                        ]
+                    },
+                    "routes": [
+                        {
+                            "name": "messageStorageRoute",
+                            "source": "DeviceMessages",
+                            "condition": "true",
+                            "endpointNames": [
+                                "messageStorageEndpoint"
+                            ],
+                            "isEnabled": true
+                        }
+                    ],
+                    "fallbackRoute": {
+                        "name": "$fallback",
+                        "source": "DeviceMessages",
+                        "condition": "true",
+                        "endpointNames": [
+                            "events"
+                        ],
+                        "isEnabled": true
+                    }
+                },
+                "storageEndpoints": {
+                    "$default": {
+                        "sasTtlAsIso8601": "PT1H",
+                        "connectionString": "",
+                        "containerName": ""
+                    }
+                },
+                "messagingEndpoints": {
+                    "fileNotifications": {
+                        "lockDurationAsIso8601": "PT1M",
+                        "ttlAsIso8601": "PT1H",
+                        "maxDeliveryCount": 10
+                    }
+                },
+                "enableFileUploadNotifications": false,
+                "cloudToDevice": {
+                    "maxDeliveryCount": 10,
+                    "defaultTtlAsIso8601": "PT1H",
+                    "feedback": {
+                        "lockDurationAsIso8601": "PT1M",
+                        "ttlAsIso8601": "PT1H",
+                        "maxDeliveryCount": 10
+                    }
+                },
+                "features": "None"
+            }
+        }
+    ]
+}

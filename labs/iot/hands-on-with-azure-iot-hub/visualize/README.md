@@ -13,40 +13,41 @@ In this lab you will learn
 ## Create Time Series Insights
 
 1. Select **Time Series Insights** in the resource explorer search box of the Azure portal.
-2. Selecty the **Subscription** and **Resource Group** used in the lab
-3. For **Environment name** select your group nickname **icaiiotlabgroupYX** as resource name. 
-4. Select the **Location** to **West Europe**.
-5. For **Tier** select **Gen2 (L1)**
-6. In the field **Property name** input **iothub-connection-device-id**
-7. Create a **Storage Account** using your group nickname and **tsi** at the end
-8. Disable **Data Lake Storage Gen2** and **Warm store**
-9. Click on **Next: Event Source >** for configuring the IoT Hub that will be sending data to this TSI instance
+1. Select the **Subscription** and **Resource Group** used in the lab
+1. For **Environment name** select your group nickname **icaiiotlabgroupYX** as resource name.
+1. Select the **Location** to **West Europe**.
+1. For **Tier** select **Gen2 (L1)**
+1. In the field **Property name** input **iothub-connection-device-id**
+1. Create a **Storage Account** using your group nickname and **tsi** at the end
+1. Disable **Data Lake Storage Gen2** and **Warm store**
+1. Click on **Next: Event Source >** for configuring the IoT Hub that will be sending data to this TSI instance
 
 ![Create Time Series Insights](../images/visualize-20.PNG)
 
-In the next blade, we are going to integrate the existing Azure IoT Hub: 
+In the next blade, we are going to integrate the existing Azure IoT Hub:
 
-10. In **Create and event Source?** select **Yes**
-11. Select **Source Type** to **IoT Hub** 
-12. Give a sample name **iot-hub** 
-13. Select your **Subscription** and your existing **IoT Hub name** 
-14. Select **IoT Hub access policy name** to **iothubowner** 
-15. Create a **New** instance of **IoT Hub consumer group** called **tsi**.
-16. Click **Create**
+1. In **Create and event Source?** select **Yes**
+1. Select **Source Type** to **IoT Hub**
+1. Give a sample name **iot-hub**
+1. Select your **Subscription** and your existing **IoT Hub name**
+1. Select **IoT Hub access policy name** to **iothubowner**
+1. Create a **New** instance of **IoT Hub consumer group** called **tsi**.
+1. Click **Create**
 
 ![Create Time Series Insights](../images/visualize-21.png)
 
 **You cannot see data yet** in Time Series Insights Explorer, since it connects by default to the built-in endpoint in Azure IoT Hub, which is sending nothing there. When we added a route in a previous lab for sending the sensor data to an storage account, the built-in endpoint gets disabled, as you can read in the following link.
 
-[Routing behaviour with built-in endpoint in Azure IoT Hub](https://docs.microsoft.com/es-es/azure/iot-hub/iot-hub-devguide-messages-d2c#built-in-endpoint)
+[Routing behaviour with built-in endpoint in Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#built-in-endpoint?WT.mc_id=academic-7372-jabenn)
 
 ## Enable a Route in Azure IoT Hub to Events Built-in Endpoint
 
-Navigate to the Azure IoT Hub instance created in previous modules. As you did in [module 4](https://github.com/SeryioGonzalez/Azure_IoT_Lab/blob/master/routing/README.md) of this lab with Azure Storage, we need to enable an extra Route to the built-in **events** endpoint, as shown in the following image.
+Navigate to the Azure IoT Hub instance created in previous modules. As you did in [module 4](../routing/README.md) of this lab with Azure Storage, we need to enable an extra Route to the built-in **events** endpoint, as shown in the following image.
 
 ![Create Time Series Insights](../images/visualize-22.PNG)
 
 Once the Route has been created, it will be shown as in the following image.
+
 ![Create Time Series Insights](../images/visualize-23.PNG)
 
 ## Time Series Insights Explorer
@@ -55,13 +56,12 @@ Once this route has been created, you can go to the Azure Time Series Insights E
 
 ![Create Time Series Insights](../images/visualize-24.PNG)
 
-The AzTSIE allows correlating and visualazing data. For this, supposing you have sent traffic from the simulated device to Azure IoT Hub, implement a diagram like the one shown below.
+The AzTSIE allows correlating and visualizing data. For this, supposing you have sent traffic from the simulated device to Azure IoT Hub, implement a diagram like the one shown below.
 
 ![Create Time Series Insights](../images/visualize-27.PNG)
 
-In purple in the left hand side, we can select which metrics we want to monitor. In the simulated device, we configure 2 metrics, **heart_rate** and **temperature**. We can add N additiona metrics by clicking the **Add**, right above the purple highlight square.
+In purple in the left hand side, we can select which metrics we want to monitor. In the simulated device, we configure 2 metrics, **heart_rate** and **temperature**. We can add N additional metrics by clicking the **Add**, right above the purple highlight square.
 We can explore in detail the value of a given metric, by clicking **Explore Events**, as highlighted in brown above.
-
 
 ## Additional capabilities Time Series Insights Explorer
 

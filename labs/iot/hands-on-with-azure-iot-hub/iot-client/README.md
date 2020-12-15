@@ -1,16 +1,17 @@
 # Extending sensor metrics
 
-In this module, we will extend the script sending data to the cloud for adding new measures. <br/>
+In this module, we will extend the script sending data to the cloud for adding new measures.
+
 You will get familiar with an example script structure so you can extend it for your own project. Note why this is called a simulated device. A real device will collect the values from sensors, but here we just make up that data. The rest of the script will be valid for a real device.
 
-Please browse the script **iot-hub-client.py** in this repo un the Azure_IoT_Lab/iot-client/ folder. <br/>
+Please browse the script **iot-hub-client.py** in this repo in the [iot-client](./) folder.
 
 Explore the main method structure. See it run a sample collection method that starts the Azure IoT Hub connection and starts an infinite loop in which it collects sensor data, sends it to the cloud and repeats the look forever after a sleep period.
 In order to updating the code of the sensor, in a more professional model you should look at DevOps Continuous Deployment models. For this lab, you can connect to the VM using NotePad++ FTP plugin and adding an SFTP connection
 
 ![Snapshot](../images/simulated-13.PNG "Azure VM")
 
-As an example, we added a new meassure called **blood_sugar** supposing we have a sensor we can read from. See the variable points to a new method you might also have to implement.
+As an example, we added a new measure called **blood_sugar** supposing we have a sensor we can read from. See the variable points to a new method you might also have to implement.
 
 ![Snapshot](../images/simulated-14.PNG "Azure VM")
 

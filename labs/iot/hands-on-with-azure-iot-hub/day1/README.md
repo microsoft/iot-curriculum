@@ -1,15 +1,17 @@
 # Creation of original resources
-In order to start with the second part of the lab, we need to create the environment. We will use an automation script and the Azure Portal CLI. For this open the CLI as highlighted in the following image.
+In order to start with the second pa
+rt of the lab, we need to create the environment. We will use an automation script and the Azure Portal CLI. For this open the CLI as highlighted in the following image.
 
 ![Lab](../images/summary-1.PNG "Summary")
 
-Lauch the following command in order to copy the required script:
+Launch the following command in order to copy the required script:
 
-```
-git clone https://github.com/SeryioGonzalez/Azure_IoT_Lab.git
-cd Azure_IoT_Lab/iot-lab
+```sh
+git clone https://github.com/microsoft/iot-curriculum.git
+cd iot-curriculum/labs/iot/hands-on-with-azure-iot-hub/iot-lab
 ./create_lab.sh
 ```
+
 As shown below, the script will ask you for the parameters highlighted in red. PLEASE NOTE THAT IS A SAMPLE INPUT. **USE YOUR OWN VALUES**
 
 ![Lab](../images/summary-2.PNG "Summary")

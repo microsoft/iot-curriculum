@@ -139,3 +139,5 @@ obj
 
 # Node stuff
 node_modules
+
+~$*.docx

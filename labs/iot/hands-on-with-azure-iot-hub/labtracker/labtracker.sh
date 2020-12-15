@@ -5,7 +5,7 @@ numGroups=16
 
 groupNamePrefix="icaiiotlabgroup"
 region="westeurope"
-resultFile="/home/sergio/index.html"
+resultFile="~/index.html"
 
 group_exclusions=('14h' '15h')
 

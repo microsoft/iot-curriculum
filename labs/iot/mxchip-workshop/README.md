@@ -1,6 +1,6 @@
 # MXChip Workshop
 
-This workshop is a hands-on lab for getting started building a cloud connected IoT device using the [MXChip Iot DevKit prototyping board](https://microsoft.github.io/azure-iot-developer-kit/) and the [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=academic-7372-jabenn).
+This workshop is a hands-on lab for getting started building a cloud connected IoT device using the [MXChip Iot DevKit prototyping board](https://microsoft.github.io/azure-iot-developer-kit/) and [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/?WT.mc_id=academic-7372-jabenn).
 
 The final project that will be created is an internet connected temperature sensor, with a warning light if the temperature is above a certain threshold. The temperature will be reported to Azure IoT Hub and stored in a [Cosmos DB collection](https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=academic-7372-jabenn). This value can be retrieved via an API built using [Azure functions](https://azure.microsoft.com/services/functions/?WT.mc_id=academic-7372-jabenn). To control the LED, a threshold will be set using another Azure Function API, and this will sync to the device using a [device twin](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins/?WT.mc_id=academic-7372-jabenn).
 

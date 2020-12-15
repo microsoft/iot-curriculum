@@ -10,6 +10,9 @@ These labs cover traditional internet of things scenarios, connecting devices to
 
 * [Environment Monitor](./iot/environment-monitor/) - a beginners tutorial setting up a Raspberry Pi to send data to the cloud, and perform analytics on the data
 * [GPS Lab](./iot/gps-lab/README.md) - A sample application for sending GPS data from GPS sensor connected to a Raspberry Pi to Azure IoT Hub and displaying the location in a web application in real time using Azure Maps.
+* [MXChip workshop](./iot/mxchip-workshop/README.md) - a hands-on lab for getting started building a cloud connected IoT device using the [MXChip Iot DevKit prototyping board](https://microsoft.github.io/azure-iot-developer-kit/) and Azure IoT Hub.
+* [Hands on with IoT hub](./iot/hands-on-with-azure-iot-hub/README.md) - a lab showing how to use Azure Services for building an IoT solution connecting simulated devices to an Azure IoT Hub instance and store that data in a storage account.
+* [Smart door](./iot/smart-door) - a lab to build a smart door monitor prototype using an ESP32 microcontroller
 
 ## AI/Edge
 

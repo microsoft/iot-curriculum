@@ -280,6 +280,26 @@ The proxy server code is a JavaScript app written using Node. You can find the c
 
 The server will launch and listen on port 2222.
 
+This code may crash under certain circumstances, so it is good to have it running in a way that will auto-restart it.
+
+1. Install the [Forever](https://github.com/foreversd/forever) npm package:
+
+    ```sh
+    npm install forever -g
+    ```
+
+1. Run the proxy server via forever
+
+    ```sh
+    forever start proxy.js "<service connection string>" <device id>
+    ```
+
+1. To stop the proxy when done, run the following command:
+
+    ```sh
+    forever stop proxy.js
+    ```
+
 ### Connect via SSH
 
 Once the proxy is running, you can connect using SSH. Connect from the device running the proxy to `localhost` on port 2222 using the user name of the Pi.

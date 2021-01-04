@@ -82,6 +82,13 @@ There are a number of Learning Paths covering IoT technologies, services and sol
 * [Configure and use discrete manufacturing in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-use-discrete-manufacturing-dyn365-supply-chain-mgmt/?WT.mc_id=academic-7372-jabenn)
 * [IOT50: Get to Solutioning - Strategy & Best Practices when Mapping Designs from Edge to Cloud](https://aka.ms/iot50/resources)
 
+## IoT Videos
+
+* [Microsoft IoT Developers channel on YouTube](https://www.youtube.com/channel/UCL7wy-iy_V76xxPnrIzGOZQ) - watch latest videos about Microsoft IoT updates and news, partners and customers spotlights, interactive deep dives as well as demos.
+* [The IoT Show on Channel9](https://channel9.msdn.com/Shows/Internet-of-Things-Show?WT.mc_id=academic-7372-jabenn) - the latest Microsoft IoT announcements, product and features demos, customer and partner spotlights, top industry talks, and technical deep dives.
+* [Maker Show](https://youtube.com/playlist?list=PLfI-BhZY0z5R-fDcY3es4se1ucYi4R_Ih) - a maker and IoT focused show from the ForDevs community
+* [IoT 101 with .NET on Channel9](https://channel9.msdn.com/Series/IoT-101?WT.mc_id=academic-7372-jabenn) - a 101 level video series to learn IoT on .NET.
+
 ## Solution quickstarts
 
 Microsoft offers a number of 'solution accelerators' - almost complete IoT setups that can be customized to your needs. As a part of this, there are a number of quickstarts that allow you to try out the different solutions.
@@ -150,7 +157,7 @@ Python is a popular language for developing IoT solutions on devices such as the
 
 * [Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) - A C# SDK for connecting to Azure IoT Services
 * [.NET home page](https://dotnet.microsoft.com?WT.mc_id=academic-7372-jabenn) - the home of .NET
-* [.NET 101 video series](https://dotnet.microsoft.com/learn/videos?WT.mc_id=academic-7372-jabenn) - a 101 level video series to learn .NET
+* [.NET 101 video series](https://dotnet.microsoft.com/learn/videos?WT.mc_id=academic-7372-jabenn) - a 101 level video series to learn .NET.
 * [.NET for IoT devices](https://github.com/dotnet/iot) - This repo includes .NET Core implementations for various IoT boards, chips, displays and PCBs.
 
 ### C/C++

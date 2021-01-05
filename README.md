@@ -158,6 +158,7 @@ Python is a popular language for developing IoT solutions on devices such as the
 * [Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) - A C# SDK for connecting to Azure IoT Services
 * [.NET home page](https://dotnet.microsoft.com?WT.mc_id=academic-7372-jabenn) - the home of .NET
 * [.NET 101 video series](https://dotnet.microsoft.com/learn/videos?WT.mc_id=academic-7372-jabenn) - a 101 level video series to learn .NET.
+* [IoT 101 on Channel9](https://channel9.msdn.com/Series/IoT-101?WT.mc_id=academic-7372-jabenn) - a 101 level video series to learn IoT on .NET.
 * [.NET for IoT devices](https://github.com/dotnet/iot) - This repo includes .NET Core implementations for various IoT boards, chips, displays and PCBs.
 
 ### C/C++

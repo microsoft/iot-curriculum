@@ -47,6 +47,7 @@ There are a number of Learning Paths covering IoT technologies, services and sol
 * [Securely connect IoT devices to the cloud](https://docs.microsoft.com/learn/paths/securely-connect-iot-devices/?WT.mc_id=academic-7372-jabenn)
 * [Develop IoT solutions with Azure IoT Central](https://docs.microsoft.com/learn/paths/develop-iot-solutions-with-azure-iot-central/?WT.mc_id=academic-7372-jabenn)
 * [IOT20: Deciphering Data – Optimizing Data Communication to Maximize Your ROI](https://aka.ms/iot20/resources)
+* [Develop with Azure Digital Twins](https://docs.microsoft.com/learn/paths/develop-azure-digital-twins/?WT.mc_id=academic-7372-jabenn)
 
 ### Data
 
@@ -124,6 +125,11 @@ For Industrial IoT (IIoT), Microsoft provides a range of reference materials and
 * [Open62541](https://github.com/open62541/open62541) - an open source OPC-UA implementation
 * [OPC-UA with IoT Central](https://github.com/jlorich/demo-opc-iot-edge-to-central) - a reference implementation for connecting OPC-Servers to IoT Edge and then passing data up to IoT Central
 * [IoT Edge offline dashboarding](https://github.com/AzureIoTGBB/iot-edge-offline-dashboarding) - a set of modules that can be used with Azure IoT Edge to perform dashboarding at the edge
+
+## Digital Twins
+
+* [Develop with Azure Digital Twins learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/develop-azure-digital-twins/?WT.mc_id=academic-7372-jabenn)
+* [Digital Twins Hands on lab](https://github.com/Azure-Samples/digital-twins-samples/tree/master/HandsOnLab)
 
 ## Robotics
 

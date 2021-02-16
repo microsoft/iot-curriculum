@@ -1,6 +1,6 @@
 # Azure IoT Curriculum
 
-[![GitHub license](https://img.shields.io/github/license/microsoft/iot-curriculum.svg)](https://github.com/microsoft/iot-curriculum/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/microsoft/iot-curriculum)](https://github.com/microsoft/iot-curriculum/blob/main/LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/microsoft/iot-curriculum.svg)](https://GitHub.com/microsoft/iot-curriculum/graphs/contributors/)
 [![GitHub issues](https://img.shields.io/github/issues/microsoft/iot-curriculum.svg)](https://GitHub.com/microsoft/iot-curriculum/issues/)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/iot-curriculum.svg)](https://GitHub.com/microsoft/iot-curriculum/pull/)

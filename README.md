@@ -1,5 +1,15 @@
 # Azure IoT Curriculum
 
+[![GitHub license](https://img.shields.io/github/license/microsoft/iot-curriculum.svg)](https://github.com/microsoft/iot-curriculum/blob/main/LICENSE)
+[![GitHub contributors](https://img.shields.io/github/contributors/microsoft/iot-curriculum.svg)](https://GitHub.com/microsoft/iot-curriculum/graphs/contributors/)
+[![GitHub issues](https://img.shields.io/github/issues/microsoft/iot-curriculum.svg)](https://GitHub.com/microsoft/iot-curriculum/issues/)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/microsoft/iot-curriculum.svg)](https://GitHub.com/microsoft/iot-curriculum/pull/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+
+[![GitHub watchers](https://img.shields.io/github/watchers/microsoft/iot-curriculum.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/microsoft/iot-curriculum/watchers/)
+[![GitHub forks](https://img.shields.io/github/forks/microsoft/iot-curriculum.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/microsoft/iot-curriculum/network/)
+[![GitHub stars](https://img.shields.io/github/stars/microsoft/iot-curriculum.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/microsoft/iot-curriculum/stargazers/)
+
 **This repo is actively developed - watch, star or check back often for updates**
 
 This repo contains hands-on-labs and other lab and workshop based material designed to support the creation of IoT curricula for higher education, covering IoT and AI on the edge. All the labs use physical devices, such as Raspberry Pis and NVIDIA Jetson boards, and are designed for in-class or at home study. As an educator, you would use these labs in a blended learning environment, teaching concepts and theory in the classroom, mixed with labs from here to supplement the course and provide hands-on experience.

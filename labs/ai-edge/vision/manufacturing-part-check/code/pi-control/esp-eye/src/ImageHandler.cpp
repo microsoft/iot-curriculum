@@ -64,7 +64,7 @@ bool ImageHandler::SavePhoto(camera_fb_t *frameBuffer, const char *fileName)
 // Checks if the photo has been saved by validating the file size
 bool ImageHandler::CheckPhoto(const char *fileName)
 {
-    // Open the file from teh SPIFFS file system
+    // Open the file from the SPIFFS file system
     File f_pic = SPIFFS.open(fileName);
 
     // Get the file size

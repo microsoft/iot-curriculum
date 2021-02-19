@@ -77,7 +77,7 @@ To access the camera and host a web server, you can use some pre-existing Arduin
       ESP Async WebServer
     ```
 
-    This will add the [Espressif ESP32 Camera driver](https://github.com/espressif/esp32-camera) and the [ESP Async WebServer](https://github.com/me-no-dev/ESPAsyncWebServer) libraries to the project. The ESP32 camera driver is a library to talk to the camera on the ESP-EYE board, and ht eESP Async WebServer allows you to run a web server on the ESP board.
+    This will add the [Espressif ESP32 Camera driver](https://github.com/espressif/esp32-camera) and the [ESP Async WebServer](https://github.com/me-no-dev/ESPAsyncWebServer) libraries to the project. The ESP32 camera driver is a library to talk to the camera on the ESP-EYE board, and the ESP Async WebServer allows you to run a web server on the ESP board.
 
 Next time the app is compiled, it will bring in these libraries and compile them into the build.
 
@@ -362,7 +362,7 @@ Just like code for interacting with the camera, the code for interacting with th
     // Checks if the photo has been saved by validating the file size
     bool ImageHandler::CheckPhoto(const char *fileName)
     {
-        // Open the file from teh SPIFFS file system
+        // Open the file from the SPIFFS file system
         File f_pic = SPIFFS.open(fileName);
 
         // Get the file size

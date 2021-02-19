@@ -8,7 +8,7 @@ The Arduino Nano 33 Sense is an Arduino board with a number of sensors, includin
 
 ## Platform IO
 
-[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academic-7372-jabenn) (VS Code) is a free developer text editor that can be expanded with extensions to support multiple features or programming languages.
+[Visual Studio Code](http://code.visualstudio.com?WT.mc_id=academic-7372-jabenn) (VS Code) is a free developer text editor that can be expanded with extensions to support multiple features or programming languages, including C++ to program microcontrollers, and Python to train ML models.
 
 [Platform IO](https://platformio.org) is an open source extension for VS Code that gives you the ability to program embedded devices without any additional dependencies.
 

@@ -48,6 +48,22 @@ void onSamples(float *samples)
 }
 
 /**
+ * @brief Process the samples, writing them out to the serial port
+ */
+void procesSamples()
+{
+    // print the audio data to serial port
+    for (int i = 0; i < SAMPLE_SIZE; i++)
+    {
+        Serial.print(_samples[i], 6);
+
+        // Seperate the audio values with commas, at the last value
+        // send a newline
+        Serial.print(i == SAMPLE_SIZE - 1 ? '\n' : ',');
+    }
+}
+
+/**
  * @brief Sets up the serial port and the sample capture object
  */
 void setup()
@@ -75,15 +91,8 @@ void loop()
 		// If we do, mark it as read ready for the next loop
 		_ready = false;
 
-        // print the audio data to serial port
-        for (int i = 0; i < SAMPLE_SIZE; i++)
-        {
-            Serial.print(_samples[i], 6);
-
-            // Seperate the audio values with commas, at the last value
-            // send a newline
-            Serial.print(i == SAMPLE_SIZE - 1 ? '\n' : ',');
-        }
+        // Process the samples
+        procesSamples();
     }
 
     // Sleep to allow background microphone processing

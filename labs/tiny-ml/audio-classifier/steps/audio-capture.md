@@ -4,7 +4,7 @@ In this step you will program the Arduino device to capture audio data ready to 
 
 ## Arduino Nano 33 Sense
 
-The Arduino Nano 33 Sense is an Arduino board bwith a number of sensors, including a microphone which makes it ideal for audio classification. This board is programmed in C++, using Platform IO.
+The Arduino Nano 33 Sense is an Arduino board with a number of sensors, including a microphone which makes it ideal for audio classification. This board is programmed in C++, using Platform IO.
 
 ## Platform IO
 
@@ -85,14 +85,18 @@ The code needs to listen to the microphone and capture data, saving it out in a 
 
 Traditionally, audio data is sampled at a rate of many of thousands of values a second - for example low quality audio is sampled at 16KHz, or 16 thousand values every second. This would give a huge amount of inputs to our model, meaning we'd need a large model - something TinyML is trying to avoid. Instead the audio can be averaged out into smaller samples, only a few a second. This gives a less accurate representation of the audio data, but is good enough to distinguish between different sounds. This is done by calculating the root mean square (RMS) value of the sampled input for a period of time.
 
+You can find all the code for this step in the [code/audio-capture](../code/audio-capture) folder.
+
 ### Import a library
 
 The code to calculate the RMS value is at the time of writing not shipped with the code to support this Arduino board in PlatformIO. You can get round this by downloading a static library with the implementation that can be linked into your code.
 
 1. Head to the [ARM CMSIS GitHub repo compiled static libraries page](https://github.com/ARM-software/CMSIS_5/tree/5.7.0/CMSIS/DSP/Lib/GCC)
+
 1. Download the `libarm_cortexM4l_math.a` file and add it to the root folder of the project.
     > There are a number of libraries with similar names targetting different M chips, so make sure to download the correct one
 1. Open the `platformio.ini` file from the root of the project in VS Code
+
 1. Add the following to the end of the `[env:nano33ble]` section to tell the linker to look for libraries in the root and link this file when building the project:
 
     ```sh
@@ -107,6 +111,10 @@ The code to calculate the RMS value is at the time of writing not shipped with t
     The `-l arm_cortexM4l_math` flag tells the linker to link the `libarm_cortexM4l_math.a` library
 
     The `-w` flag ignores warnings that come from the Arduino libraries. Although it is generally good practice to find and fix all warnings, in this case the Arduino libraries have warnings that can make it harder to catch errors in your code, so it is easier to ignore them
+
+1. Save the file
+
+    > VS Code has an auto save option if you don't want to have to keep saving files. Enable this by selecting *File -> Auto save*.
 
 ### Add code to read audio samples from the microphone
 
@@ -287,6 +295,8 @@ To keep the code cleaner, the code to read from the microphone can be added to a
 
     You can read the code and the comments to understand how each call works. If you need to change the length of data sampled, change the value of `SAMPLE_SIZE` to the number of seconds needed multiplied by 64. For example, if you only need 1 second of data, set `SAMPLE_SIZE` to be 64. To keep this model small, set this to be as small as possible.
 
+1. Save the file
+
 ### Add the program code
 
 The main program now needs to be written to read data from the microphone at regular intervals, then output the 2 seconds of RMS values to the serial port. The data that is captured needs to be stored somewhere so that it can be used to train the model, and the easiest way to do this is to output it from the Arduino device to the serial port, then monitor that serial port using PlatformIO.
@@ -296,6 +306,9 @@ The main program now needs to be written to read data from the microphone at reg
 1. Replace the existing code in this file with the following:
 
     ```cpp
+    // Copyright (c) Microsoft Corporation.
+    // Licensed under the MIT license.
+
     /**
     * Audio Capture
     * 
@@ -343,6 +356,22 @@ The main program now needs to be written to read data from the microphone at reg
     }
 
     /**
+    * @brief Process the samples, writing them out to the serial port
+    */
+    void procesSamples()
+    {
+        // print the audio data to serial port
+        for (int i = 0; i < SAMPLE_SIZE; i++)
+        {
+            Serial.print(_samples[i], 6);
+
+            // Seperate the audio values with commas, at the last value
+            // send a newline
+            Serial.print(i == SAMPLE_SIZE - 1 ? '\n' : ',');
+        }
+    }
+
+    /**
     * @brief Sets up the serial port and the sample capture object
     */
     void setup()
@@ -370,15 +399,8 @@ The main program now needs to be written to read data from the microphone at reg
             // If we do, mark it as read ready for the next loop
             _ready = false;
 
-            // print the audio data to serial port
-            for (int i = 0; i < SAMPLE_SIZE; i++)
-            {
-                Serial.print(_samples[i], 6);
-
-                // Seperate the audio values with commas, at the last value
-                // send a newline
-                Serial.print(i == SAMPLE_SIZE - 1 ? '\n' : ',');
-            }
+            // Process the samples
+            procesSamples();
         }
 
         // Sleep to allow background microphone processing
@@ -387,7 +409,9 @@ The main program now needs to be written to read data from the microphone at reg
     }
     ```
 
-    This code sets up the sample capture object in the `setup` function, registering a callback that is called with the 128 samples every time audio is detected. When the callback is called, a copy of the data is made, and a flag is set to indicate data is ready. This is then detected in the `loop` function, and written to the console.
+    This code sets up the sample capture object in the `setup` function, registering a callback that is called with the 128 samples every time audio is detected. When the callback is called, a copy of the data is made, and a flag is set to indicate data is ready. This is then detected in the `loop` function, and written to the console in a call to `procesSamples`.
+
+1. Save the file
 
 ## Run the code
 
@@ -431,7 +455,7 @@ The serial output of the Arduino is the USB cable that is used to connect it to 
 
         ![The serial monitor button](../../../images/vscode-status-bar-platformio-serial-monitor-button.png)
 
-The serial monitor will listen for all messages from the device. You'll see nothing output to start with.
+The serial monitor will listen for all messages from the device. You'll see nothing in the output to start with.
 
 ### Capture audio data
 

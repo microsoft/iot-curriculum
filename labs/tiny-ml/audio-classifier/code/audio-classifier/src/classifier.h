@@ -1,4 +1,4 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
 
-// Paste the output of the model trainer here
+// Copy the file created by the train_classifier script over this one

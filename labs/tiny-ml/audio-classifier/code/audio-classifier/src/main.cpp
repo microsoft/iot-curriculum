@@ -2,107 +2,98 @@
 // Licensed under the MIT license.
 
 /**
- * Audio Classifier
+ * Audio Capture
  * 
- * This program listens on the microphone capturing audio data.
- * Instead of capturing raw data, it captures root mean squared values allowing
- * audio to be reduced to a few values instead of thousands of values every second.
- * These values are then output to the serial port - one line per audio sample.
+ * This program listens on the microphone capturing audio data, classifying it and outputting the
+ * classification label to the Serial port.
  * 
- * This data is then run through a TinyML classifier to classify the sound based on
- * a trained model using code pasted into the classifier.h header file.
+ * Audio data is captured as a full 512 byte data buffer (1/64 second of audio data).
+ * Each buffer is then converted into a root mean square value of the buffer to create a smaller
+ * representation of the audio.
+ * 
+ * If this root mean square value is over a threshold (i.e. not silence), then the next SAMPLE_SIZE
+ * buffers are captured and the RMS values calculated. Once a full set of samples is retrieved, a
+ * callback function is invoked, passing this set of samples.
+ * 
+ * The default for SAMPLE_SIZE is 128 - 2 seconds of audio data. You can configure this in the 
+ * sample_capture.h header file.
+ * 
+ * This essentially converts audio data to a smaller representation for use with training TinyML models.
+ * For example - 2 seconds of audio * becomes 128 4-byte float values (512 bytes) instead of
+ * 32,768 2-byte integerss (65,536 bytes).
+ * 
+ * Once a sample is colected, it is classified.
+ * 
  */
 
-#include "mic.h"
+#include "sample_capture.h"
 #include "classifier.h"
-
-// Settings for the audio
-// These need to match the settings you used in the audio capture program
-// 128 samples is enough for 2 seconds of audio - it's captured at 64 samples per second
-#define SAMPLES 128
-#define GAIN (1.0f / 50)
-#define SOUND_THRESHOLD 1000
-
-// An array of the audio samples
-float features[SAMPLES];
-
-// A wrapper for the microphone
-Mic mic;
 
 // The classifier
 Eloquent::ML::Port::SVM clf;
 
+// A helper class that captures audio from the microphone
+SampleCapture sampleCapture;
+
+// A buffer used to store data read from the Sample Capture class
+float _samples[SAMPLE_SIZE];
+
+// Tracks if we have samples ready to log to the serial port
+bool _ready;
+
 /**
- * @brief PDM callback to update the data in the mic object
+ * @brief A callback that is called whenever the sample capture object has a full buffer of audio
+ * RMS values ready for processing
  */
-void onAudio()
+void onSamples(float *samples)
 {
-    mic.update();
+	memcpy(_samples, samples, SAMPLE_SIZE * sizeof(float));
+	_ready = true;
 }
 
 /**
- * @brief Read given number of samples from mic
- * @return True if there is enough data captured from the microphone,
- * otherwise False
+ * @brief Classify the samples, writing the label to the serial port
  */
-bool recordAudioSample()
+void procesSamples()
 {
-    // Check the microphone class as captured enough data
-    if (mic.hasData() && mic.pop() > SOUND_THRESHOLD)
-    {
-        // Loop through the samples, waiting to capture data if needed
-        for (int i = 0; i < SAMPLES; i++)
-        {
-            while (!mic.hasData())
-                delay(1);
-
-            // Add the features to the array
-            features[i] = mic.pop() * GAIN;
-        }
-
-        // Return that we have features
-        return true;
-    }
-
-    // Return that we don't have enough data yet
-    return false;
+	// Write out the classification to the serial port
+	Serial.print("Label: ");
+	Serial.println(clf.predictLabel(_samples));
 }
 
 /**
- * @brief Sets up the serial port and the microphone
+ * @brief Sets up the serial port and the sample capture object
  */
 void setup()
 {
-    // Start the serial connection so the captured audio data can be output
-    Serial.begin(115200);
+	// Start the serial connection so the captured audio data can be output
+	Serial.begin(115200);
 
-    // Set up the microphone callback
-    PDM.onReceive(onAudio);
+	// Start the sample capture object to listen for audio and callback when
+	// it has a full set of samples
+	sampleCapture.init(onSamples);
 
-    // Start listening
-    mic.begin();
-
-    // Wait 3 seconds for everything to get started
-    delay(3000);
+	// Wait 3 seconds for everything to get started
+	delay(3000);
 }
 
 /**
- * @brief Runs continuously capturing audio data and classifying it,
- * writing the predicted label to the serial port
+ * @brief Runs continuously capturing audio data and writing it to
+ * the serial port
  */
 void loop()
 {
-    // wait for audio data
-    if (recordAudioSample())
-    {
-        // Write out the classification to the serial port
-        Serial.print("Sound number: ");
-        Serial.println(clf.predictLabel(features));
+	// check to see if we have audio data
+	if (_ready)
+	{
+		// If we do, mark it as read ready for the next loop
+		_ready = false;
 
-        // Wait between samples
-        delay(1000);
-    }
+		// Process the samples
+		procesSamples();
+	}
 
-    // Sleep to allow background microphone processing
-    delay(20);
+	// Sleep to allow background microphone processing
+	// Each sample is 2 seconds, so sleeping for 1 second is fine
+	delay(1000);
 }

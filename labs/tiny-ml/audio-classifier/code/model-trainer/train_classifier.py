@@ -1,5 +1,5 @@
 import numpy as np
-from os.path import basename
+import os
 from glob import glob
 from sklearn.svm import SVC
 from micromlgen import port
@@ -9,7 +9,7 @@ def load_features(folder):
     dataset = None
     classmap = {}
     for class_idx, filename in enumerate(glob('%s/*.csv' % folder)):
-        class_name = basename(filename)[:-4]
+        class_name = os.path.splitext(filename)[0]
         classmap[class_idx] = class_name
         samples = np.loadtxt(filename, dtype=float, delimiter=',')
         labels = np.ones((len(samples), 1)) * class_idx
@@ -29,4 +29,5 @@ clf.fit(X_train, y_train)
 
 print('Accuracy', clf.score(X_test, y_test))
 print('Exported classifier to plain C')
+print()
 print(port(clf, classmap=classmap))

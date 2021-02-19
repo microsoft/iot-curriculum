@@ -108,128 +108,188 @@ The code to calculate the RMS value is at the time of writing not shipped with t
 
     The `-w` flag ignores warnings that come from the Arduino libraries. Although it is generally good practice to find and fix all warnings, in this case the Arduino libraries have warnings that can make it harder to catch errors in your code, so it is easier to ignore them
 
-### Add code to read from the microphone
+### Add code to read audio samples from the microphone
 
 To keep the code cleaner, the code to read from the microphone can be added to a separate file, and this file re-used later when building the audio classifier.
 
-1. In VS Code, create a new file in the `src` folder called `mic.h`. This file will contain code to read the data from the microphone using a standard Arduino library, and calculate the RMS value of periods of audio.
+1. In VS Code, create a new file in the `src` folder called `sample_capture.h`. This file will contain code to read the data from the microphone using a standard Arduino library, and calculate the RMS value of periods of audio.
 
 1. Add the following code to this file:
 
     ```cpp
+    #ifndef __SAMPLE_CAPTURE_H__
+    #define __SAMPLE_CAPTURE_H__
+
     #include <PDM.h>
     #include <arm_math.h>
 
     // The size of the data coming in from the microphone
-    #define MICROPHONE_BUFFER_SIZE_IN_WORDS (256U)
-    #define MICROPHONE_BUFFER_SIZE_IN_BYTES (MICROPHONE_BUFFER_SIZE_IN_WORDS * sizeof(int16_t))
+    #define BUFFER_SIZE 512U
+
+    // 128 samples is enough for 2 seconds of audio - it's captured at 64 samples per second
+    #define SAMPLE_SIZE 128
+    #define GAIN (1.0f / 50)
+    #define SOUND_THRESHOLD 1000
 
     /**
-    * @brief A helper class for accessing the BLEs microphone. This reads
-    * samples from the microphone at 16KHz and computes the root mean squared value.
-    * This value is then retrieved which resets the value so it can be recalculated
-    * from more incomng data.
-    * 
-    * This allows for a small data set that represents a few seconds of sound data.
-    * This is not enough to reproduce the audio, but is enough to train or use a
-    * TinyML model.
+    * @brief The function signature for the callback function that is called when we have a full set of samples.
     */
-    class Mic
+    typedef void (*samples_ready_callback)(float*);
+
+    /**
+    * @brief A helper class for accessing the BLEs microphone.
+    * 
+    * Audio data is captured as a full 512 byte data buffer (1/64 second of audio data).
+    * Each buffer is then converted into a root mean square value of the buffer to create a smaller
+    * representation of the audio.
+    * 
+    * If this root mean square value is over a threshold (i.e. not silence), then the next SAMPLE_SIZE
+    * buffers are captured and the RMS values calculated. Once a full set of samples is retrieved, a
+    * callback function is invoked, passing this set of samples.
+    * 
+    * This essentially converts audio data to a smaller representation for use with training and inference 
+    * with TinyML models.
+    * For example - 2 seconds of audio * becomes 128 4-byte float values (512 bytes) instead of
+    * 32,768 2-byte integerss (65,536 bytes).
+    */
+    class SampleCapture
     {
     public:
         /**
-        * @brief Initializes the Mic class
-        */
-        Mic() : _hasData(false)
-        {
-        }
-
-        /**
         * @brief Setup the PDM library to access the microphone at a sample rate of 16KHz
+        * @param callback A callback function to call when there is a full set of samples ready.
+        * This callback will take the samples as a parameter as a SAMPLE_SIZE array of floats.
+        * This array is owned by this class, so the callback will need to take a copy.
         */
-        void begin()
+        void init(samples_ready_callback callback)
         {
+            // Set up the audio callback
+            PDMHelper::setSampleCapture(this);
+
+            // Set up the callback when a set of samples is ready
+            _callback = callback;
+
+            // Start listening on the microphone at a sample rate of 16KHz
             PDM.begin(1, 16000);
             PDM.setGain(20);
         }
 
+    private:
         /**
-        * @brief Gets if the microphone has new data
-        * @return true if the microphone has new data, otherwise false
+        * @brief A helper wrapper class that can connect a method on the SampleCapture object
+        * to the PDM callback that expects a static method
         */
-        bool hasData()
+        class PDMHelper
         {
-            return _hasData;
-        }
+        public:
+            /**
+            * @brief Sets up the PDM callback to a method on the SampleCapture class
+            */
+            static void setSampleCapture(SampleCapture *sampleCapture)
+            {
+                // Store the sample capture
+                _sampleCapture = sampleCapture;
+
+                // Set up the callback
+                PDM.onReceive(PDMHelper::onReceive);
+            }
+
+        private:
+            /**
+            * @brief The callback from the PDM class, calls the SampleCapture update method
+            */
+            static void onReceive()
+            {
+                _sampleCapture->onReceive();
+            }
+
+            inline static SampleCapture *_sampleCapture;
+        };
 
         /**
-        * @brief Get the root mean squared data value from the microphone
-        * @return The root mean square value of the last data point from the microphone
+        * @brief Reads the audio data from the PDM buffer and calculates the
+        * root mean square value, adding it to the samples if needed.
         */
-        int16_t data()
+        void onReceive()
         {
-            return _rms;
-        }
-
-        /**
-        * @brief Gets the last root mean squared value and resets the calculation
-        * @return The last root mean square value
-        */
-        int16_t pop()
-        {
-            int16_t rms = data();
-            reset();
-            return rms;
-        }
-
-        /**
-        * @brief Reads the audio data from the PDM object and calculates the
-        * root mean square value
-        */
-        void update()
-        {
-            // Get the available bytes from the microphone
-            int bytesAvailable = PDM.available();
-
             // Check we have a full buffers worth
-            if (bytesAvailable == MICROPHONE_BUFFER_SIZE_IN_BYTES)
+            if (PDM.available() == BUFFER_SIZE)
             {
                 // Read from the buffer
-                int16_t _buffer[MICROPHONE_BUFFER_SIZE_IN_WORDS];
+                PDM.read(_buffer, BUFFER_SIZE);
 
-                _hasData = true;
-                PDM.read(_buffer, bytesAvailable);
+                // Calculate the root mean square value of the buffer
+                int16_t rms;
+                arm_rms_q15((q15_t *)_buffer, BUFFER_SIZE/sizeof(int16_t), (q15_t *)&rms);
 
-                // Calculate a running root mean square value
-                arm_rms_q15((q15_t *)_buffer, MICROPHONE_BUFFER_SIZE_IN_WORDS, (q15_t *)&_rms);
+                // If we are not currently collecting samples, check if the RMS value is
+                // above our threshold - as in we've heard something, not just silence.
+                // If we hear something, start collecting samples
+                if (!_started)
+                {
+                    if (rms > SOUND_THRESHOLD)
+                    {
+                        _started = true;
+                        _position = 0;
+                    }
+                }
+
+                // If were collecting data, either because we already were, or because we've
+                // just detected audio that's not slience, add it to the next slot in the samples
+                // array.
+                if (_started)
+                {
+                    // Add the RMS value to the samples array in the next slot, multiplied by a 
+                    // gain value to give the signal a boost
+                    _samples[_position] = rms * GAIN;
+
+                    // Move to the next slot in the samples
+                    _position++;
+
+                    // If we're filled the samples buffer, stop collecting data and call the callback
+                    if (_position >= SAMPLE_SIZE)
+                    {
+                        _started = false;
+                        _position = 0;
+
+                        // Pass the samples to the callback
+                        _callback(_samples);
+                    }
+                }
             }
         }
 
-        /**
-        * @brief Mark data as read
-        */
-        void reset()
-        {
-            _hasData = false;
-        }
+        // The buffer to read from the PDM into - use this as a field to reduce overhead
+        // creating and deleteing it every time the buffer is full
+        int16_t _buffer[BUFFER_SIZE/sizeof(int16_t)];
 
-    private:
-        int16_t _rms;
-        bool _hasData;
+        // The samples buffer- use this as a field to reduce overhead
+        // creating and deleteing it every time the buffer is full
+        float _samples[SAMPLE_SIZE];
+
+        // Are we currently capturing data - we capture from when audio above the SOUND_THRESHOLD
+        // is detected, for SAMPLE_SIZE samples
+        bool _started;
+
+        // The current position in the samples array to write the next sample to
+        int _position;
+
+        // The callback to call when we have a full set of samples
+        samples_ready_callback _callback;
     };
+
+    #endif __SAMPLE_CAPTURE_H__
     ```
 
-    This code defines a class called `Mic` that uses the [Arduino `PDM` library](https://www.arduino.cc/en/Reference/PDM) to get data from the microphone at a sample rate of 16KHz, then uses the `arm_math` library to calculate the RMS of the incoming data from the microphone buffer.
+    This code defines a class called `SampleCapture` that uses the [Arduino `PDM` library](https://www.arduino.cc/en/Reference/PDM) to get data from the microphone at a sample rate of 16KHz, then uses the `arm_math` library to calculate the RMS of the incoming data from the microphone buffer.
     
-    The PDM buffer is read in blocks of 256 2-byte values, with each full buffer converted to a single RMS value. Once the buffer has been converted to a single RMS value, that value can be read and the next full buffer converted to a new value.
+    The PDM buffer is read in blocks of 256 2-byte values, with each full buffer converted to a single RMS value. If this RMS value is above a threshold - meaning audio has been detected, then recording begins, storing 128 RMS values to represent 2 seconds of data. Once this 2 seconds of data has been captured, a callback is made to pass the data to the rest of the code. This way there's no output diring periods of slience, only when audio is detected.
 
-    A 256 value buffer at a sample rate of 16KHz is enough for 1/64th of a second, so 64 RMS value will be created for each second of audio.
-
-    You can read the code and the comments to understand how each call works.
+    You can read the code and the comments to understand how each call works. If you need to change the length of data sampled, change the value of `SAMPLE_SIZE` to the number of seconds needed multiplied by 64. For example, if you only need 1 second of data, set `SAMPLE_SIZE` to be 64. To keep this model small, set this to be as small as possible.
 
 ### Add the program code
 
-The main program now needs to be written to read data from the microphone at regular intervals, then output the RMS values to the serial port. The data that is captured needs to be stored somewhere so that it can be used to train the model, and the easiest way to do this is to output it from the Arduino device to the serial port, then monitor that serial port using PlatformIO.
+The main program now needs to be written to read data from the microphone at regular intervals, then output the 2 seconds of RMS values to the serial port. The data that is captured needs to be stored somewhere so that it can be used to train the model, and the easiest way to do this is to output it from the Arduino device to the serial port, then monitor that serial port using PlatformIO.
 
 1. Open the `main.cpp` file
 
@@ -237,120 +297,97 @@ The main program now needs to be written to read data from the microphone at reg
 
     ```cpp
     /**
-     * Audio Capture
-     * 
-     * This program listens on the microphone capturing audio data.
-     * Instead of capturing raw data, it captures root mean squared values allowing
-     * audio to be reduced to a few values instead of thousands of values every second.
-     * These values are then output to the serial port - one line per audio sample.
-     * 
-     * This data can then be used to train a TinyML model to classify audio.
-     */
+    * Audio Capture
+    * 
+    * This program listens on the microphone capturing audio data and writing it out as
+    * CSV file lines to the serial port.
+    * 
+    * Audio data is captured as a full 512 byte data buffer (1/64 second of audio data).
+    * Each buffer is then converted into a root mean square value of the buffer to create a smaller
+    * representation of the audio.
+    * 
+    * If this root mean square value is over a threshold (i.e. not silence), then the next SAMPLE_SIZE
+    * buffers are captured and the RMS values calculated. Once a full set of samples is retrieved, a
+    * callback function is invoked, passing this set of samples.
+    * 
+    * The default for SAMPLE_SIZE is 128 - 2 seconds of audio data. You can configure this in the 
+    * sample_capture.h header file.
+    * 
+    * This essentially converts audio data to a smaller representation for use with training TinyML models.
+    * For example - 2 seconds of audio * becomes 128 4-byte float values (512 bytes) instead of
+    * 32,768 2-byte integerss (65,536 bytes).
+    * 
+    * The output sent to the serial port can be saved as a CSV file and used to train the model
+    * 
+    */
 
-    #include "mic.h"
+    #include "sample_capture.h"
 
-    // Settings for the audio
-    // Try tuning these if you need different results
-    // 128 samples is enough for 2 seconds of audio - it's captured at 64 samples per second
-    #define SAMPLES 128
-    #define GAIN (1.0f / 50)
-    #define SOUND_THRESHOLD 1000
+    // A helper class that captures audio from the microphone
+    SampleCapture sampleCapture;
 
-    // An array of the audio samples
-    float features[SAMPLES];
+    // A buffer used to store data read from the Sample Capture class
+    float _samples[SAMPLE_SIZE];
 
-    // A wrapper for the microphone
-    Mic mic;
+    // Tracks if we have samples ready to log to the serial port
+    bool _ready;
 
     /**
-     * @brief PDM callback to update the data in the mic object
-     */
-    void onAudio()
+    * @brief A callback that is called whenever the sample capture object has a full buffer of audio
+    * RMS values ready for processing
+    */
+    void onSamples(float *samples)
     {
-        mic.update();
+        memcpy(_samples, samples, SAMPLE_SIZE * sizeof(float));
+        _ready = true;
     }
 
     /**
-     * @brief Read given number of samples from mic
-     * @return True if there is enough data captured from the microphone,
-     * otherwise False
-     */
-    bool recordAudioSample()
-    {
-        // Check the microphone class as captured enough data
-        if (mic.hasData() && mic.pop() > SOUND_THRESHOLD)
-        {
-            // Loop through the samples, waiting to capture data if needed
-            for (int i = 0; i < SAMPLES; i++)
-            {
-                while (!mic.hasData())
-                    delay(1);
-
-                // Add the features to the array
-                features[i] = mic.pop() * GAIN;
-            }
-
-            // Return that we have features
-            return true;
-        }
-
-        // Return that we don't have enough data yet
-        return false;
-    }
-
-    /**
-     * @brief Sets up the serial port and the microphone
-     */
+    * @brief Sets up the serial port and the sample capture object
+    */
     void setup()
     {
         // Start the serial connection so the captured audio data can be output
         Serial.begin(115200);
 
-        // Set up the microphone callback
-        PDM.onReceive(onAudio);
-
-        // Start listening
-        mic.begin();
+        // Start the sample capture object to listen for audio and callback when
+        // it has a full set of samples
+        sampleCapture.init(onSamples);
 
         // Wait 3 seconds for everything to get started
         delay(3000);
     }
 
     /**
-     * @brief Runs continuously capturing audio data and writing it to
-     * the serial port
-     */
+    * @brief Runs continuously capturing audio data and writing it to
+    * the serial port
+    */
     void loop()
     {
-        // wait for audio data
-        if (recordAudioSample())
+        // check to see if we have audio data
+        if (_ready)
         {
+            // If we do, mark it as read ready for the next loop
+            _ready = false;
+
             // print the audio data to serial port
-            for (int i = 0; i < SAMPLES; i++)
+            for (int i = 0; i < SAMPLE_SIZE; i++)
             {
-                Serial.print(features[i], 6);
+                Serial.print(_samples[i], 6);
 
                 // Seperate the audio values with commas, at the last value
                 // send a newline
-                Serial.print(i == SAMPLES - 1 ? '\n' : ',');
+                Serial.print(i == SAMPLE_SIZE - 1 ? '\n' : ',');
             }
-
-            // Wait between samples
-            delay(1000);
         }
 
         // Sleep to allow background microphone processing
-        delay(20);
+        // Each sample is 2 seconds, so sleeping for 1 second is fine
+        delay(1000);
     }
     ```
 
-    This code sets up the microphone in the `setup` function. It then registers for callbacks from the microphone when the 256 2-byte value buffer is full.
-
-    Each time a callback is fired, the code will check to see if the RMS value exceeds a threshold and if it does start gathering data. This is done to ignore silence.
-
-    Once sound is detected, 128 RMS values are read from the buffer - enough for 2 seconds of data. This is then written as comma-separated values to the serial port, with a new line after each 2-seconds of data. This means the output will be a valid CSV file, with one line per audio sample.
-
-    > If you need different length audio recordings, then change the value of `SAMPLES` to 64 x the number of seconds. For example, for 4 seconds of data set it to 256. Be warned that the longer the audio, the bigger the model - too long will exceed the available RAM when building the final project.
+    This code sets up the sample capture object in the `setup` function, registering a callback that is called with the 128 samples every time audio is detected. When the callback is called, a copy of the data is made, and a flag is set to indicate data is ready. This is then detected in the `loop` function, and written to the console.
 
 ## Run the code
 

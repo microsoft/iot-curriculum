@@ -13,7 +13,7 @@ This folder contains a lab with multiple parts working towards an audio classifi
 | Prerequisites | Basic proficiency in using VS Code, C++ and Python.<br>If you want to learn Python, check out these free resources:<br><ul><li>[Python for beginners video series on Channel9](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=academic-7372-jabenn)</li><li>[Take your first steps with Python learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/python-first-steps/?WT.mc_id=academic-7372-jabenn)</li></ul> |
 | Date | February 2021 |
 | Learning Objectives | <ul><li>Capture audio data suitable for TinyML using an Arduino device</li><li>Train a TinyML model using Python</li><li>Classify audio using TinyML on an Arduino device</li></ul> |
-| Time to complete | 1 hours |
+| Time to complete | 1 hour |
 
 ## The lab parts
 

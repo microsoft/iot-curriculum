@@ -20,6 +20,7 @@ Exported classifier to plain C
 #pragma once
 #include <cstdarg>
 namespace Eloquent {
+  ...
 }
 ```
 

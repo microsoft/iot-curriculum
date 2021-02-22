@@ -47,7 +47,9 @@ Once you have PlatformIO installed, it can be used to write the audio capture to
 
 1. Name the project `audio-capture`
 
-1. For the *Board*, type in `Arduinno Nano 33 BLE` and select the `Arduinno Nano 33 BLE` board
+1. For the *Board*, type in `Arduino Nano 33 BLE` and select the `Arduino Nano 33 BLE` board
+
+    > Make sure you select the `Arduino Nano 33 BLE` board, not the `NANO 33 IoT (Arduino)` board.
 
 1. Set the *Framework* to **Arduino**
 
@@ -293,7 +295,7 @@ To keep the code cleaner, the code to read from the microphone can be added to a
     
     The PDM buffer is read in blocks of 256 2-byte values, with each full buffer converted to a single RMS value. If this RMS value is above a threshold - meaning audio has been detected, then recording begins, storing 128 RMS values to represent 2 seconds of data. Once this 2 seconds of data has been captured, a callback is made to pass the data to the rest of the code. This way there's no output diring periods of slience, only when audio is detected.
 
-    You can read the code and the comments to understand how each call works. If you need to change the length of data sampled, change the value of `SAMPLE_SIZE` to the number of seconds needed multiplied by 64. For example, if you only need 1 second of data, set `SAMPLE_SIZE` to be 64. To keep this model small, set this to be as small as possible.
+    You can read the code and the comments to understand how each call works. If you need to change the length of data sampled, change the value of `SAMPLE_SIZE` to the number of seconds needed multiplied by 64. For example, if you only need 1 second of data, set `SAMPLE_SIZE` to be 64. To keep the model small, set this to be as small as possible.
 
 1. Save the file
 
@@ -306,9 +308,6 @@ The main program now needs to be written to read data from the microphone at reg
 1. Replace the existing code in this file with the following:
 
     ```cpp
-    // Copyright (c) Microsoft Corporation.
-    // Licensed under the MIT license.
-
     /**
     * Audio Capture
     * 

@@ -88,6 +88,7 @@ There are a number of Learning Paths covering IoT technologies, services and sol
 
 ### IoT Scenarios
 
+* [IoT demos](https://github.com/Azure-Samples/IoTDemos) - examples of end-to-end use cases and the IoT architectures that enable to those use cases.
 * [Configure and manage products and inventory in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-manage-products-inventory-dyn365-supply-chain-mgmt/?WT.mc_id=academic-7372-jabenn)
 * [Configure and use lean manufacturing in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-use-lean-manufacturing-dyn365-supply-chain-mgmt/?WT.mc_id=academic-7372-jabenn)
 * [Configure and use discrete manufacturing in Dynamics 365 Supply Chain Management](https://docs.microsoft.com/learn/paths/configure-use-discrete-manufacturing-dyn365-supply-chain-mgmt/?WT.mc_id=academic-7372-jabenn)

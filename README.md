@@ -137,6 +137,11 @@ For Industrial IoT (IIoT), Microsoft provides a range of reference materials and
 * [OPC-UA with IoT Central](https://github.com/jlorich/demo-opc-iot-edge-to-central) - a reference implementation for connecting OPC-Servers to IoT Edge and then passing data up to IoT Central
 * [IoT Edge offline dashboarding](https://github.com/AzureIoTGBB/iot-edge-offline-dashboarding) - a set of modules that can be used with Azure IoT Edge to perform dashboarding at the edge
 
+## Digital Agriculture
+
+* [FarmBeats](https://www.microsoft.com/research/project/farmbeats-iot-agriculture/?WT.mc_id=academic-7372-jabenn) - AI, Edge & IoT for Agriculture
+* [FarmBeats for students lesson plans](https://education.microsoft.com/lesson/5d991297?WT.mc_id=academic-7372-jabenn) - a program combining an affordable hardware kit with curriculum and activities designed to give students hands-on experience in applying precision agriculture techniques to food production
+
 ## Digital Twins
 
 * [Develop with Azure Digital Twins learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/develop-azure-digital-twins/?WT.mc_id=academic-7372-jabenn)

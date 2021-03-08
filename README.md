@@ -141,6 +141,7 @@ For Industrial IoT (IIoT), Microsoft provides a range of reference materials and
 
 * [FarmBeats](https://www.microsoft.com/research/project/farmbeats-iot-agriculture/?WT.mc_id=academic-7372-jabenn) - AI, Edge & IoT for Agriculture
 * [FarmBeats for students lesson plans](https://education.microsoft.com/lesson/5d991297?WT.mc_id=academic-7372-jabenn) - a program combining an affordable hardware kit with curriculum and activities designed to give students hands-on experience in applying precision agriculture techniques to food production
+* [FarmBeats for students videos on YouTube](https://www.youtube.com/playlist?list=PLDI-JxFb4oodBxrR2w2Cu0vx8JZWGVu6k)
 
 ## Digital Twins
 
@@ -167,7 +168,7 @@ There are many different programming languages, platforms and tools you can use 
 
 Python is a popular language for developing IoT solutions on devices such as the Raspberry Pi. It's also popular for data science, and building machine learning models to analyze the data coming from IoT devices.
 
-* [Azure Python IoT SDK](https://github.com/Azure/azure-iot-sdk-python) - This repository contains code for the Azure IoT SDKs for Python. This enables python developers to easily create IoT device solutions that seamlessly connect to the Azure IoTHub ecosystem.
+* [Azure Python IoT SDK](https://github.com/Azure/azure-iot-sdk-python) - This repository contains code for the Azure IoT SDKs for Python. This enables python developers to quickly create IoT device solutions that seamlessly connect to the Azure IoTHub ecosystem.
 * [Python for beginners video series on Channel9](https://channel9.msdn.com/Series/Intro-to-Python-Development?WT.mc_id=academic-7372-jabenn) - Over the course of a set of videos we're going to show you the ropes of Python development
 * [More Python for beginners video series on Channel9](https://channel9.msdn.com/Series/More-Python-for-Beginners?WT.mc_id=academic-7372-jabenn) - More Python for beginners videos
 * [Take your first steps with Python learning path on Microsoft Learn](https://docs.microsoft.com/learn/paths/python-first-steps/?WT.mc_id=academic-7372-jabenn) - Interested in learning a programming language but aren't sure where to start? Start here! Learn the basic syntax and thought processes required to build simple applications using Python.

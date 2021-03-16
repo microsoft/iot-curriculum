@@ -4,8 +4,7 @@ When deciding on what IoT projects to embark on for a course, usually the first 
 
 The labs included in the [labs](../labs) folder are based on the hardware that we suggest for such a cart.
 
-![AI IoT device](./images/ai-hardware.jpeg)
-![A pile of IoT devices, sensors and connectors](./images/iot-hardware.jpeg)
+![A pile of AI & IoT devices, sensor and connectors](./images/cart-contents-1.jpg)
 
 This is very much a version 1 of a continuously evolving and growing cart specification.
 

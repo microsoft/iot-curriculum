@@ -32,6 +32,8 @@
 | 2 | Raspberry Pi 15W Power Supply, US, Black | 1 | [Pi Shop](https://www.pishop.us/product/raspberry-pi-15w-power-supply-us-black/) | |
 | 2 | Arduino Nano 33 BLE Sense with Headers | 1 | [Arduino Store](https://store.arduino.cc/usa/nano-33-ble-sense-with-headers) | |
 | 2 | Pi Touch Screen 7 in | 1 | [Amazon](https://www.amazon.com/Raspberry-Pi-Official-Touch-Screen/dp/B073S3LQ6Q/ref=pd_sbs_147_3/144-1877322-7759460?_encoding=UTF8&pd_rd_i=B073S3LQ6Q&pd_rd_r=d33ba327-f4c8-42b2-b0e1-3ffdceefcad5&pd_rd_w=6pM1W&pd_rd_wg=IFvN4&pf_rd_p=7cd8f929-4345-4bf2-a554-7d7588b3dd5f&pf_rd_r=8DX5HDYJGE932Q6TY6J8&psc=1&refRID=8DX5HDYJGE932Q6TY6J8) | |
+| 2 | STM32L475E-IOT01A | 1 | [STM](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) | |
+| 2 | ESP-WROOM-32 | 1 | [Amazon](https://www.amazon.com/HiLetgo-ESP-WROOM-32-Development-Microcontroller-Integrated/dp/B0718T232Z) | |
 | 3 | Acer Monitor | 1 | [Amazon](https://www.amazon.com/Acer-SB220Q-Ultra-Thin-Frame-Monitor/dp/B07CVL2D2S/ref=sr_1_3?dchild=1&keywords=monitor&qid=1592263492&s=electronics&sr=1-3) | |
 | 3 | Keyboard | 1 | | |
 | 3 | USB Speakerphone - eMeet M0 Conference Speaker for 8-10 People Business Conference Phone 360° Voice Pickup 4 AI Microphones USB Skype Speakerphone Conference Call Speaker Plug and Play | 1 | [Amazon](https://www.amazon.com/USB-Speakerphone-Conference-Business-Microphones/dp/B07Q3D7F8S) | |

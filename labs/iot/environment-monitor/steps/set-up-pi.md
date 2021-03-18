@@ -207,6 +207,38 @@ Once the Pi is rebooted, it is recommended to update the firmware on the Grove P
 
 Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect when it can, and you many need to re-enter your password.
 
+### Pi 4/Pi 400 and above - Downgrade your Pi speed
+
+If you are using a Raspberry Pi 4 or 400 you will run into problems with the Grove Pi+. It's not fully compatible with the speed of the newer Pis. The good news is you can 'underclock' the Pi to reduce it's speed slightly making the Pi+ work.
+
+1. From the Visual Studio Code terminal connected to the Pi, run the following command to edit the boot configuration using the terminal based Nano editor:
+
+    ```sh
+    sudo nano /boot/config.txt
+    ```
+
+1. Look for a line containing `arm_freq=700`. The number may be higher than 700.
+
+1. This line is most likely commented out by starting with a `#`. Remove the `#`.
+
+1. Set the value to `600`
+
+1. The final line should be:
+
+    ```sh
+    arm_freq=600
+    ```
+
+1. Press `Ctrl+x` to exit Nano. When asked if you want to save press `Y`, then press `return` to overwrite the original file.
+
+1. Reboot the Pi using the following command:
+
+    ```sh
+    sudo reboot
+    ```
+
+Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect when it can, and you many need to re-enter your password.
+
 ## Write the code
 
 ### Create a folder

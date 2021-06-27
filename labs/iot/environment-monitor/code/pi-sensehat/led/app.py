@@ -3,11 +3,12 @@
 
 import asyncio
 import json
-import grovepi
 import os
+import random
 from dotenv import load_dotenv
 from azure.iot.device.aio import IoTHubDeviceClient, ProvisioningDeviceClient
 from azure.iot.device import MethodResponse
+from pynput import keyboard
 
 # The connection details from IoT Central for the device
 load_dotenv()
@@ -15,40 +16,32 @@ id_scope = os.getenv("ID_SCOPE")
 primary_key = os.getenv("PRIMARY_KEY")
 device_id = "pi-environment-monitor"
 
-# Set the temperature sensor port to the digital port D4
-# and mark it as INPUT meaning data needs to be
-# read from it
-temperature_sensor_port = 4
-grovepi.pinMode(temperature_sensor_port, "INPUT")
+# Use this to see if a high value for the sound should be sent
+# If this is True, a value of 1023 is sent, otherwise a random value
+# from 300-600 is sent
+report_high_sound = False
 
-# Set the sound sensor port to the analog port A0
-# and mark it as INPUT meaning data needs to be
-# read from it
-sound_sensor_port = 0
-grovepi.pinMode(sound_sensor_port, "INPUT")
-
-# Set the LED port to the digital port D3
-# and mark it as OUTPUT meaning data needs to be
-# written to it
-led_port = 3
-grovepi.pinMode(led_port, "OUTPUT")
-
-# Gets telemetry from the Grove sensors
+# Gets telemetry
 # Telemetry needs to be sent as JSON data
 async def get_telemetry() -> str:
-    # The dht call returns the temperature and the humidity,
-    # we only want the temperature, so ignore the humidity
-    [temperature, humidity] = grovepi.dht(temperature_sensor_port, 0)
+    global report_high_sound
 
-    # The temperature can come as 0, meaning you are reading
-    # too fast, if so sleep for a second to ensure the next reading
-    # is ready
-    while (temperature == 0 or humidity == 0):
-        [temperature, humidity] = grovepi.dht(temperature_sensor_port, 0)
-        await asyncio.sleep(1)
+    # Pick a random temperature
+    temperature = random.randint(20, 40)
 
-    # Read the background noise level from an analog port
-    sound = grovepi.analogRead(sound_sensor_port)
+    # Pick a random humidity
+    humidity = random.randint(0, 100)
+
+    # If a high sound value is wanted, send 1023
+    # otherwise pick a random sound level
+    if report_high_sound:
+        sound = 1023
+
+        # Reset the report high sound flag, so next time
+        # a normal sound level is reported
+        report_high_sound = False
+    else:
+        sound = random.randint(300, 600)
 
     # Build a dictionary of data
     # The items in the dictionary need names that match the
@@ -56,7 +49,7 @@ async def get_telemetry() -> str:
     dict = {
         "Temperature" : temperature,  # The temperature value
         "Humidity" : humidity,        # The humidity value
-        "Sound" : sound               # The background noise value
+        "Sound" : sound               # The sound value
     }
 
     # Convert the dictionary to JSON
@@ -85,22 +78,8 @@ async def main():
     await device_client.connect()
     print("Connected")
 
-    # async code to light the LED, wait 10 seconds then
-    # turn the LED off
-    async def light_led():
-            # Send a value of 1 to the digital port
-            # This will turn the LED on
-            grovepi.digitalWrite(led_port, 1)
-
-            # Wait 10 seconds
-            await asyncio.sleep(10)
-
-            # Send a value of 0 to the digital port
-            # This will turn the LED off
-            grovepi.digitalWrite(led_port, 0)
-
     # Asynchronously wait for commands from IoT Central
-    # If the TooLoud command is called, handle it
+    # If the TooLoud command is called, handle it and output to the console
     async def command_listener(device_client):
         # Loop forever waiting for commands
         while True:
@@ -108,12 +87,11 @@ async def main():
             method_request = await device_client.receive_method_request("TooLoud")
 
             # Log that the command was received
-            print("Too Loud Command handled")
-
-            # Asynchronously light the LED
-            # This will be run in the background, so the result can
-            # be returned to IoT Central straight away, not 10 seconds later
-            asyncio.gather(light_led())
+            print()
+            print("#########################")
+            print("Too Loud Command received")
+            print("#########################")
+            print()
 
             # IoT Central expects a response from a command, saying if the call
             # was successful or not, so send a success response
@@ -140,14 +118,28 @@ async def main():
             # Wait for a minute so telemetry is not sent to often
             await asyncio.sleep(60)
 
+    # Event handler for a key being releases
+    def on_release(key):
+        global report_high_sound
+
+        # If the key that was pressed and released is the space bar,
+        # flag that next time a high sound value should be reported
+        if key == keyboard.Key.space:
+            print("Space pressed - will report high sound level next cycle")
+            report_high_sound = True
+
+    # Listen for keyboard key release events
+    listener = keyboard.Listener(on_release=on_release)
+    listener.start()
+
     # Start the command listener
-    listeners = asyncio.gather(command_listener(device_client))
+    command_listeners = asyncio.gather(command_listener(device_client))
 
     # Run the async main loop forever
     await main_loop()
 
     # Cancel listening
-    listeners.cancel()
+    command_listeners.cancel()
 
     # Finally, disconnect
     await device_client.disconnect()

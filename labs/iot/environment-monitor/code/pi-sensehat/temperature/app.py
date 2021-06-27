@@ -1,7 +1,10 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
+
 import asyncio
 import json
-import grovepi
 import os
+import random
 from dotenv import load_dotenv
 from azure.iot.device.aio import IoTHubDeviceClient, ProvisioningDeviceClient
 
@@ -11,25 +14,11 @@ id_scope = os.getenv("ID_SCOPE")
 primary_key = os.getenv("PRIMARY_KEY")
 device_id = "pi-environment-monitor"
 
-# Set the temperature sensor port to the digital port D4
-# and mark it as INPUT meaning data needs to be
-# read from it
-temperature_sensor_port = 4
-grovepi.pinMode(temperature_sensor_port, "INPUT")
-
-# Gets telemetry from the Grove sensors
+# Gets telemetry
 # Telemetry needs to be sent as JSON data
 async def get_telemetry() -> str:
-    # The dht call returns the temperature and the humidity,
-    # we only want the temperature, so ignore the humidity
-    [temperature, _] = grovepi.dht(temperature_sensor_port, 0)
-
-    # The temperature can come as 0, meaning you are reading
-    # too fast, if so sleep for a second to ensure the next reading
-    # is ready
-    while (temperature == 0):
-        [temperature, _] = grovepi.dht(temperature_sensor_port, 0)
-        await asyncio.sleep(1)
+    # Pick a random temperature
+    temperature = random.randint(20, 40)
 
     # Build a dictionary of data
     # The items in the dictionary need names that match the

@@ -259,19 +259,11 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
     temperature_sensor_port = 4
     grovepi.pinMode(temperature_sensor_port, "INPUT")
 
-    # Gets telemetry from the Grove sensors
+    # Gets telemetry from SenseHat
     # Telemetry needs to be sent as JSON data
     async def get_telemetry() -> str:
-        # The dht call returns the temperature and the humidity,
-        # we only want the temperature, so ignore the humidity
-        [temperature, _] = grovepi.dht(temperature_sensor_port, 0)
-
-        # The temperature can come as 0, meaning you are reading
-        # too fast, if so sleep for a second to ensure the next reading
-        # is ready
-        while (temperature == 0):
-            [temperature, _] = grovepi.dht(temperature_sensor_port, 0)
-            await asyncio.sleep(1)
+        # Get temperature, rounded to 0 decimals
+        temperature = round(sense.get_temperature())
 
         # Build a dictionary of data
         # The items in the dictionary need names that match the

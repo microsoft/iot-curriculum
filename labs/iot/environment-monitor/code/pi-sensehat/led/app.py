@@ -8,7 +8,8 @@ import random
 from dotenv import load_dotenv
 from azure.iot.device.aio import IoTHubDeviceClient, ProvisioningDeviceClient
 from azure.iot.device import MethodResponse
-from pynput import keyboard
+from sense_hat import SenseHat 
+sense = SenseHat()
 
 # The connection details from IoT Central for the device
 load_dotenv()

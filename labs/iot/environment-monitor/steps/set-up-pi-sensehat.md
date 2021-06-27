@@ -28,7 +28,7 @@ You will need the following hardware:
 
 1. Fit the Sense hat to the Raspberry Pi.
 
-![The PSense HAT mounted on the Pi viewed from the side](../images/pi-sense-hat-fitted-side.jpg)
+![The PSense HAT mounted on the Pi viewed from the side](../images/pi-sense-hat-fitted.jpg)
 
 ### Set up the software
 

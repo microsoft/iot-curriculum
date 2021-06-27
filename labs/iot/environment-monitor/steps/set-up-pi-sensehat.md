@@ -244,6 +244,8 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
     import os
     from dotenv import load_dotenv
     from azure.iot.device.aio import IoTHubDeviceClient, ProvisioningDeviceClient
+    from sense_hat import SenseHat 
+    sense = SenseHat()
 
     # The connection details from IoT Central for the device
     load_dotenv()

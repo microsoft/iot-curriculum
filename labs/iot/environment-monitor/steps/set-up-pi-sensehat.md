@@ -1,4 +1,4 @@
-# Set up a Raspberry Pi to send temperature data
+# Set up a Raspberry Pi with Sense HAT to send temperature data
 
 In the [previous step](./add-pi-to-iot-central.md) you set up an IoT Central application using a pre-created template, and set up a simulated device.
 
@@ -235,7 +235,7 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
 
         ![Naming the file](../images/vscode-new-file-app-py.png)
 
-1. Add the following code to this file. You can also find this code in the [app.py](../code/pi/temperature/app.py) file in the [code/pi/temperature](../code/pi/temperature) folder.
+1. Add the following code to this file. You can also find this code in the [app.py](../code/pi-sensehat/temperature/app.py) file in the [code/pi-sensehat/temperature](../code/pi/temperature) folder.
 
     ```python
     import asyncio
@@ -244,6 +244,8 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
     import os
     from dotenv import load_dotenv
     from azure.iot.device.aio import IoTHubDeviceClient, ProvisioningDeviceClient
+    from sense_hat import SenseHat 
+    sense = SenseHat()
 
     # The connection details from IoT Central for the device
     load_dotenv()
@@ -251,25 +253,11 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
     primary_key = os.getenv("PRIMARY_KEY")
     device_id = "pi-environment-monitor"
 
-    # Set the temperature sensor port to the digital port D4
-    # and mark it as INPUT meaning data needs to be
-    # read from it
-    temperature_sensor_port = 4
-    grovepi.pinMode(temperature_sensor_port, "INPUT")
-
-    # Gets telemetry from the Grove sensors
+    # Gets telemetry from SenseHat
     # Telemetry needs to be sent as JSON data
     async def get_telemetry() -> str:
-        # The dht call returns the temperature and the humidity,
-        # we only want the temperature, so ignore the humidity
-        [temperature, _] = grovepi.dht(temperature_sensor_port, 0)
-
-        # The temperature can come as 0, meaning you are reading
-        # too fast, if so sleep for a second to ensure the next reading
-        # is ready
-        while (temperature == 0):
-            [temperature, _] = grovepi.dht(temperature_sensor_port, 0)
-            await asyncio.sleep(1)
+        # Get temperature, rounded to 0 decimals
+        temperature = round(sense.get_temperature())
 
         # Build a dictionary of data
         # The items in the dictionary need names that match the

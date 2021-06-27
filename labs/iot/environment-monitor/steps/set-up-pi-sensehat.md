@@ -1,4 +1,4 @@
-# Set up a Raspberry Pi to send temperature data
+# Set up a Raspberry Pi with Sense HAT to send temperature data
 
 In the [previous step](./add-pi-to-iot-central.md) you set up an IoT Central application using a pre-created template, and set up a simulated device.
 

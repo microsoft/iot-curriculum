@@ -20,7 +20,7 @@ You will need the following hardware:
 * A micro SD Card
 * An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot
 * A Raspberry Pi 4 power supply (USB-C)
-* [A Sense HAT](https://www.raspberrypi.org/products/sense-hat/)
+* A [Sense HAT](https://www.raspberrypi.org/products/sense-hat/)
 * A keyboard, mouse and monitor
 * A [micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)
 

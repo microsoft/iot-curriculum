@@ -149,55 +149,7 @@ The Pi will be programmed using Python, so Visual Studio Code needs to have an e
 
 Visual Studio Code will now be configured to run Python on the Pi.
 
-### Configure the Grove Pi+
 
-1. From the Visual Studio Code terminal connected to the Pi, run the following command to install the Grove libraries:
-
-    ```sh
-    sudo curl -kL dexterindustries.com/update_grovepi | bash
-    ```
-
-    This will ensure the Pi is correctly configured to work with the Grove Pi+, and install all necessary software and Python packages
-
-    > If you don't see the terminal in the bottom of the screen, create a new terminal by selecting **Terminal -> New Terminal**
-
-1. Reboot the Pi using the following command:
-
-    ```sh
-    sudo reboot
-    ```
-
-Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect when it can, and you many need to re-enter your password.
-
-Once the Pi is rebooted, it is recommended to update the firmware on the Grove Pi+ to the latest version.
-
-1. From the Visual Studio Code terminal connected to the Pi, run the following command to get the latest Grove code:
-
-    ```sh
-    git clone https://github.com/DexterInd/GrovePi.git
-    ```
-
-    This will clone a GitHub repository with Grove Pi code into a folder called `GrovePi`
-
-1. Change to the `Firmware` folder in the newly created `GrovePi` folder:
-
-    ```sh
-    cd GrovePi/Firmware
-    ```
-
-1. Update the firmware using the following command
-
-    ```sh
-    sudo ./firmware_update.sh
-    ```
-
-1. Reboot the Pi using the following command:
-
-    ```sh
-    sudo reboot
-    ```
-
-Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect when it can, and you many need to re-enter your password.
 
 ### Pi 4/Pi 400 and above - Downgrade your Pi speed
 

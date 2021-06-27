@@ -20,23 +20,15 @@ You will need the following hardware:
 * A micro SD Card
 * An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot
 * A Raspberry Pi 4 power supply (USB-C)
-* [A Grove Pi+ Starter Kit](https://www.seeedstudio.com/GrovePi-Starter-Kit-for-Raspberry-Pi-A-B-B-2-3-CE-certified.html)
+* [A Sense HAT](https://www.raspberrypi.org/products/sense-hat/)
 * A keyboard, mouse and monitor
 * A [micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)
 
 ## Set up the Pi
 
-1. Fit the Grove Pi+ hat to the Raspberry Pi. The socket on the bottom of the Pi+ fits onto the GPIO pins on the Raspberry Pi.
+1. Fit the Sense hat to the Raspberry Pi.
 
-    > There are more pins on the Pi than holes in the socket - the Pi+ fits on the pins closest to the SD card socket.
-
-    ![The Pi+ mounted on the Pi viewed from the top](../images/pi-grove-piplus-hat-fitted-top.JPG)
-
-    ![The Pi+ mounted on the Pi viewed from the side](../images/pi-grove-piplus-hat-fitted-side.jpg)
-
-1. Using one of the cables in the Grove Pi+ starter kit, connect the temperature humidity sensor to the **D4** digital port on the Pi+. This is the last digital port on the side where the Pi USB sockets are.
-
-    ![The temperature sensor fitted](../images/pi-grove-temperature-sensor-fitted.jpg)
+[The Sense HAT](https://www.raspberrypi.org/homepage-9df4b/static/cef5310a595768d980d34fbb55b9f794/ae23f/6253bc3672ca470ca6a3abad14e82b3175d305df_sense-hat-overhead-2-1307x1080.jpg)
 
 ### Set up the software
 

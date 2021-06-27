@@ -10,7 +10,7 @@ The [Raspberry Pi](https://raspberrypi.org) is a low-priced, small form factor c
 
 Raspberry Pi's can run a wide range of programing languages. In this lab you will use Python, and program the Pi using Visual Studio Code (VS Code), an open-source developer text editor that can remotely program on a Pi from your PC or Mac. When connected to the Pi remotely from your PC or Mac you can write and debug code from your device, with the code running on the Pi. You will also get a terminal that runs on the Pi.
 
-The temperature data will come from a temperature sensor attached to the Pi. The sensor required is a Grove Temperature Humidity sensor and is part of the [Grove Pi+ Starter Kit](https://www.seeedstudio.com/GrovePi-Starter-Kit-for-Raspberry-Pi-A-B-B-2-3-CE-certified.html). These kits are designed to lower the barrier to entry when using sensors - providing a controller board, sensors with standard cables, and Python libraries.
+The temperature data will come from a temperature sensor embedded in the Sense HAT.
 
 ## Hardware requirements
 
@@ -20,7 +20,7 @@ You will need the following hardware:
 * A micro SD Card
 * An SD card to USB converter that matches the USB ports on your device if your device doesn't have an SD card slot
 * A Raspberry Pi 4 power supply (USB-C)
-* [A Sense HAT](https://www.raspberrypi.org/products/sense-hat/)
+* A [Sense HAT](https://www.raspberrypi.org/products/sense-hat/)
 * A keyboard, mouse and monitor
 * A [micro-HDMI to HDMI adapter or cable](https://www.raspberrypi.org/products/micro-hdmi-to-standard-hdmi-a-cable/)
 
@@ -235,7 +235,7 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
 
         ![Naming the file](../images/vscode-new-file-app-py.png)
 
-1. Add the following code to this file. You can also find this code in the [app.py](../code/pi-sensehat/temperature/app.py) file in the [code/pi-sensehat/temperature](../code/pi/temperature) folder.
+1. Add the following code to this file. You can also find this code in the [app.py](../code/pi-sensehat/temperature/app.py) file in the [code/pi-sensehat/temperature](../code/pi-sensehat/temperature) folder.
 
     ```python
     import asyncio

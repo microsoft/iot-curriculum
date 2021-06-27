@@ -253,12 +253,6 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
     primary_key = os.getenv("PRIMARY_KEY")
     device_id = "pi-environment-monitor"
 
-    # Set the temperature sensor port to the digital port D4
-    # and mark it as INPUT meaning data needs to be
-    # read from it
-    temperature_sensor_port = 4
-    grovepi.pinMode(temperature_sensor_port, "INPUT")
-
     # Gets telemetry from SenseHat
     # Telemetry needs to be sent as JSON data
     async def get_telemetry() -> str:

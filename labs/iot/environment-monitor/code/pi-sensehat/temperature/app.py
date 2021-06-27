@@ -7,6 +7,8 @@ import os
 import random
 from dotenv import load_dotenv
 from azure.iot.device.aio import IoTHubDeviceClient, ProvisioningDeviceClient
+from sense_hat import SenseHat 
+sense = SenseHat()
 
 # The connection details from IoT Central for the device
 load_dotenv()
@@ -14,11 +16,12 @@ id_scope = os.getenv("ID_SCOPE")
 primary_key = os.getenv("PRIMARY_KEY")
 device_id = "pi-environment-monitor"
 
-# Gets telemetry
+# Gets telemetry from SenseHat
 # Telemetry needs to be sent as JSON data
 async def get_telemetry() -> str:
-    # Pick a random temperature
-    temperature = random.randint(20, 40)
+    
+    # Get temperature, rounded to 0 decimals
+    temperature = round(sense.get_temperature())
 
     # Build a dictionary of data
     # The items in the dictionary need names that match the

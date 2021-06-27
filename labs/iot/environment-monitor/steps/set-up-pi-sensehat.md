@@ -235,7 +235,7 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
 
         ![Naming the file](../images/vscode-new-file-app-py.png)
 
-1. Add the following code to this file. You can also find this code in the [app.py](../code/pi-sensehat/temperature/app.py) file in the [code/pi-sensehat/temperature](../code/pi/temperature) folder.
+1. Add the following code to this file. You can also find this code in the [app.py](../code/pi-sensehat/temperature/app.py) file in the [code/pi-sensehat/temperature](../code/pi-sensehat/temperature) folder.
 
     ```python
     import asyncio

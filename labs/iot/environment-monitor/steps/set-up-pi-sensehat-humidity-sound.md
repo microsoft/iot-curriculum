@@ -6,17 +6,7 @@ In this step you will set up the Raspberry Pi and run code to connect and send h
 
 ## Connect the sensors
 
-The humidity data can be gathered from the existing sensor. The Grove Pi+ temperature humidity sensor can send values for both temperature and humidity in the same call.
-
-Sound data can be gathered from the sound sensor. This sensor is essentially a microphone that detects ambient noise and sends a value from 0-1024 depending on the noise level, 1024 being the highest.
-
-The sound sensor is an analog sensor, so needs to be connected to an analog port on the Grove Pi+.
-
-1. Connect the sound sensor to a Grove cable
-
-1. Connect the cable to port A0. This is on the same side as the Pi's SD card socket and is the opposite end from the HDMI port.
-
-    ![The sound sensor fitted](../images/pi-grove-sound-sensor-fitted.png)
+The humidity data can be gathered from the existing sensor eembeded in the Sense HAT.
 
 ## Program the Pi
 
@@ -28,16 +18,6 @@ In this section you will be adding code to the Python file. If you haven't used 
 
 1. Connect to the Pi using Visual Studio Code, open the `Environment Monitor` folder, and open the `app.py` file.
 
-1. Head to after the `temperature_sensor_port` is defined and the pin is set to output, and before the `get_telemetry` function is defined
-
-1. Add the following code to set up the sound sensor port number and configure it for input:
-
-    ```python
-    # Set the sound sensor port to the analog port A0
-    # and mark it as INPUT meaning data needs to be
-    # read from it
-    sound_sensor_port = 0
-    grovepi.pinMode(sound_sensor_port, "INPUT")
     ```
 
 1. Head to the `get_telemetry` function and replace the code of this function with the following:

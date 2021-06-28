@@ -1,22 +1,12 @@
-# Set up the Raspberry Pi to send humidity and sound data
+# Set up the Raspberry Pi with SenseHAT to send humidity and sound data
 
 In the [previous step](./set-up-humidity-sound.md) you set up IoT Central to receive humidity and sound data.
 
-In this step you will set up the Raspberry Pi and run code to connect and send humidity and sound data.
+In this step you will set up the Raspberry Pi and run code to connect and send humidity and sound data. Because the Sense HAT has no sound detector, we will emulate the sound data in the code.
 
 ## Connect the sensors
 
-The humidity data can be gathered from the existing sensor. The Grove Pi+ temperature humidity sensor can send values for both temperature and humidity in the same call.
-
-Sound data can be gathered from the sound sensor. This sensor is essentially a microphone that detects ambient noise and sends a value from 0-1024 depending on the noise level, 1024 being the highest.
-
-The sound sensor is an analog sensor, so needs to be connected to an analog port on the Grove Pi+.
-
-1. Connect the sound sensor to a Grove cable
-
-1. Connect the cable to port A0. This is on the same side as the Pi's SD card socket and is the opposite end from the HDMI port.
-
-    ![The sound sensor fitted](../images/pi-grove-sound-sensor-fitted.png)
+The humidity data can be gathered from the existing sensor eembeded in the Sense HAT.
 
 ## Program the Pi
 
@@ -28,37 +18,33 @@ In this section you will be adding code to the Python file. If you haven't used 
 
 1. Connect to the Pi using Visual Studio Code, open the `Environment Monitor` folder, and open the `app.py` file.
 
-1. Head to after the `temperature_sensor_port` is defined and the pin is set to output, and before the `get_telemetry` function is defined
-
-1. Add the following code to set up the sound sensor port number and configure it for input:
+   Head to the `get_telemetry` function and replace the code of this function with the following:
 
     ```python
-    # Set the sound sensor port to the analog port A0
-    # and mark it as INPUT meaning data needs to be
-    # read from it
-    sound_sensor_port = 0
-    grovepi.pinMode(sound_sensor_port, "INPUT")
-    ```
-
-1. Head to the `get_telemetry` function and replace the code of this function with the following:
-
-    ```python
-    # Gets telemetry from the Grove sensors
+    # Use this to see if a high value for the sound should be sent
+    # If this is True, a value of 1023 is sent, otherwise a random value
+    # from 300-600 is sent
+    report_high_sound = False
+    
+    # Gets telemetry from SenseHat
     # Telemetry needs to be sent as JSON data
     async def get_telemetry() -> str:
-        # The dht call returns the temperature and the humidity,
-        # we only want the temperature, so ignore the humidity
-        [temperature, humidity] = grovepi.dht(temperature_sensor_port, 0)
+        global report_high_sound
+        # Get temperature, rounded to 0 decimals
+        temperature = round(sense.get_temperature())
 
-        # The temperature can come as 0, meaning you are reading
-        # too fast, if so sleep for a second to ensure the next reading
-        # is ready
-        while (temperature == 0 or humidity == 0):
-            [temperature, humidity] = grovepi.dht(temperature_sensor_port, 0)
-            await asyncio.sleep(1)
+        # Get humidity, rounded to 0 decimals
+        humidity = round(sense.get_humidity())
+        # If a high sound value is wanted, send 1023
+        # otherwise pick a random sound level
+        if report_high_sound:
+            sound = 1023
 
-        # Read the background noise level from an analog port
-        sound = grovepi.analogRead(sound_sensor_port)
+            # Reset the report high sound flag, so next time
+            # a normal sound level is reported
+            report_high_sound = False
+    else:
+            sound = random.randint(300, 600)
 
         # Build a dictionary of data
         # The items in the dictionary need names that match the
@@ -75,8 +61,8 @@ In this section you will be adding code to the Python file. If you haven't used 
 
     This code makes the following changes:
 
-    * The humidity value is now used from the call to `grovepi.dht`, and is added to the telemetry dictionary
-    * The sound value is read by reading the analog signal from the A0 port, and is added to the telemetry dictionary
+    * The humidity value is now read, and is added to the telemetry dictionary
+    * A random value from 300-600 is returned in the telemetry for the ambient sound levels unless the report_high_sound variable is set to True, in which case it sends a value of 1023, and sets report_high_sound back to false. This allows a single spike to be sent, and in later parts this spike will be detected.
 
 1. Save the file
 
@@ -99,7 +85,8 @@ In this section you will be adding code to the Python file. If you haven't used 
     Telemetry: {"Temperature": 26.0, "Humidity": 45.0, "Sound": 361}
     ```
 
-    Try adjusting sound levels near the sensor such as by playing music, and adjusting humidity level by breathing on the sensor, and see the values change both in the output of the Python code, and in IoT Central.
+    Try adjusting humidity level by breathing on the sensor, and see the values change both in the output of the Python code, and in IoT Central.
+    You can change report_high_sound = False into report_high_sound = True to emulate high sound levels. For any code change to be picked up, you need to restart the script. You can stop the script by using ctr-c.
 
 ## Next steps
 

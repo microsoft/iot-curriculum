@@ -21,6 +21,11 @@ In this section you will be adding code to the Python file. If you haven't used 
    Head to the `get_telemetry` function and replace the code of this function with the following:
 
     ```python
+    # Use this to see if a high value for the sound should be sent
+    # If this is True, a value of 1023 is sent, otherwise a random value
+    # from 300-600 is sent
+    report_high_sound = False
+    
     # Gets telemetry from SenseHat
     # Telemetry needs to be sent as JSON data
     async def get_telemetry() -> str:

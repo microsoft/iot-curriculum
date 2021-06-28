@@ -18,9 +18,7 @@ In this section you will be adding code to the Python file. If you haven't used 
 
 1. Connect to the Pi using Visual Studio Code, open the `Environment Monitor` folder, and open the `app.py` file.
 
-    ```
-
-1. Head to the `get_telemetry` function and replace the code of this function with the following:
+   Head to the `get_telemetry` function and replace the code of this function with the following:
 
     ```python
     # Gets telemetry from the Grove sensors

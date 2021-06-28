@@ -21,22 +21,25 @@ In this section you will be adding code to the Python file. If you haven't used 
    Head to the `get_telemetry` function and replace the code of this function with the following:
 
     ```python
-    # Gets telemetry from the Grove sensors
+    # Gets telemetry from SenseHat
     # Telemetry needs to be sent as JSON data
     async def get_telemetry() -> str:
-        # The dht call returns the temperature and the humidity,
-        # we only want the temperature, so ignore the humidity
-        [temperature, humidity] = grovepi.dht(temperature_sensor_port, 0)
+        global report_high_sound
+        # Get temperature, rounded to 0 decimals
+        temperature = round(sense.get_temperature())
 
-        # The temperature can come as 0, meaning you are reading
-        # too fast, if so sleep for a second to ensure the next reading
-        # is ready
-        while (temperature == 0 or humidity == 0):
-            [temperature, humidity] = grovepi.dht(temperature_sensor_port, 0)
-            await asyncio.sleep(1)
+        # Get humidity, rounded to 0 decimals
+        humidity = round(sense.get_humidity())
+        # If a high sound value is wanted, send 1023
+        # otherwise pick a random sound level
+        if report_high_sound:
+            sound = 1023
 
-        # Read the background noise level from an analog port
-        sound = grovepi.analogRead(sound_sensor_port)
+        # Reset the report high sound flag, so next time
+        # a normal sound level is reported
+        report_high_sound = False
+    else:
+        sound = random.randint(300, 600)
 
         # Build a dictionary of data
         # The items in the dictionary need names that match the
@@ -53,8 +56,8 @@ In this section you will be adding code to the Python file. If you haven't used 
 
     This code makes the following changes:
 
-    * The humidity value is now used from the call to `grovepi.dht`, and is added to the telemetry dictionary
-    * The sound value is read by reading the analog signal from the A0 port, and is added to the telemetry dictionary
+    * The humidity value is now used, and is added to the telemetry dictionary
+    * A random value from 300-600 is returned in the telemetry for the ambient sound levels unless the report_high_sound variable is set to True, in which case it sends a value of 1023, and sets report_high_sound back to false. This allows a single spike to be sent, and in later parts this spike will be detected.
 
 1. Save the file
 

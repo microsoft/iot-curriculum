@@ -61,7 +61,7 @@ In this section you will be adding code to the Python file. If you haven't used 
 
     This code makes the following changes:
 
-    * The humidity value is now used, and is added to the telemetry dictionary
+    * The humidity value is now read, and is added to the telemetry dictionary
     * A random value from 300-600 is returned in the telemetry for the ambient sound levels unless the report_high_sound variable is set to True, in which case it sends a value of 1023, and sets report_high_sound back to false. This allows a single spike to be sent, and in later parts this spike will be detected.
 
 1. Save the file
@@ -85,7 +85,7 @@ In this section you will be adding code to the Python file. If you haven't used 
     Telemetry: {"Temperature": 26.0, "Humidity": 45.0, "Sound": 361}
     ```
 
-    Try adjusting sound levels near the sensor such as by playing music, and adjusting humidity level by breathing on the sensor, and see the values change both in the output of the Python code, and in IoT Central.
+    Try adjusting humidity level by breathing on the sensor, and see the values change both in the output of the Python code, and in IoT Central. You can adjust the code from report_high_sound = False into report_high_sound = True to emulate high sound levels.
 
 ## Next steps
 

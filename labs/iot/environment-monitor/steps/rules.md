@@ -85,5 +85,5 @@ In this step you performed simple analytics and created an alert on the data usi
 In the next step you will Set up an IoT device to listen for an IoT Central command. Select the relevant next step from the list below depending on if you have a Pi or want to set up a virtual IoT device.
 
 * [Set up the command on a Raspberry Pi with Grove Pi+](./rules-pi-led.md)
-* [Set up the command on a Raspberry Pi with Sense HAT](./rules-pi-sensehat-led.md)
+* [Set up the command on a Raspberry Pi with Sense HAT](./rules-pi-led-sensehat.md)
 * [Set up the command on a virtual device using your PC or Mac](./rules-virtual-led.md)

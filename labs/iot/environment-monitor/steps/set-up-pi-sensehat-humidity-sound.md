@@ -1,4 +1,4 @@
-# Set up the Raspberry Pi to send humidity and sound data
+# Set up the Raspberry Pi with SenseHAT to send humidity and sound data
 
 In the [previous step](./set-up-humidity-sound.md) you set up IoT Central to receive humidity and sound data.
 

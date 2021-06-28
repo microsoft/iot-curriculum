@@ -88,6 +88,6 @@ Leave the code running whilst you do the next step.
 
 ## Next steps
 
-In this step you set up the Pi to listen for an IoT Central command, and when the command was received light an LED for 10 seconds.
+In this step you set up the Pi to listen for an IoT Central command, and send a message to the console.
 
 In the [next step](./rules-command.md) you will create the IoT Central command and trigger it from a rule.

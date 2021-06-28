@@ -216,5 +216,6 @@ In this step you set up IoT Central to receive humidity and sound data.
 
 In the next step you will set up this physical device and run code to connect and send humidity and sound data. Select the relevant next step from the list below depending on if you have a Pi or want to set up a virtual IoT device.
 
-* [Set up a Raspberry Pi](./set-up-pi-humidity-sound.md)
+* [Set up a Raspberry Pi with Grove Pi+](./set-up-pi-humidity-sound.md)
+* [Set up a Raspberry Pi with Sense HAT](./set-up-pi-sensehat-humidity-sound.md)
 * [Set up a virtual device using your PC or Mac](./set-up-virtual-humidity-sound.md)

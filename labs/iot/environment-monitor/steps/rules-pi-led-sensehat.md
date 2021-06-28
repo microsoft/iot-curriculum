@@ -84,55 +84,7 @@ In this section you will be adding code to the Python file. If you haven't used 
     ```sh
     python3 app.py
     ```
-
-### Configure the code to run on startup
-
-At the moment, this code will only run when you are connected to the Pi and run it via Python. This means as soon as VS Code disconnects, the code will no longer run. Most IoT devices will run code on startup, so that they are continuously sending data. You can configure the Pi to run the code on startup by adding an entry to the *crontab* - the set of instructions used by Cron. Cron is a tool that runs code at certain times, and can be configured to run the Pi code when the Pi is rebooted.
-
-This is the last code change to make to the Pi, so now is a good time to make the Pi run this code on startup.
-
-1. Run the following code to configure the CronTab:
-
-    ```sh
-    crontab -l > cron.tmp
-    echo "@reboot sleep 30 && cd /home/pi/EnvironmentMonitor && /usr/bin/python3 /home/pi/EnvironmentMonitor/app.py" >> cron.tmp
-    crontab cron.tmp
-    rm cron.tmp
-    ```
-
-    This code writes a new entry that is run on reboot. First it sleeps for 30 seconds to ensure the Pi is fully running and connected to the internet, then it launches the app.py file using Python.
-
-Test this out by rebooting the Pi. You should see data appearing in IoT Central 30 seconds after the Pi reboots.
-
-> You can only read from the Grove Pi+ sensors from one app on the Pi at a time. This means that if you want to run this code manually, you will need to stop the code that was started by the reboot. You can do this with the following steps:
->
->    1. Run the following command to see all the Python processes running:
->
->        ```sh
->        ps -ef | grep -i python
->        ```
->
->    1. You will see an output something like this:
->
->       ```output
->       pi         476   432  0 15:08 ?        00:00:00 /bin/sh -c sleep 30 && cd /home/pi/EnvironmentMonitor && /usr/bin/python3 /home/pi/EnvironmentMonitor/app.py
->       pi        1012   476  1 15:09 ?        00:00:04 /usr/bin/python3 /home/pi/EnvironmentMonitor/app.py
->       pi        1229  1170  0 15:14 pts/0    00:00:00 grep --color=auto -i python
->       ```
->
->       If you are using the VS Code terminal you will seen an extra line for the PyLance extension running remotely.
->
->    1. The first line that starts `/bin/sh -c sleep 30` is the Cron job. This has 2 numbers at the start of the line, in this case 476 and 432. When you run this, these numbers will be different. The first number, 476 in this case, is the process group ID - an identifier for the cron job and all the tasks it ran, in this case running the app code through Python. You will see the same number as the second value for the `/usr/bin/python3 /home/pi/EnvironmentMonitor/app.py` line
->
->    1. Use the following command to terminate the Cron task and the Python process that is started:
->
->        ```sh
->        kill -SIGTERM -- -476
->        ```
->
->        Replace 476 with the process ID of your Cron job.
->
->        You can check if the job has been ended successfully by re-running the `ps` command.
+Leave the code running whilst you do the next step.
 
 ## Next steps
 

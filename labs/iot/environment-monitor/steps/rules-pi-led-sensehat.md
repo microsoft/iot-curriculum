@@ -1,4 +1,4 @@
-# Set up the Raspberry Pi to light an LED triggered by an IoT Central command
+# Set up the Raspberry Pi with Sense HAT to light an LED triggered by an IoT Central command
 
 In the [previous step](./rules.md) you performed simple analytics and created an alert on the data using IoT Central rules.
 

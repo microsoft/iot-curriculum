@@ -40,11 +40,11 @@ In this section you will be adding code to the Python file. If you haven't used 
         if report_high_sound:
             sound = 1023
 
-        # Reset the report high sound flag, so next time
-        # a normal sound level is reported
-        report_high_sound = False
+            # Reset the report high sound flag, so next time
+            # a normal sound level is reported
+            report_high_sound = False
     else:
-        sound = random.randint(300, 600)
+            sound = random.randint(300, 600)
 
         # Build a dictionary of data
         # The items in the dictionary need names that match the

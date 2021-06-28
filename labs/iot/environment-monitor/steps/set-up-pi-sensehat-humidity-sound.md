@@ -2,7 +2,7 @@
 
 In the [previous step](./set-up-humidity-sound.md) you set up IoT Central to receive humidity and sound data.
 
-In this step you will set up the Raspberry Pi and run code to connect and send humidity and sound data.
+In this step you will set up the Raspberry Pi and run code to connect and send humidity and sound data. Because the Sense HAT has no sound detector, we will emulate the sound data in the code.
 
 ## Connect the sensors
 

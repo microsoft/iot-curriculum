@@ -85,7 +85,7 @@ In this section you will be adding code to the Python file. If you haven't used 
     Telemetry: {"Temperature": 26.0, "Humidity": 45.0, "Sound": 361}
     ```
 
-    Try adjusting humidity level by breathing on the sensor, and see the values change both in the output of the Python code, and in IoT Central. You change adjust report_high_sound = False into report_high_sound = True to emulate high sound levels.
+    Try adjusting humidity level by breathing on the sensor, and see the values change both in the output of the Python code, and in IoT Central. You can change report_high_sound = False into report_high_sound = True to emulate high sound levels. For any code change to be picked up, you need to restart the script. You can stop the script by using ctr-c.
 
 ## Next steps
 

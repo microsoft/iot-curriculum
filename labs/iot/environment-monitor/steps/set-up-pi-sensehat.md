@@ -251,8 +251,8 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
     ```python
     import asyncio
     import json
-    import random
     import os
+    import random
     from dotenv import load_dotenv
     from azure.iot.device.aio import IoTHubDeviceClient, ProvisioningDeviceClient
     from sense_hat import SenseHat 

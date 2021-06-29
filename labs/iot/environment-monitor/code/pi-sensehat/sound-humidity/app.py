@@ -91,20 +91,6 @@ async def main():
             # Wait for a minute so telemetry is not sent to often
             await asyncio.sleep(60)
 
-    # Event handler for a key being releases
-    def on_release(key):
-        global report_high_sound
-
-        # If the key that was pressed and released is the space bar,
-        # flag that next time a high sound value should be reported
-        if key == keyboard.Key.space:
-            print("Space pressed - will report high sound level next cycle")
-            report_high_sound = True
-
-    # Listen for keyboard key release events
-    listener = keyboard.Listener(on_release=on_release)
-    listener.start()
-
     # Run the async main loop forever
     await main_loop()
 

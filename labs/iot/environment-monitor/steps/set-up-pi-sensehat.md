@@ -28,17 +28,18 @@ You will need the following hardware:
 
 1. Fit the Sense hat to the Raspberry Pi.
 
-![The PSense HAT mounted on the Pi viewed from the side](../images/pi-sense-hat-fitted.jpg)
+![The Sense HAT](../images/pi-sense-hat.jpg)
+![The Sense HAT mounted on the Pi viewed from the side](../images/pi-sense-hat-fitted.jpg)
 
 
 The Sense HAT features an 8x8 RGB LED matrix, a mini joystick and the following sensors:
 
-Gyroscope
-Accelerometer
-Magnetometer
-Temperature
-Humidity
-Barometric pressure
+* Gyroscope
+* Accelerometer
+* Magnetometer
+* Temperature
+* Humidity
+* Barometric pressure
 
 ### Set up the software
 

@@ -45,6 +45,9 @@ In this section you will be adding code to the Python file. If you haven't used 
 
             # Log that the command was received
             print("Too Loud Command received")
+            
+            # Show "TooLoud" on SenseHat Display
+            sense.show_message("Too Loud", text_colour=[255, 0, 0])
 
             # IoT Central expects a response from a command, saying if the call
             # was successful or not, so send a success response

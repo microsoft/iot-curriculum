@@ -6,7 +6,7 @@ In this step you will set up the Raspberry Pi and run code to connect and send h
 
 ## Connect the sensors
 
-The humidity data can be gathered from the existing sensor eembeded in the Sense HAT.
+The humidity data can be gathered from the existing sensor embedded in the Sense HAT.
 
 ## Program the Pi
 
@@ -43,7 +43,7 @@ In this section you will be adding code to the Python file. If you haven't used 
             # Reset the report high sound flag, so next time
             # a normal sound level is reported
             report_high_sound = False
-    else:
+        else:
             sound = random.randint(300, 600)
 
         # Build a dictionary of data

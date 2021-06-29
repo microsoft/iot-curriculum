@@ -28,7 +28,18 @@ You will need the following hardware:
 
 1. Fit the Sense hat to the Raspberry Pi.
 
-![The PSense HAT mounted on the Pi viewed from the side](../images/pi-sense-hat-fitted.jpg)
+![The Sense HAT](../images/pi-sense-hat.jpg)
+![The Sense HAT mounted on the Pi viewed from the side](../images/pi-sense-hat-fitted.jpg)
+
+
+The Sense HAT features an 8x8 RGB LED matrix, a mini joystick and the following sensors:
+
+* Gyroscope
+* Accelerometer
+* Magnetometer
+* Temperature
+* Humidity
+* Barometric pressure
 
 ### Set up the software
 
@@ -240,8 +251,8 @@ Whilst the Pi is rebooting, VS Code will attempt to reconnect. It will reconnect
     ```python
     import asyncio
     import json
-    import grovepi
     import os
+    import random
     from dotenv import load_dotenv
     from azure.iot.device.aio import IoTHubDeviceClient, ProvisioningDeviceClient
     from sense_hat import SenseHat 

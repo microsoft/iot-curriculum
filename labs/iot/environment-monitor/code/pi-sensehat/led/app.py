@@ -88,11 +88,10 @@ async def main():
             method_request = await device_client.receive_method_request("TooLoud")
 
             # Log that the command was received
-            print()
-            print("#########################")
             print("Too Loud Command received")
-            print("#########################")
-            print()
+            
+             # Show "TooLoud" on SenseHat Display
+            sense.show_message("Too Loud", text_colour=[255, 0, 0])
 
             # IoT Central expects a response from a command, saying if the call
             # was successful or not, so send a success response

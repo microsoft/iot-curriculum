@@ -6,7 +6,7 @@ In this step you will set up the Raspberry Pi and run code to connect and send h
 
 ## Connect the sensors
 
-The humidity data can be gathered from the existing sensor eembeded in the Sense HAT.
+The humidity data can be gathered from the existing sensor embedded in the Sense HAT.
 
 ## Program the Pi
 

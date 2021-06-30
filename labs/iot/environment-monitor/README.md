@@ -3,7 +3,7 @@
 This folder contains a lab with multiple parts working towards an environment monitor using a Raspberry Pi and Azure IoT Services. It is designed for complete beginners who are new to IoT and Azure.
 
 The original lab by Microsoft requires an Azure Subscription and a Grove Pi+.
-The Sense Hat variation does not require an Azure subscription, but you can use one to build the lab out later.
+The Sense Hat variation that we use for this IoT workshop does not require an Azure subscription, but you can use one to build the lab out later.
 
 > If you don't have access to a Raspberry Pi, instructions are included to run the Pi code on a PC or Mac, using simulated data instead of real data. Follow the instructions below, and in the sections that mention the Pi, you will find alternative instructions to create a virtual IoT device running on your PC or Mac.
 

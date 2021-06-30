@@ -4,6 +4,7 @@ This folder contains a lab with multiple parts working towards an environment mo
 
 The original lab by Microsoft requires an Azure Subscription and a Grove Pi+.
 The Sense Hat variation that we use for this IoT workshop does not require an Azure subscription, but you can use one to build the lab out later.
+As an alternative for the hardware based lab you can also use virtual devices that allow you to run your own code.
 
 > If you don't have access to a Raspberry Pi, instructions are included to run the Pi code on a PC or Mac, using simulated data instead of real data. Follow the instructions below, and in the sections that mention the Pi, you will find alternative instructions to create a virtual IoT device running on your PC or Mac.
 

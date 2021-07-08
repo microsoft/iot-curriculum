@@ -20,6 +20,14 @@ All the content contained in this repo is free for you to use in your courses ho
 
 We will be continually adding and updating the content here. If there is a particular lab or content you would like added, please [raise an issue](https://github.com/microsoft/iot-curriculum/issues). If you have content you would like to share, please [raise a PR](https://github.com/microsoft/iot-curriculum/pulls).
 
+## IoT for beginners
+
+[![IoT for beginners logo](https://github.com/microsoft/IoT-For-Beginners/raw/main/images/iot-for-beginners.png)](https://aka.ms/iot-beginners)
+
+If you are after beginner IoT content, check out [IoT for beginners](https://aka.ms/iot-beginners), a 12-week, 24 lesson curriculum that teaches IoT from the basics. Each lesson includes pre- and post-lesson quizzes, written instructions to complete the lesson, a solution, an assignment and more. Our project-based pedagogy allows you to learn while building, a proven way for new skills to 'stick'.
+
+The projects cover the journey of food from farm to table. This includes farming, logistics, manufacturing, retail and consumer - all popular industry areas for IoT devices.
+
 ## Hardware needs
 
 These labs make use of a variety of hardware, all connected to cloud services. Each lab indicates up front what hardware is required. There is also an overall list for an 'IoT Cart' that provides a complete, all-in-one hardware solution that covers all these labs. This is designed to be a 'course in a box' - you purchase everything on the list and that can be shared between groups of students learning IoT in a more IoT focused degree program, rather than a single course as part of a wider technology-based learning program. Details of the cart are in the [cart](./cart) folder.
